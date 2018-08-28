@@ -1,0 +1,62 @@
+Sample_Name,Sample_Amount,ISTD_Mixture_Volume_[uL]
+Bank 001,0,0
+Blank 002,0,0
+Blank 003,0,0
+Blank 004,0,0
+Blank 005,0,0
+WE Mix_1ugml_inj1,10,10
+WE Mix_1ugml_inj2,10,10
+WE Mix_1ugml_inj3,10,10
+WE Mix_1ugml_inj4,10,30
+WE Mix_1ugml_inj5,10,30
+WE Mix_1ugml_inj6,10,30
+WE Mix_1ugml_inj7,10,30
+Blank 06,0,0
+Blank 07,0,0
+Blank 08,0,0
+Blank 09,0,0
+Blank 10,0,0
+solvent blank_inj1,20,20
+solvent blank_inj2,20,20
+ISTD_extrct rep1-inj1,15,15
+ISTD_extrct rep1-inj2,15,15
+ISTD_extrct rep2-inj1,15,15
+ISTD_extrct rep2-inj2,15,15
+Blk Seb_rep1_inj1,10,10
+Blk Seb_rep1_inj2,10,10
+Blk Seb_rep2_inj1,10,10
+Blk Seb_rep2_inj2,10,10
+Blk Seb_rep3_inj1,10,10
+Blk Seb_rep3_inj2,10,10
+Blk Seb_rep4_inj1,10,30
+Blk Seb_rep4_inj2,10,30
+Blk Seb_rep5_inj1,10,30
+Blk Seb_rep5_inj2,10,30
+Blk Seb_rep6_inj1,10,30
+Blk Seb_rep6_inj2,10,30
+Blk Seb Spiked_rep1_inj1,25,25
+Blk Seb Spiked_rep1_inj2,25,25
+Blk Seb Spiked_rep2_inj1,25,25
+Blk Seb Spiked_rep2_inj2,25,25
+Blk Seb Spiked_rep3_inj1,25,25
+Blk Seb Spiked_rep3_inj2,25,25
+Blk Seb Spiked_rep4_inj1,25,30
+Blk Seb Spiked_rep4_inj2,25,30
+Blk Seb Spiked_rep5_inj1,25,30
+Blk Seb Spiked_rep5_inj2,25,30
+Blk Seb Spiked_rep6_inj1,25,30
+Blk Seb Spiked_rep6_inj2,25,30
+WE Mix_1ugml_inj8,30,35
+WE Mix_1ugml_inj9,30,35
+WE Mix_1ugml_inj10,30,35
+WE Mix_1ugml_inj11,30,35
+WE Mix_1ugml_inj12,30,35
+WE Mix_1ugml_inj13,30,35
+WE Mix_1ugml_inj14,30,35
+Blank 11,0,0
+Blank 12,0,0
+Blank 13,0,0
+Blank 14,0,0
+Blank 15,0,0
+Blank 16,0,0
+Blank 17,0,0

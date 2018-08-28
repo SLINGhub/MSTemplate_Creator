@@ -1,0 +1,534 @@
+Sample,Cell Number,ISTD Volume
+Condition_r1,0,0
+Condition_r2,0,0
+Condition_r3,0,0
+Condition_r4,0,0
+Condition_r5,0,0
+Condition_r6,0,0
+BLANK-01 (Eluent A),0,0
+B-ISTD 01 Extr,0,10
+Un-ISTD 01 Unextr,0,10
+LTR 01,30,0
+NIST 01,30,0
+TQC-10%,30,20
+TQC-20%,30,20
+TQC-40%,30,20
+TQC-60%,30,20
+TQC-80%,30,20
+TQC-100%,30,20
+batch1_TQC01,50,30
+batch1_TQC02,50,30
+batch1_PQC 01,50,30
+batch1_PQC 02,50,30
+batch1_1,50,30
+batch1_2,50,30
+batch1_3,50,30
+batch1_4,50,30
+batch1_5,50,30
+batch1_TQC03,50,30
+batch1_6,50,30
+batch1_7,50,30
+batch1_8,50,30
+batch1_9,50,30
+batch1_10,50,30
+batch1_PQC 03,50,30
+batch1_11,50,30
+batch1_12,50,30
+batch1_13,50,30
+batch1_14,50,30
+batch1_15,50,30
+batch1_TQC04,50,30
+batch1_16,50,30
+batch1_17,50,30
+batch1_18,50,30
+batch1_19,50,30
+batch1_20,50,30
+batch1_PQC 04,50,30
+batch1_21,50,30
+batch1_22,50,30
+batch1_23,50,30
+batch1_24,50,30
+batch1_25,50,30
+batch1_TQC05,50,30
+batch1_26,50,30
+batch1_27,50,30
+batch1_28,50,30
+batch1_29,50,30
+batch1_30,50,30
+batch1_PQC 05,50,30
+batch1_31,50,30
+batch1_32,50,30
+batch1_33,50,30
+batch1_34,50,30
+batch1_35,50,30
+batch1_TQC06,50,30
+batch1_36,50,30
+batch1_37,50,30
+batch1_38,50,30
+batch1_39,50,30
+batch1_40,50,30
+batch1_PQC 06,50,30
+batch1_41,50,30
+batch1_42,50,30
+batch1_43,50,30
+batch1_44,50,30
+batch1_45,50,30
+batch1_TQC07,50,30
+batch1_46,50,30
+batch1_47,50,30
+batch1_48,50,30
+batch1_49,50,30
+batch1_50,50,30
+batch1_PQC 07,50,30
+batch1_51,50,30
+batch1_52,50,30
+batch1_53,50,30
+batch1_54,50,30
+batch1_55,50,30
+batch1_TQC08,50,30
+batch1_56,50,30
+batch1_57,50,30
+batch1_58,50,30
+batch1_59,50,30
+batch1_60,50,30
+batch1_PQC 08,50,30
+batch1_61,50,30
+batch1_62,50,30
+batch1_63,50,30
+batch1_64,50,30
+batch1_65,50,30
+batch1_PQC 09,50,30
+batch1_PQC 09b,50,30
+BLANK-02 (Eluent A),0,0
+batch2_TQC09,30,15
+batch2_TQC10,30,15
+batch2_PQC 10,30,15
+batch2_PQC 11,30,15
+batch2_1,30,15
+batch2_2,30,15
+batch2_3,30,15
+batch2_4,30,15
+batch2_5,30,15
+batch2_TQC11,30,15
+batch2_6,30,15
+batch2_7,30,15
+batch2_8,30,15
+batch2_9,30,15
+batch2_10,30,15
+batch2_PQC 12,30,15
+batch2_11,30,15
+batch2_12,30,15
+batch2_13,30,15
+batch2_14,30,15
+batch2_15,30,15
+batch2_TQC12,30,15
+batch2_16,30,15
+batch2_17,30,15
+batch2_18,30,15
+batch2_19,30,15
+batch2_20,30,15
+batch2_TQC12b,30,15
+batch2_TQC12c,30,15
+batch2_TQC12d,30,15
+batch2_TQC12e,30,15
+batch2_TQC12f,30,15
+batch2_PQC 13,30,15
+batch2_21,30,15
+batch2_22,30,15
+batch2_23,30,15
+batch2_24,30,15
+batch2_25,30,15
+batch2_TQC13,30,15
+batch2_26,30,15
+batch2_27,30,15
+batch2_28,30,15
+batch2_29,30,15
+batch2_30,30,15
+batch2_PQC 14,30,15
+batch2_31,30,15
+batch2_32,30,15
+batch2_33,30,15
+batch2_34,30,15
+batch2_35,30,15
+batch2_TQC14,30,15
+batch2_36,30,15
+batch2_37,30,15
+batch2_38,30,15
+batch2_39,30,15
+batch2_40,30,15
+batch2_PQC 15,30,15
+batch2_41,30,15
+batch2_42,30,15
+batch2_43,30,15
+batch2_44,30,15
+batch2_45,30,15
+batch2_TQC15,30,15
+batch2_46,30,15
+batch2_47,30,15
+batch2_48,30,15
+batch2_49,30,15
+batch2_50,30,15
+batch2_PQC 16,30,15
+batch2_51,30,15
+batch2_52,30,15
+batch2_53,30,15
+batch2_54,30,15
+batch2_55,30,15
+batch2_TQC16,30,15
+batch2_56,30,15
+batch2_57,30,15
+batch2_58,30,15
+batch2_59,30,15
+batch2_60,30,15
+batch2_PQC 17,30,15
+batch2_61,30,15
+batch2_62,30,15
+batch2_63,30,15
+batch2_64,30,15
+batch2_65,30,15
+batch2_PQC 18,30,15
+batch2_PQC 18b,30,15
+BLANK-03 (Eluent A),0,0
+batch3_TQC17,20,10
+batch3_TQC18,20,10
+batch3_PQC 19,20,10
+batch3_PQC 20,20,10
+batch3_1,20,10
+batch3_2,20,10
+batch3_3,20,10
+batch3_4,20,10
+batch3_5,20,10
+batch3_TQC19,20,10
+batch3_6,20,10
+batch3_7,20,10
+batch3_8,20,10
+batch3_9,20,10
+batch3_10,20,10
+batch3_PQC 21,20,10
+batch3_11,20,10
+batch3_12,20,10
+batch3_13,20,10
+batch3_14,20,10
+batch3_15,20,10
+batch3_TQC20,20,10
+batch3_16,20,10
+batch3_17,20,10
+batch3_18,20,10
+batch3_19,20,10
+batch3_20,20,10
+batch3_PQC 22,20,10
+batch3_21,20,10
+batch3_22,20,10
+batch3_23,20,10
+batch3_24,20,10
+batch3_25,20,10
+batch3_TQC21,20,10
+batch3_26,20,10
+batch3_27,20,10
+batch3_28,20,10
+batch3_29,20,10
+batch3_30,20,10
+batch3_PQC 23,20,10
+batch3_31,20,10
+batch3_32,20,10
+batch3_33,20,10
+batch3_34,20,10
+batch3_35,20,10
+batch3_TQC22,20,10
+batch3_36,20,10
+batch3_37,20,10
+batch3_38,20,10
+batch3_39,20,10
+batch3_40,20,10
+batch3_PQC 24,20,10
+batch3_41,20,10
+batch3_42,20,10
+batch3_43,20,10
+batch3_44,20,10
+batch3_45,20,10
+batch3_TQC23,20,10
+batch3_46,20,10
+batch3_47,20,10
+batch3_48,20,10
+batch3_49,20,10
+batch3_50,20,10
+batch3_PQC 25,20,10
+batch3_TQC23a,20,10
+batch3_TQC23b,20,10
+batch3_TQC23c,20,10
+batch3_TQC23d,20,10
+batch3_51,20,10
+batch3_52,20,10
+batch3_53,20,10
+batch3_54,20,10
+batch3_55,20,10
+batch3_TQC24,20,10
+batch3_56,20,10
+batch3_57,20,10
+batch3_58,20,10
+batch3_59,20,10
+batch3_60,20,10
+batch3_PQC 26,20,10
+batch3_61,20,10
+batch3_62,20,10
+batch3_63,20,10
+batch3_64,20,10
+batch3_65,20,10
+batch3_PQC 27,20,10
+batch3_PQC 27b,20,10
+batch3_LTR 01,20,10
+batch3_NIST 01,20,10
+BLANK-04 (Eluent A),0,0
+batch4_TQC25,40,20
+batch4_TQC26,40,20
+batch4_PQC 28,40,20
+batch4_PQC 29,40,20
+batch4_1,40,20
+batch4_2,40,20
+batch4_3,40,20
+batch4_4,40,20
+batch4_5,40,20
+batch4_TQC27,40,20
+batch4_6,40,20
+batch4_7,40,20
+batch4_8,40,20
+batch4_9,40,20
+batch4_10,40,20
+batch4_PQC 30,40,20
+batch4_11,40,20
+batch4_12,40,20
+batch4_13,40,20
+batch4_14,40,20
+batch4_15,40,20
+batch4_TQC28,40,20
+batch4_16,40,20
+batch4_17,40,20
+batch4_18,40,20
+batch4_19,40,20
+batch4_20,40,20
+batch4_PQC 31,40,20
+batch4_21,40,20
+batch4_22,40,20
+batch4_23,40,20
+batch4_24,40,20
+batch4_25,40,20
+batch4_TQC29,40,20
+batch4_26,40,20
+batch4_27,40,20
+batch4_28,40,20
+batch4_29,40,20
+batch4_30,40,20
+batch4_PQC 32,40,20
+batch4_31,40,20
+batch4_32,40,20
+batch4_33,40,20
+batch4_34,40,20
+batch4_35,40,20
+batch4_TQC30,40,20
+batch4_36,40,20
+batch4_37,40,20
+batch4_38,40,20
+batch4_39,40,20
+batch4_40,40,20
+batch4_PQC 33,40,20
+batch4_41,40,20
+batch4_42,40,20
+batch4_43,40,20
+batch4_44,40,20
+batch4_45,40,20
+batch4_TQC31,40,20
+batch4_46,40,20
+batch4_47,40,20
+batch4_48,40,20
+batch4_49,40,20
+batch4_50,40,20
+batch4_PQC 34,40,20
+batch4_51,40,20
+batch4_52,40,20
+batch4_53,40,20
+batch4_54,40,20
+batch4_55,40,20
+batch4_TQC32,40,20
+batch4_56,40,20
+batch4_57,40,20
+batch4_58,40,20
+batch4_59,40,20
+batch4_60,40,20
+batch4_PQC 35,40,20
+batch4_61,40,20
+batch4_62,40,20
+batch4_63,40,20
+batch4_64,40,20
+batch4_65,40,20
+batch4_PQC 36,40,20
+batch4_PQC 36b,40,20
+BLANK-05 (Eluent A),0,0
+batch5_TQC33,50,30
+batch5_TQC34,50,30
+batch5_PQC 37,50,30
+batch5_PQC 38,50,30
+batch5_1,50,30
+batch5_2,50,30
+batch5_3,50,30
+batch5_4,50,30
+batch5_5,50,30
+batch5_TQC34a,50,30
+batch5_TQC34b,50,30
+batch5_TQC34c,50,30
+batch5_TQC35,50,30
+batch5_6,50,30
+batch5_7,50,30
+batch5_8,50,30
+batch5_9,50,30
+batch5_10,50,30
+batch5_PQC 39,50,30
+batch5_11,50,30
+batch5_12,50,30
+batch5_13,50,30
+batch5_14,50,30
+batch5_15,50,30
+batch5_TQC36,50,30
+batch5_16,50,30
+batch5_17,50,30
+batch5_18,50,30
+batch5_19,50,30
+batch5_20,50,30
+batch5_PQC 40,50,30
+batch5_21,50,30
+batch5_22,50,30
+batch5_23,50,30
+batch5_24,50,30
+batch5_25,50,30
+batch5_TQC37,50,30
+batch5_26,50,30
+batch5_27,50,30
+batch5_28,50,30
+batch5_29,50,30
+batch5_30,50,30
+batch5_PQC 41,50,30
+batch5_31,50,30
+batch5_32,50,30
+batch5_33,50,30
+batch5_34,50,30
+batch5_35,50,30
+batch5_TQC38,50,30
+batch5_36,50,30
+batch5_37,50,30
+batch5_38,50,30
+batch5_39,50,30
+batch5_40,50,30
+batch5_PQC 42,50,30
+batch5_41,50,30
+batch5_42,50,30
+batch5_43,50,30
+batch5_44,50,30
+batch5_45,50,30
+batch5_TQC39,50,30
+batch5_46,50,30
+batch5_47,50,30
+batch5_48,50,30
+batch5_49,50,30
+batch5_50,50,30
+batch5_PQC 43,50,30
+batch5_51,50,30
+batch5_52,50,30
+batch5_53,50,30
+batch5_54,50,30
+batch5_55,50,30
+batch5_TQC40,50,30
+batch5_56,50,30
+batch5_57,50,30
+batch5_58,50,30
+batch5_59,50,30
+batch5_60,50,30
+batch5_PQC 44,50,30
+batch5_61,50,30
+batch5_62,50,30
+batch5_63,50,30
+batch5_64,50,30
+batch5_65,50,30
+batch5_PQC 45,50,30
+batch5_PQC 45b,50,30
+BLANK-06 (Eluent A),0,0
+batch6_TQC41,30,15
+batch6_TQC42,30,15
+batch6_PQC 46,30,15
+batch6_PQC 47,30,15
+batch6_1,30,15
+batch6_2,30,15
+batch6_3,30,15
+batch6_4,30,15
+batch6_5,30,15
+batch6_TQC43,30,15
+batch6_6,30,15
+batch6_7,30,15
+batch6_8,30,15
+batch6_9,30,15
+batch6_10,30,15
+batch6_PQC 48,30,15
+batch6_11,30,15
+batch6_12,30,15
+batch6_13,30,15
+batch6_14,30,15
+batch6_15,30,15
+batch6_TQC44,30,15
+batch6_16,30,15
+batch6_17,30,15
+batch6_18,30,15
+batch6_19,30,15
+batch6_20,30,15
+batch6_PQC 49,30,15
+batch6_21,30,15
+batch6_22,30,15
+batch6_23,30,15
+batch6_24,30,15
+batch6_25,30,15
+batch6_TQC45,30,15
+batch6_26,30,15
+batch6_27,30,15
+batch6_28,30,15
+batch6_29,30,15
+batch6_30,30,15
+batch6_PQC 50,30,15
+batch6_31,30,15
+batch6_32,30,15
+batch6_33,30,15
+batch6_34,30,15
+batch6_35,30,15
+batch6_TQC46,30,15
+batch6_36,30,15
+batch6_37,30,15
+batch6_38,30,15
+batch6_39,30,15
+batch6_40,30,15
+batch6_PQC 51,30,15
+batch6_41,30,15
+batch6_42,30,15
+batch6_43,30,15
+batch6_44,30,15
+batch6_45,30,15
+batch6_TQC47,30,15
+batch6_46,30,15
+batch6_47,30,15
+batch6_48,30,15
+batch6_49,30,15
+batch6_50,30,15
+batch6_PQC 52,30,15
+batch6_51,30,15
+batch6_52,30,15
+batch6_53,30,15
+batch6_TQC48,30,15
+batch6_PQC 53,30,15
+batch6_PQC 53b,30,15
+batch6_B-ISTD 09,30,15
+batch6_Un-ISTD 01,30,15
+batch6_TQC-100%,30,15
+batch6_TQC-80%,30,15
+batch6_TQC-60%,30,15
+batch6_TQC-40%,30,15
+batch6_TQC-20%,30,15
+batch6_TQC-10%,30,15
+batch6_LTR 01,30,15
+batch6_NIST 01,30,15
+BLANK-07 (Eluent A),0,0
+BLANK-08 (Eluent A),0,0
