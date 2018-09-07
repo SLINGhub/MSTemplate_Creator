@@ -87,6 +87,7 @@ Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
     Call Utilities.Clear_Columns("ISTD_Conc_[ng/mL]", HeaderRowNumber:=3, DataStartRowNumber:=4)
     Call Utilities.Clear_Columns("ISTD_[MW]", HeaderRowNumber:=3, DataStartRowNumber:=4)
     Call Utilities.Clear_Columns("ISTD_Conc_[nM]", HeaderRowNumber:=3, DataStartRowNumber:=4)
+    Call Utilities.Clear_Columns("Custom_Unit", HeaderRowNumber:=2, DataStartRowNumber:=4)
     MsgBox "ISTD_Annot test complete"
     
 TestFail:

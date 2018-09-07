@@ -181,20 +181,18 @@ Public Sub Load_Columns_From_Excel_Test()
     
     Sheets("Lists").Activate
     
-    Dim CorrectArray(0 To 6) As String
-    CorrectArray(0) = "[mg]_dry_weight"
-    CorrectArray(1) = "[mg]_fresh_weight"
-    CorrectArray(2) = "[ng]_DNA"
-    CorrectArray(3) = "[ug]_protein/[ml]"
-    CorrectArray(4) = "[ug]_total_protein"
-    CorrectArray(5) = "[uL]"
-    CorrectArray(6) = "[uM]"
+    Dim CorrectArray(0 To 4) As String
+    CorrectArray(0) = "[M]"
+    CorrectArray(1) = "[mM]"
+    CorrectArray(2) = "[uM]"
+    CorrectArray(3) = "[nM]"
+    CorrectArray(4) = "[pM]"
     
-    Dim Sample_Amount_Unit_Array() As String
-    Sample_Amount_Unit_Array = Utilities.Load_Columns_From_Excel("Sample_Amount_Unit", HeaderRowNumber:=1, _
+    Dim Concentration_Unit_Array() As String
+    Concentration_Unit_Array = Utilities.Load_Columns_From_Excel("Concentration_Unit", HeaderRowNumber:=1, _
                                                     DataStartRowNumber:=2, MessageBoxRequired:=True, _
                                                     RemoveBlksAndReplicates:=True, IgnoreEmptyArray:=False)
-    Assert.SequenceEquals Sample_Amount_Unit_Array, CorrectArray
+    Assert.SequenceEquals Concentration_Unit_Array, CorrectArray
 
 TestExit:
     Exit Sub

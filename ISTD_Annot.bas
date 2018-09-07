@@ -1,15 +1,55 @@
 Attribute VB_Name = "ISTD_Annot"
+Public Function Convert_Conc_nM_Array(Custom_Unit As String) As String()
+    Dim ISTD_Conc() As String
+    Dim lenArray As Integer
+    Dim FactorValue As Double
+    ISTD_Conc = Utilities.Load_Columns_From_Excel("ISTD_Conc_[nM]", HeaderRowNumber:=3, DataStartRowNumber:=4, MessageBoxRequired:=False, RemoveBlksAndReplicates:=False)
+    
+    lenArray = Utilities.StringArrayLen(ISTD_Conc)
+    
+    'Leave the program if lenArray is 0
+    If lenArray = 0 Then
+        Application.EnableEvents = True
+        End
+    End If
+    
+    'Get Factor Value based on NewUnit
+    FactorValue = 1
+    Select Case Custom_Unit
+        Case "[M]"
+            FactorValue = 10 ^ (-9)
+        Case "[mM]"
+            FactorValue = 10 ^ (-6)
+        Case "[uM]"
+            FactorValue = 10 ^ (-3)
+        Case "[nM]"
+            FactorValue = 1
+        Case "[pM]"
+            FactorValue = 10 ^ 3
+    End Select
+    
+    'Perform the convertion from nM to NewUnit
+    For i = 0 To lenArray - 1
+        ISTD_Conc(i) = CDec(CDbl(ISTD_Conc(i))) * FactorValue
+    Next
+    
+    Convert_Conc_nM_Array = ISTD_Conc
+    
+End Function
+
 Public Function Get_ISTD_Conc_nM_Array() As String()
     'Declare the column letter position
     Dim Transition_Name_ISTD_ColLetter As String
     Dim ISTD_Conc_ng_ColLetter As String
     Dim ISTD_MW_ColLetter As String
     Dim ISTD_Conc_nM_ColLetter As String
+    Dim ISTD_Custom_Unit_ColLetter As String
     Transition_Name_ISTD_ColLetter = Utilities.ConvertToLetter(Utilities.Get_Header_Col_Position("Transition_Name_ISTD", 2))
     ISTD_Conc_ng_ColLetter = Utilities.ConvertToLetter(Utilities.Get_Header_Col_Position("ISTD_Conc_[ng/mL]", 3))
     ISTD_MW_ColLetter = Utilities.ConvertToLetter(Utilities.Get_Header_Col_Position("ISTD_[MW]", 3))
     ISTD_Conc_nM_ColLetter = Utilities.ConvertToLetter(Utilities.Get_Header_Col_Position("ISTD_Conc_[nM]", 3))
-
+    ISTD_Custom_Unit_ColLetter = Utilities.ConvertToLetter(Utilities.Get_Header_Col_Position("Custom_Unit", 2))
+    
     'Declare three dynamic arrays
     Dim ISTD_Conc_ngmL() As String
     Dim ISTD_MW() As String
@@ -22,9 +62,9 @@ Public Function Get_ISTD_Conc_nM_Array() As String()
     
     'Declare an array of the three array length
     Dim lenArray(0 To 2) As Integer
-    lenArray(0) = StringArrayLen(ISTD_Conc_ngmL)
-    lenArray(1) = StringArrayLen(ISTD_MW)
-    lenArray(2) = StringArrayLen(ISTD_Conc_nM)
+    lenArray(0) = Utilities.StringArrayLen(ISTD_Conc_ngmL)
+    lenArray(1) = Utilities.StringArrayLen(ISTD_MW)
+    lenArray(2) = Utilities.StringArrayLen(ISTD_Conc_nM)
     
     'Get the length of the longest array
     max_length = 0
@@ -36,6 +76,7 @@ Public Function Get_ISTD_Conc_nM_Array() As String()
     
     'Leave the program if max_length is 0
     If max_length = 0 Then
+        'Application.EnableEvents = True
         End
     End If
     
@@ -63,13 +104,14 @@ Public Function Get_ISTD_Conc_nM_Array() As String()
             End If
             
             'Perform the claculation since the two values are valid
-            ISTD_Conc_nM(i) = CDec(CDbl(ISTD_Conc_ngmL(i)) / CDbl(ISTD_MW(i)))
+            ISTD_Conc_nM(i) = CDec(CDbl(ISTD_Conc_ngmL(i)) / CDbl(ISTD_MW(i))) * 1000
             
             'If the value is a valid ISTD, change the colour to green
             If Not Range(Transition_Name_ISTD_ColLetter & CStr(i + 4)).Value = "" Then
                 Range(ISTD_Conc_ng_ColLetter & CStr(i + 4)).Interior.Color = RGB(204, 255, 204)
                 Range(ISTD_MW_ColLetter & CStr(i + 4)).Interior.Color = RGB(204, 255, 204)
                 Range(ISTD_Conc_nM_ColLetter & CStr(i + 4)).Interior.Color = RGB(204, 255, 204)
+                Range(ISTD_Custom_Unit_ColLetter & CStr(i + 4)).Interior.Color = RGB(204, 255, 204)
             End If
             
         End If
@@ -84,6 +126,7 @@ Public Function Get_ISTD_Conc_nM_Array() As String()
             'If the value is a valid ISTD and ISTD_Conc_nM is filled correctly
             If Not Range(Transition_Name_ISTD_ColLetter & CStr(i + 4)).Value = "" Then
                 Range(ISTD_Conc_nM_ColLetter & CStr(i + 4)).Interior.Color = RGB(204, 255, 204)
+                Range(ISTD_Custom_Unit_ColLetter & CStr(i + 4)).Interior.Color = RGB(204, 255, 204)
             End If
         End If
 

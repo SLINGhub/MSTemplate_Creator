@@ -25,5 +25,6 @@ Private Sub ISTD_Table_Clear_Click()
     End If
     If ISTD_Conc_nM.Value = True Then
         Call Utilities.Clear_Columns("ISTD_Conc_[nM]", HeaderRowNumber:=3, DataStartRowNumber:=4)
+        Call Utilities.Clear_Columns("Custom_Unit", HeaderRowNumber:=2, DataStartRowNumber:=4)
     End If
 End Sub
