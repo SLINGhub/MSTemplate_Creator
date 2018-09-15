@@ -130,19 +130,65 @@ Private Function Load_Columns_From_2Darray(ByRef strArray() As String, ByRef Lin
             If Len(Transition_Name) <> 0 And Not InArray Then
                 ReDim Preserve strArray(ArrayLength)
                 strArray(ArrayLength) = Transition_Name
-                'Debug.Print Transition_Array(ArrayLength)
+                'Debug.Print strArrayArrayLength)
                 ArrayLength = ArrayLength + 1
             End If
         Else
             ReDim Preserve strArray(ArrayLength)
             strArray(ArrayLength) = Transition_Name
-            'Debug.Print Transition_Array(ArrayLength)
+            'Debug.Print strArray(ArrayLength)
             ArrayLength = ArrayLength + 1
         End If
     Next i
     
     Load_Columns_From_2Darray = strArray
     
+End Function
+
+
+Private Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() As String, ByRef Lines() As String, ByRef line_subset_index() As Integer, _
+                                                       DataStartRowNumber As Integer, Delimiter As String, _
+                                                       MessageBoxRequired As Boolean, RemoveBlksAndReplicates As Boolean, _
+                                                       Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
+                                                       
+    'We are updating the strArray
+    'Dim TotalRows As Long
+    Dim i As Long
+    Dim ArrayLength As Long
+    ArrayLength = Utilities.StringArrayLen(Transition_Array)
+    
+    For i = DataStartRowNumber To UBound(Lines) - 1
+        For j = LBound(line_subset_index) To UBound(line_subset_index)
+            'Get the Transition_Name and remove the whitespaces
+            Transition_Name = Trim(Split(Lines(i), Delimiter)(line_subset_index(j)))
+            
+            If RemoveBlksAndReplicates Then
+                'Check if the Transition name is not empty and duplicate
+                InArray = Utilities.IsInArray(Transition_Name, strArray)
+                If Len(Transition_Name) <> 0 And Not InArray Then
+                    If Not j = 0 Then
+                        Transition_Name = "Qualifier (" & Transition_Name & ")"
+                    End If
+                    ReDim Preserve Transition_Array(ArrayLength)
+                    Transition_Array(ArrayLength) = Transition_Name
+                    'Debug.Print Transition_Array(ArrayLength)
+                    ArrayLength = ArrayLength + 1
+                End If
+            Else
+                If Not j = 0 Then
+                    Transition_Name = "Qualifier (" & Transition_Name & ")"
+                End If
+                ReDim Preserve Transition_Array(ArrayLength)
+                Transition_Array(ArrayLength) = Transition_Name
+                'Debug.Print Transition_Array(ArrayLength)
+                ArrayLength = ArrayLength + 1
+            End If
+            
+        Next j
+    Next i
+    
+    Get_Transition_Array_Agilent_Compound = Transition_Array
+
 End Function
 
 'Get the Sample_Name and where it comes from
@@ -277,7 +323,82 @@ Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = Fals
             Next i
         'When the Raw file is from Agilent CompoundTableForm
         ElseIf RawDataFileType = "AgilentCompoundForm" Then
-            Transition_Array = Load_Columns_From_2Darray(Transition_Array, Lines, "Name", 1, 2, Delimiter, True, True)
+            Dim first_header_line() As String
+            Dim second_header_line() As String
+            first_header_line = Split(Lines(0), Delimiter)
+            second_header_line = Split(Lines(1), Delimiter)
+            
+            Dim line_subset_index() As Integer
+            Dim line_subset_index_length As Integer
+            line_subset_index_length = 0
+            
+            'Get the index of compound method name
+            'It should appear before the qualifier
+            For i = LBound(second_header_line) To UBound(second_header_line)
+                If second_header_line(i) = "Name" Then
+                    ReDim Preserve line_subset_index(line_subset_index_length)
+                    line_subset_index(line_subset_index_length) = i
+                    line_subset_index_length = line_subset_index_length + 1
+                Exit For
+                End If
+            Next i
+            
+            'Get the index of qualifier method transition
+            'Get the index of data file
+            'Get the max number of qualifier a transition can have
+            Dim Qualifier_Method_Col As New RegExp
+            Dim Transition_Col As New RegExp
+            Dim DataFileName_Col As New RegExp
+            Qualifier_Method_Col.Pattern = "Qualifier \d Method"
+            Transition_Col.Pattern = "Transition"
+            DataFileName_Col.Pattern = "Data File"
+            
+            Dim isQualifier_Method_Col As Boolean
+            Dim isTransition_Col As Boolean
+            Dim isDataFileName_Col As Boolean
+            Dim Qualifier_Method_Col_BoolArrray() As Boolean
+            Dim DataFileName_Col_BoolArrray() As Boolean
+            
+            Dim No_of_Qualifier_Method_Transition As Integer
+            Dim No_of_DataFileName_Col As Integer
+            Dim No_of_Qual_per_Transition As Integer
+            No_of_Qualifier_Method_Transition = 0
+            No_of_DataFileName_Col = 0
+            
+            ArrayLength = 0
+            
+            For i = LBound(first_header_line) To UBound(first_header_line)
+                isQualifier_Method_Col = Qualifier_Method_Col.Test(first_header_line(i))
+                isTransition_Col = Transition_Col.Test(second_header_line(i))
+                isDataFileName_Col = DataFileName_Col.Test(second_header_line(i))
+                
+                ReDim Preserve Qualifier_Method_Col_BoolArrray(ArrayLength)
+                ReDim Preserve DataFileName_Col_BoolArrray(ArrayLength)
+                Qualifier_Method_Col_BoolArrray(ArrayLength) = isQualifier_Method_Col And isTransition_Col
+                DataFileName_Col_BoolArrray(ArrayLength) = isDataFileName_Col
+                
+                If isQualifier_Method_Col And isTransition_Col Then
+                    No_of_Qualifier_Method_Transition = No_of_Qualifier_Method_Transition + 1
+                    ReDim Preserve line_subset_index(line_subset_index_length)
+                    line_subset_index(line_subset_index_length) = i
+                    line_subset_index_length = line_subset_index_length + 1
+                ElseIf isDataFileName_Col Then
+                    No_of_DataFileName_Col = No_of_DataFileName_Col + 1
+                End If
+                
+                ArrayLength = ArrayLength + 1
+                
+            Next i
+            
+            No_of_Qual_per_Transition = No_of_Qualifier_Method_Transition \ No_of_DataFileName_Col
+            ReDim Preserve line_subset_index(No_of_Qual_per_Transition)
+            
+            'For i = LBound(line_subset_index) To UBound(line_subset_index)
+            '    Debug.Print line_subset_index(i)
+            'Next i
+            
+            Transition_Array = Get_Transition_Array_Agilent_Compound(Transition_Array, Lines, line_subset_index, 2, Delimiter, True, True)
+            
         'When the Raw File is from Sciex
         ElseIf RawDataFileType = "Sciex" Then
             Transition_Array = Load_Columns_From_2Darray(Transition_Array, Lines, "Component Name", 0, 1, Delimiter, True, True)
@@ -285,3 +406,5 @@ Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = Fals
     Next xFileName
     Get_Transition_Array = Transition_Array
 End Function
+
+
