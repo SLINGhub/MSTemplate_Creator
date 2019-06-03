@@ -76,13 +76,15 @@ Public Function isRQC(FileName As String) As Boolean
     NonLettersRegEx.Global = True
     
     'If there is a d, percent is not compulsory
-    TQCdRegEx.Pattern = "(TQCd|[Tt]qcd)" & "([\s,_,-]+)?" & _
+    TQCdRegEx.Pattern = "(TQCd(il)?|[Tt]qcd(il)?)" & "([\s,_,-]+)?" & _
                         "([A-Za-z0-9]+)?" & "([\s,_,-]+)?" & _
-                        "([0-9]+)" & "([\s,_,-]+)?" & "([Pp]ercent|%)?"
+                        "((\()?[0-9]+(\))?)" & "([\s,_,-]+)?" & _
+                        "([A-Za-z0-9]+)?" & "([\s,_,-]+)?" & "([Pp]ercent|%)?"
     'If no d, percent is compulsory
     TQCno_dRegEx.Pattern = "(TQC|[Tt]qc)" & "([\s,_,-]+)?" & _
                            "([A-Za-z0-9]+)?" & "([\s,_,-]+)?" & _
-                           "([0-9]+)" & "([\s,_,-]+)?" & "([Pp]ercent|%)"
+                           "((\()?[0-9]+(\))?)" & "([\s,_,-]+)?" & _
+                           "([A-Za-z0-9]+)?" & "([\s,_,-]+)?" & "([Pp]ercent|%)"
     
     OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
     RQCRegEx.Pattern = "(RQC|[Rr]qc)"

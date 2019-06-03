@@ -112,7 +112,7 @@ End Function
 Public Function ChangeToBlankWhenChanged(ByVal Target As Range)
     'Application.ScreenUpdating = False
     'EventState = Application.EnableEvents
-    'Application.EnableEvents = False
+    Application.EnableEvents = False
     'CalcState = Application.Calculation
     'Application.Calculation = xlCalculationManual
     'PageBreakState = ActiveSheet.DisplayPageBreaks
@@ -171,6 +171,6 @@ Public Function ChangeToBlankWhenChanged(ByVal Target As Range)
     'ActiveSheet.DisplayPageBreaks = PageBreakState
     'Application.Calculation = CalcState
     'Application.EnableEvents = EventState
-    'Application.ScreenUpdating = True
+    Application.ScreenUpdating = True
 
 End Function
