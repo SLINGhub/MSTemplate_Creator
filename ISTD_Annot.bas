@@ -3,7 +3,10 @@ Public Function Convert_Conc_nM_Array(Custom_Unit As String) As String()
     Dim ISTD_Conc() As String
     Dim lenArray As Integer
     Dim FactorValue As Double
-    ISTD_Conc = Utilities.Load_Columns_From_Excel("ISTD_Conc_[nM]", HeaderRowNumber:=3, DataStartRowNumber:=4, MessageBoxRequired:=False, RemoveBlksAndReplicates:=False)
+    ISTD_Conc = Utilities.Load_Columns_From_Excel("ISTD_Conc_[nM]", HeaderRowNumber:=3, _
+                                                  DataStartRowNumber:=4, MessageBoxRequired:=False, _
+                                                  RemoveBlksAndReplicates:=False, _
+                                                  IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
     
     lenArray = Utilities.StringArrayLen(ISTD_Conc)
     
@@ -59,9 +62,18 @@ Public Function Get_ISTD_Conc_nM_Array() As String()
     Dim ISTD_Conc_nM() As String
     
     'Get the columns as array string
-    ISTD_Conc_ngmL = Utilities.Load_Columns_From_Excel("ISTD_Conc_[ng/mL]", HeaderRowNumber:=3, DataStartRowNumber:=4, MessageBoxRequired:=False, RemoveBlksAndReplicates:=False)
-    ISTD_MW = Utilities.Load_Columns_From_Excel("ISTD_[MW]", HeaderRowNumber:=3, DataStartRowNumber:=4, MessageBoxRequired:=False, RemoveBlksAndReplicates:=False)
-    ISTD_Conc_nM = Utilities.Load_Columns_From_Excel("ISTD_Conc_[nM]", HeaderRowNumber:=3, DataStartRowNumber:=4, MessageBoxRequired:=False, RemoveBlksAndReplicates:=False)
+    ISTD_Conc_ngmL = Utilities.Load_Columns_From_Excel("ISTD_Conc_[ng/mL]", HeaderRowNumber:=3, _
+                                                       DataStartRowNumber:=4, MessageBoxRequired:=False, _
+                                                       RemoveBlksAndReplicates:=False, _
+                                                       IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
+    ISTD_MW = Utilities.Load_Columns_From_Excel("ISTD_[MW]", HeaderRowNumber:=3, _
+                                                DataStartRowNumber:=4, MessageBoxRequired:=False, _
+                                                RemoveBlksAndReplicates:=False, _
+                                                IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
+    ISTD_Conc_nM = Utilities.Load_Columns_From_Excel("ISTD_Conc_[nM]", HeaderRowNumber:=3, _
+                                                     DataStartRowNumber:=4, MessageBoxRequired:=False, _
+                                                     RemoveBlksAndReplicates:=False, _
+                                                     IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
     
     'Declare an array of the three array length
     Dim lenArray(0 To 2) As Integer

@@ -282,7 +282,12 @@ Public Sub Clear_Columns(HeaderToClear As String, HeaderRowNumber As Integer, Da
 End Sub
 
 
-Public Function Load_Columns_From_Excel(HeaderName As String, HeaderRowNumber As Integer, DataStartRowNumber As Integer, MessageBoxRequired As Boolean, RemoveBlksAndReplicates As Boolean, Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
+Public Function Load_Columns_From_Excel(HeaderName As String, HeaderRowNumber As Integer, _
+                                        DataStartRowNumber As Integer, _
+                                        MessageBoxRequired As Boolean, _
+                                        RemoveBlksAndReplicates As Boolean, _
+                                        Optional ByVal IgnoreHiddenRows As Boolean = True, _
+                                        Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
     Dim strArray() As String
     Dim TotalRows As Long
     Dim i As Long
@@ -298,25 +303,30 @@ Public Function Load_Columns_From_Excel(HeaderName As String, HeaderRowNumber As
     
     'Get the entries
     For i = DataStartRowNumber To TotalRows
-        If RemoveBlksAndReplicates Then
-            'Check that it is not empty or has only spaces
-            If Not IsEmpty(Cells(i, HeaderColNumber)) Then
-                entries = Trim(Cells(i, HeaderColNumber).Value)
-                InArray = Utilities.IsInArray(entries, strArray)
-                If Len(entries) <> 0 And Not InArray Then
-                    ReDim Preserve strArray(ArrayLength)
-                    strArray(ArrayLength) = entries
-                    'Debug.Print strArray(ArrayLength)
-                    ArrayLength = ArrayLength + 1
+    
+        'If Cell is hidden and IgnoreHiddenRows is True, we skip to the next row
+        If Cells(i, HeaderColNumber).RowHeight <> 0 Or Not IgnoreHiddenRows Then
+        
+            If RemoveBlksAndReplicates Then
+                'Check that it is not empty or has only spaces
+                If Not IsEmpty(Cells(i, HeaderColNumber)) Then
+                    entries = Trim(Cells(i, HeaderColNumber).Value)
+                    InArray = Utilities.IsInArray(entries, strArray)
+                    If Len(entries) <> 0 And Not InArray Then
+                        ReDim Preserve strArray(ArrayLength)
+                        strArray(ArrayLength) = entries
+                        'Debug.Print strArray(ArrayLength)
+                        ArrayLength = ArrayLength + 1
+                    End If
                 End If
+            Else
+                ReDim Preserve strArray(ArrayLength)
+                strArray(ArrayLength) = CStr(Cells(i, HeaderColNumber))
+                'Debug.Print strArray(ArrayLength)
+                ArrayLength = ArrayLength + 1
             End If
-        Else
-            ReDim Preserve strArray(ArrayLength)
-            strArray(ArrayLength) = CStr(Cells(i, HeaderColNumber))
-            'Debug.Print strArray(ArrayLength)
-            ArrayLength = ArrayLength + 1
         End If
-
+    
     Next
         
     'If we have an empty array

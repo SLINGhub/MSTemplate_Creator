@@ -1,5 +1,66 @@
 Attribute VB_Name = "Buttons"
+'Sheet Dilution_Annot Functions
+
+Sub Clear_Dilution_Annot_Click()
+    'To ensure that Filters does not affect the assignment
+    Utilities.RemoveFilterSettings
+    
+    Clear_Dilution_Annot.Show
+End Sub
+
 'Sheet Sample_Annot Functions
+
+Sub Load_Sample_Name_To_Dilution_Annot_Click()
+    Sheets("Sample_Annot").Activate
+    
+    'To ensure that Filters does not affect the assignment
+    Utilities.RemoveFilterSettings
+    
+    'We don't want excel to monitor the sheet when runnning this code
+    Application.EnableEvents = False
+    
+    Dim SampleNameArray() As String
+    
+    'Check if the column Sample_Name exists
+    'Dim SampleName_pos As Integer
+    'SampleName_pos = Utilities.Get_Header_Col_Position("Sample_Name", HeaderRowNumber:=1)
+    'SampleName_letter = ConvertToLetter(SampleName_pos)
+    
+    'Check if the column Sample_Type exists
+    Dim SampleType_pos As Integer
+    SampleType_pos = Utilities.Get_Header_Col_Position("Sample_Type", HeaderRowNumber:=1)
+    
+    'Filter Rows by "RQC"
+    ActiveSheet.Range("A1").AutoFilter Field:=SampleType_pos, _
+                                       Criteria1:="RQC", _
+                                       VisibleDropDown:=True
+                                       
+                                       
+
+    'Load the Sample_Name and Sample_Type columns content in Sample_Annot
+    SampleNameArray = Utilities.Load_Columns_From_Excel("Sample_Name", HeaderRowNumber:=1, _
+                                                        DataStartRowNumber:=2, MessageBoxRequired:=True, _
+                                                        RemoveBlksAndReplicates:=True, _
+                                                        IgnoreHiddenRows:=True, IgnoreEmptyArray:=True)
+
+    'To ensure that Filters does not affect the assignment
+    Utilities.RemoveFilterSettings
+    
+    'Resume monitoring of sheet
+    Application.EnableEvents = True
+                                                        
+    'Check if SampleNameArray has any elements
+    If Len(Join(SampleNameArray, "")) = 0 Then
+        End
+    End If
+    
+    'Go to the Dilution_Annot sheet
+    Sheets("Dilution_Annot").Activate
+    Call Utilities.OverwriteHeader("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Load_To_Excel(SampleNameArray, "Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=True)
+
+End Sub
+
 Sub Clear_Sample_Table_Click()
     'To ensure that Filters does not affect the assignment
     Utilities.RemoveFilterSettings
@@ -116,7 +177,8 @@ Sub Load_Transition_Name_ISTD_Click()
     Dim ISTD_Array() As String
     ISTD_Array = Utilities.Load_Columns_From_Excel("Transition_Name_ISTD", HeaderRowNumber:=1, _
                                                     DataStartRowNumber:=2, MessageBoxRequired:=True, _
-                                                    RemoveBlksAndReplicates:=True, IgnoreEmptyArray:=False)
+                                                    RemoveBlksAndReplicates:=True, _
+                                                    IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
                                                     
     'Excel resume monitoring the sheet
     Application.EnableEvents = True
@@ -141,11 +203,13 @@ Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, Opt
     Dim Transition_Array() As String
     Dim ISTD_Array() As String
     Transition_Array = Utilities.Load_Columns_From_Excel("Transition_Name", HeaderRowNumber:=1, _
-                                                    DataStartRowNumber:=2, MessageBoxRequired:=False, _
-                                                    RemoveBlksAndReplicates:=True, IgnoreEmptyArray:=False)
+                                                         DataStartRowNumber:=2, MessageBoxRequired:=False, _
+                                                         RemoveBlksAndReplicates:=True, _
+                                                         IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
     ISTD_Array = Utilities.Load_Columns_From_Excel("Transition_Name_ISTD", HeaderRowNumber:=1, _
                                                     DataStartRowNumber:=2, MessageBoxRequired:=False, _
-                                                    RemoveBlksAndReplicates:=False, IgnoreEmptyArray:=False)
+                                                    RemoveBlksAndReplicates:=True, _
+                                                    IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
     'Excel resume monitoring the sheet
     Application.EnableEvents = True
     

@@ -176,7 +176,7 @@ TestFail:
 End Sub
 
 '@TestMethod
-Public Sub Load_Columns_From_Excel_Test()
+Public Sub Load_Columns_From_Excel_NoFilter_Test()
     On Error GoTo TestFail
     
     Sheets("Lists").Activate
@@ -190,13 +190,53 @@ Public Sub Load_Columns_From_Excel_Test()
     
     Dim Concentration_Unit_Array() As String
     Concentration_Unit_Array = Utilities.Load_Columns_From_Excel("Concentration_Unit", HeaderRowNumber:=1, _
-                                                    DataStartRowNumber:=2, MessageBoxRequired:=True, _
-                                                    RemoveBlksAndReplicates:=True, IgnoreEmptyArray:=False)
+                                                                 DataStartRowNumber:=2, MessageBoxRequired:=True, _
+                                                                 RemoveBlksAndReplicates:=True, _
+                                                                 IgnoreHiddenRows:=False, IgnoreEmptyArray:=False)
     Assert.SequenceEquals Concentration_Unit_Array, CorrectArray
 
 TestExit:
     Exit Sub
 TestFail:
+    Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
+End Sub
+
+'@TestMethod
+Public Sub Load_Columns_From_Excel_Filter_Test()
+    On Error GoTo TestFail
+    
+    Sheets("Lists").Activate
+    
+    ActiveSheet.Range("SampleType").AutoFilter Field:=1
+    
+    'Check if the column Sample_Type exists
+    Dim Factor_pos As Integer
+    Factor_pos = Utilities.Get_Header_Col_Position("Factor", HeaderRowNumber:=1)
+    
+    'Filter Rows that contains the word "QC"
+    ActiveSheet.Range("SampleType").AutoFilter Field:=1, _
+                                               Criteria1:="*QC*", _
+                                               VisibleDropDown:=True
+                                          
+    Dim CorrectArray(0 To 3) As String
+    CorrectArray(0) = "EQC"
+    CorrectArray(1) = "TQC"
+    CorrectArray(2) = "BQC"
+    CorrectArray(3) = "RQC"
+    
+    Dim Concentration_Unit_Array() As String
+    Concentration_Unit_Array = Utilities.Load_Columns_From_Excel("Sample_Type", HeaderRowNumber:=1, _
+                                                                 DataStartRowNumber:=2, MessageBoxRequired:=True, _
+                                                                 RemoveBlksAndReplicates:=True, _
+                                                                 IgnoreHiddenRows:=True, IgnoreEmptyArray:=False)
+                                                                
+    Assert.SequenceEquals Concentration_Unit_Array, CorrectArray
+
+TestExit:
+    ActiveSheet.Range("SampleType").AutoFilter Field:=1
+    Exit Sub
+TestFail:
+    ActiveSheet.Range("SampleType").AutoFilter Field:=1
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
