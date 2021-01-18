@@ -19,7 +19,7 @@ Public Function Get_Sample_Type(FileName As String) As String
     ElseIf isMBLK(FileName) Then
         Get_Sample_Type = "MBLK"
     ElseIf isUBLK(FileName) And Not isPBLK(FileName) And Not isSBLK(FileName) _
-    And Not isMBLK(FileName) Then
+        And Not isMBLK(FileName) Then
         Get_Sample_Type = "UBLK"
     End If
     
@@ -241,4 +241,5 @@ Public Function isMBLK(FileName As String) As Boolean
     End If
 
 End Function
+
 

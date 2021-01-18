@@ -43,19 +43,18 @@ Public Function LastUsedRowNumber() As Long
     
 End Function
 
-
 Public Function ConvertToLetter(iCol As Integer) As String
-'Convert column number values into their equivalent alphabetical characters:
-   Dim iAlpha As Integer
-   Dim iRemainder As Integer
-   iAlpha = Int((iCol - 1) / 26)
-   iRemainder = iCol - (iAlpha * 26)
-   If iAlpha > 0 Then
-      ConvertToLetter = Chr(iAlpha + 64)
-   End If
-   If iRemainder > 0 Then
-      ConvertToLetter = ConvertToLetter & Chr(iRemainder + 64)
-   End If
+    'Convert column number values into their equivalent alphabetical characters:
+    Dim iAlpha As Integer
+    Dim iRemainder As Integer
+    iAlpha = Int((iCol - 1) / 26)
+    iRemainder = iCol - (iAlpha * 26)
+    If iAlpha > 0 Then
+        ConvertToLetter = Chr(iAlpha + 64)
+    End If
+    If iRemainder > 0 Then
+        ConvertToLetter = ConvertToLetter & Chr(iRemainder + 64)
+    End If
 End Function
 
 Public Function StringArrayLen(Some_Array As Variant) As Integer
@@ -68,15 +67,15 @@ Public Function StringArrayLen(Some_Array As Variant) As Integer
 End Function
 
 Public Function WhereInArray(valToBeFound As Variant, arr As Variant) As String()
-'Return the position of where valToBeFound in the arr
-Dim Positions() As String
-Dim ArrayLength As Integer
-Dim Index As Integer
-ArrayLength = 0
-Index = 0
-Dim element As Variant
+    'Return the position of where valToBeFound in the arr
+    Dim Positions() As String
+    Dim ArrayLength As Integer
+    Dim Index As Integer
+    ArrayLength = 0
+    Index = 0
+    Dim element As Variant
 
-On Error GoTo IsInArrayError: 'array is empty
+    On Error GoTo IsInArrayError:                'array is empty
     For Each element In arr
         'If we have a match, we store the position
         If element = valToBeFound Then
@@ -89,26 +88,27 @@ On Error GoTo IsInArrayError: 'array is empty
     'Return the array that stores the occurences
     WhereInArray = Positions
 IsInArrayError:
-On Error GoTo 0
+    On Error GoTo 0
 
 End Function
+
 Public Function IsInArray(valToBeFound As Variant, arr As Variant) As Boolean
-'DEVELOPER: Ryan Wells (wellsr.com)
+    'DEVELOPER: Ryan Wells (wellsr.com)
 'DESCRIPTION: Function to check if a value is in an array of values
-'INPUT: Pass the function a value to search for and an array of values of any data type.
-'OUTPUT: True if is in array, false otherwise
-Dim element As Variant
-On Error GoTo IsInArrayError: 'array is empty
+    'INPUT: Pass the function a value to search for and an array of values of any data type.
+    'OUTPUT: True if is in array, false otherwise
+    Dim element As Variant
+    On Error GoTo IsInArrayError:                'array is empty
     For Each element In arr
         If element = valToBeFound Then
             IsInArray = True
             Exit Function
         End If
     Next element
-Exit Function
+    Exit Function
 IsInArrayError:
-On Error GoTo 0
-IsInArray = False
+    On Error GoTo 0
+    IsInArray = False
 End Function
 
 Public Sub QuickSort(ByRef ThisArray As Variant)
@@ -121,7 +121,6 @@ Public Sub QuickSort(ByRef ThisArray As Variant)
     QuickSortRecursive ThisArray, LowerBound, UpperBound
 
 End Sub
-
 
 Private Sub QuickSortRecursive(ByRef ThisArray, ByVal LowerBound, ByVal UpperBound)
 
@@ -191,18 +190,18 @@ Public Sub OverwriteSeveralHeaders(HeaderNameArray() As String, HeaderRowNumber 
     
     Overwrite.Show
     Select Case Overwrite.whatsclicked
-        Case "Cancel"
-            'Excel resume monitoring the sheet
-            Application.EnableEvents = True
-            End
-        Case "Overwrite"
-            'To ensure that Filters does not affect the assignment
-            Utilities.RemoveFilterSettings
-            'Clear the contents. We do not want to clean the headers
-            Dim HeaderName As String
-            For i = 0 To UBound(HeaderNameArray) - LBound(HeaderNameArray)
-                Call Utilities.Clear_Columns(HeaderNameArray(i), HeaderRowNumber, DataStartRowNumber)
-            Next i
+    Case "Cancel"
+        'Excel resume monitoring the sheet
+        Application.EnableEvents = True
+        End
+    Case "Overwrite"
+        'To ensure that Filters does not affect the assignment
+        Utilities.RemoveFilterSettings
+        'Clear the contents. We do not want to clean the headers
+        Dim HeaderName As String
+        For i = 0 To UBound(HeaderNameArray) - LBound(HeaderNameArray)
+            Call Utilities.Clear_Columns(HeaderNameArray(i), HeaderRowNumber, DataStartRowNumber)
+        Next i
     End Select
     Unload Overwrite
 
@@ -229,18 +228,18 @@ Public Sub OverwriteHeader(HeaderName As String, HeaderRowNumber As Integer, Dat
     Overwrite.Show
     
     Select Case Overwrite.whatsclicked
-        Case "Cancel"
-            'Excel resume monitoring the sheet
-            Application.EnableEvents = True
-            If Testing = True Then
-                Exit Sub
-            End If
-            End
-        Case "Overwrite"
-            'To ensure that Filters does not affect the assignment
-            Utilities.RemoveFilterSettings
-            'Clear the contents. We do not want to clean the headers
-            Range(ConvertToLetter(HeaderColNumber) & CStr(DataStartRowNumber) & ":" & ConvertToLetter(HeaderColNumber) & TotalRows).ClearContents
+    Case "Cancel"
+        'Excel resume monitoring the sheet
+        Application.EnableEvents = True
+        If Testing = True Then
+            Exit Sub
+        End If
+        End
+    Case "Overwrite"
+        'To ensure that Filters does not affect the assignment
+        Utilities.RemoveFilterSettings
+        'Clear the contents. We do not want to clean the headers
+        Range(ConvertToLetter(HeaderColNumber) & CStr(DataStartRowNumber) & ":" & ConvertToLetter(HeaderColNumber) & TotalRows).ClearContents
     End Select
     Unload Overwrite
     
@@ -280,7 +279,6 @@ Public Sub Clear_Columns(HeaderToClear As String, HeaderRowNumber As Integer, Da
         Range(ConvertToLetter(HeaderColNumber) & CStr(DataStartRowNumber) & ":" & ConvertToLetter(HeaderColNumber) & TotalRows).ClearContents
     End If
 End Sub
-
 
 Public Function Load_Columns_From_Excel(HeaderName As String, HeaderRowNumber As Integer, _
                                         DataStartRowNumber As Integer, _
@@ -345,3 +343,5 @@ Public Function Load_Columns_From_Excel(HeaderName As String, HeaderRowNumber As
     'Debug.Print ArrayLength
     
 End Function
+
+

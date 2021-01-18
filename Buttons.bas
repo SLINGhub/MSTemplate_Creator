@@ -98,7 +98,7 @@ Sub Autofill_Sample_Type_Click()
             Else
                 SampleArray(i - 2) = Cells(i, SampleType_pos).Value
             End If
-        'Debug.Print SampleArray(i - 2)
+            'Debug.Print SampleArray(i - 2)
         Next i
     End If
     
@@ -118,10 +118,10 @@ Sub Load_Sample_Annot_Column_Name_Click()
     
     'If the Load Annotation button is clicked
     Select Case Load_Sample_Annot.whatsclicked
-        Case "Merge_With_Sample_Annot_Button"
-            Call Sample_Annot.Merge_With_Sample_Annot(RawDataFiles:=Load_Sample_Annot.Raw_Data_File_Path.Text, SampleAnnotFile:=Load_Sample_Annot.Sample_Annot_File_Path.Text)
-        Case "Create_New_Sample_Annot_Button"
-            Call Sample_Annot.Create_new_Sample_Annot(RawDataFiles:=Load_Sample_Annot.Raw_Data_File_Path.Text)
+    Case "Merge_With_Sample_Annot_Button"
+        Call Sample_Annot.Merge_With_Sample_Annot(RawDataFiles:=Load_Sample_Annot.Raw_Data_File_Path.Text, SampleAnnotFile:=Load_Sample_Annot.Sample_Annot_File_Path.Text)
+    Case "Create_New_Sample_Annot_Button"
+        Call Sample_Annot.Create_new_Sample_Annot(RawDataFiles:=Load_Sample_Annot.Raw_Data_File_Path.Text)
     End Select
     
     Unload Load_Sample_Annot
@@ -176,9 +176,9 @@ Sub Load_Transition_Name_ISTD_Click()
     Application.EnableEvents = False
     Dim ISTD_Array() As String
     ISTD_Array = Utilities.Load_Columns_From_Excel("Transition_Name_ISTD", HeaderRowNumber:=1, _
-                                                    DataStartRowNumber:=2, MessageBoxRequired:=True, _
-                                                    RemoveBlksAndReplicates:=True, _
-                                                    IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
+                                                   DataStartRowNumber:=2, MessageBoxRequired:=True, _
+                                                   RemoveBlksAndReplicates:=True, _
+                                                   IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
                                                     
     'Excel resume monitoring the sheet
     Application.EnableEvents = True
@@ -207,9 +207,9 @@ Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, Opt
                                                          RemoveBlksAndReplicates:=True, _
                                                          IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
     ISTD_Array = Utilities.Load_Columns_From_Excel("Transition_Name_ISTD", HeaderRowNumber:=1, _
-                                                    DataStartRowNumber:=2, MessageBoxRequired:=False, _
-                                                    RemoveBlksAndReplicates:=True, _
-                                                    IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
+                                                   DataStartRowNumber:=2, MessageBoxRequired:=False, _
+                                                   RemoveBlksAndReplicates:=True, _
+                                                   IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
     'Excel resume monitoring the sheet
     Application.EnableEvents = True
     
@@ -217,7 +217,6 @@ Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, Opt
     Call Transition_Name_Annot.VerifyISTD(Transition_Array, ISTD_Array, MessageBoxRequired:=MessageBoxRequired, Testing:=Testing)
     
 End Sub
-
 
 Sub GetTransitionArray_Click()
     'We don't want excel to monitor the sheet when runnning this code
@@ -239,3 +238,5 @@ Sub GetTransitionArray_Click()
     Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=True)
 End Sub
+
+

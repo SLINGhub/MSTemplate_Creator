@@ -43,70 +43,69 @@ Public Function ISTDCalculationChecker(ByVal Target As Range)
         
         For Each Cell In Intersect(Range(RelatedRange), Target)
             Select Case Cell.Column
-                Case ISTDHeaderColNumber
-                    'ISTD has been modified or just added
-                    Cells(Cell.Row, ISTDHeaderColNumber).Interior.Color = xlNone
-                    Cells(Cell.Row, ISTD_Conc_ng_ColNumber).Interior.Color = xlNone
-                    Cells(Cell.Row, ISTD_MW_ColNumber).Interior.Color = xlNone
-                    If Cell.Value = "" Then
-                        Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
-                        Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
-                    Else
-                        'Warn users they need to be changed or filled in
-                        Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                        Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
-                    End If
-                Case ISTD_Conc_ng_ColNumber, ISTD_MW_ColNumber
-                    'Remove the green format if it exists
-                    Cells(Cell.Row, ISTD_Conc_ng_ColNumber).Interior.Color = xlNone
-                    Cells(Cell.Row, ISTD_MW_ColNumber).Interior.Color = xlNone
-                    'If it has been modified under the presence of an ISTD
-                    If Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                        'Warn users they need to be changed or filled in
-                        Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                        Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
-                    End If
-                Case ISTD_Conc_nM_ColNumber
-                    'Warns user that they must fill up the cell as there is an ISTD
-                    If Cell.Value = "" And Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                        Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                        Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+            Case ISTDHeaderColNumber
+                'ISTD has been modified or just added
+                Cells(Cell.Row, ISTDHeaderColNumber).Interior.Color = xlNone
+                Cells(Cell.Row, ISTD_Conc_ng_ColNumber).Interior.Color = xlNone
+                Cells(Cell.Row, ISTD_MW_ColNumber).Interior.Color = xlNone
+                If Cell.Value = "" Then
+                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
+                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
+                Else
+                    'Warn users they need to be changed or filled in
+                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+                End If
+            Case ISTD_Conc_ng_ColNumber, ISTD_MW_ColNumber
+                'Remove the green format if it exists
+                Cells(Cell.Row, ISTD_Conc_ng_ColNumber).Interior.Color = xlNone
+                Cells(Cell.Row, ISTD_MW_ColNumber).Interior.Color = xlNone
+                'If it has been modified under the presence of an ISTD
+                If Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
+                    'Warn users they need to be changed or filled in
+                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+                End If
+            Case ISTD_Conc_nM_ColNumber
+                'Warns user that they must fill up the cell as there is an ISTD
+                If Cell.Value = "" And Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
+                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
                     'Blank value is valid as there is no ISTD
-                    ElseIf Cell.Value = "" And Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                        Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
-                        Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
+                ElseIf Cell.Value = "" And Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
+                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
+                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
                     'Warn users values has been modified
-                    ElseIf Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                        Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                        Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
-                    End If
-                Case ISTD_Custom_Unit_ColNumber
-                    'Warns user that they must fill up the cell as there is an ISTD
-                    If Cell.Row > 3 And Cell.Value = "" And Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                        Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                        Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+                ElseIf Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
+                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+                End If
+            Case ISTD_Custom_Unit_ColNumber
+                'Warns user that they must fill up the cell as there is an ISTD
+                If Cell.Row > 3 And Cell.Value = "" And Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
+                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
                     'Blank value is valid as there is no ISTD
-                    ElseIf Cell.Row > 3 And Cell.Value = "" And Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                        Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
-                        Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
+                ElseIf Cell.Row > 3 And Cell.Value = "" And Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
+                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
+                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
                     'Warn users values has been modified
-                    ElseIf Cell.Row > 3 And Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                        Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                        Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
-                    ElseIf Cell.Row = 3 Then
-                        Application.EnableEvents = False
-                        Dim ISTD_Custom_Unit() As String
-                        ISTD_Custom_Unit = ISTD_Annot.Convert_Conc_nM_Array(Cell.Value)
-                        Call Utilities.Load_To_Excel(ISTD_Custom_Unit, "Custom_Unit", HeaderRowNumber:=2, DataStartRowNumber:=4, MessageBoxRequired:=False)
-                        Application.EnableEvents = True
-                    End If
+                ElseIf Cell.Row > 3 And Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
+                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+                ElseIf Cell.Row = 3 Then
+                    Application.EnableEvents = False
+                    Dim ISTD_Custom_Unit() As String
+                    ISTD_Custom_Unit = ISTD_Annot.Convert_Conc_nM_Array(Cell.Value)
+                    Call Utilities.Load_To_Excel(ISTD_Custom_Unit, "Custom_Unit", HeaderRowNumber:=2, DataStartRowNumber:=4, MessageBoxRequired:=False)
+                    Application.EnableEvents = True
+                End If
             End Select
         Next Cell
         
     End If
 
 End Function
-
 
 'Sheet Transition_Name_Annot Function
 Public Function ChangeToBlankWhenChanged(ByVal Target As Range)
@@ -148,19 +147,19 @@ Public Function ChangeToBlankWhenChanged(ByVal Target As Range)
         For Each Cell In Intersect(Range(RelatedRange), Target)
             Select Case Cell.Column
                 'If changes are made in the Transition_Name column
-                Case Transition_Name_ColNumber
-                    Dim TotalRows As Long
-                    TotalRows = Cells(Rows.Count, ConvertToLetter(Transition_Name_ColNumber)).End(xlUp).Row
-                    If TotalRows > 1 Then
-                        Range(Transition_Name_ColLetter & Cell.Row & ":" & Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
-                        'Whole Transition_Name_ISTD column must be white
-                        Range(Transition_Name_ISTD_ColLetter & "2:" & Transition_Name_ISTD_ColLetter & TotalRows).Interior.Color = xlNone
-                    Else
-                        'Whole Transition_Name_ISTD column must be white
-                        Range(Transition_Name_ColLetter & Cell.Row & ":" & Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
-                    End If
-                Case Transition_Name_ISTD_ColNumber
-                    Range(Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
+            Case Transition_Name_ColNumber
+                Dim TotalRows As Long
+                TotalRows = Cells(Rows.Count, ConvertToLetter(Transition_Name_ColNumber)).End(xlUp).Row
+                If TotalRows > 1 Then
+                    Range(Transition_Name_ColLetter & Cell.Row & ":" & Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
+                    'Whole Transition_Name_ISTD column must be white
+                    Range(Transition_Name_ISTD_ColLetter & "2:" & Transition_Name_ISTD_ColLetter & TotalRows).Interior.Color = xlNone
+                Else
+                    'Whole Transition_Name_ISTD column must be white
+                    Range(Transition_Name_ColLetter & Cell.Row & ":" & Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
+                End If
+            Case Transition_Name_ISTD_ColNumber
+                Range(Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
             End Select
 
         Next Cell
@@ -174,3 +173,4 @@ Public Function ChangeToBlankWhenChanged(ByVal Target As Range)
     Application.ScreenUpdating = True
 
 End Function
+

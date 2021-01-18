@@ -118,7 +118,6 @@ Private Sub Browse_Sample_Annot_Click()
     
 End Sub
 
-
 Private Sub Sample_Amount_Map_Click()
     If Column_Name_List.ListIndex = -1 Then
         Exit Sub
@@ -177,7 +176,6 @@ Private Sub Raw_Data_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByV
     Raw_Data_File_Path.Text = ""
 End Sub
 
-
 Private Sub Sample_Annot_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
     Load_Sample_Annot.Merge_With_Sample_Annot_Button.Enabled = False
     Sample_Annot_File_Path.Text = ""
@@ -205,6 +203,4 @@ End Sub
 Private Sub ISTD_Mixture_Volume_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
     ISTD_Mixture_Volume_Text.Text = ""
 End Sub
-
-
 

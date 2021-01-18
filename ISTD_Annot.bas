@@ -19,16 +19,16 @@ Public Function Convert_Conc_nM_Array(Custom_Unit As String) As String()
     'Get Factor Value based on NewUnit
     FactorValue = 1
     Select Case Custom_Unit
-        Case "[M]"
-            FactorValue = 10 ^ (-9)
-        Case "[mM]"
-            FactorValue = 10 ^ (-6)
-        Case "[uM]"
-            FactorValue = 10 ^ (-3)
-        Case "[nM]"
-            FactorValue = 1
-        Case "[pM]"
-            FactorValue = 10 ^ 3
+    Case "[M]"
+        FactorValue = 10 ^ (-9)
+    Case "[mM]"
+        FactorValue = 10 ^ (-6)
+    Case "[uM]"
+        FactorValue = 10 ^ (-3)
+    Case "[nM]"
+        FactorValue = 1
+    Case "[pM]"
+        FactorValue = 10 ^ 3
     End Select
     
     'Perform the convertion from nM to NewUnit

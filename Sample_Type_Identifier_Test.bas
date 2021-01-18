@@ -61,12 +61,12 @@ Public Sub isTQC_Test()
     Dim i As Integer
     
     TQCTestArray = Array("TQC", "TQC1.d", "TQC.d", "001_TQC-Eq.d", "01_TQC-1.d", "7_30m_Tqc", _
-                        "TQC_PC-PE-SM_01.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_TQC_06.d", _
-                        "20161117-pos-DBS-TQC-007.d", "20161117-pos-DBS-TQC-SD001-001.d", _
-                        "TQCTest")
+                         "TQC_PC-PE-SM_01.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_TQC_06.d", _
+                         "20161117-pos-DBS-TQC-007.d", "20161117-pos-DBS-TQC-SD001-001.d", _
+                         "TQCTest")
                         
     Not_TQCTestArray = Array("RQC", "010_TQCd-0", "TQC-0percent", "010_TQCd-GrpA-0", "CR_TQC-GroupB-40%", _
-                         "CR_TQC-40 %", "5 percent")
+                             "CR_TQC-40 %", "5 percent")
            
     For i = 0 To UBound(TQCTestArray) - LBound(TQCTestArray)
         'Debug.Print isTQC(CStr(TQCTestArray(i))) & ": " & TQCTestArray(i)
@@ -94,8 +94,8 @@ Public Sub isBQC_Test()
     Dim i As Integer
     
     BQCTestArray = Array("11_PQC-2.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_PQC_2.d", _
-                    "PQC_PC-PE-SM_01.d", "PQC1_LPC-LPE-PG-PI-PS_01.d", "PQC1_02.d", _
-                    "11_BQC-2.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_BQC_2.d", "018_BQC_PQC01")
+                         "PQC_PC-PE-SM_01.d", "PQC1_LPC-LPE-PG-PI-PS_01.d", "PQC1_02.d", _
+                         "11_BQC-2.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_BQC_2.d", "018_BQC_PQC01")
            
     For i = 0 To UBound(BQCTestArray) - LBound(BQCTestArray)
         'Debug.Print isBQC(CStr(BQCTestArray(i))) & ": " & BQCTestArray(i)
@@ -120,9 +120,9 @@ Public Sub isRQC_Test()
                          "CR_TQC-40 %", "Dynamo(2)-PPG_TQCdil(040).d", "Dynamo(2)-TQCdil(050)_B.d")
                          
     Not_RQCTestArray = Array("TQC", "TQC1.d", "TQC.d", "001_TQC-Eq.d", "01_TQC-1.d", "7_30m_Tqc", _
-                        "TQC_PC-PE-SM_01.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_TQC_06.d", _
-                        "20161117-pos-DBS-TQC-007.d", "20161117-pos-DBS-TQC-SD001-001.d", _
-                        "TQCTest", "5 percent")
+                             "TQC_PC-PE-SM_01.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_TQC_06.d", _
+                             "20161117-pos-DBS-TQC-007.d", "20161117-pos-DBS-TQC-SD001-001.d", _
+                             "TQCTest", "5 percent")
            
     For i = 0 To UBound(RQCTestArray) - LBound(RQCTestArray)
         'Debug.Print isRQC(CStr(RQCTestArray(i))) & ": " & RQCTestArray(i)
@@ -169,7 +169,7 @@ Public Sub isNIST_Test()
     Dim i As Integer
     
     NISTTestArray = Array("NIST01.d", "NIST_01.d", "Nist.d", "nist.d", _
-                         "018_NIST-GroupA-01")
+                          "018_NIST-GroupA-01")
            
     For i = 0 To UBound(NISTTestArray) - LBound(NISTTestArray)
         'Debug.Print isNIST(CStr(NISTTestArray(i))) & ": " & NISTTestArray(i)
@@ -204,7 +204,6 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-
 '@TestMethod
 Public Sub isUBLK_Test()
     On Error GoTo TestFail
@@ -213,11 +212,11 @@ Public Sub isUBLK_Test()
     Dim i As Integer
     
     BlankTestArray = Array("MyBlank", "BLK01.d", "Blk01.d", "51_blank_01.d", "07_BLANK-1.d", "001_BLK.d", "Blank_01.d", _
-                        "06122016_Liver_TAG_Even01_YongLiang_blk6.d", _
-                        "07062017_Marie_PL_MCF_blk_2.d", "Blk_PC-PS-SM_01.d", "Blank_1_08112016.d", _
-                        "blank_7-r001.d", "Blk_12.d", "041_blank.d", "20161006-pos-SIM-Blank-001.d", _
-                        "20170717-Coral lipids-dMRM-TAG-Blk-01.d", "20170623-pos-RP-blank-001.d", _
-                        "20170210-RPLC-Pos-Blank02.d", "131_BLK.d")
+                           "06122016_Liver_TAG_Even01_YongLiang_blk6.d", _
+                           "07062017_Marie_PL_MCF_blk_2.d", "Blk_PC-PS-SM_01.d", "Blank_1_08112016.d", _
+                           "blank_7-r001.d", "Blk_12.d", "041_blank.d", "20161006-pos-SIM-Blank-001.d", _
+                           "20170717-Coral lipids-dMRM-TAG-Blk-01.d", "20170623-pos-RP-blank-001.d", _
+                           "20170210-RPLC-Pos-Blank02.d", "131_BLK.d")
                                  
     For i = 0 To UBound(BlankTestArray) - LBound(BlankTestArray)
         'Debug.Print (isUBLK(CStr(BlankTestArray(i)))) & ": " & BlankTestArray(i)
@@ -274,3 +273,5 @@ TestExit:
 TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
+
+

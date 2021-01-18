@@ -71,7 +71,7 @@ TestFail:
 End Sub
 
 '@TestMethod
-Public Sub ConvertToLetterTest() 'TODO Rename test
+Public Sub ConvertToLetterTest()                 'TODO Rename test
     On Error GoTo TestFail
     
     Assert.AreEqual Utilities.ConvertToLetter(1), "A"
@@ -95,8 +95,8 @@ Public Sub StringArrayLenTest()
     Dim EmptyArray
     
     TestArray = Array("11_PQC-2.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_PQC_2.d", _
-                    "PQC_PC-PE-SM_01.d", "PQC1_LPC-LPE-PG-PI-PS_01.d", "PQC1_02.d", _
-                    "11_BQC-2.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_BQC_2.d", "018_BQC_PQC01")
+                      "PQC_PC-PE-SM_01.d", "PQC1_LPC-LPE-PG-PI-PS_01.d", "PQC1_02.d", _
+                      "11_BQC-2.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_BQC_2.d", "018_BQC_PQC01")
     EmptyArray = Array()
     
     Assert.AreEqual Utilities.StringArrayLen(TestArray), 8
@@ -239,4 +239,5 @@ TestFail:
     ActiveSheet.Range("SampleType").AutoFilter Field:=1
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
+
 

@@ -171,17 +171,17 @@ Private Function Get_Sample_Name_Array(ByRef xFileName As String) As String()
     'Check that it is not empty, it should not be empty based on how we code the userform Load_Sample_Annot
     If Sample_Column_Name <> "" Then
                         
-            'Extract the sample name into the array
-            For j = data_starting_line To UBound(Lines) - 1
-                'Get the data at the right pos and remove whitespaces
-                Sample_Data = Trim(Split(Lines(j), Delimiter)(Sample_Column_Name_pos))
-                ReDim Preserve Sample_Name_Array(ArrayLength)
-                Sample_Name_Array(ArrayLength) = Sample_Data
-                'Debug.Print Sample_Name_Array(ArrayLength)
-                ArrayLength = ArrayLength + 1
-            Next j
+        'Extract the sample name into the array
+        For j = data_starting_line To UBound(Lines) - 1
+            'Get the data at the right pos and remove whitespaces
+            Sample_Data = Trim(Split(Lines(j), Delimiter)(Sample_Column_Name_pos))
+            ReDim Preserve Sample_Name_Array(ArrayLength)
+            Sample_Name_Array(ArrayLength) = Sample_Data
+            'Debug.Print Sample_Name_Array(ArrayLength)
+            ArrayLength = ArrayLength + 1
+        Next j
             
-            Call ClearDotD_inAgilentDataFile(Sample_Name_Array)
+        Call ClearDotD_inAgilentDataFile(Sample_Name_Array)
     End If
     Get_Sample_Name_Array = Sample_Name_Array
     
@@ -336,3 +336,4 @@ Private Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, ByRef MatchingI
     Next i
     
 End Sub
+

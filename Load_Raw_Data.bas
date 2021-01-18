@@ -106,7 +106,6 @@ Private Function Get_Header_Col_Position_From_2Darray(ByRef Lines() As String, H
     
 End Function
 
-
 Private Function Load_Columns_From_2Darray(ByRef strArray() As String, ByRef Lines() As String, HeaderName As String, _
                                            HeaderRowNumber As Integer, DataStartRowNumber As Integer, Delimiter As String, _
                                            MessageBoxRequired As Boolean, RemoveBlksAndReplicates As Boolean, _
@@ -144,7 +143,6 @@ Private Function Load_Columns_From_2Darray(ByRef strArray() As String, ByRef Lin
     Load_Columns_From_2Darray = strArray
     
 End Function
-
 
 Private Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() As String, ByRef Lines() As String, ByRef line_subset_index() As Integer, _
                                                        DataStartRowNumber As Integer, Delimiter As String, _
@@ -225,7 +223,7 @@ Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, ByRef MS_Fil
             Sample_Name_SubArray = Load_Columns_From_2Darray(Sample_Name_SubArray, Lines, "Data File", 1, 2, Delimiter, True, True)
             Call ClearDotD_inAgilentDataFile(Sample_Name_SubArray)
             
-        'When the Raw file is from Agilent CompoundTableForm
+            'When the Raw file is from Agilent CompoundTableForm
         ElseIf RawDataFileType = "AgilentCompoundForm" Then
             
             'Get the header line (row 2) and first line of the data (should be row 3)
@@ -251,7 +249,7 @@ Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, ByRef MS_Fil
             
             Call ClearDotD_inAgilentDataFile(Sample_Name_SubArray)
             
-        'When the Raw File is from Sciex
+            'When the Raw File is from Sciex
         ElseIf RawDataFileType = "Sciex" Then
             Sample_Name_SubArray = Load_Columns_From_2Darray(Sample_Name_SubArray, Lines, "Sample Name", 0, 1, Delimiter, True, True)
         End If
@@ -281,7 +279,7 @@ Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = Fals
         If TypeName(xFileNames) = "Boolean" Then
             End
         End If
-    On Error GoTo 0
+        On Error GoTo 0
     End If
     
     'Initialise the Transition Array
@@ -321,7 +319,7 @@ Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = Fals
                     ArrayLength = ArrayLength + 1
                 End If
             Next i
-        'When the Raw file is from Agilent CompoundTableForm
+            'When the Raw file is from Agilent CompoundTableForm
         ElseIf RawDataFileType = "AgilentCompoundForm" Then
             Dim first_header_line() As String
             Dim second_header_line() As String
@@ -339,7 +337,7 @@ Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = Fals
                     ReDim Preserve line_subset_index(line_subset_index_length)
                     line_subset_index(line_subset_index_length) = i
                     line_subset_index_length = line_subset_index_length + 1
-                Exit For
+                    Exit For
                 End If
             Next i
             
@@ -399,7 +397,7 @@ Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = Fals
             
             Transition_Array = Get_Transition_Array_Agilent_Compound(Transition_Array, Lines, line_subset_index, 2, Delimiter, True, True)
             
-        'When the Raw File is from Sciex
+            'When the Raw File is from Sciex
         ElseIf RawDataFileType = "Sciex" Then
             Transition_Array = Load_Columns_From_2Darray(Transition_Array, Lines, "Component Name", 0, 1, Delimiter, True, True)
         End If

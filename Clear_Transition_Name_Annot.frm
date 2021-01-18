@@ -21,3 +21,4 @@ Private Sub Transition_Name_Annot_Clear_Click()
         Call Utilities.Clear_Columns("Transition_Name_ISTD", HeaderRowNumber:=1, DataStartRowNumber:=2)
     End If
 End Sub
+

@@ -249,7 +249,6 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-
 '@TestMethod
 Public Sub Get_Sample_Name_Array_Compound_Table_Test()
     On Error GoTo TestFail

@@ -13,6 +13,10 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Private Sub Dilution_Amount_Click()
+
+End Sub
+
 Private Sub Dilution_Annot_Clear_Click()
     If Sample_Name.Value = True Then
         Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
@@ -20,10 +24,14 @@ Private Sub Dilution_Annot_Clear_Click()
     If Dilution_Batch_Name.Value = True Then
         Call Utilities.Clear_Columns("Dilution_Batch_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     End If
-    If Dilution_Amount.Value = True Then
-        Call Utilities.Clear_Columns("Dilution_Amount", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    If Dilution_Factor.Value = True Then
+        Call Utilities.Clear_Columns("Dilution_Factor_[%]", HeaderRowNumber:=1, DataStartRowNumber:=2)
     End If
-    If Dilution_Amount_Unit.Value = True Then
-        Call Utilities.Clear_Columns("Dilution_Amount_Unit", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    If Injection_Volume_uL.Value = True Then
+        Call Utilities.Clear_Columns("Injection_Volume_[uL]", HeaderRowNumber:=1, DataStartRowNumber:=2)
     End If
+End Sub
+
+Private Sub Dilution_Batch_Name_Click()
+
 End Sub
