@@ -62,7 +62,7 @@ Sub Load_Sample_Name_To_Dilution_Annot_Click()
     Sheets("Dilution_Annot").Activate
     Call Utilities.OverwriteHeader("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Load_To_Excel(FileNameArray, "Raw_Data_File_Name", HeaderRowNumber:=1, _
-                                 DataStartRowNumber:=2, MessageBoxRequired:=False)
+                                 DataStartRowNumber:=2, MessageBoxRequired:=True)
     Call Utilities.OverwriteHeader("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Load_To_Excel(SampleNameArray, "Sample_Name", HeaderRowNumber:=1, _
                                  DataStartRowNumber:=2, MessageBoxRequired:=True)

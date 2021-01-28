@@ -157,6 +157,7 @@ Public Sub Sample_Annot_Integration_Test()
     Call Autofill_Sample_Type_Click
     MsgBox "Merging raw data with sample annotation test complete"
     
+    'Clear the sample annotation
     Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
@@ -172,3 +173,67 @@ TestFail:
     Exit Sub
 End Sub
 
+Public Sub Sample_Annot_and_Dilution_Annot_Integration_Test()
+    On Error GoTo TestFail
+    'We don't want excel to monitor the sheet when runnning this code
+    Application.EnableEvents = True
+    'To ensure that Filters does not affect the assignment
+    Utilities.RemoveFilterSettings
+    Sheets("Sample_Annot").Activate
+    
+    Dim TestFolder As String
+    Dim RawDataFiles As String
+    Dim xFileNames() As String
+    Dim xFileName As Variant
+    Dim FileThere As Boolean
+    
+    Dim MS_File_Array() As String
+    Dim Sample_Name_Array_from_Raw_Data() As String
+    
+    'Indicate path to the test data folder
+    TestFolder = ThisWorkbook.Path & "\Testdata\"
+    RawDataFiles = TestFolder & "DogCat.csv"
+    
+    xFileNames = Split(RawDataFiles, ";")
+    
+    'Check if the data file exists
+    For Each xFileName In xFileNames
+        FileThere = (Dir(xFileName) > "")
+        If FileThere = False Then
+            MsgBox "File name " & xFileName & " cannot be found."
+            End
+        End If
+    Next xFileName
+    
+    'Test creating a new sample annotation
+    Call Sample_Annot.Create_new_Sample_Annot(RawDataFiles:=RawDataFiles)
+    MsgBox "Load RQC samples to copy"
+    
+    'Load to Dilution_Annot
+    Call Load_Sample_Name_To_Dilution_Annot_Click
+    MsgBox "Copy RQC Samples to Dilution Annot complete"
+    
+    'Clear the dilution annotation
+    Sheets("Dilution_Annot").Activate
+    Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Dilution_Batch_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Dilution_Factor_[%]", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Injection_Volume_[uL]", HeaderRowNumber:=1, DataStartRowNumber:=2)
+
+    'Clear the sample annotation
+    Sheets("Sample_Annot").Activate
+    Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Sample_Amount", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Sample_Amount_Unit", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("ISTD_Mixture_Volume_[ul]", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    MsgBox "Dilution_Annot test complete"
+
+    
+TestFail:
+    Application.EnableEvents = True
+    Exit Sub
+End Sub
