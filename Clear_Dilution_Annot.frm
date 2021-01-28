@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Clear_Dilution_Annot 
    Caption         =   "Clear Dilution_Annot"
-   ClientHeight    =   3015
+   ClientHeight    =   3720
    ClientLeft      =   120
    ClientTop       =   465
    ClientWidth     =   3555
@@ -13,11 +13,10 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Private Sub Dilution_Amount_Click()
-
-End Sub
-
 Private Sub Dilution_Annot_Clear_Click()
+    If Raw_Data_File_Name.Value = True Then
+        Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    End If
     If Sample_Name.Value = True Then
         Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     End If
@@ -30,8 +29,4 @@ Private Sub Dilution_Annot_Clear_Click()
     If Injection_Volume_uL.Value = True Then
         Call Utilities.Clear_Columns("Injection_Volume_[uL]", HeaderRowNumber:=1, DataStartRowNumber:=2)
     End If
-End Sub
-
-Private Sub Dilution_Batch_Name_Click()
-
 End Sub

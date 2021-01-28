@@ -20,12 +20,8 @@ Sub Load_Sample_Name_To_Dilution_Annot_Click()
     Application.EnableEvents = False
     
     Dim SampleNameArray() As String
-    
-    'Check if the column Sample_Name exists
-    'Dim SampleName_pos As Integer
-    'SampleName_pos = Utilities.Get_Header_Col_Position("Sample_Name", HeaderRowNumber:=1)
-    'SampleName_letter = ConvertToLetter(SampleName_pos)
-    
+    Dim FileNameArray() As String
+        
     'Check if the column Sample_Type exists
     Dim SampleType_pos As Integer
     SampleType_pos = Utilities.Get_Header_Col_Position("Sample_Type", HeaderRowNumber:=1)
@@ -37,12 +33,20 @@ Sub Load_Sample_Name_To_Dilution_Annot_Click()
                                        
                                        
 
-    'Load the Sample_Name and Sample_Type columns content in Sample_Annot
+    'Load the Sample_Name columns content from Sample_Annot
     SampleNameArray = Utilities.Load_Columns_From_Excel("Sample_Name", HeaderRowNumber:=1, _
                                                         DataStartRowNumber:=2, MessageBoxRequired:=True, _
-                                                        RemoveBlksAndReplicates:=True, _
+                                                        RemoveBlksAndReplicates:=False, _
                                                         IgnoreHiddenRows:=True, IgnoreEmptyArray:=True)
+                                                    
+    'Load the Raw_Data_File_Name columns content from Sample_Annot
+    FileNameArray = Utilities.Load_Columns_From_Excel("Raw_Data_File_Name", HeaderRowNumber:=1, _
+                                                       DataStartRowNumber:=2, MessageBoxRequired:=True, _
+                                                       RemoveBlksAndReplicates:=False, _
+                                                       IgnoreHiddenRows:=True, IgnoreEmptyArray:=True)
 
+    'Debug.Print FileNameArray(1)
+    
     'To ensure that Filters does not affect the assignment
     Utilities.RemoveFilterSettings
     
@@ -56,8 +60,12 @@ Sub Load_Sample_Name_To_Dilution_Annot_Click()
     
     'Go to the Dilution_Annot sheet
     Sheets("Dilution_Annot").Activate
+    Call Utilities.OverwriteHeader("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Load_To_Excel(FileNameArray, "Raw_Data_File_Name", HeaderRowNumber:=1, _
+                                 DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.OverwriteHeader("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
-    Call Utilities.Load_To_Excel(SampleNameArray, "Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=True)
+    Call Utilities.Load_To_Excel(SampleNameArray, "Sample_Name", HeaderRowNumber:=1, _
+                                 DataStartRowNumber:=2, MessageBoxRequired:=True)
 
 End Sub
 
