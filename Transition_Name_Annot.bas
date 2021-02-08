@@ -1,5 +1,5 @@
 Attribute VB_Name = "Transition_Name_Annot"
-Public Function Get_Sorted_Transition_Array() As String()
+Public Function Get_Sorted_Transition_Array_Raw() As String()
     Dim Transition_Array() As String
     Transition_Array = Load_Raw_Data.Get_Transition_Array()
 
@@ -10,7 +10,23 @@ Public Function Get_Sorted_Transition_Array() As String()
     End If
     'Sort the array
     QuickSort ThisArray:=Transition_Array
-    Get_Sorted_Transition_Array = Transition_Array
+    Get_Sorted_Transition_Array_Raw = Transition_Array
+End Function
+
+Public Function Get_Sorted_Transition_Array_Tidy(TidyDataFiles As String, _
+                                                 DataFileType As String) As String()
+    Dim Transition_Array() As String
+    Transition_Array = Load_Tidy_Data.Get_Transition_Array_Tidy(TidyDataFiles:=TidyDataFiles)
+
+    'Leave the program if we have an empty array
+    If Len(Join(Transition_Array, "")) = 0 Then
+        MsgBox "Could not find any Transition Names"
+        Exit Function
+    End If
+    
+    'Sort the array
+    QuickSort ThisArray:=Transition_Array
+    Get_Sorted_Transition_Array_Tidy = Transition_Array
 End Function
 
 Public Sub VerifyISTD(ByRef Transition_Array() As String, ByRef ISTD_Array() As String, Optional ByVal MessageBoxRequired As Boolean = True, Optional ByVal Testing As Boolean = False)

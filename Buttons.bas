@@ -231,20 +231,56 @@ Sub GetTransitionArray_Click()
     Application.EnableEvents = False
     Sheets("Transition_Name_Annot").Activate
     Dim Transition_Array() As String
-    Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array()
-    
-    'Leave the program if we have an empty array
-    If Len(Join(Transition_Array, "")) = 0 Then
-        'Don't need to display message as we did that in Transition_Name_Annot.Get_Sorted_Transition_Array
-        'MsgBox "Could not find any Transition Names"
-        Exit Sub
-    End If
+    Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Raw()
     
     'Excel resume monitoring the sheet
     Application.EnableEvents = True
     
+    'Leave the program if we have an empty array
+    If Len(Join(Transition_Array, "")) = 0 Then
+        'Don't need to display message as we did that in
+        'Transition_Name_Annot.Get_Sorted_Transition_Array_Raw
+        'MsgBox "Could not find any Transition Names"
+        Exit Sub
+    End If
+    
     Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=True)
+End Sub
+
+Sub GetTransitionArrayTidy_Click()
+    'We don't want excel to monitor the sheet when runnning this code
+    Application.EnableEvents = False
+    Sheets("Transition_Name_Annot").Activate
+    Dim Transition_Array() As String
+    Load_Transition_Name_Tidy.Show
+     
+    Debug.Print Load_Transition_Name_Tidy.Data_File_Type_ComboBox.Text
+     
+    'If the Load Annotation button is clicked
+    Select Case Load_Transition_Name_Tidy.whatsclicked
+    Case "Create_New_Transition_Annot_Button"
+        Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Tidy( _
+                           TidyDataFiles:=Load_Transition_Name_Tidy.Tidy_Data_File_Path.Text, _
+                           DataFileType:=Load_Transition_Name_Tidy.Data_File_Type_ComboBox.Text)
+    End Select
+    
+    Unload Load_Transition_Name_Tidy
+    
+    'Excel resume monitoring the sheet
+    Application.EnableEvents = True
+    
+    'Leave the program if we have an empty array
+    If Len(Join(Transition_Array, "")) = 0 Then
+        'Don't need to display message as we did that in
+        'Transition_Name_Annot.Get_Sorted_Transition_Array_Tidy
+        Exit Sub
+    End If
+    
+    
+    Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=True)
+    
 End Sub
 
 

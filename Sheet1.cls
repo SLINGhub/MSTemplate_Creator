@@ -32,3 +32,7 @@ Private Sub LoadTransition_Click()
     Call GetTransitionArray_Click
 End Sub
 
+Private Sub LoadTransitionTidy_Click()
+    Call GetTransitionArrayTidy_Click
+End Sub
+
