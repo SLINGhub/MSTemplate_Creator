@@ -14,10 +14,18 @@ Public Function Get_Sorted_Transition_Array_Raw() As String()
 End Function
 
 Public Function Get_Sorted_Transition_Array_Tidy(TidyDataFiles As String, _
-                                                 DataFileType As String) As String()
+                                                 DataFileType As String, _
+                                                 TransitionProperty As String, _
+                                                 StartingRowNum As Integer, _
+                                                 StartingColumnNum As Integer) As String()
+                                                 
     Dim Transition_Array() As String
-    Transition_Array = Load_Tidy_Data.Get_Transition_Array_Tidy(TidyDataFiles:=TidyDataFiles)
-
+    Transition_Array = Load_Tidy_Data.Get_Transition_Array_Tidy(TidyDataFiles:=TidyDataFiles, _
+                                                                DataFileType:=DataFileType, _
+                                                                TransitionProperty:=TransitionProperty, _
+                                                                StartingRowNum:=StartingRowNum, _
+                                                                StartingColumnNum:=StartingColumnNum)
+                                                                
     'Leave the program if we have an empty array
     If Len(Join(Transition_Array, "")) = 0 Then
         MsgBox "Could not find any Transition Names"

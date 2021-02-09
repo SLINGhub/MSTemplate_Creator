@@ -1,4 +1,118 @@
 Attribute VB_Name = "Utilities"
+Public Function Get_Header_Col_Position_From_2Darray(ByRef Lines() As String, HeaderName As String, _
+                                                     HeaderRowNumber As Variant, Delimiter As String) As Variant
+    
+    'Go to the next line
+    Dim header_line() As String
+    header_line = Split(Lines(HeaderRowNumber), Delimiter)
+
+    Get_Header_Col_Position_From_2Darray = Null
+    'Find the index where the header name first occurred
+    For i = LBound(header_line) To UBound(header_line)
+        If header_line(i) = HeaderName Then
+            Get_Header_Col_Position_From_2Darray = i
+            Exit For
+        End If
+    Next i
+
+    If IsNull(Get_Header_Col_Position_From_2Darray) Then
+        MsgBox HeaderName & " is missing in the input file "
+        End
+    End If
+    
+End Function
+
+Public Function Load_Columns_From_2Darray(ByRef strArray() As String, ByRef Lines() As String, _
+                                          DataStartRowNumber As Integer, Delimiter As String, _
+                                          MessageBoxRequired As Boolean, RemoveBlksAndReplicates As Boolean, _
+                                          Optional ByVal HeaderName As String, _
+                                          Optional ByVal HeaderRowNumber As Variant, _
+                                          Optional ByVal DataStartColumnNumber As Variant, _
+                                          Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
+    'We are updating the strArray
+    'Dim TotalRows As Long
+    Dim i As Long
+    Dim ArrayLength As Long
+    ArrayLength = Utilities.StringArrayLen(strArray)
+
+    'Get column position of a given header name
+    Dim HeaderColNumber As Variant
+    If Not Trim(HeaderName) = vbNullString And Not IsMissing(HeaderRowNumber) Then
+        HeaderColNumber = Utilities.Get_Header_Col_Position_From_2Darray(Lines(), HeaderName, HeaderRowNumber, Delimiter)
+    ElseIf Not IsMissing(DataStartColumnNumber) Then
+        HeaderColNumber = DataStartColumnNumber
+    End If
+    
+    For i = DataStartRowNumber To UBound(Lines) - 1
+        'Get the Transition_Name and remove the whitespaces
+        Transition_Name = Trim(Split(Lines(i), Delimiter)(HeaderColNumber))
+        If RemoveBlksAndReplicates Then
+            'Check if the Transition name is not empty and duplicate
+            InArray = Utilities.IsInArray(Transition_Name, strArray)
+            If Len(Transition_Name) <> 0 And Not InArray Then
+                ReDim Preserve strArray(ArrayLength)
+                strArray(ArrayLength) = Transition_Name
+                'Debug.Print strArrayArrayLength)
+                ArrayLength = ArrayLength + 1
+            End If
+        Else
+            ReDim Preserve strArray(ArrayLength)
+            strArray(ArrayLength) = Transition_Name
+            'Debug.Print strArray(ArrayLength)
+            ArrayLength = ArrayLength + 1
+        End If
+    Next i
+    
+    Load_Columns_From_2Darray = strArray
+    
+End Function
+
+Public Function Read_File(xFileName As Variant) As String()
+    ' Load the file into a string.
+    fnum = FreeFile
+    Open xFileName For Input As fnum
+    whole_file = Input$(LOF(fnum), #fnum)
+    Close fnum
+    
+    ' Break the file into lines.
+    Read_File = Split(whole_file, vbCrLf)
+    
+End Function
+
+Public Function Get_File_Base_Name(xFileName As Variant) As String
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Get_File_Base_Name = fso.GetFileName(xFileName)
+End Function
+
+Public Function Get_Raw_Data_File_Type(ByRef Lines() As String, Delimiter As String, xFileName As String) As String
+    Dim first_line() As String
+    Dim second_line() As String
+    'Get the first line
+    first_line = Split(Lines(0), Delimiter)
+    
+    'If sample is in first line, check the second line
+    If first_line(0) = "Sample" Then
+        If Utilities.StringArrayLen(Lines) > 1 Then
+            second_line = Split(Lines(1), Delimiter)
+            If Utilities.IsInArray("Data File", second_line) Then
+                Get_Raw_Data_File_Type = "AgilentWideForm"
+            End If
+        End If
+    ElseIf first_line(0) = "Compound Method" Then
+        Get_Raw_Data_File_Type = "AgilentCompoundForm"
+    ElseIf first_line(0) = "Sample Name" Then
+        Get_Raw_Data_File_Type = "Sciex"
+    End If
+    
+    'Give an error if we are unable to find up where the raw data is coming from
+    If Get_Raw_Data_File_Type = "" Then
+        MsgBox "Cannot identify the raw data file type (Agilent or SciEx) for " & xFileName
+        Exit Function
+    End If
+    
+End Function
+
 Public Sub RemoveFilterSettings()
     If ActiveSheet.AutoFilterMode Then
         ActiveSheet.AutoFilterMode = False

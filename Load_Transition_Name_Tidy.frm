@@ -86,7 +86,7 @@ Private Sub Transition_Name_Property_ComboBox_Change()
     Case "Read as column variables"
         Starting_Row_Number_TextBox.Value = 1
         Starting_Column_Number_TextBox.Value = 2
-    Case "Read as row obserations"
+    Case "Read as row observations"
         Starting_Row_Number_TextBox.Value = 2
         Starting_Column_Number_TextBox.Value = 1
     End Select
@@ -95,13 +95,13 @@ End Sub
 
 ' Give default values
 Private Sub UserForm_Initialize()
-    Data_File_Type_ComboBox.AddItem "Excel"
     Data_File_Type_ComboBox.AddItem "csv"
+    Data_File_Type_ComboBox.AddItem "Excel"
     'Take the first option as the default value
     Data_File_Type_ComboBox.ListIndex = 0
     
     Transition_Name_Property_ComboBox.AddItem "Read as column variables"
-    Transition_Name_Property_ComboBox.AddItem "Read as row obserations"
+    Transition_Name_Property_ComboBox.AddItem "Read as row observations"
     'Take the first option as the default value
     Transition_Name_Property_ComboBox.ListIndex = 0
     

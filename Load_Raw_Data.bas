@@ -24,46 +24,6 @@ Private Function ConcantenateStringArrays(Array1() As String, Array2() As String
     End If
 End Function
 
-Private Function GetRawDataFileType(ByRef Lines() As String, Delimiter As String, xFileName As String) As String
-    Dim first_line() As String
-    Dim second_line() As String
-    'Get the first line
-    first_line = Split(Lines(0), Delimiter)
-    
-    'If sample is in first line, check the second line
-    If first_line(0) = "Sample" Then
-        If Utilities.StringArrayLen(Lines) > 1 Then
-            second_line = Split(Lines(1), Delimiter)
-            If Utilities.IsInArray("Data File", second_line) Then
-                GetRawDataFileType = "AgilentWideForm"
-            End If
-        End If
-    ElseIf first_line(0) = "Compound Method" Then
-        GetRawDataFileType = "AgilentCompoundForm"
-    ElseIf first_line(0) = "Sample Name" Then
-        GetRawDataFileType = "Sciex"
-    End If
-    
-    'Give an error if we are unable to find up where the raw data is coming from
-    If GetRawDataFileType = "" Then
-        MsgBox "Cannot identify the raw data file type (Agilent or SciEx) for " & xFileName
-        Exit Function
-    End If
-    
-End Function
-
-Private Function ReadFile(xFileName As Variant) As String()
-    ' Load the file into a string.
-    fnum = FreeFile
-    Open xFileName For Input As fnum
-    whole_file = Input$(LOF(fnum), #fnum)
-    Close fnum
-    
-    ' Break the file into lines.
-    ReadFile = Split(whole_file, vbCrLf)
-    
-End Function
-
 Private Function GetDelimiter(xFileName As Variant) As String
     FileExtent = Right(xFileName, Len(xFileName) - InStrRev(xFileName, "."))
     'Get the first line
@@ -75,73 +35,6 @@ Private Function GetDelimiter(xFileName As Variant) As String
         MsgBox "Cannot identify delimiter due to unusual file type"
         End
     End If
-End Function
-
-Private Function GetFileBaseName(xFileName As Variant) As String
-    Dim fso As Object
-    Set fso = CreateObject("Scripting.FileSystemObject")
-    GetFileBaseName = fso.GetFileName(xFileName)
-End Function
-
-Private Function Get_Header_Col_Position_From_2Darray(ByRef Lines() As String, HeaderName As String, _
-                                                      HeaderRowNumber As Integer, Delimiter As String) As Variant
-    
-    'Go to the next line
-    Dim header_line() As String
-    header_line = Split(Lines(HeaderRowNumber), Delimiter)
-
-    Get_Header_Col_Position_From_2Darray = Null
-    'Find the index where the header name first occurred
-    For i = LBound(header_line) To UBound(header_line)
-        If header_line(i) = HeaderName Then
-            Get_Header_Col_Position_From_2Darray = i
-            Exit For
-        End If
-    Next i
-    
-    If IsNull(Get_Header_Col_Position_From_2Darray) Then
-        MsgBox HeaderName & " is missing in the input file "
-        End
-    End If
-    
-End Function
-
-Private Function Load_Columns_From_2Darray(ByRef strArray() As String, ByRef Lines() As String, HeaderName As String, _
-                                           HeaderRowNumber As Integer, DataStartRowNumber As Integer, Delimiter As String, _
-                                           MessageBoxRequired As Boolean, RemoveBlksAndReplicates As Boolean, _
-                                           Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
-    'We are updating the strArray
-    'Dim TotalRows As Long
-    Dim i As Long
-    Dim ArrayLength As Long
-    ArrayLength = Utilities.StringArrayLen(strArray)
-    
-    'Get column position of Transition_Name_ISTD
-    Dim HeaderColNumber As Variant
-    HeaderColNumber = Get_Header_Col_Position_From_2Darray(Lines(), HeaderName, HeaderRowNumber, Delimiter)
-    
-    For i = DataStartRowNumber To UBound(Lines) - 1
-        'Get the Transition_Name and remove the whitespaces
-        Transition_Name = Trim(Split(Lines(i), Delimiter)(HeaderColNumber))
-        If RemoveBlksAndReplicates Then
-            'Check if the Transition name is not empty and duplicate
-            InArray = Utilities.IsInArray(Transition_Name, strArray)
-            If Len(Transition_Name) <> 0 And Not InArray Then
-                ReDim Preserve strArray(ArrayLength)
-                strArray(ArrayLength) = Transition_Name
-                'Debug.Print strArrayArrayLength)
-                ArrayLength = ArrayLength + 1
-            End If
-        Else
-            ReDim Preserve strArray(ArrayLength)
-            strArray(ArrayLength) = Transition_Name
-            'Debug.Print strArray(ArrayLength)
-            ArrayLength = ArrayLength + 1
-        End If
-    Next i
-    
-    Load_Columns_From_2Darray = strArray
-    
 End Function
 
 Private Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() As String, ByRef Lines() As String, ByRef line_subset_index() As Integer, _
@@ -207,10 +100,10 @@ Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, ByRef MS_Fil
         Dim Delimiter As String
         Dim FileName As String
         Dim RawDataFileType As String
-        Lines = ReadFile(xFileName)
+        Lines = Utilities.Read_File(xFileName)
         Delimiter = GetDelimiter(xFileName)
-        FileName = GetFileBaseName(xFileName)
-        RawDataFileType = GetRawDataFileType(Lines, Delimiter, FileName)
+        FileName = Utilities.Get_File_Base_Name(xFileName)
+        RawDataFileType = Utilities.Get_Raw_Data_File_Type(Lines, Delimiter, FileName)
         
         Dim Sample_Name_SubArray() As String
         Dim MS_File_SubArray() As String
@@ -220,7 +113,13 @@ Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, ByRef MS_Fil
         'When the Raw file is from Agilent WideTableForm
         If RawDataFileType = "AgilentWideForm" Then
         
-            Sample_Name_SubArray = Load_Columns_From_2Darray(Sample_Name_SubArray, Lines, "Data File", 1, 2, Delimiter, True, True)
+            Sample_Name_SubArray = Utilities.Load_Columns_From_2Darray(Sample_Name_SubArray, Lines, _
+                                                                       HeaderName:="Data File", _
+                                                                       HeaderRowNumber:=1, _
+                                                                       DataStartRowNumber:=2, _
+                                                                       Delimiter:=Delimiter, _
+                                                                       MessageBoxRequired:=True, _
+                                                                       RemoveBlksAndReplicates:=True)
             Call ClearDotD_inAgilentDataFile(Sample_Name_SubArray)
             
             'When the Raw file is from Agilent CompoundTableForm
@@ -251,7 +150,13 @@ Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, ByRef MS_Fil
             
             'When the Raw File is from Sciex
         ElseIf RawDataFileType = "Sciex" Then
-            Sample_Name_SubArray = Load_Columns_From_2Darray(Sample_Name_SubArray, Lines, "Sample Name", 0, 1, Delimiter, True, True)
+            Sample_Name_SubArray = Utilities.Load_Columns_From_2Darray(Sample_Name_SubArray, Lines, _
+                                                                       HeaderName:="Sample Name", _
+                                                                       HeaderRowNumber:=0, _
+                                                                       DataStartRowNumber:=1, _
+                                                                       Delimiter:=Delimiter, _
+                                                                       MessageBoxRequired:=True, _
+                                                                       RemoveBlksAndReplicates:=True)
         End If
         
         'Update the subarray to the original arrays
@@ -293,10 +198,10 @@ Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = Fals
         Dim Delimiter As String
         Dim FileName As String
         Dim RawDataFileType As String
-        Lines = ReadFile(xFileName)
+        Lines = Utilities.Read_File(xFileName)
         Delimiter = GetDelimiter(xFileName)
-        FileName = GetFileBaseName(xFileName)
-        RawDataFileType = GetRawDataFileType(Lines, Delimiter, FileName)
+        FileName = Utilities.Get_File_Base_Name(xFileName)
+        RawDataFileType = Utilities.Get_Raw_Data_File_Type(Lines, Delimiter, FileName)
     
         'When the Raw file is from Agilent WideTableForm
         If RawDataFileType = "AgilentWideForm" Then
@@ -304,7 +209,7 @@ Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = Fals
             Dim first_line() As String
             first_line = Split(Lines(0), Delimiter)
             
-            'We update the array length if Transition_Array
+            'We update the array length of Transition_Array
             ArrayLength = Utilities.StringArrayLen(Transition_Array)
             
             For i = 1 To UBound(first_line)
@@ -399,7 +304,13 @@ Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = Fals
             
             'When the Raw File is from Sciex
         ElseIf RawDataFileType = "Sciex" Then
-            Transition_Array = Load_Columns_From_2Darray(Transition_Array, Lines, "Component Name", 0, 1, Delimiter, True, True)
+            Transition_Array = Utilities.Load_Columns_From_2Darray(Transition_Array, Lines, _
+                                                                   HeaderName:="Component Name", _
+                                                                   HeaderRowNumber:=0, _
+                                                                   DataStartRowNumber:=1, _
+                                                                   Delimiter:=Delimiter, _
+                                                                   MessageBoxRequired:=True, _
+                                                                   RemoveBlksAndReplicates:=True)
         End If
     Next xFileName
     Get_Transition_Array = Transition_Array

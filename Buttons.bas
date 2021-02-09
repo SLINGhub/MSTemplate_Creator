@@ -245,7 +245,8 @@ Sub GetTransitionArray_Click()
     End If
     
     Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
-    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=True)
+    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, _
+                                 DataStartRowNumber:=2, MessageBoxRequired:=True)
 End Sub
 
 Sub GetTransitionArrayTidy_Click()
@@ -255,14 +256,15 @@ Sub GetTransitionArrayTidy_Click()
     Dim Transition_Array() As String
     Load_Transition_Name_Tidy.Show
      
-    Debug.Print Load_Transition_Name_Tidy.Data_File_Type_ComboBox.Text
-     
     'If the Load Annotation button is clicked
     Select Case Load_Transition_Name_Tidy.whatsclicked
     Case "Create_New_Transition_Annot_Button"
         Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Tidy( _
                            TidyDataFiles:=Load_Transition_Name_Tidy.Tidy_Data_File_Path.Text, _
-                           DataFileType:=Load_Transition_Name_Tidy.Data_File_Type_ComboBox.Text)
+                           DataFileType:=Load_Transition_Name_Tidy.Data_File_Type_ComboBox.Text, _
+                           TransitionProperty:=Load_Transition_Name_Tidy.Transition_Name_Property_ComboBox.Text, _
+                           StartingRowNum:=Load_Transition_Name_Tidy.Starting_Row_Number_TextBox.Value, _
+                           StartingColumnNum:=Load_Transition_Name_Tidy.Starting_Column_Number_TextBox.Value)
     End Select
     
     Unload Load_Transition_Name_Tidy
@@ -279,7 +281,8 @@ Sub GetTransitionArrayTidy_Click()
     
     
     Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
-    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=True)
+    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, _
+                                 DataStartRowNumber:=2, MessageBoxRequired:=True)
     
 End Sub
 
