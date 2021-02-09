@@ -1,4 +1,78 @@
 Attribute VB_Name = "Utilities"
+Public Function Get_RowName_Position_From_2Darray(ByRef Lines() As String, RowName As String, _
+                                                  RowNameNumber As Variant, Delimiter As String) As Variant
+    
+    Dim row_name() As String
+    Get_RowName_Position_From_2Darray = Null
+    
+    For i = LBound(Lines) To UBound(Lines) - 1
+        'Get the Row_Name and remove the whitespaces
+        row_name = Split(Lines(i), Delimiter)
+        'Debug.Print Trim(row_name(RowNameNumber))
+        If Trim(row_name(RowNameNumber)) = RowName Then
+            Get_RowName_Position_From_2Darray = i
+            Exit For
+        End If
+    Next i
+    
+    If IsNull(Get_RowName_Position_From_2Darray) Then
+        MsgBox RowName & " is missing in the input file "
+        End
+    End If
+    
+End Function
+
+Public Function Load_Rows_From_2Darray(ByRef strArray() As String, ByRef Lines() As String, _
+                                       DataStartColumnNumber As Integer, Delimiter As String, _
+                                       RemoveBlksAndReplicates As Boolean, _
+                                       Optional ByVal RowName As String, _
+                                       Optional ByVal RowNameNumber As Variant, _
+                                       Optional ByVal DataStartRowNumber As Variant) As String()
+    
+                                     
+    'Get column position of a given header name
+    Dim RowNamePosition As Variant
+    If Not Trim(RowName) = vbNullString And Not IsMissing(RowNameNumber) Then
+        RowNamePosition = Utilities.Get_RowName_Position_From_2Darray(Lines(), _
+                                                                      RowName:=RowName, _
+                                                                      RowNameNumber:=RowNameNumber, _
+                                                                      Delimiter:=Delimiter)
+    ElseIf Not IsMissing(DataStartRowNumber) Then
+        RowNamePosition = DataStartRowNumber
+    End If
+    
+    'We just look at the one row the user indicates
+    Dim row_line() As String
+    row_line = Split(Lines(RowNamePosition), Delimiter)
+    'We update the array length of Transition_Array
+    ArrayLength = Utilities.StringArrayLen(strArray)
+    
+    For i = DataStartColumnNumber To UBound(row_line)
+        'Get the Transition_Name and remove the whitespaces
+        Transition_Name = Trim(row_line(i))
+        
+        If RemoveBlksAndReplicates Then
+            'Check if the Transition name is not empty and duplicate
+            InArray = Utilities.IsInArray(Transition_Name, strArray)
+            If Len(Transition_Name) <> 0 And Not InArray Then
+                ReDim Preserve strArray(ArrayLength)
+                strArray(ArrayLength) = Transition_Name
+                'Debug.Print strArrayArrayLength)
+                ArrayLength = ArrayLength + 1
+            End If
+        Else
+            ReDim Preserve strArray(ArrayLength)
+            strArray(ArrayLength) = Transition_Name
+            'Debug.Print strArray(ArrayLength)
+            ArrayLength = ArrayLength + 1
+        End If
+        
+    Next i
+    
+    Load_Rows_From_2Darray = strArray
+    
+End Function
+
 Public Function Get_Header_Col_Position_From_2Darray(ByRef Lines() As String, HeaderName As String, _
                                                      HeaderRowNumber As Variant, Delimiter As String) As Variant
     
@@ -24,11 +98,10 @@ End Function
 
 Public Function Load_Columns_From_2Darray(ByRef strArray() As String, ByRef Lines() As String, _
                                           DataStartRowNumber As Integer, Delimiter As String, _
-                                          MessageBoxRequired As Boolean, RemoveBlksAndReplicates As Boolean, _
+                                          RemoveBlksAndReplicates As Boolean, _
                                           Optional ByVal HeaderName As String, _
                                           Optional ByVal HeaderRowNumber As Variant, _
-                                          Optional ByVal DataStartColumnNumber As Variant, _
-                                          Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
+                                          Optional ByVal DataStartColumnNumber As Variant) As String()
     'We are updating the strArray
     'Dim TotalRows As Long
     Dim i As Long

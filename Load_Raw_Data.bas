@@ -118,7 +118,6 @@ Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, ByRef MS_Fil
                                                                        HeaderRowNumber:=1, _
                                                                        DataStartRowNumber:=2, _
                                                                        Delimiter:=Delimiter, _
-                                                                       MessageBoxRequired:=True, _
                                                                        RemoveBlksAndReplicates:=True)
             Call ClearDotD_inAgilentDataFile(Sample_Name_SubArray)
             
@@ -155,7 +154,6 @@ Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, ByRef MS_Fil
                                                                        HeaderRowNumber:=0, _
                                                                        DataStartRowNumber:=1, _
                                                                        Delimiter:=Delimiter, _
-                                                                       MessageBoxRequired:=True, _
                                                                        RemoveBlksAndReplicates:=True)
         End If
         
@@ -309,7 +307,6 @@ Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = Fals
                                                                    HeaderRowNumber:=0, _
                                                                    DataStartRowNumber:=1, _
                                                                    Delimiter:=Delimiter, _
-                                                                   MessageBoxRequired:=True, _
                                                                    RemoveBlksAndReplicates:=True)
         End If
     Next xFileName

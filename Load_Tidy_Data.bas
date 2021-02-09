@@ -119,30 +119,22 @@ Private Function Get_Transition_Array_Tidy_CSV(TidyDataFiles As String, _
         FileName = Utilities.Get_File_Base_Name(TidyDataFile)
         
         If TransitionProperty = "Read as column variables" Then
-            'We just look at the one row the user indicates
-            Dim transition_line() As String
-            transition_line = Split(Lines(StartingRowNum - 1), ",")
-            
-            'We update the array length of Transition_Array
-            ArrayLength = Utilities.StringArrayLen(Transition_Array)
-            
-            For i = StartingColumnNum - 1 To UBound(transition_line)
-                'Remove the whitespace
-                Transition_Name = Trim(transition_line(i))
-                'Check if the Transition name is not empty and duplicate
-                InArray = Utilities.IsInArray(Transition_Name, Transition_Array)
-                If Len(Transition_Name) <> 0 And Not InArray Then
-                    ReDim Preserve Transition_Array(ArrayLength)
-                    Transition_Array(ArrayLength) = Transition_Name
-                    ArrayLength = ArrayLength + 1
-                End If
-            Next i
+            Transition_Array = Utilities.Load_Rows_From_2Darray(Transition_Array, Lines(), _
+                                                                DataStartColumnNumber:=StartingColumnNum - 1, _
+                                                                Delimiter:=",", _
+                                                                RemoveBlksAndReplicates:=True, _
+                                                                DataStartRowNumber:=StartingRowNum - 1)
+            'Transition_Array = Utilities.Load_Rows_From_2Darray(Transition_Array, Lines(), _
+            '                                                    DataStartColumnNumber:=StartingColumnNum - 1, _
+            '                                                    Delimiter:=",", _
+            '                                                    RemoveBlksAndReplicates:=True, _
+            '                                                    RowName:="Sample_Name", _
+            '                                                    RowNameNumber:=0)
         ElseIf TransitionProperty = "Read as row observations" Then
             Transition_Array = Utilities.Load_Columns_From_2Darray(Transition_Array, Lines, _
                                                                    DataStartColumnNumber:=StartingColumnNum - 1, _
                                                                    DataStartRowNumber:=StartingRowNum - 1, _
                                                                    Delimiter:=",", _
-                                                                   MessageBoxRequired:=True, _
                                                                    RemoveBlksAndReplicates:=True)
         End If
     Next TidyDataFile
