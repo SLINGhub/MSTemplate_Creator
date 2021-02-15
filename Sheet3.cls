@@ -19,6 +19,10 @@ Private Sub AutofillSampleType_Click()
     Call Autofill_Sample_Type_Click
 End Sub
 
+Private Sub AutofillConcentrationUnit_Click()
+    Call Autofill_Concentration_Unit_Click
+End Sub
+
 Private Sub ClearSampleTable_Click()
     Call Clear_Sample_Table_Click
 End Sub

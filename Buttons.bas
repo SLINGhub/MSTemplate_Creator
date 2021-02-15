@@ -76,6 +76,101 @@ Sub Clear_Sample_Table_Click()
     Clear_Sample_Annot.Show
 End Sub
 
+Sub Autofill_Concentration_Unit_Click()
+
+    'We don't want excel to monitor the sheet when runnning this code
+    Application.EnableEvents = False
+    Sheets("ISTD_Annot").Activate
+    
+    'Check if the column Custom_Unit exists
+    Dim ISTD_Custom_Unit_ColNumber As Integer
+    ISTD_Custom_Unit_ColNumber = Utilities.Get_Header_Col_Position("Custom_Unit", 2)
+    
+    'Get the custom unit value
+    Dim Custom_Unit As String
+    Custom_Unit = Cells(3, ISTD_Custom_Unit_ColNumber)
+    Application.EnableEvents = True
+
+    'Get the right value after "or"
+    Dim Right_Custom_Unit As String
+    Dim RightConcUnitRegEx As New RegExp
+    RightConcUnitRegEx.Pattern = "(.*or)"
+    RightConcUnitRegEx.Global = True
+    Right_Custom_Unit = Trim(RightConcUnitRegEx.Replace(Custom_Unit, " "))
+    'Right_Custom_Unit = RightConcUnitRegEx.Execute(Custom_Unit)(0).SubMatches(0)
+    'Debug.Print Right_Custom_Unit
+
+    Sheets("Sample_Annot").Activate
+    'To ensure that Filters does not affect the assignment
+    Utilities.RemoveFilterSettings
+    
+    Dim Sample_Amount_Unit() As String
+    Sample_Amount_Unit = Utilities.Load_Columns_From_Excel("Sample_Amount_Unit", HeaderRowNumber:=1, _
+                                                           DataStartRowNumber:=2, MessageBoxRequired:=False, _
+                                                           RemoveBlksAndReplicates:=False, _
+                                                           IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
+    'Get the length of Sample_Amount_Unit
+    Dim max_length As Integer
+    max_length = 0
+    If Utilities.StringArrayLen(Sample_Amount_Unit) > max_length Then
+            max_length = Utilities.StringArrayLen(Sample_Amount_Unit)
+    End If
+    
+    'Leave the program if max_length is 0
+    If max_length = 0 Then
+        'Application.EnableEvents = True
+        End
+    End If
+    
+    Dim ConcentrationUnitArray() As String
+    Dim UniqueConcentrationUnitArray() As String
+    Dim UniqueArraryLength As Integer
+    UniqueArraryLength = 0
+    'Resize the array to max_length
+    ReDim Preserve ConcentrationUnitArray(max_length)
+    
+    'Add the concentration unit when necessary
+    For i = 0 To max_length - 1
+        Dim ConcentrationUnit As String
+        If Len(Sample_Amount_Unit(i)) <> 0 Then
+            ConcentrationUnit = Right_Custom_Unit & "_per_" & Sample_Amount_Unit(i)
+            ConcentrationUnitArray(i) = ConcentrationUnit
+            
+            'Collect Unique concentration unit
+            InArray = Utilities.IsInArray(ConcentrationUnit, UniqueConcentrationUnitArray)
+            If Not InArray Then
+                ReDim Preserve UniqueConcentrationUnitArray(UniqueArraryLength)
+                UniqueConcentrationUnitArray(UniqueArraryLength) = ConcentrationUnit
+                'Debug.Print UniqueConcentrationUnitArray(UniqueArraryLength)
+                UniqueArraryLength = UniqueArraryLength + 1
+            End If
+            
+        End If
+    Next
+    
+    'Load to Excel
+    Call Utilities.OverwriteHeader("Concentration_Unit", HeaderRowNumber:=1, _
+                                   DataStartRowNumber:=2)
+    Call Utilities.Load_To_Excel(ConcentrationUnitArray, "Concentration_Unit", _
+                                 HeaderRowNumber:=1, DataStartRowNumber:=2, _
+                                 MessageBoxRequired:=False)
+                                 
+    'Display a summary box of unique concentration units
+    If Utilities.StringArrayLen(UniqueConcentrationUnitArray) <> 0 Then
+        'Put the concentration units in the list box to be displayed
+        For i = 0 To UBound(UniqueConcentrationUnitArray) - LBound(UniqueConcentrationUnitArray)
+            Concentration_Unit_MsgBox.Concentration_Unit_ListBox.AddItem UniqueConcentrationUnitArray(i)
+        Next i
+        Concentration_Unit_MsgBox.Show
+        If Testing Then
+            Exit Sub
+        Else
+            End
+        End If
+    End If
+    
+End Sub
+
 Sub Autofill_Sample_Type_Click()
     Sheets("Sample_Annot").Activate
     
@@ -306,7 +401,6 @@ Sub GetTransitionArrayTidy_Click()
         'Transition_Name_Annot.Get_Sorted_Transition_Array_Tidy
         Exit Sub
     End If
-    
     
     Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, _

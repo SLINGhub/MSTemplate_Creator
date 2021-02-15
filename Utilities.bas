@@ -76,7 +76,7 @@ Public Function Load_Rows_From_2Darray(ByRef strArray() As String, ByRef Lines()
             If Len(Transition_Name) <> 0 And Not InArray Then
                 ReDim Preserve strArray(ArrayLength)
                 strArray(ArrayLength) = Transition_Name
-                'Debug.Print strArrayArrayLength)
+                'Debug.Print strArray(ArrayLength)
                 ArrayLength = ArrayLength + 1
             End If
         Else

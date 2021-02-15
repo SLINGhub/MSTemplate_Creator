@@ -35,5 +35,7 @@ Private Sub Sample_Annot_Clear_Click()
     If ISTD_Mixture_Volume.Value = True Then
         Call Utilities.Clear_Columns("ISTD_Mixture_Volume_[ul]", HeaderRowNumber:=1, DataStartRowNumber:=2)
     End If
+    If Concentration_Unit.Value = True Then
+        Call Utilities.Clear_Columns("Concentration_Unit", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    End If
 End Sub
-

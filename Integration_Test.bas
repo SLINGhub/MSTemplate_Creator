@@ -137,7 +137,7 @@ Public Sub Sample_Annot_Integration_Test()
     End If
     
     'Test creating a new sample annotation
-    Call Sample_Annot.Create_new_Sample_Annot(RawDataFiles:=RawDataFiles)
+    Call Sample_Annot.Create_New_Sample_Annot_Raw(RawDataFiles:=RawDataFiles)
     Call Autofill_Sample_Type_Click
     MsgBox "Create new sample annotation test complete"
     
@@ -206,7 +206,7 @@ Public Sub Sample_Annot_and_Dilution_Annot_Integration_Test()
     Next xFileName
     
     'Test creating a new sample annotation
-    Call Sample_Annot.Create_new_Sample_Annot(RawDataFiles:=RawDataFiles)
+    Call Sample_Annot.Create_New_Sample_Annot_Raw(RawDataFiles:=RawDataFiles)
     MsgBox "Load RQC samples to copy"
     
     'Load to Dilution_Annot
