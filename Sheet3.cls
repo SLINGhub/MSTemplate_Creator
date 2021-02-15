@@ -7,12 +7,12 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = True
-Private Sub LoadSampleNameToDilution_Click()
-    Call Load_Sample_Name_To_Dilution_Annot_Click
+Private Sub LoadSampleAnnotationRaw_Click()
+    Call Load_Sample_Annot_Raw_Column_Name_Click
 End Sub
 
-Private Sub LoadSampleAnnotation_Click()
-    Call Load_Sample_Annot_Column_Name_Click
+Private Sub LoadSampleAnnotationTidy_Click()
+    Call Load_Sample_Annot_Tidy_Column_Name_Click
 End Sub
 
 Private Sub AutofillSampleType_Click()
@@ -21,5 +21,9 @@ End Sub
 
 Private Sub ClearSampleTable_Click()
     Call Clear_Sample_Table_Click
+End Sub
+
+Private Sub LoadSampleNameToDilution_Click()
+    Call Load_Sample_Name_To_Dilution_Annot_Click
 End Sub
 

@@ -17,7 +17,7 @@ End Sub
 
 Private Sub LoadSampleAnnotation_Click()
     'In sheet 3 functions
-    Call Load_Sample_Annot_Column_Name_Click
+    Call Load_Sample_Annot_Raw_Column_Name_Click
 End Sub
 
 Private Sub LoadISTD_Click()

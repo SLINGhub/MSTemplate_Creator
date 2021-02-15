@@ -1,4 +1,68 @@
 Attribute VB_Name = "Load_Tidy_Data"
+Public Function Get_Sample_Name_Array_Tidy(ByRef TidyDataFilesArray() As String, _
+                                           ByRef MS_File_Array() As String, _
+                                           DataFileType As String, _
+                                           SampleProperty As String, _
+                                           StartingRowNum As Integer, _
+                                           StartingColumnNum As Integer) As String()
+ 
+    'Initialise the Sample Name Array
+    Dim Sample_Name_Array() As String
+    
+    'When no file is selected
+    If TypeName(TidyDataFilesArray) = "Boolean" Then
+        End
+    End If
+    On Error GoTo 0
+      
+    For Each TidyDataFile In TidyDataFilesArray
+    
+        Dim Sample_Name_SubArray() As String
+        Dim MS_File_SubArray() As String
+        Dim SubarrayLength As Long
+        SubarrayLength = 0
+        
+        Select Case DataFileType
+        Case "csv"
+            'Read the csv files
+            Dim Lines() As String
+            Dim FileName As String
+            Lines = Utilities.Read_File(TidyDataFile)
+            FileName = Utilities.Get_File_Base_Name(TidyDataFile)
+            
+            If SampleProperty = "Read as column variables" Then
+            Sample_Name_SubArray = Utilities.Load_Rows_From_2Darray(Sample_Name_SubArray, Lines(), _
+                                                                    DataStartColumnNumber:=StartingColumnNum - 1, _
+                                                                    Delimiter:=",", _
+                                                                    RemoveBlksAndReplicates:=True, _
+                                                                    DataStartRowNumber:=StartingRowNum - 1)
+            ElseIf SampleProperty = "Read as row observations" Then
+            Sample_Name_SubArray = Utilities.Load_Columns_From_2Darray(Sample_Name_SubArray, Lines, _
+                                                                       DataStartColumnNumber:=StartingColumnNum - 1, _
+                                                                       DataStartRowNumber:=StartingRowNum - 1, _
+                                                                       Delimiter:=",", _
+                                                                       RemoveBlksAndReplicates:=True)
+            End If
+        End Select
+        
+        'Update the subarray to the original arrays
+        Sample_Name_Array = Utilities.Concantenate_String_Arrays(Sample_Name_Array, Sample_Name_SubArray)
+        SubarrayLength = 0
+            
+        For i = 0 To Utilities.StringArrayLen(Sample_Name_SubArray) - 1
+            ReDim Preserve MS_File_SubArray(SubarrayLength)
+            MS_File_SubArray(i) = FileName
+            SubarrayLength = SubarrayLength + 1
+        Next i
+        MS_File_Array = Utilities.Concantenate_String_Arrays(MS_File_Array, MS_File_SubArray)
+        
+        Erase Sample_Name_SubArray
+        Erase MS_File_SubArray
+    
+    Next TidyDataFile
+    Get_Sample_Name_Array_Tidy = Sample_Name_Array
+End Function
+
 'TODO include sheet name
 Private Function Get_Transition_Array_Tidy_Excel(TidyDataFiles As String, _
                                                  TransitionProperty As String, _

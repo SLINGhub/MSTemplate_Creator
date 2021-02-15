@@ -1,7 +1,62 @@
 Attribute VB_Name = "Sample_Annot"
-Public Sub Create_new_Sample_Annot(RawDataFiles As String)
+Public Sub Create_New_Sample_Annot_Tidy(TidyDataFiles As String, _
+                                        DataFileType As String, _
+                                        SampleProperty As String, _
+                                        StartingRowNum As Integer, _
+                                        StartingColumnNum As Integer)
     Sheets("Sample_Annot").Activate
-    'File are taken from userfrom Load_Sample_Annot
+    
+    'File are taken from userfrom Load_Sample_Annot_Tidy
+    'Hence they must exists and joined together by ;
+    Dim TidyDataFilesArray() As String
+    TidyDataFilesArray = Split(TidyDataFiles, ";")
+
+    'Load the Sample_Name from Raw Data
+    Dim MS_File_Array() As String
+    Dim Sample_Name_Array_from_Tidy_Data() As String
+    'Dim TotalRows As Long
+    Sample_Name_Array_from_Tidy_Data = Load_Tidy_Data.Get_Sample_Name_Array_Tidy(TidyDataFilesArray, _
+                                                                                 MS_File_Array, _
+                                                                                 DataFileType, _
+                                                                                 SampleProperty, _
+                                                                                 StartingRowNum, _
+                                                                                 StartingColumnNum)
+                                                                                 
+    Dim MergeStatus() As String
+    Dim SampleType() As String
+    Dim ArrayLength As Integer
+    ArrayLength = 0
+    
+    For i = 0 To UBound(Sample_Name_Array_from_Tidy_Data) - LBound(Sample_Name_Array_from_Tidy_Data)
+        ReDim Preserve MergeStatus(ArrayLength)
+        ReDim Preserve SampleType(ArrayLength)
+        
+        MergeStatus(ArrayLength) = "Valid"
+        SampleType(ArrayLength) = Sample_Type_Identifier.Get_Sample_Type(Sample_Name_Array_from_Tidy_Data(i))
+        
+        ArrayLength = ArrayLength + 1
+    Next i
+    
+    Dim HeaderNameArray(0 To 3) As String
+    HeaderNameArray(0) = "Raw_Data_File_Name"
+    HeaderNameArray(1) = "Merge_Status"
+    HeaderNameArray(2) = "Sample_Name"
+    HeaderNameArray(3) = "Sample_Type"
+    
+    Call Utilities.OverwriteSeveralHeaders(HeaderNameArray, HeaderRowNumber:=1, DataStartRowNumber:=2)
+    
+    Call Utilities.Load_To_Excel(MS_File_Array, "Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
+    Call Utilities.Load_To_Excel(MergeStatus, "Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
+    Call Utilities.Load_To_Excel(Sample_Name_Array_from_Tidy_Data, "Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
+    Call Utilities.Load_To_Excel(SampleType, "Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
+    
+                                                                                    
+
+End Sub
+
+Public Sub Create_New_Sample_Annot_Raw(RawDataFiles As String)
+    Sheets("Sample_Annot").Activate
+    'File are taken from userfrom Load_Sample_Annot_Raw
     'Hence they must exists and joined together by ;
     Dim RawDataFilesArray() As String
     RawDataFilesArray = Split(RawDataFiles, ";")
@@ -45,7 +100,7 @@ End Sub
 
 Public Sub Merge_With_Sample_Annot(RawDataFiles As String, SampleAnnotFile As String)
     Sheets("Sample_Annot").Activate
-    'File are taken from userfrom Load_Sample_Annot
+    'File are taken from userfrom Load_Sample_Annot_Raw
     'Hence they must exists and joined together by ;
     Dim RawDataFilesArray() As String
     RawDataFilesArray = Split(RawDataFiles, ";")
@@ -93,7 +148,7 @@ Public Sub Merge_With_Sample_Annot(RawDataFiles As String, SampleAnnotFile As St
         ElseIf StringArrayLen(Positions) > 1 Then
             'Debug.Print "Duplicate"
             For j = 0 To UBound(Positions) - LBound(Positions)
-                If Load_Sample_Annot.Is_Column_Name_Present.Value = True Then
+                If Load_Sample_Annot_Raw.Is_Column_Name_Present.Value = True Then
                     Positions(j) = CStr(CInt(Positions(j)) + 2)
                 Else
                     Positions(j) = CStr(CInt(Positions(j)) + 1)
@@ -160,7 +215,7 @@ Private Function Get_Sample_Name_Array(ByRef xFileName As String) As String()
     
     'Get the column name to extract the sample name from sample annotation file
     Dim Sample_Column_Name As String
-    Sample_Column_Name = Load_Sample_Annot.Sample_Name_Text.Text
+    Sample_Column_Name = Load_Sample_Annot_Raw.Sample_Name_Text.Text
 
     'For the function output
     Dim Sample_Name_Array() As String
@@ -168,7 +223,7 @@ Private Function Get_Sample_Name_Array(ByRef xFileName As String) As String()
     Dim ArrayLength As Integer
     ArrayLength = 0
 
-    'Check that it is not empty, it should not be empty based on how we code the userform Load_Sample_Annot
+    'Check that it is not empty, it should not be empty based on how we code the userform Load_Sample_Annot_Raw
     If Sample_Column_Name <> "" Then
                         
         'Extract the sample name into the array
@@ -191,13 +246,13 @@ Private Function GetSampleColumnNamePosition(first_line() As String) As Integer
 
     'Get the column name to extract the sample name from sample annotation file
     Dim Sample_Column_Name As String
-    Sample_Column_Name = Load_Sample_Annot.Sample_Name_Text.Text
+    Sample_Column_Name = Load_Sample_Annot_Raw.Sample_Name_Text.Text
     
     Dim Sample_Column_Name_pos As Integer
     
     'If not empty, get sample name position from sample annot file
     'Should not have an error as we have check that the columns present in the userform
-    If Load_Sample_Annot.Is_Column_Name_Present.Value = True Then
+    If Load_Sample_Annot_Raw.Is_Column_Name_Present.Value = True Then
         'If the sample annotation has headers, we take the first line
         Sample_Column_Name_pos = Application.Match(Sample_Column_Name, first_line, False) - 1
     Else
@@ -218,7 +273,7 @@ Private Function GetSampleAnnotStartingLine() As Integer
     
     'If not empty, get sample name position from sample annot file
     'Should not have an error as we have check that the columns present in the userform
-    If Load_Sample_Annot.Is_Column_Name_Present.Value = True Then
+    If Load_Sample_Annot_Raw.Is_Column_Name_Present.Value = True Then
         'If the sample annotation has headers, we set starting position as 1
         data_starting_line = 1
     Else
@@ -263,11 +318,11 @@ End Sub
 
 Private Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, ByRef MatchingIndex() As String)
 
-    'Assign the textbox values from UserFrom Load_Sample_Annot to array MapHeaders
+    'Assign the textbox values from UserFrom Load_Sample_Annot_Raw to array MapHeaders
     Dim MapHeaders(0 To 1) As String
-    'MapHeaders(0) = Load_Sample_Annot.Sample_Name_Text.Text
-    MapHeaders(0) = Load_Sample_Annot.Sample_Amount_Text.Text
-    MapHeaders(1) = Load_Sample_Annot.ISTD_Mixture_Volume_Text.Text
+    'MapHeaders(0) = Load_Sample_Annot_Raw.Sample_Name_Text.Text
+    MapHeaders(0) = Load_Sample_Annot_Raw.Sample_Amount_Text.Text
+    MapHeaders(1) = Load_Sample_Annot_Raw.ISTD_Mixture_Volume_Text.Text
     
     Dim DestHeaders(0 To 1) As String
     'DestHeaders(0) = "Sample_Name"
@@ -296,7 +351,7 @@ Private Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, ByRef MatchingI
         If MapHeaders(i) <> "" Then
             'If not empty, get header position from sample annot file
             'Should not have an error as we have check that the columns are in oneline
-            If Load_Sample_Annot.Is_Column_Name_Present.Value = True Then
+            If Load_Sample_Annot_Raw.Is_Column_Name_Present.Value = True Then
                 pos = Application.Match(MapHeaders(i), one_line, False) - 1
             Else
                 'If the sample annotation has no headers
@@ -313,7 +368,7 @@ Private Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, ByRef MatchingI
             For j = 0 To UBound(MatchingIndex)
                 ReDim Preserve MapHeaders_Array(ArrayLength)
                 If Len(MatchingIndex(j)) <> 0 Then
-                    If Load_Sample_Annot.Is_Column_Name_Present.Value = True Then
+                    If Load_Sample_Annot_Raw.Is_Column_Name_Present.Value = True Then
                         'We need to add one as the sample annot file has an additional header which we do not want to include
                         Sample_Data = Trim(Split(Lines(CInt(MatchingIndex(j)) + 1), Delimiter)(pos))
                     Else

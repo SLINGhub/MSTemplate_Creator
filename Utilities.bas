@@ -1,4 +1,23 @@
 Attribute VB_Name = "Utilities"
+Public Function Concantenate_String_Arrays(Array1() As String, Array2() As String) As String()
+    'Update the Sample Name Array
+    Dim Array1Length As Long
+    Dim Array2Length As Long
+    Array1Length = Len(Join(Array1, ""))
+    Array2Length = Len(Join(Array2, ""))
+    
+    If Array1Length > 0 And Array2Length > 0 Then
+        Concantenate_String_Arrays = Split(Join(Array1, ",") & "," & Join(Array2, ","), ",")
+    ElseIf Array1Length > 0 Then
+        Concantenate_String_Arrays = Array1
+    ElseIf Array2Length > 0 Then
+        Concantenate_String_Arrays = Array2
+    Else
+        MsgBox "Two arrays cannot be empty"
+        Exit Function
+    End If
+End Function
+
 Public Function Get_RowName_Position_From_2Darray(ByRef Lines() As String, RowName As String, _
                                                   RowNameNumber As Variant, Delimiter As String) As Variant
     
@@ -125,7 +144,7 @@ Public Function Load_Columns_From_2Darray(ByRef strArray() As String, ByRef Line
             If Len(Transition_Name) <> 0 And Not InArray Then
                 ReDim Preserve strArray(ArrayLength)
                 strArray(ArrayLength) = Transition_Name
-                'Debug.Print strArrayArrayLength)
+                'Debug.Print strArray(ArrayLength)
                 ArrayLength = ArrayLength + 1
             End If
         Else

@@ -115,24 +115,52 @@ Sub Autofill_Sample_Type_Click()
 
 End Sub
 
-Sub Load_Sample_Annot_Column_Name_Click()
+Sub Load_Sample_Annot_Tidy_Column_Name_Click()
+    Sheets("Sample_Annot").Activate
+    
+    Load_Sample_Annot_Tidy.Show
+    
+    'If the Load Annotation button is clicked
+    Select Case Load_Sample_Annot_Tidy.whatsclicked
+    Case "Create_New_Sample_Annot_Tidy_Button"
+        'Debug.Print Load_Sample_Annot_Tidy.Tidy_Data_File_Path.Text
+        'Debug.Print Load_Sample_Annot_Tidy.Data_File_Type_ComboBox.Text
+        'Debug.Print Load_Sample_Annot_Tidy.Sample_Name_Property_ComboBox.Text
+        'Debug.Print Load_Sample_Annot_Tidy.Starting_Row_Number_TextBox.Value
+        'Debug.Print Load_Sample_Annot_Tidy.Starting_Column_Number_TextBox.Value
+        
+        Call Sample_Annot.Create_New_Sample_Annot_Tidy( _
+                            TidyDataFiles:=Load_Sample_Annot_Tidy.Tidy_Data_File_Path.Text, _
+                            DataFileType:=Load_Sample_Annot_Tidy.Data_File_Type_ComboBox.Text, _
+                            SampleProperty:=Load_Sample_Annot_Tidy.Sample_Name_Property_ComboBox.Text, _
+                            StartingRowNum:=Load_Sample_Annot_Tidy.Starting_Row_Number_TextBox.Value, _
+                            StartingColumnNum:=Load_Sample_Annot_Tidy.Starting_Column_Number_TextBox.Value)
+    
+    End Select
+    
+    Unload Load_Sample_Annot_Tidy
+    
+End Sub
+
+Sub Load_Sample_Annot_Raw_Column_Name_Click()
     'Assume first row are the headers
     'Assume headers are fully filled, not empty
     'Assume no duplicate headers
     
     Sheets("Sample_Annot").Activate
        
-    Load_Sample_Annot.Show
+    Load_Sample_Annot_Raw.Show
     
     'If the Load Annotation button is clicked
-    Select Case Load_Sample_Annot.whatsclicked
+    Select Case Load_Sample_Annot_Raw.whatsclicked
     Case "Merge_With_Sample_Annot_Button"
-        Call Sample_Annot.Merge_With_Sample_Annot(RawDataFiles:=Load_Sample_Annot.Raw_Data_File_Path.Text, SampleAnnotFile:=Load_Sample_Annot.Sample_Annot_File_Path.Text)
-    Case "Create_New_Sample_Annot_Button"
-        Call Sample_Annot.Create_new_Sample_Annot(RawDataFiles:=Load_Sample_Annot.Raw_Data_File_Path.Text)
+        Call Sample_Annot.Merge_With_Sample_Annot(RawDataFiles:=Load_Sample_Annot_Raw.Raw_Data_File_Path.Text, _
+                                                  SampleAnnotFile:=Load_Sample_Annot_Raw.Sample_Annot_File_Path.Text)
+    Case "Create_New_Sample_Annot_Raw_Button"
+        Call Sample_Annot.Create_New_Sample_Annot_Raw(RawDataFiles:=Load_Sample_Annot_Raw.Raw_Data_File_Path.Text)
     End Select
     
-    Unload Load_Sample_Annot
+    Unload Load_Sample_Annot_Raw
     
 End Sub
 

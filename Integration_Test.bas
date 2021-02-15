@@ -148,9 +148,9 @@ Public Sub Sample_Annot_Integration_Test()
     Call Utilities.Clear_Columns("Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2)
     
     'Prepare for merging
-    Load_Sample_Annot.Sample_Name_Text.Text = "Sample"
-    Load_Sample_Annot.Sample_Amount_Text.Text = "Cell Number"
-    Load_Sample_Annot.ISTD_Mixture_Volume_Text.Text = "ISTD Volume"
+    Load_Sample_Annot_Raw.Sample_Name_Text.Text = "Sample"
+    Load_Sample_Annot_Raw.Sample_Amount_Text.Text = "Cell Number"
+    Load_Sample_Annot_Raw.ISTD_Mixture_Volume_Text.Text = "ISTD Volume"
     
     'Test merging with existing sample annotation with raw data
     Call Sample_Annot.Merge_With_Sample_Annot(RawDataFiles:=RawDataFiles, SampleAnnotFile:=SampleAnnotFile)

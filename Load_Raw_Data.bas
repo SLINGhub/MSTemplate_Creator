@@ -5,24 +5,6 @@ Private Sub ClearDotD_inAgilentDataFile(ByRef AgilentDataFile() As String)
     Next i
 End Sub
 
-Private Function ConcantenateStringArrays(Array1() As String, Array2() As String) As String()
-    'Update the Sample Name Array
-    Dim Array1Length As Long
-    Dim Array2Length As Long
-    Array1Length = Len(Join(Array1, ""))
-    Array2Length = Len(Join(Array2, ""))
-    
-    If Array1Length > 0 And Array2Length > 0 Then
-        ConcantenateStringArrays = Split(Join(Array1, ",") & "," & Join(Array2, ","), ",")
-    ElseIf Array1Length > 0 Then
-        ConcantenateStringArrays = Array1
-    ElseIf Array2Length > 0 Then
-        ConcantenateStringArrays = Array2
-    Else
-        MsgBox "Two arrays cannot be empty"
-        Exit Function
-    End If
-End Function
 
 Private Function GetDelimiter(xFileName As Variant) As String
     FileExtent = Right(xFileName, Len(xFileName) - InStrRev(xFileName, "."))
@@ -83,7 +65,8 @@ Private Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() 
 End Function
 
 'Get the Sample_Name and where it comes from
-Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, ByRef MS_File_Array() As String) As String()
+Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, _
+                                      ByRef MS_File_Array() As String) As String()
     
     'Initialise the Sample Name Array
     Dim Sample_Name_Array() As String
@@ -158,7 +141,7 @@ Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, ByRef MS_Fil
         End If
         
         'Update the subarray to the original arrays
-        Sample_Name_Array = ConcantenateStringArrays(Sample_Name_Array, Sample_Name_SubArray)
+        Sample_Name_Array = Utilities.Concantenate_String_Arrays(Sample_Name_Array, Sample_Name_SubArray)
         SubarrayLength = 0
             
         For i = 0 To Utilities.StringArrayLen(Sample_Name_SubArray) - 1
@@ -166,7 +149,7 @@ Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, ByRef MS_Fil
             MS_File_SubArray(i) = FileName
             SubarrayLength = SubarrayLength + 1
         Next i
-        MS_File_Array = ConcantenateStringArrays(MS_File_Array, MS_File_SubArray)
+        MS_File_Array = Utilities.Concantenate_String_Arrays(MS_File_Array, MS_File_SubArray)
         
         Erase Sample_Name_SubArray
         Erase MS_File_SubArray
