@@ -413,7 +413,8 @@ Public Sub OverwriteSeveralHeaders(HeaderNameArray() As String, HeaderRowNumber 
 
 End Sub
 
-Public Sub OverwriteHeader(HeaderName As String, HeaderRowNumber As Integer, DataStartRowNumber As Integer, Optional ByVal Testing As Boolean = False)
+Public Sub OverwriteHeader(HeaderName As String, HeaderRowNumber As Integer, _
+                           DataStartRowNumber As Integer, Optional ByVal Testing As Boolean = False)
     
     Dim HeaderColNumber As Integer
     HeaderColNumber = Utilities.Get_Header_Col_Position(HeaderName, HeaderRowNumber)

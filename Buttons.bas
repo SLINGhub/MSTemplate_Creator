@@ -62,7 +62,7 @@ Sub Load_Sample_Name_To_Dilution_Annot_Click()
     Sheets("Dilution_Annot").Activate
     Call Utilities.OverwriteHeader("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Load_To_Excel(FileNameArray, "Raw_Data_File_Name", HeaderRowNumber:=1, _
-                                 DataStartRowNumber:=2, MessageBoxRequired:=True)
+                                 DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.OverwriteHeader("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Load_To_Excel(SampleNameArray, "Sample_Name", HeaderRowNumber:=1, _
                                  DataStartRowNumber:=2, MessageBoxRequired:=True)
@@ -91,13 +91,18 @@ Sub Autofill_Concentration_Unit_Click()
     Custom_Unit = Cells(3, ISTD_Custom_Unit_ColNumber)
     Application.EnableEvents = True
 
-    'Get the right value after "or"
     Dim Right_Custom_Unit As String
     Dim RightConcUnitRegEx As New RegExp
+    'Get the right value after "or"
     RightConcUnitRegEx.Pattern = "(.*or)"
     RightConcUnitRegEx.Global = True
     Right_Custom_Unit = Trim(RightConcUnitRegEx.Replace(Custom_Unit, " "))
+    'Remove square brackets and mL
+    RightConcUnitRegEx.Pattern = "[\[\]]"
+    Right_Custom_Unit = Trim(RightConcUnitRegEx.Replace(Right_Custom_Unit, " "))
+    RightConcUnitRegEx.Pattern = "/mL"
     'Right_Custom_Unit = RightConcUnitRegEx.Execute(Custom_Unit)(0).SubMatches(0)
+    Right_Custom_Unit = Trim(RightConcUnitRegEx.Replace(Right_Custom_Unit, " "))
     'Debug.Print Right_Custom_Unit
 
     Sheets("Sample_Annot").Activate
@@ -133,7 +138,7 @@ Sub Autofill_Concentration_Unit_Click()
     For i = 0 To max_length - 1
         Dim ConcentrationUnit As String
         If Len(Sample_Amount_Unit(i)) <> 0 Then
-            ConcentrationUnit = Right_Custom_Unit & "_per_" & Sample_Amount_Unit(i)
+            ConcentrationUnit = Right_Custom_Unit & "/" & Sample_Amount_Unit(i)
             ConcentrationUnitArray(i) = ConcentrationUnit
             
             'Collect Unique concentration unit
