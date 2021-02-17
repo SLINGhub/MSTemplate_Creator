@@ -10,20 +10,26 @@ Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
     Dim TestFolder As String
     Dim xFileNames As Variant
     Dim FileThere As Boolean
+    Dim TidyDataRowFiles As String
+    Dim TidyDataColumnFiles As String
+    Dim InvalidRawDataFiles As String
     Dim Transition_Array() As String
-    Dim ISTD_Array() As String
-    
     Dim Transition_Name_ISTD_ColLetter As String
     Dim Transition_Name_ISTD_ColNumber As Integer
-    Transition_Name_ISTD_ColNumber = Utilities.Get_Header_Col_Position("Transition_Name_ISTD", 1)
-    Transition_Name_ISTD_ColLetter = Utilities.ConvertToLetter(Transition_Name_ISTD_ColNumber)
+    Dim ISTD_Array() As String
     
     'Indicate path to the test data folder
     TestFolder = ThisWorkbook.Path & "\Testdata\"
+    TidyDataRowFiles = TestFolder & "TidyTransitionRow.csv"
+    TidyDataColumnFiles = TestFolder & "TidyTransitionColumn.csv"
+    InvalidRawDataFiles = TestFolder & "Autophagy_Samples_List.csv"
+    AgilentRawDataFiles = TestFolder & "AgilentRawDataTest1.csv"
     
     'Check if the data file exists
+    JoinedFiles = Join(Array(TidyDataRowFiles, TidyDataColumnFiles, InvalidRawDataFiles, AgilentRawDataFiles), ";")
+    xFileNames = Split(JoinedFiles, ";")
     
-    xFileNames = Array(TestFolder & "AgilentRawDataTest1.csv")
+    'xFileNames = Array(TestFolder & "AgilentRawDataTest1.csv")
 
     For Each xFileName In xFileNames
         FileThere = (Dir(xFileName) > "")
@@ -33,12 +39,40 @@ Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
         End If
     Next xFileName
     
+    'Test creating a new transition annotation from tidy data file with transitons as column variables
+    Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Tidy(TidyDataFiles:=TidyDataColumnFiles, _
+                                                                              DataFileType:="csv", _
+                                                                              TransitionProperty:="Read as column variables", _
+                                                                              StartingRowNum:=1, _
+                                                                              StartingColumnNum:=2)
+                                                                              
+    Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, _
+                                 DataStartRowNumber:=2, MessageBoxRequired:=True)
+                                                   
+    MsgBox "Create new transition annotation from tidy column data test complete"
+    
+    'Test creating a new transition annotation from tidy data file with transitons as row observations
+    Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Tidy(TidyDataFiles:=TidyDataRowFiles, _
+                                                                              DataFileType:="csv", _
+                                                                              TransitionProperty:="Read as row observations", _
+                                                                              StartingRowNum:=2, _
+                                                                              StartingColumnNum:=1)
+                                                   
+    Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, _
+                                 DataStartRowNumber:=2, MessageBoxRequired:=True)
+                                 
+    MsgBox "Create new transition annotation from tidy row data test complete"
+    
+    Call Utilities.Clear_Columns("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    
     'Testing with an invalid file
-    Transition_Array = Load_Raw_Data.Get_Transition_Array(xFileNames:=Array(TestFolder & "Autophagy_Samples_List.csv"))
+    Transition_Array = Load_Raw_Data.Get_Transition_Array(xFileNames:=Array(InvalidRawDataFiles))
     MsgBox "Invalid file input test complete"
     
     'Load the transition names and load it to excel
-    Transition_Array = Load_Raw_Data.Get_Transition_Array(xFileNames:=xFileNames)
+    Transition_Array = Load_Raw_Data.Get_Transition_Array(xFileNames:=Array(AgilentRawDataFiles))
     Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=True)
     
@@ -46,6 +80,8 @@ Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
     Application.EnableEvents = True
     
     'Fill in the ISTD automatically
+    Transition_Name_ISTD_ColNumber = Utilities.Get_Header_Col_Position("Transition_Name_ISTD", 1)
+    Transition_Name_ISTD_ColLetter = Utilities.ConvertToLetter(Transition_Name_ISTD_ColNumber)
     Range(Transition_Name_ISTD_ColLetter & 2 & ":" & Transition_Name_ISTD_ColLetter & 23) = "LPC 17:0"
     Range(Transition_Name_ISTD_ColLetter & 24 & ":" & Transition_Name_ISTD_ColLetter & 31) = "MHC d18:1/16:0d3 (IS)"
     
@@ -105,6 +141,9 @@ Public Sub Sample_Annot_Integration_Test()
     
     Dim TestFolder As String
     Dim RawDataFiles As String
+    Dim TidyDataRowFiles As String
+    Dim TidyDataColumnFiles As String
+    Dim JoinedFiles As String
     Dim SampleAnnotFile As String
     Dim xFileNames() As String
     Dim xFileName As Variant
@@ -117,8 +156,11 @@ Public Sub Sample_Annot_Integration_Test()
     TestFolder = ThisWorkbook.Path & "\Testdata\"
     RawDataFiles = TestFolder & "AgilentRawDataTest1.csv"
     SampleAnnotFile = TestFolder & "Sample_Annotation_Example.csv"
-    
-    xFileNames = Split(RawDataFiles, ";")
+    TidyDataRowFiles = TestFolder & "TidySampleRow.csv"
+    TidyDataColumnFiles = TestFolder & "TidySampleColumn.csv"
+   
+    JoinedFiles = Join(Array(RawDataFiles, TidyDataRowFiles, TidyDataColumnFiles), ";")
+    xFileNames = Split(JoinedFiles, ";")
     
     'Check if the data file exists
     For Each xFileName In xFileNames
@@ -136,16 +178,36 @@ Public Sub Sample_Annot_Integration_Test()
         End
     End If
     
-    'Test creating a new sample annotation
+    'Test creating a new sample annotation from raw data file
     Call Sample_Annot.Create_New_Sample_Annot_Raw(RawDataFiles:=RawDataFiles)
     Call Autofill_Sample_Type_Click
-    MsgBox "Create new sample annotation test complete"
+    
+    'Call Autofill_Concentration_Unit_Click
+    MsgBox "Create new sample annotation test from raw data complete"
     
     'Clear the sample annotation
     Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    
+    'Fill in the Sample_Amount_Unit
+    Dim Sample_Amount_Unit_ColNumber As Integer
+    Dim Sample_Amount_Unit_ColLetter As String
+    Sample_Amount_Unit_ColNumber = Utilities.Get_Header_Col_Position("Sample_Amount_Unit", 1)
+    Sample_Amount_Unit_ColLetter = Utilities.ConvertToLetter(Sample_Amount_Unit_ColNumber)
+    
+    'Fill in the concentration values automatically
+    Range(Sample_Amount_Unit_ColLetter & 2 & ":" & _
+          Sample_Amount_Unit_ColLetter & 7) = Application.Transpose(Array("cell_number", "mg_dry_weight", _
+                                                                          "mg_fresh_weight", "ng_DNA", _
+                                                                          "ug_total_protein", "uL"))
+    Call Autofill_Concentration_Unit_Click(Testing:=True)
+    MsgBox "Autofill concentration unit test complete"
+    
+    'Clear the sample annotation
+    Call Utilities.Clear_Columns("Sample_Amount_Unit", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Concentration_Unit", HeaderRowNumber:=1, DataStartRowNumber:=2)
     
     'Prepare for merging
     Load_Sample_Annot_Raw.Sample_Name_Text.Text = "Sample"
@@ -165,8 +227,60 @@ Public Sub Sample_Annot_Integration_Test()
     Call Utilities.Clear_Columns("Sample_Amount", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Amount_Unit", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("ISTD_Mixture_Volume_[ul]", HeaderRowNumber:=1, DataStartRowNumber:=2)
-    MsgBox "Sample_Annot test complete"
     
+    'Test creating a new sample annotation from tidy data file
+    Call Sample_Annot.Create_New_Sample_Annot_Tidy(TidyDataFiles:=TidyDataColumnFiles, _
+                                                   DataFileType:="csv", _
+                                                   SampleProperty:="Read as column variables", _
+                                                   StartingRowNum:=1, _
+                                                   StartingColumnNum:=2)
+                                                   
+    MsgBox "Create new sample annotation from tidy column data test complete"
+    
+    Call Sample_Annot.Create_New_Sample_Annot_Tidy(TidyDataFiles:=TidyDataRowFiles, _
+                                                   DataFileType:="csv", _
+                                                   SampleProperty:="Read as row observations", _
+                                                   StartingRowNum:=2, _
+                                                   StartingColumnNum:=1)
+                                                   
+    MsgBox "Create new sample annotation from tidy row data test complete"
+    Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    
+    MsgBox "Sample_Annot test complete"
+       
+TestFail:
+    Application.EnableEvents = True
+    Exit Sub
+End Sub
+
+Public Sub Sample_Annot_and_ISTD_Annot_Integration_Test()
+    On Error GoTo TestFail
+    'We don't want excel to monitor the sheet when runnning this code
+    Application.EnableEvents = False
+    'Proceed with the ISTD_Annot test
+    Sheets("ISTD_Annot").Activate
+    
+    Dim Custom_Unit_ColNumber As Integer
+    Dim Custom_Unit_ColLetter As String
+    Dim Custom_Unit_Info As String
+    Custom_Unit_ColNumber = Utilities.Get_Header_Col_Position("Custom_Unit", 2)
+    Custom_Unit_ColLetter = Utilities.ConvertToLetter(Custom_Unit_ColNumber)
+    Custom_Unit = Range(Custom_Unit_ColLetter & 3).Value
+    Debug.Print Custom_Unit
+    
+    Sheets("Sample_Annot").Activate
+    
+    'Perform the calculation
+    'Call nM_calculation_Click
+    'MsgBox "Calculation is complete"
+    
+    'MsgBox "ISTD_Annot test complete"
+    
+    'We don't want excel to monitor the sheet when runnning this code
+    Application.EnableEvents = True
     
 TestFail:
     Application.EnableEvents = True

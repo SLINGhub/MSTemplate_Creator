@@ -37,7 +37,10 @@ Public Function Get_Sorted_Transition_Array_Tidy(TidyDataFiles As String, _
     Get_Sorted_Transition_Array_Tidy = Transition_Array
 End Function
 
-Public Sub VerifyISTD(ByRef Transition_Array() As String, ByRef ISTD_Array() As String, Optional ByVal MessageBoxRequired As Boolean = True, Optional ByVal Testing As Boolean = False)
+Public Sub VerifyISTD(ByRef Transition_Array() As String, ByRef ISTD_Array() As String, _
+                      Optional ByVal MessageBoxRequired As Boolean = True, _
+                      Optional ByVal Testing As Boolean = False)
+                      
     'Check if ISTD are valid (found in the column transition name)
     'ISTD Array is deprecated and not used in this function
     'If not, tell users which one is the problem

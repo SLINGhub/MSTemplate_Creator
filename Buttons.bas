@@ -76,7 +76,8 @@ Sub Clear_Sample_Table_Click()
     Clear_Sample_Annot.Show
 End Sub
 
-Sub Autofill_Concentration_Unit_Click()
+Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
+                                      Optional ByVal Testing As Boolean = False)
 
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
@@ -328,7 +329,8 @@ Sub Load_Transition_Name_ISTD_Click()
     Call Utilities.Load_To_Excel(ISTD_Array, "Transition_Name_ISTD", HeaderRowNumber:=2, DataStartRowNumber:=4, MessageBoxRequired:=True)
 End Sub
 
-Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, Optional ByVal Testing As Boolean = False)
+Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
+                        Optional ByVal Testing As Boolean = False)
     Sheets("Transition_Name_Annot").Activate
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
