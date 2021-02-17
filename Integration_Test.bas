@@ -256,37 +256,6 @@ TestFail:
     Exit Sub
 End Sub
 
-Public Sub Sample_Annot_and_ISTD_Annot_Integration_Test()
-    On Error GoTo TestFail
-    'We don't want excel to monitor the sheet when runnning this code
-    Application.EnableEvents = False
-    'Proceed with the ISTD_Annot test
-    Sheets("ISTD_Annot").Activate
-    
-    Dim Custom_Unit_ColNumber As Integer
-    Dim Custom_Unit_ColLetter As String
-    Dim Custom_Unit_Info As String
-    Custom_Unit_ColNumber = Utilities.Get_Header_Col_Position("Custom_Unit", 2)
-    Custom_Unit_ColLetter = Utilities.ConvertToLetter(Custom_Unit_ColNumber)
-    Custom_Unit = Range(Custom_Unit_ColLetter & 3).Value
-    Debug.Print Custom_Unit
-    
-    Sheets("Sample_Annot").Activate
-    
-    'Perform the calculation
-    'Call nM_calculation_Click
-    'MsgBox "Calculation is complete"
-    
-    'MsgBox "ISTD_Annot test complete"
-    
-    'We don't want excel to monitor the sheet when runnning this code
-    Application.EnableEvents = True
-    
-TestFail:
-    Application.EnableEvents = True
-    Exit Sub
-End Sub
-
 Public Sub Sample_Annot_and_Dilution_Annot_Integration_Test()
     On Error GoTo TestFail
     'We don't want excel to monitor the sheet when runnning this code
