@@ -13,6 +13,7 @@ Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
     Dim TidyDataRowFiles As String
     Dim TidyDataColumnFiles As String
     Dim InvalidRawDataFiles As String
+    Dim JoinedFiles As String
     Dim Transition_Array() As String
     Dim Transition_Name_ISTD_ColLetter As String
     Dim Transition_Name_ISTD_ColNumber As Integer

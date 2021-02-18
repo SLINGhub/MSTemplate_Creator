@@ -32,7 +32,7 @@ Public Sub TestCleanup()
     'this method runs after every test in the module.
 End Sub
 
-'@TestMethod
+'@TestMethod("Get QC Sample Type")
 Public Sub isEQC_Test()
     On Error GoTo TestFail
     
@@ -52,7 +52,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get QC Sample Type")
 Public Sub isTQC_Test()
     On Error GoTo TestFail
     
@@ -86,7 +86,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get QC Sample Type")
 Public Sub isBQC_Test()
     On Error GoTo TestFail
     
@@ -108,7 +108,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get QC Sample Type")
 Public Sub isRQC_Test()
     On Error GoTo TestFail
     
@@ -140,7 +140,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get QC Sample Type")
 Public Sub isLTR_Test()
     On Error GoTo TestFail
     
@@ -161,7 +161,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get QC Sample Type")
 Public Sub isNIST_Test()
     On Error GoTo TestFail
     
@@ -182,7 +182,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get QC Sample Type")
 Public Sub isPBLK_Test()
     On Error GoTo TestFail
     
@@ -204,7 +204,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get QC Sample Type")
 Public Sub isUBLK_Test()
     On Error GoTo TestFail
     
@@ -232,7 +232,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get QC Sample Type")
 Public Sub isSBLK_Test()
     On Error GoTo TestFail
 
@@ -253,7 +253,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get QC Sample Type")
 Public Sub isMBLK_Test()
     On Error GoTo TestFail
 

@@ -96,7 +96,7 @@ End Sub
 ' Give default values
 Private Sub UserForm_Initialize()
     Data_File_Type_ComboBox.AddItem "csv"
-    Data_File_Type_ComboBox.AddItem "Excel"
+    'Data_File_Type_ComboBox.AddItem "Excel"
     'Take the first option as the default value
     Data_File_Type_ComboBox.ListIndex = 0
     

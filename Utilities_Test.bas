@@ -32,7 +32,7 @@ Public Sub TestCleanup()
     'this method runs after every test in the module.
 End Sub
 
-'@TestMethod
+'@TestMethod("Annotation Properties")
 Public Sub Get_Header_Col_Position_Test()
     On Error GoTo TestFail
     
@@ -56,7 +56,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Annotation Properties")
 Public Sub LastUsedRowNumber_Test()
     On Error GoTo TestFail
     
@@ -70,7 +70,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Letter Conversion")
 Public Sub ConvertToLetterTest()                 'TODO Rename test
     On Error GoTo TestFail
     
@@ -87,7 +87,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("String Array Test")
 Public Sub StringArrayLenTest()
     On Error GoTo TestFail
     
@@ -108,7 +108,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("String Array Test")
 Public Sub WhereInArrayTest()
     On Error GoTo TestFail
     
@@ -140,7 +140,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("String Array Test")
 Public Sub IsInArrayTest()
     On Error GoTo TestFail
     
@@ -157,7 +157,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Sorting Test")
 Public Sub QuickSortTest()
     On Error GoTo TestFail
     
@@ -175,7 +175,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Array From One Excel Column")
 Public Sub Load_Columns_From_Excel_NoFilter_Test()
     On Error GoTo TestFail
     
@@ -201,7 +201,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Array From One Excel Column")
 Public Sub Load_Columns_From_Excel_Filter_Test()
     On Error GoTo TestFail
     

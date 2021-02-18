@@ -32,7 +32,7 @@ Public Sub TestCleanup()
     'this method runs after every test in the module.
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Wide_Table_Test()
     On Error GoTo TestFail
     
@@ -67,7 +67,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Compound_Table_Test()
     On Error GoTo TestFail
     
@@ -102,7 +102,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_SciEx_Data_Test()
     On Error GoTo TestFail
     
@@ -137,7 +137,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Multiple_Data_Test()
     On Error GoTo TestFail
     
@@ -174,7 +174,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Invalid_Data_Test()
     On Error GoTo TestFail
     
@@ -209,7 +209,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Sample_Annot From Raw MS Data")
 Public Sub Get_Sample_Name_Array_Wide_Table_Test()
     On Error GoTo TestFail
     
@@ -249,7 +249,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Sample_Annot From Raw MS Data")
 Public Sub Get_Sample_Name_Array_Compound_Table_Test()
     On Error GoTo TestFail
     
@@ -289,7 +289,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Sample_Annot From Raw MS Data")
 Public Sub Get_Sample_Name_Array_SciEx_Data_Test()
     On Error GoTo TestFail
     
@@ -329,7 +329,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Sample_Annot From Raw MS Data")
 Public Sub Get_Sample_Name_Array_Multiple_Data_Test()
     On Error GoTo TestFail
     
@@ -370,7 +370,7 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-'@TestMethod
+'@TestMethod("Get Sample_Annot From Raw MS Data")
 Public Sub Get_Sample_Name_Array_Invalid_Data_Test()
     On Error GoTo TestFail
     
