@@ -13,6 +13,7 @@ Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
     Dim TidyDataRowFiles As String
     Dim TidyDataColumnFiles As String
     Dim InvalidRawDataFiles As String
+    Dim AgilentRawDataFiles As String
     Dim JoinedFiles As String
     Dim Transition_Array() As String
     Dim Transition_Name_ISTD_ColLetter As String
@@ -69,13 +70,14 @@ Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
     Call Utilities.Clear_Columns("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     
     'Testing with an invalid file
-    Transition_Array = Load_Raw_Data.Get_Transition_Array(xFileNames:=Array(InvalidRawDataFiles))
+    Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Raw(RawDataFiles:=InvalidRawDataFiles)
     MsgBox "Invalid file input test complete"
     
     'Load the transition names and load it to excel
-    Transition_Array = Load_Raw_Data.Get_Transition_Array(xFileNames:=Array(AgilentRawDataFiles))
+    Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Raw(RawDataFiles:=AgilentRawDataFiles)
     Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
-    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=True)
+    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, _
+                                 DataStartRowNumber:=2, MessageBoxRequired:=True)
     
     'Excel resume monitoring the sheet
     Application.EnableEvents = True
@@ -92,6 +94,7 @@ Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
     'Correct the wrong ISTD, validate ISTD and transfer them to ISTD_Annot sheet
     Range(Transition_Name_ISTD_ColLetter & 2 & ":" & Transition_Name_ISTD_ColLetter & 23) = "LPC 17:0 (IS)"
     Call Validate_ISTD_Click(Testing:=True)
+    
     Call Load_Transition_Name_ISTD_Click
     
     'Clear the columns as the test for this worksheet is complete

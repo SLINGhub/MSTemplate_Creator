@@ -64,20 +64,21 @@ Private Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() 
 
 End Function
 
+
 'Get the Sample_Name and where it comes from
-Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, _
+Public Function Get_Sample_Name_Array(RawDataFilesArray() As String, _
                                       ByRef MS_File_Array() As String) As String()
     
     'Initialise the Sample Name Array
     Dim Sample_Name_Array() As String
     
     'When no file is selected
-    If TypeName(xFileNames) = "Boolean" Then
+    If TypeName(RawDataFilesArray) = "Boolean" Then
         End
     End If
     On Error GoTo 0
     
-    For Each xFileName In xFileNames
+    For Each xFileName In RawDataFilesArray
     
         Dim Lines() As String
         Dim Delimiter As String
@@ -158,30 +159,35 @@ Public Function Get_Sample_Name_Array(ByRef xFileNames() As String, _
     Get_Sample_Name_Array = Sample_Name_Array
 End Function
 
-Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = False) As String()
-    If TypeName(xFileNames) = "Boolean" Then
-        xFileNames = Application.GetOpenFilename(Title:="Load MS Raw Data", MultiSelect:=True)
-        'When no file is selected
-        If TypeName(xFileNames) = "Boolean" Then
-            End
-        End If
-        On Error GoTo 0
-    End If
+Public Function Get_Transition_Array_Raw(RawDataFiles As String) As String()
+    'If TypeName(xFileNames) = "Boolean" Then
+    '    xFileNames = Application.GetOpenFilename(Title:="Load MS Raw Data", MultiSelect:=True)
+    '    'When no file is selected
+    '    If TypeName(xFileNames) = "Boolean" Then
+    '        End
+    '    End If
+    '    On Error GoTo 0
+    'End If
+    
+    'File are taken from userfrom Load_Transition_Name_Tidy
+    'Hence they must exists and joined together by ;
+    Dim RawDataFilesArray() As String
+    RawDataFilesArray = Split(RawDataFiles, ";")
     
     'Initialise the Transition Array
     Dim Transition_Array() As String
     Dim ArrayLength As Long
     ArrayLength = 0
       
-    For Each xFileName In xFileNames
+    For Each RawDataFile In RawDataFilesArray
         
         Dim Lines() As String
         Dim Delimiter As String
         Dim FileName As String
         Dim RawDataFileType As String
-        Lines = Utilities.Read_File(xFileName)
-        Delimiter = GetDelimiter(xFileName)
-        FileName = Utilities.Get_File_Base_Name(xFileName)
+        Lines = Utilities.Read_File(RawDataFile)
+        Delimiter = GetDelimiter(RawDataFile)
+        FileName = Utilities.Get_File_Base_Name(RawDataFile)
         RawDataFileType = Utilities.Get_Raw_Data_File_Type(Lines, Delimiter, FileName)
     
         'When the Raw file is from Agilent WideTableForm
@@ -292,8 +298,8 @@ Public Function Get_Transition_Array(Optional ByVal xFileNames As Variant = Fals
                                                                    Delimiter:=Delimiter, _
                                                                    RemoveBlksAndReplicates:=True)
         End If
-    Next xFileName
-    Get_Transition_Array = Transition_Array
+    Next RawDataFile
+    Get_Transition_Array_Raw = Transition_Array
 End Function
 
 

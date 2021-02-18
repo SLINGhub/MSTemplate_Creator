@@ -1,7 +1,7 @@
 Attribute VB_Name = "Transition_Name_Annot"
-Public Function Get_Sorted_Transition_Array_Raw() As String()
+Public Function Get_Sorted_Transition_Array_Raw(RawDataFiles As String) As String()
     Dim Transition_Array() As String
-    Transition_Array = Load_Raw_Data.Get_Transition_Array()
+    Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
 
     'Leave the program if we have an empty array
     If Len(Join(Transition_Array, "")) = 0 Then

@@ -25,7 +25,7 @@ Sub Load_Transition_Name_ISTD_Click()
     Application.EnableEvents = True
     
     'Validate the ISTD column
-    Call Buttons.Validate_ISTD_Click(MessageBoxRequired:=False)
+    Call Validate_ISTD_Click(MessageBoxRequired:=False)
       
     'Go to the ISTD_Annot sheet
     Sheets("ISTD_Annot").Activate
@@ -64,8 +64,21 @@ Sub GetTransitionArray_Click()
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
     Sheets("Transition_Name_Annot").Activate
+    
     Dim Transition_Array() As String
-    Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Raw()
+    Dim RawDataFiles As String
+    
+    
+    xFileNames = Application.GetOpenFilename(Title:="Load MS Raw Data", MultiSelect:=True)
+    
+    'When no file is selected
+    If TypeName(xFileNames) = "Boolean" Then
+        End
+    End If
+    On Error GoTo 0
+    
+    RawDataFiles = Join(xFileNames, ";")
+    Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
     
     'Excel resume monitoring the sheet
     Application.EnableEvents = True
@@ -74,7 +87,6 @@ Sub GetTransitionArray_Click()
     If Len(Join(Transition_Array, "")) = 0 Then
         'Don't need to display message as we did that in
         'Transition_Name_Annot.Get_Sorted_Transition_Array_Raw
-        'MsgBox "Could not find any Transition Names"
         Exit Sub
     End If
     
