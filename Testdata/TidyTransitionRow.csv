@@ -1,8 +1,8 @@
-Transition_Name
-LPC 14:0
-LPC 15:0/LPC-O 16:0
-LPC 16:0
-SM 43:2
-SM 44:1
-SM 44:2
-SM 46:0
+Transition_Name,Sample1,Sample2
+LPC 14:0,1,1
+LPC 15:0/LPC-O 16:0,2,2
+LPC 16:0,3,3
+SM 43:2,119,119
+SM 44:1,120,120
+SM 44:2,121,121
+SM 46:0,122,122

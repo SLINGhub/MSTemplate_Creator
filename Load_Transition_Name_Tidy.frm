@@ -22,7 +22,7 @@ End Sub
 
 ' Load the file path of the tidy data
 Private Sub Browse_Tidy_Data_Click()
-    xFileNames = Application.GetOpenFilename(Title:="Load Raw Data File", MultiSelect:=True)
+    xFileNames = Application.GetOpenFilename(Title:="Load Table Data File", MultiSelect:=True)
     
     'When no file is selected
     If TypeName(xFileNames) = "Boolean" Then

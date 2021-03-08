@@ -15,9 +15,14 @@ Private Sub ClearTransitionSheet_Click()
     Call Clear_Transition_Name_Annot_Click
 End Sub
 
-Private Sub LoadSampleAnnotation_Click()
+Private Sub LoadSampleAnnotationRaw_Click()
     'In sheet 3 functions
     Call Load_Sample_Annot_Raw_Column_Name_Click
+End Sub
+
+Private Sub LoadSampleAnnotationTidy_Click()
+    'In sheet 3 functions
+    Call Load_Sample_Annot_Tidy_Column_Name_Click
 End Sub
 
 Private Sub LoadISTD_Click()
