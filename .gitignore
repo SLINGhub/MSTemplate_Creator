@@ -5,3 +5,6 @@
 /.vs
 .Rproj.user
 .Rhistory
+renv
+.Rprofile
+renv.lock
