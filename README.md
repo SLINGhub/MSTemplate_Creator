@@ -1,18 +1,15 @@
 MSTemplate\_Creator
 ===================
 
-The goal of MSTemplate\_Creator is to …
+MSTemplate\_Creator is an excel macro file created to provide users a
+more friendly interface to take in MRM transition names data exported
+directly from mass spectrometry software to create several annotation
+templates suited for automated data processing and statistical analysis
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+Starting Up
+-----------
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this. You could also
-use GitHub Actions to re-render `README.Rmd` every time you push. An
-example workflow can be found here:
-<a href="https://github.com/r-lib/actions/tree/master/examples" class="uri">https://github.com/r-lib/actions/tree/master/examples</a>.
+Download the repository and open the excel macro file
+`MSTemplate_Creator.xlsm`
 
-You can also embed plots, for example:
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub.
+![OpenMSTemplate\_Creator](figures/OpenMSTemplate_Creator.JPG)
