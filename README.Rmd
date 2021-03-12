@@ -16,8 +16,8 @@ MSTemplate_Creator is an excel macro file created to provide users a more friend
 ## Starting Up
 
 Download the repository and open the excel macro file `MSTemplate_Creator.xlsm`
-
 ![OpenMSTemplate_Creator](figures/OpenMSTemplate_Creator.JPG)
 
-
-
+Upon opening you may encounter this security warning
+![OpenMSTemplate_Creator](figures/EnableContentWarning.jpg)
+Click on __Enable Content__ so that the macro in the file will be activated.

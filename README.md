@@ -11,5 +11,8 @@ Starting Up
 
 Download the repository and open the excel macro file
 `MSTemplate_Creator.xlsm`
-
 ![OpenMSTemplate\_Creator](figures/OpenMSTemplate_Creator.JPG)
+
+Upon opening you may encounter this security warning
+![OpenMSTemplate\_Creator](figures/EnableContentWarning.jpg) Click on
+**Enable Content** so that the macro in the file will be activated.
