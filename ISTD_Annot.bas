@@ -34,7 +34,7 @@ Public Function Convert_Conc_nM_Array(Custom_Unit As String) As String()
     'Perform the convertion from nM to NewUnit
     For i = 0 To lenArray - 1
         'Perform convertion only when there is text
-        If Len(Trim(ISTD_Conc(i))) > 1 Then
+        If Len(Trim(ISTD_Conc(i))) > 0 Then
             ISTD_Conc(i) = CDec(CDbl(ISTD_Conc(i))) * FactorValue
         End If
     Next
