@@ -22,35 +22,18 @@ Content** so that the macro in the file will be activated.
 
 ## Using Transition\_Annot Sheet
 
-<table>
-<colgroup>
-<col style="width: 50%" />
-<col style="width: 49%" />
-</colgroup>
-<tbody>
-<tr class="odd">
-<td>Load Agilent MRM data in csv file using the button <strong>Load Transition_Name from Raw Data</strong></td>
-<td>Load tabular data in csv file using the button <strong>Load Transition_Name from Table Data</strong></td>
-</tr>
-<tr class="even">
-<td><img src="figures/trial.gif" alt="Load Transition_Name from Raw Data" /></td>
-<td><img src="figures/trial2.gif" alt="Load Transition_Name from Table Data" /></td>
-</tr>
-<tr class="odd">
-<td>——————————————————————————————-</td>
-<td>—————————————————————————————–</td>
-</tr>
-</tbody>
-</table>
-
-Load Agilent MRM data in csv file using the button **Load
-Transition\_Name from Raw Data**
+Load Agilent MRM data in csv file with **Load Transition\_Name from Raw
+Data**
 
 ![Load Transition\_Name from Raw Data](figures/trial.gif)
 
-Load tabular data in csv file using the button **Load Transition\_Name
-from Table Data**
+Load tabular data in csv file with **Load Transition\_Name from Table
+Data**
 
 ![Load Transition\_Name from Table Data](figures/trial2.gif)
 
-Check your internal standards with **Validate ISTD**
+Check the internal standards with **Validate ISTD**
+
+![Validate ISTD](figures/trial3.gif) Once validated, transfer the
+internal standards to sheet `ISTD_Annot` with **Load ISTD to
+ISTD\_Table**

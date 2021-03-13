@@ -27,17 +27,14 @@ Upon opening you may encounter this security warning. Click on **Enable Content*
 
 ## Using Transition_Annot Sheet
 
-|                                                                                           |                                                                                         |
-|-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| Load Agilent MRM data in csv file using the button **Load Transition_Name from Raw Data** | Load tabular data in csv file using the button **Load Transition_Name from Table Data** |
-| ![Load Transition_Name from Raw Data](figures/trial.gif)                                  | ![Load Transition_Name from Table Data](figures/trial2.gif)                             |
-|-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
-Load Agilent MRM data in csv file using the button **Load Transition_Name from Raw Data**
+Load Agilent MRM data in csv file with **Load Transition_Name from Raw Data**
 
 ![Load Transition_Name from Raw Data](figures/trial.gif)
 
-Load tabular data in csv file using the button **Load Transition_Name from Table Data**
+Load tabular data in csv file with **Load Transition_Name from Table Data**
 
 ![Load Transition_Name from Table Data](figures/trial2.gif)
 
-Check your internal standards with **Validate ISTD**
+Check the internal standards with **Validate ISTD**
+
+![Validate ISTD](figures/trial3.gif) Once validated, transfer the internal standards to sheet `ISTD_Annot` with **Load ISTD to ISTD_Table**
