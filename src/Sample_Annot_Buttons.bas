@@ -30,9 +30,9 @@ Sub Load_Sample_Name_To_Dilution_Annot_Click()
                                                         RemoveBlksAndReplicates:=False, _
                                                         IgnoreHiddenRows:=True, IgnoreEmptyArray:=True)
                                                     
-    'Load the Raw_Data_File_Name columns content from Sample_Annot
-    FileNameArray = Utilities.Load_Columns_From_Excel("Raw_Data_File_Name", HeaderRowNumber:=1, _
-                                                       DataStartRowNumber:=2, MessageBoxRequired:=True, _
+    'Load the Data_File_Name columns content from Sample_Annot
+    FileNameArray = Utilities.Load_Columns_From_Excel("Data_File_Name", HeaderRowNumber:=1, _
+                                                       DataStartRowNumber:=2, MessageBoxRequired:=False, _
                                                        RemoveBlksAndReplicates:=False, _
                                                        IgnoreHiddenRows:=True, IgnoreEmptyArray:=True)
 
@@ -43,21 +43,33 @@ Sub Load_Sample_Name_To_Dilution_Annot_Click()
     
     'Resume monitoring of sheet
     Application.EnableEvents = True
+    
+    If Len(Join(SampleNameArray, "")) = 0 & Len(Join(FileNameArray, "")) Then
+    End If
                                                         
     'Check if SampleNameArray has any elements
+    'If not no need to transfer
     If Len(Join(SampleNameArray, "")) = 0 Then
         End
     End If
     
     'Go to the Dilution_Annot sheet
     Sheets("Dilution_Annot").Activate
-    Call Utilities.OverwriteHeader("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
-    Call Utilities.Load_To_Excel(FileNameArray, "Raw_Data_File_Name", HeaderRowNumber:=1, _
-                                 DataStartRowNumber:=2, MessageBoxRequired:=False)
-    Call Utilities.OverwriteHeader("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
-    Call Utilities.Load_To_Excel(SampleNameArray, "Sample_Name", HeaderRowNumber:=1, _
-                                 DataStartRowNumber:=2, MessageBoxRequired:=True)
-
+    
+    'Check if FileNameArray has any elements
+    If Len(Join(FileNameArray, "")) > 0 Then
+        Call Utilities.OverwriteHeader("Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Call Utilities.Load_To_Excel(FileNameArray, "Data_File_Name", HeaderRowNumber:=1, _
+                                     DataStartRowNumber:=2, MessageBoxRequired:=False)
+        Call Utilities.OverwriteHeader("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Call Utilities.Load_To_Excel(SampleNameArray, "Sample_Name", HeaderRowNumber:=1, _
+                                     DataStartRowNumber:=2, MessageBoxRequired:=True)
+    Else
+        Call Utilities.OverwriteHeader("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Call Utilities.Load_To_Excel(SampleNameArray, "Sample_Name", HeaderRowNumber:=1, _
+                                     DataStartRowNumber:=2, MessageBoxRequired:=True)
+    End If
+    
 End Sub
 
 Sub Clear_Sample_Table_Click()

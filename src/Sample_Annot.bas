@@ -38,14 +38,14 @@ Public Sub Create_New_Sample_Annot_Tidy(TidyDataFiles As String, _
     Next i
     
     Dim HeaderNameArray(0 To 3) As String
-    HeaderNameArray(0) = "Raw_Data_File_Name"
+    HeaderNameArray(0) = "Data_File_Name"
     HeaderNameArray(1) = "Merge_Status"
     HeaderNameArray(2) = "Sample_Name"
     HeaderNameArray(3) = "Sample_Type"
     
     Call Utilities.OverwriteSeveralHeaders(HeaderNameArray, HeaderRowNumber:=1, DataStartRowNumber:=2)
     
-    Call Utilities.Load_To_Excel(MS_File_Array, "Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
+    Call Utilities.Load_To_Excel(MS_File_Array, "Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(MergeStatus, "Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(Sample_Name_Array_from_Tidy_Data, "Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(SampleType, "Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
@@ -83,14 +83,14 @@ Public Sub Create_New_Sample_Annot_Raw(RawDataFiles As String)
     Next i
     
     Dim HeaderNameArray(0 To 3) As String
-    HeaderNameArray(0) = "Raw_Data_File_Name"
+    HeaderNameArray(0) = "Data_File_Name"
     HeaderNameArray(1) = "Merge_Status"
     HeaderNameArray(2) = "Sample_Name"
     HeaderNameArray(3) = "Sample_Type"
     
     Call Utilities.OverwriteSeveralHeaders(HeaderNameArray, HeaderRowNumber:=1, DataStartRowNumber:=2)
     
-    Call Utilities.Load_To_Excel(MS_File_Array, "Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
+    Call Utilities.Load_To_Excel(MS_File_Array, "Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(MergeStatus, "Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(Sample_Name_Array_from_Raw_Data, "Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(SampleType, "Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
@@ -170,7 +170,7 @@ Public Sub Merge_With_Sample_Annot(RawDataFiles As String, SampleAnnotFile As St
     Next i
     
     Dim HeaderNameArray(0 To 3) As String
-    HeaderNameArray(0) = "Raw_Data_File_Name"
+    HeaderNameArray(0) = "Data_File_Name"
     HeaderNameArray(1) = "Merge_Status"
     HeaderNameArray(2) = "Sample_Name"
     HeaderNameArray(3) = "Sample_Type"
@@ -178,7 +178,7 @@ Public Sub Merge_With_Sample_Annot(RawDataFiles As String, SampleAnnotFile As St
       
     'Load Data into the excel sheet
     Call Sample_Annot.Load_Sample_Info_To_Excel(SampleAnnotFile, MatchingIndex)
-    Call Utilities.Load_To_Excel(MS_File_Array, "Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
+    Call Utilities.Load_To_Excel(MS_File_Array, "Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(MergeStatus, "Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(Sample_Name_Array_from_Raw_Data, "Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(SampleType, "Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)

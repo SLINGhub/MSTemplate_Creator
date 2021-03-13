@@ -190,7 +190,7 @@ Public Sub Sample_Annot_Integration_Test()
     MsgBox "Create new sample annotation test from raw data complete"
     
     'Clear the sample annotation
-    Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2)
@@ -224,7 +224,7 @@ Public Sub Sample_Annot_Integration_Test()
     MsgBox "Merging raw data with sample annotation test complete"
     
     'Clear the sample annotation
-    Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2)
@@ -248,7 +248,7 @@ Public Sub Sample_Annot_Integration_Test()
                                                    StartingColumnNum:=1)
                                                    
     MsgBox "Create new sample annotation from tidy row data test complete"
-    Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2)
@@ -302,7 +302,7 @@ Public Sub Sample_Annot_and_Dilution_Annot_Integration_Test()
     
     'Clear the dilution annotation
     Sheets("Dilution_Annot").Activate
-    Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Dilution_Batch_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Dilution_Factor_[%]", HeaderRowNumber:=1, DataStartRowNumber:=2)
@@ -310,7 +310,7 @@ Public Sub Sample_Annot_and_Dilution_Annot_Integration_Test()
 
     'Clear the sample annotation
     Sheets("Sample_Annot").Activate
-    Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2)

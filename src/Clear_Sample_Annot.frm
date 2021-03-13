@@ -14,8 +14,8 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Private Sub Sample_Annot_Clear_Click()
-    If Raw_Data_File_Name.Value = True Then
-        Call Utilities.Clear_Columns("Raw_Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    If Data_File_Name.Value = True Then
+        Call Utilities.Clear_Columns("Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     End If
     If Merge_Status.Value = True Then
         Call Utilities.Clear_Columns("Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2)
