@@ -37,4 +37,8 @@ Load tabular data in csv file with **Load Transition_Name from Table Data**
 
 Check the internal standards with **Validate ISTD**. Once validated, transfer the internal standards to sheet `ISTD_Annot` with **Load ISTD to ISTD_Table**
 
-![Validate ISTD](figures/trial3.gif) ![Load ISTD to ISTD_Table](figures/trial4.gif)
+![Validate ISTD](figures/trial3.gif)
+
+Once validated, transfer the internal standards to sheet `ISTD_Annot` with **Load ISTD to ISTD_Table**
+
+![Load ISTD to ISTD_Table](figures/trial4.gif)
