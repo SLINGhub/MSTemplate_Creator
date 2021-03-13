@@ -31,7 +31,7 @@ Upon opening you may encounter this security warning. Click on **Enable Content*
 |-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
 | Load Agilent MRM data in csv file using the button **Load Transition_Name from Raw Data** | Load tabular data in csv file using the button **Load Transition_Name from Table Data** |
 | ![Load Transition_Name from Raw Data](figures/trial.gif)                                  | ![Load Transition_Name from Table Data](figures/trial2.gif)                             |
-
+|-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
 Load Agilent MRM data in csv file using the button **Load Transition_Name from Raw Data**
 
 ![Load Transition_Name from Raw Data](figures/trial.gif)

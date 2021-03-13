@@ -36,6 +36,10 @@ Content** so that the macro in the file will be activated.
 <td><img src="figures/trial.gif" alt="Load Transition_Name from Raw Data" /></td>
 <td><img src="figures/trial2.gif" alt="Load Transition_Name from Table Data" /></td>
 </tr>
+<tr class="odd">
+<td>——————————————————————————————-</td>
+<td>—————————————————————————————–</td>
+</tr>
 </tbody>
 </table>
 
