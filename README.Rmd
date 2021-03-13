@@ -17,18 +17,27 @@ It is currently distributed as platform independent source code under the MIT li
 
 ## Starting Up
 
-Download the repository and open the excel macro file `MSTemplate_Creator.xlsm` ![OpenMSTemplate_Creator](figures/OpenMSTemplate_Creator.JPG)
+Download the repository and open the excel macro file `MSTemplate_Creator.xlsm`
 
-Upon opening you may encounter this security warning. Click on **Enable Content** so that the macro in the file will be activated. 
+![OpenMSTemplate_Creator](figures/OpenMSTemplate_Creator.JPG)
+
+Upon opening you may encounter this security warning. Click on **Enable Content** so that the macro in the file will be activated.
+
 ![EnableContent](figures/EnableContentWarning.jpg)
 
 ## Using Transition_Annot Sheet
 
+|                                                                                           |                                                                                         |
+|-------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|
+| Load Agilent MRM data in csv file using the button **Load Transition_Name from Raw Data** | Load tabular data in csv file using the button **Load Transition_Name from Table Data** |
+| ![Load Transition_Name from Raw Data](figures/trial.gif)                                  | ![Load Transition_Name from Table Data](figures/trial2.gif)                             |
+
 Load Agilent MRM data in csv file using the button **Load Transition_Name from Raw Data**
 
 ![Load Transition_Name from Raw Data](figures/trial.gif)
+
 Load tabular data in csv file using the button **Load Transition_Name from Table Data**
 
 ![Load Transition_Name from Table Data](figures/trial2.gif)
 
-
+Check your internal standards with **Validate ISTD**
