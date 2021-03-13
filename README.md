@@ -6,7 +6,9 @@ directly from mass spectrometry software to create several annotation
 templates suited for automated data processing and statistical analysis.
 
 It is currently distributed as platform independent source code under
-the MIT license. \#\# Starting Up
+the MIT license.
+
+## Starting Up
 
 Download the repository and open the excel macro file
 `MSTemplate_Creator.xlsm`
@@ -70,3 +72,8 @@ to the `Sample_Annot` sheet and use **Autofill Concentration\_Unit** to
 obtain each sample’s unit of concentration
 
 ![Autofill Concentration\_Unit](figures/trial8.gif)
+
+Transfer Sample with QC sample type of “RQC” to `Dilution_Annot` sheet
+with **Load RQC Samples to Dilution\_Table**
+
+![Autofill Concentration\_Unit](figures/trial9.gif)
