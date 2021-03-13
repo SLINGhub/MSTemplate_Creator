@@ -53,12 +53,20 @@ used later to obtain the sample unit of concentration.
 
 Load sample names from Agilent MRM data in csv file with **Load Sample
 Annotation from Raw Data**. Use **Autofill ‘Sample’ in Sample\_Type** to
-fill empty cells under the “Sample\_Type” column with “SPL”
+fill empty cells under the `Sample_Type` column with “SPL”
 
 ![Load Sample Annotation from Table Data](figures/trial7.gif)
 
 Load sample names from tabular data in csv file with **Load Sample
 Annotation from Table Data**. Use **Autofill ‘Sample’ in Sample\_Type**
-to fill empty cells under the “Sample\_Type” column with “SPL”
+to fill empty cells under the `Sample_Type` column with “SPL”
 
 ![Load Sample Annotation from Table Data](figures/trial6.gif)
+
+On the `Sample_Annot` sheet, fill in the sample amount unit for each
+sample. Next, on the `ISTD_Annot` sheet, select the concentration unit
+of the internal standard to use under the `Custom_Unit` column. Return
+to the `Sample_Annot` sheet and use **Autofill Concentration\_Unit** to
+obtain each sample’s unit of concentration
+
+![Autofill Concentration\_Unit](figures/trial8.gif)
