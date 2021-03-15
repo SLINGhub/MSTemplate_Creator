@@ -62,7 +62,9 @@ fill empty cells under the `Sample_Type` column with “SPL”
 It is possible to merge Agilent MRM data with a sample annotation file
 in csv.
 
-![Merge Raw Data with Sample Annotation](figures/trial10.mp4)
+<video width="320" height="240" controls>
+<source src="figures/trial10.mp4" type="video/mp4">
+</video>
 
 Load sample names from tabular data in csv file with **Load Sample
 Annotation from Table Data**. Use **Autofill ‘Sample’ in Sample\_Type**
