@@ -1,7 +1,5 @@
 ---
-output: 
-  html_document:
-    keep_md: yes
+output: md_document 
 ---
 
 ```{r, include = FALSE}
@@ -59,11 +57,7 @@ Load sample names from Agilent MRM data in csv file with **Load Sample Annotatio
 
 It is possible to merge Agilent MRM data with a sample annotation file in csv.
 
-<video width="320" height="240" controls>
-
-<source src="figures/trial10.mp4" type="video/mp4">
-
-</video>
+![Merge Raw Data with Sample Annotation](figures/trial10.gif)
 
 Load sample names from tabular data in csv file with **Load Sample Annotation from Table Data**. Use **Autofill 'Sample' in Sample_Type** to fill empty cells under the `Sample_Type` column with "SPL"
 
