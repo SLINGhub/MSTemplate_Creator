@@ -62,7 +62,7 @@ Public Sub LastUsedRowNumber_Test()
     
     Sheets("Lists").Activate
     'Debug.Print Utilities.LastUsedRowNumber
-    Assert.AreEqual Utilities.LastUsedRowNumber, CLng(16)
+    Assert.AreEqual Utilities.LastUsedRowNumber, CLng(22)
 
 TestExit:
     Exit Sub
@@ -220,8 +220,8 @@ Public Sub Load_Columns_From_Excel_Filter_Test()
                                           
     Dim CorrectArray(0 To 3) As String
     CorrectArray(0) = "EQC"
-    CorrectArray(1) = "TQC"
-    CorrectArray(2) = "BQC"
+    CorrectArray(1) = "BQC"
+    CorrectArray(2) = "TQC"
     CorrectArray(3) = "RQC"
     
     Dim Concentration_Unit_Array() As String

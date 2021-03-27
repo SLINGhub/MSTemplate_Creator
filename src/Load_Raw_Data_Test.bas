@@ -139,8 +139,8 @@ Public Sub Get_Transition_Array_Multiple_Data_Test()
     
     'Indicate path to the test data folder
     TestFolder = ThisWorkbook.Path & "\Testdata\"
-    RawDataFiles = TestFolder & "Autophagy_Data_Nov 2017.csv" & ";" & _
-                   TestFolder & "sPerfect_Index_AllLipids_raw.csv" & ";" & _
+    RawDataFiles = TestFolder & "MultipleDataTest1.csv" & ";" & _
+                   TestFolder & "MultipleDataTest2.csv" & ";" & _
                    TestFolder & "SciExTestData.txt"
     RawDataFilesArray = Split(RawDataFiles, ";")
                        
@@ -177,7 +177,7 @@ Public Sub Get_Transition_Array_Invalid_Data_Test()
     
     'Indicate path to the test data folder
     TestFolder = ThisWorkbook.Path & "\Testdata\"
-    RawDataFiles = TestFolder & "Autophagy_Samples_List.csv"
+    RawDataFiles = TestFolder & "InvalidDataTest1.csv"
     
     'Check if the data file exists
     FileThere = (Dir(RawDataFiles) > "")
@@ -212,7 +212,7 @@ Public Sub Get_Sample_Name_Array_Wide_Table_Test()
     
     'Indicate path to the test data folder
     TestFolder = ThisWorkbook.Path & "\Testdata\"
-    RawDataFiles = TestFolder & "sPerfect_Index_AllLipids_raw.csv"
+    RawDataFiles = TestFolder & "MultipleDataTest2.csv"
     RawDataFilesArray = Split(RawDataFiles, ";")
     
     'Check if the data file exists
@@ -333,8 +333,8 @@ Public Sub Get_Sample_Name_Array_Multiple_Data_Test()
     
     'Indicate path to the test data folder
     TestFolder = ThisWorkbook.Path & "\Testdata\"
-    RawDataFiles = TestFolder & "Autophagy_Data_Nov 2017.csv" & ";" & _
-                   TestFolder & "sPerfect_Index_AllLipids_raw.csv" & ";" & _
+    RawDataFiles = TestFolder & "MultipleDataTest1.csv" & ";" & _
+                   TestFolder & "MultipleDataTest2.csv" & ";" & _
                    TestFolder & "SciExTestData.txt"
     RawDataFilesArray = Split(RawDataFiles, ";")
     
@@ -374,7 +374,7 @@ Public Sub Get_Sample_Name_Array_Invalid_Data_Test()
     
     'Indicate path to the test data folder
     TestFolder = ThisWorkbook.Path & "\Testdata\"
-    RawDataFiles = TestFolder & "Autophagy_Samples_List.csv"
+    RawDataFiles = TestFolder & "InvalidDataTest1.csv"
     
     RawDataFilesArray = Split(RawDataFiles, ";")
     

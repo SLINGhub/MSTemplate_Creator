@@ -24,7 +24,7 @@ Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
     TestFolder = ThisWorkbook.Path & "\Testdata\"
     TidyDataRowFiles = TestFolder & "TidyTransitionRow.csv"
     TidyDataColumnFiles = TestFolder & "TidyTransitionColumn.csv"
-    InvalidRawDataFiles = TestFolder & "Autophagy_Samples_List.csv"
+    InvalidRawDataFiles = TestFolder & "InvalidDataTest1.csv"
     AgilentRawDataFiles = TestFolder & "AgilentRawDataTest1.csv"
     
     'Check if the data file exists
@@ -279,7 +279,7 @@ Public Sub Sample_Annot_and_Dilution_Annot_Integration_Test()
     
     'Indicate path to the test data folder
     TestFolder = ThisWorkbook.Path & "\Testdata\"
-    RawDataFiles = TestFolder & "DogCat.csv"
+    RawDataFiles = TestFolder & "DilutionTest.csv"
     
     xFileNames = Split(RawDataFiles, ";")
     
