@@ -1,6 +1,15 @@
 Attribute VB_Name = "Sample_Annot_Buttons"
 'Sheet Sample_Annot Functions
 
+Sub Autofill_Sample_Amount_Unit_Click()
+    Sheets("Sample_Annot").Activate
+       
+    AutoFill_Sample_Amount_Unit.Show
+
+    Unload AutoFill_Sample_Amount_Unit
+     
+End Sub
+
 Sub Load_Sample_Name_To_Dilution_Annot_Click()
     Sheets("Sample_Annot").Activate
     
@@ -43,10 +52,7 @@ Sub Load_Sample_Name_To_Dilution_Annot_Click()
     
     'Resume monitoring of sheet
     Application.EnableEvents = True
-    
-    If Len(Join(SampleNameArray, "")) = 0 & Len(Join(FileNameArray, "")) Then
-    End If
-                                                        
+                                                           
     'Check if SampleNameArray has any elements
     'If not no need to transfer
     If Len(Join(SampleNameArray, "")) = 0 Then
@@ -267,5 +273,3 @@ Sub Load_Sample_Annot_Raw_Column_Name_Click()
     Unload Load_Sample_Annot_Raw
     
 End Sub
-
-

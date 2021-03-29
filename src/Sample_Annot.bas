@@ -1,4 +1,105 @@
 Attribute VB_Name = "Sample_Annot"
+Public Sub Autofill_Sample_Unit(Sample_Type As String, _
+                                Sample_Amount_Unit As String)
+
+    Sheets("Sample_Annot").Activate
+   
+    'To ensure that Filters does not affect the assignment
+    Utilities.RemoveFilterSettings
+    
+    'We don't want excel to monitor the sheet when runnning this code
+    Application.EnableEvents = False
+    
+    Dim SampleTypeArray() As String
+    Dim SampleAmountUnitArray() As String
+    Dim TotalRows As Long
+    Dim i As Long
+    
+    'Check if the column Sample_Type exists
+    Dim SampleType_pos As Integer
+    SampleType_pos = Utilities.Get_Header_Col_Position("Sample_Type", HeaderRowNumber:=1)
+    
+    'Check if the column Sample_Amount_Unit exists
+    Dim SampleAmountUnit_pos As Integer
+    SampleAmountUnit_pos = Utilities.Get_Header_Col_Position("Sample_Amount_Unit", HeaderRowNumber:=1)
+    
+    'Filter Rows by input Sample_Type
+    ActiveSheet.Range("A1").AutoFilter Field:=SampleType_pos, _
+                                       Criteria1:=Sample_Type, _
+                                       VisibleDropDown:=True
+    
+    'Load the Sample_Type column content from Sample_Annot
+    SampleTypeArray = Utilities.Load_Columns_From_Excel("Sample_Type", _
+                                                        HeaderRowNumber:=1, _
+                                                        DataStartRowNumber:=2, _
+                                                        MessageBoxRequired:=False, _
+                                                        RemoveBlksAndReplicates:=False, _
+                                                        IgnoreHiddenRows:=True, _
+                                                        IgnoreEmptyArray:=True)
+                                                              
+    'Check if SampleTypeArray has any elements
+    'If not there is nothing to fill
+    If Len(Join(SampleTypeArray, "")) = 0 Then
+        'To ensure that Filters does not affect the assignment
+        Utilities.RemoveFilterSettings
+    
+        'Resume monitoring of sheet
+        Application.EnableEvents = True
+        
+        'Give a message that the Sample Type cannot be found
+        MsgBox "No samples have Sample Type : " & Sample_Type
+        
+        Exit Sub
+    End If
+    
+    'Load the Sample_Amount_Unit column content from Sample_Annot
+    SampleAmountUnitArray = Utilities.Load_Columns_From_Excel("Sample_Amount_Unit", _
+                                                              HeaderRowNumber:=1, _
+                                                              DataStartRowNumber:=2, _
+                                                              MessageBoxRequired:=False, _
+                                                              RemoveBlksAndReplicates:=False, _
+                                                              IgnoreHiddenRows:=True, _
+                                                              IgnoreEmptyArray:=True)
+                                                              
+                                                              
+    'Check if SampleAmountUnitArray has any elements
+    'If yes, give an overwrite warning
+    If Len(Join(SampleAmountUnitArray, "")) > 0 Then
+        Call Utilities.OverwriteHeader("Sample_Amount_Unit", _
+                                       HeaderRowNumber:=1, _
+                                       DataStartRowNumber:=2, _
+                                       ClearContent:=False)
+        'Filter Rows by input Sample_Type
+        ActiveSheet.Range("A1").AutoFilter Field:=SampleType_pos, _
+                                           Criteria1:=Sample_Type, _
+                                           VisibleDropDown:=True
+    End If
+     
+    'Find the total number of rows and resize the array accordingly
+    TotalRows = Cells(Rows.Count, ConvertToLetter(SampleType_pos)).End(xlUp).Row
+    
+    'Assign the relevant sample amount unit for that sample type
+    If TotalRows > 1 Then
+        For i = 2 To TotalRows
+            If Cells(i, SampleType_pos).Value = Sample_Type Then
+                Cells(i, SampleAmountUnit_pos).Value = Sample_Amount_Unit
+            'Else
+            '    Cells(i, SampleAmountUnit_pos).Value = Cells(i, SampleAmountUnit_pos).Value
+            End If
+        Next i
+    End If
+    
+    MsgBox "Loaded Sample Type : " & Sample_Type & " with " & Sample_Amount_Unit & "."
+    
+    'To ensure that Filters does not affect the assignment
+    Utilities.RemoveFilterSettings
+    
+    'Resume monitoring of sheet
+    Application.EnableEvents = True
+    
+                                          
+End Sub
+
 Public Sub Create_New_Sample_Annot_Tidy(TidyDataFiles As String, _
                                         DataFileType As String, _
                                         SampleProperty As String, _

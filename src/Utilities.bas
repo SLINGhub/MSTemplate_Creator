@@ -384,7 +384,9 @@ Private Sub QuickSortRecursive(ByRef ThisArray, ByVal LowerBound, ByVal UpperBou
 
 End Sub
 
-Public Sub OverwriteSeveralHeaders(HeaderNameArray() As String, HeaderRowNumber As Integer, DataStartRowNumber As Integer)
+Public Sub OverwriteSeveralHeaders(HeaderNameArray() As String, _
+                                   HeaderRowNumber As Integer, _
+                                   DataStartRowNumber As Integer)
     'Check with user if data should be overwritten
     Dim TotalRows As Long
     TotalRows = Utilities.LastUsedRowNumber()
@@ -414,7 +416,9 @@ Public Sub OverwriteSeveralHeaders(HeaderNameArray() As String, HeaderRowNumber 
 End Sub
 
 Public Sub OverwriteHeader(HeaderName As String, HeaderRowNumber As Integer, _
-                           DataStartRowNumber As Integer, Optional ByVal Testing As Boolean = False)
+                           DataStartRowNumber As Integer, _
+                           Optional ByVal ClearContent As Boolean = True, _
+                           Optional ByVal Testing As Boolean = False)
     
     Dim HeaderColNumber As Integer
     HeaderColNumber = Utilities.Get_Header_Col_Position(HeaderName, HeaderRowNumber)
@@ -445,8 +449,12 @@ Public Sub OverwriteHeader(HeaderName As String, HeaderRowNumber As Integer, _
     Case "Overwrite"
         'To ensure that Filters does not affect the assignment
         Utilities.RemoveFilterSettings
-        'Clear the contents. We do not want to clean the headers
+        
+        If ClearContent Then
+            'Clear the contents. We do not want to clean the headers
         Range(ConvertToLetter(HeaderColNumber) & CStr(DataStartRowNumber) & ":" & ConvertToLetter(HeaderColNumber) & TotalRows).ClearContents
+        End If
+
     End Select
     Unload Overwrite
     
