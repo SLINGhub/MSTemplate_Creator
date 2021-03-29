@@ -97,12 +97,15 @@ Public Function ISTDCalculationChecker(ByVal Target As Range)
                     Application.EnableEvents = False
                     Dim ISTD_Custom_Unit() As String
                     ISTD_Custom_Unit = ISTD_Annot.Convert_Conc_nM_Array(Cell.Value)
-                    Call Utilities.Load_To_Excel(ISTD_Custom_Unit, "Custom_Unit", HeaderRowNumber:=2, DataStartRowNumber:=4, MessageBoxRequired:=False)
+                    Call Utilities.Load_To_Excel(ISTD_Custom_Unit, "Custom_Unit", HeaderRowNumber:=2, _
+                                                 DataStartRowNumber:=4, MessageBoxRequired:=False)
+                    'Update the Concentration Unit in Sample_Annot sheet if there are entries.
+                    Call Autofill_Concentration_Unit_Click
+                    Sheets("ISTD_Annot").Activate
                     Application.EnableEvents = True
                 End If
             End Select
         Next Cell
-        
     End If
 
 End Function

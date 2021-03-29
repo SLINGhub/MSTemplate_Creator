@@ -68,11 +68,7 @@ Private Function Get_Transition_Array_Tidy_Excel(TidyDataFiles As String, _
                                                  TransitionProperty As String, _
                                                  StartingRowNum As Integer, _
                                                  StartingColumnNum As Integer) As String()
-                                                 
-    Debug.Print TransitionProperty
-    Debug.Print StartingRowNum
-    Debug.Print StartingColumnNum
-    
+                                                  
     'File are taken from userfrom Load_Transition_Name_Tidy
     'Hence they must exists and joined together by ;
     Dim TidyDataFilesArray() As String

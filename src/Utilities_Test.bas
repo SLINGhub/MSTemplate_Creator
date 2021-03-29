@@ -40,6 +40,9 @@ Public Sub Get_Header_Col_Position_Test()
     Assert.AreEqual Utilities.Get_Header_Col_Position("Transition_Name", 1), 1
     Assert.AreEqual Utilities.Get_Header_Col_Position("Transition_Name_ISTD", 1), 2
     
+    'Check if it works in a sheet that is not active
+    Assert.AreEqual Utilities.Get_Header_Col_Position("Transition_Name_ISTD", 2, "ISTD_Annot"), 1
+    
     Sheets("ISTD_Annot").Activate
     Assert.AreEqual Utilities.Get_Header_Col_Position("Transition_Name_ISTD", 2), 1
     Assert.AreEqual Utilities.Get_Header_Col_Position("ISTD_Conc_[ng/mL]", 3), 2

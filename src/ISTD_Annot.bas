@@ -3,6 +3,9 @@ Public Function Convert_Conc_nM_Array(Custom_Unit As String) As String()
     Dim ISTD_Conc() As String
     Dim lenArray As Integer
     Dim FactorValue As Double
+    
+    Sheets("ISTD_Annot").Activate
+    
     ISTD_Conc = Utilities.Load_Columns_From_Excel("ISTD_Conc_[nM]", HeaderRowNumber:=3, _
                                                   DataStartRowNumber:=4, MessageBoxRequired:=False, _
                                                   RemoveBlksAndReplicates:=False, _

@@ -87,18 +87,18 @@ End Sub
 
 Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
                                       Optional ByVal Testing As Boolean = False)
-
+                                      
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
-    Sheets("ISTD_Annot").Activate
     
     'Check if the column Custom_Unit exists
     Dim ISTD_Custom_Unit_ColNumber As Integer
-    ISTD_Custom_Unit_ColNumber = Utilities.Get_Header_Col_Position("Custom_Unit", 2)
-    
+    ISTD_Custom_Unit_ColNumber = Utilities.Get_Header_Col_Position("Custom_Unit", 2, _
+                                                                   WorksheetName:="ISTD_Annot")
+                                                                   
     'Get the custom unit value
     Dim Custom_Unit As String
-    Custom_Unit = Cells(3, ISTD_Custom_Unit_ColNumber)
+    Custom_Unit = Worksheets("ISTD_Annot").Cells(3, ISTD_Custom_Unit_ColNumber)
     Application.EnableEvents = True
 
     Dim Right_Custom_Unit As String
@@ -115,7 +115,6 @@ Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boole
     Right_Custom_Unit = Trim(RightConcUnitRegEx.Replace(Right_Custom_Unit, " "))
     'Debug.Print Right_Custom_Unit
 
-    Sheets("Sample_Annot").Activate
     'To ensure that Filters does not affect the assignment
     Utilities.RemoveFilterSettings
     
@@ -123,6 +122,7 @@ Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boole
     Sample_Amount_Unit = Utilities.Load_Columns_From_Excel("Sample_Amount_Unit", HeaderRowNumber:=1, _
                                                            DataStartRowNumber:=2, MessageBoxRequired:=False, _
                                                            RemoveBlksAndReplicates:=False, _
+                                                           WorksheetName:="Sample_Annot", _
                                                            IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
     'Get the length of Sample_Amount_Unit
     Dim max_length As Integer
@@ -134,7 +134,14 @@ Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boole
     'Leave the program if max_length is 0
     If max_length = 0 Then
         'Application.EnableEvents = True
-        End
+        Exit Sub
+    End If
+    'Else we proceed to update the concetration unit
+    
+    'If the active sheet is ISTD_Annot,
+    'inform the users that concentration unit must be updated
+    If ActiveSheet.Name = "ISTD_Annot" Then
+        MsgBox "Updating Concentration_Unit in Sample_Annot"
     End If
     
     Dim ConcentrationUnitArray() As String
@@ -165,9 +172,11 @@ Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boole
     
     'Load to Excel
     Call Utilities.OverwriteHeader("Concentration_Unit", HeaderRowNumber:=1, _
-                                   DataStartRowNumber:=2)
+                                   DataStartRowNumber:=2, _
+                                   WorksheetName:="Sample_Annot")
     Call Utilities.Load_To_Excel(ConcentrationUnitArray, "Concentration_Unit", _
                                  HeaderRowNumber:=1, DataStartRowNumber:=2, _
+                                 WorksheetName:="Sample_Annot", _
                                  MessageBoxRequired:=False)
                                  
     'Display a summary box of unique concentration units
@@ -180,7 +189,7 @@ Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boole
         If Testing Then
             Exit Sub
         Else
-            End
+            Exit Sub
         End If
     End If
     
@@ -233,12 +242,7 @@ Sub Load_Sample_Annot_Tidy_Column_Name_Click()
     'If the Load Annotation button is clicked
     Select Case Load_Sample_Annot_Tidy.whatsclicked
     Case "Create_New_Sample_Annot_Tidy_Button"
-        'Debug.Print Load_Sample_Annot_Tidy.Tidy_Data_File_Path.Text
-        'Debug.Print Load_Sample_Annot_Tidy.Data_File_Type_ComboBox.Text
-        'Debug.Print Load_Sample_Annot_Tidy.Sample_Name_Property_ComboBox.Text
-        'Debug.Print Load_Sample_Annot_Tidy.Starting_Row_Number_TextBox.Value
-        'Debug.Print Load_Sample_Annot_Tidy.Starting_Column_Number_TextBox.Value
-        
+ 
         Call Sample_Annot.Create_New_Sample_Annot_Tidy( _
                             TidyDataFiles:=Load_Sample_Annot_Tidy.Tidy_Data_File_Path.Text, _
                             DataFileType:=Load_Sample_Annot_Tidy.Data_File_Type_ComboBox.Text, _

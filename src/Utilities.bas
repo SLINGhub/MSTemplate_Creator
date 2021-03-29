@@ -216,16 +216,30 @@ Public Sub RemoveFilterSettings()
     End If
 End Sub
 
-Public Function Get_Header_Col_Position(HeaderName As String, HeaderRowNumber As Integer) As Integer
+Public Function Get_Header_Col_Position(HeaderName As String, _
+                                        HeaderRowNumber As Integer, _
+                                        Optional ByVal WorksheetName As String = "") As Integer
+                                        
     'Get column position of Header Name
     Dim pos As Integer
-    pos = Application.Match(HeaderName, Rows(HeaderRowNumber).Value, False)
-    If IsError(pos) Then
-        MsgBox HeaderName & " is missing in the headers of" & ActiveSheet.Name & " sheet"
-        'Excel resume monitoring the sheet
-        Application.EnableEvents = True
+    If WorksheetName = "" Then
+        pos = Application.Match(HeaderName, Worksheets(ActiveSheet.Name).Rows(HeaderRowNumber).Value, False)
+        If IsError(pos) Then
+            MsgBox HeaderName & " is missing in the headers of" & ActiveSheet.Name & " sheet"
+            'Excel resume monitoring the sheet
+            Application.EnableEvents = True
         End
     End If
+    Else
+        pos = Application.Match(HeaderName, Worksheets(WorksheetName).Rows(HeaderRowNumber).Value, False)
+        If IsError(pos) Then
+            MsgBox HeaderName & " is missing in the headers of" & WorksheetName & " sheet"
+            'Excel resume monitoring the sheet
+            Application.EnableEvents = True
+            End
+        End If
+    End If
+
     Get_Header_Col_Position = pos
 End Function
 
@@ -417,11 +431,19 @@ End Sub
 
 Public Sub OverwriteHeader(HeaderName As String, HeaderRowNumber As Integer, _
                            DataStartRowNumber As Integer, _
+                           Optional ByVal WorksheetName As String = "", _
                            Optional ByVal ClearContent As Boolean = True, _
                            Optional ByVal Testing As Boolean = False)
+                           
+                           
+    'Activate the correct sheet
+    If WorksheetName <> "" Then
+        Sheets(WorksheetName).Activate
+    End If
     
     Dim HeaderColNumber As Integer
-    HeaderColNumber = Utilities.Get_Header_Col_Position(HeaderName, HeaderRowNumber)
+    HeaderColNumber = Utilities.Get_Header_Col_Position(HeaderName, HeaderRowNumber, _
+                                                        WorksheetName:=WorksheetName)
     
     'Check if the header has entries
     Dim TotalRows As Long
@@ -460,10 +482,15 @@ Public Sub OverwriteHeader(HeaderName As String, HeaderRowNumber As Integer, _
     
 End Sub
 
-Public Sub Load_To_Excel(ByRef Data_Array() As String, HeaderName As String, HeaderRowNumber As Integer, DataStartRowNumber As Integer, MessageBoxRequired As Boolean, Optional ByVal NumberFormat As String = "General")
+Public Sub Load_To_Excel(ByRef Data_Array() As String, HeaderName As String, _
+                         HeaderRowNumber As Integer, DataStartRowNumber As Integer, _
+                         MessageBoxRequired As Boolean, _
+                         Optional ByVal WorksheetName As String = "", _
+                         Optional ByVal NumberFormat As String = "General")
     
     Dim HeaderColNumber As Integer
-    HeaderColNumber = Utilities.Get_Header_Col_Position(HeaderName, HeaderRowNumber)
+    HeaderColNumber = Utilities.Get_Header_Col_Position(HeaderName, HeaderRowNumber, _
+                                                        WorksheetName:=WorksheetName)
     
     'Assume ISTD_Array is checked to be non-empty by an earlier function
     If UBound(Data_Array) - LBound(Data_Array) + 1 <> 0 Then
@@ -499,6 +526,7 @@ Public Function Load_Columns_From_Excel(HeaderName As String, HeaderRowNumber As
                                         DataStartRowNumber As Integer, _
                                         MessageBoxRequired As Boolean, _
                                         RemoveBlksAndReplicates As Boolean, _
+                                        Optional ByVal WorksheetName As String = "", _
                                         Optional ByVal IgnoreHiddenRows As Boolean = True, _
                                         Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
     Dim strArray() As String
@@ -506,24 +534,29 @@ Public Function Load_Columns_From_Excel(HeaderName As String, HeaderRowNumber As
     Dim i As Long
     Dim ArrayLength As Long
     
+    If WorksheetName = "" Then
+        WorksheetName = ActiveSheet.Name
+    End If
+    
     'Get column position of Transition_Name_ISTD
     Dim HeaderColNumber As Integer
-    HeaderColNumber = Utilities.Get_Header_Col_Position(HeaderName, HeaderRowNumber)
+    HeaderColNumber = Utilities.Get_Header_Col_Position(HeaderName, HeaderRowNumber, _
+                                                        WorksheetName:=WorksheetName)
     
     'Get the total number of rows
-    TotalRows = Cells(Rows.Count, ConvertToLetter(HeaderColNumber)).End(xlUp).Row
+    TotalRows = Worksheets(WorksheetName).Cells(Rows.Count, ConvertToLetter(HeaderColNumber)).End(xlUp).Row
     ArrayLength = 0
     
     'Get the entries
     For i = DataStartRowNumber To TotalRows
     
         'If Cell is hidden and IgnoreHiddenRows is True, we skip to the next row
-        If Cells(i, HeaderColNumber).RowHeight <> 0 Or Not IgnoreHiddenRows Then
+        If Worksheets(WorksheetName).Cells(i, HeaderColNumber).RowHeight <> 0 Or Not IgnoreHiddenRows Then
         
             If RemoveBlksAndReplicates Then
                 'Check that it is not empty or has only spaces
-                If Not IsEmpty(Cells(i, HeaderColNumber)) Then
-                    entries = Trim(Cells(i, HeaderColNumber).Value)
+                If Not IsEmpty(Worksheets(WorksheetName).Cells(i, HeaderColNumber)) Then
+                    entries = Trim(Worksheets(WorksheetName).Cells(i, HeaderColNumber).Value)
                     InArray = Utilities.IsInArray(entries, strArray)
                     If Len(entries) <> 0 And Not InArray Then
                         ReDim Preserve strArray(ArrayLength)
@@ -534,7 +567,7 @@ Public Function Load_Columns_From_Excel(HeaderName As String, HeaderRowNumber As
                 End If
             Else
                 ReDim Preserve strArray(ArrayLength)
-                strArray(ArrayLength) = CStr(Cells(i, HeaderColNumber))
+                strArray(ArrayLength) = CStr(Worksheets(WorksheetName).Cells(i, HeaderColNumber))
                 'Debug.Print strArray(ArrayLength)
                 ArrayLength = ArrayLength + 1
             End If
