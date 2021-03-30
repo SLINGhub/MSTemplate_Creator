@@ -1,12 +1,12 @@
 Attribute VB_Name = "Sample_Annot_Buttons"
 'Sheet Sample_Annot Functions
 
-Sub Autofill_Sample_Amount_Unit_Click()
+Sub Autofill_By_Sample_Type_Click()
     Sheets("Sample_Annot").Activate
        
-    AutoFill_Sample_Amount_Unit.Show
+    Autofill_By_Sample_Type.Show
 
-    Unload AutoFill_Sample_Amount_Unit
+    Unload Autofill_By_Sample_Type
      
 End Sub
 

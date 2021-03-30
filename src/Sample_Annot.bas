@@ -1,6 +1,7 @@
 Attribute VB_Name = "Sample_Annot"
-Public Sub Autofill_Sample_Unit(Sample_Type As String, _
-                                Sample_Amount_Unit As String)
+Public Sub Autofill_Column_By_Sample_Type(Sample_Type As String, _
+                                          Header_Name As String, _
+                                          Autofill_Value As String)
 
     Sheets("Sample_Annot").Activate
    
@@ -11,7 +12,7 @@ Public Sub Autofill_Sample_Unit(Sample_Type As String, _
     Application.EnableEvents = False
     
     Dim SampleTypeArray() As String
-    Dim SampleAmountUnitArray() As String
+    Dim AutofillValueArray() As String
     Dim TotalRows As Long
     Dim i As Long
     
@@ -19,14 +20,16 @@ Public Sub Autofill_Sample_Unit(Sample_Type As String, _
     Dim SampleType_pos As Integer
     SampleType_pos = Utilities.Get_Header_Col_Position("Sample_Type", HeaderRowNumber:=1)
     
-    'Check if the column Sample_Amount_Unit exists
-    Dim SampleAmountUnit_pos As Integer
-    SampleAmountUnit_pos = Utilities.Get_Header_Col_Position("Sample_Amount_Unit", HeaderRowNumber:=1)
+    'Check if the column given in Header_Name exists
+    Dim AutofillValue_pos As Integer
+    AutofillValue_pos = Utilities.Get_Header_Col_Position(Header_Name, HeaderRowNumber:=1)
     
     'Filter Rows by input Sample_Type
-    ActiveSheet.Range("A1").AutoFilter Field:=SampleType_pos, _
-                                       Criteria1:=Sample_Type, _
-                                       VisibleDropDown:=True
+    If Sample_Type <> "All Sample Types" Then
+        ActiveSheet.Range("A1").AutoFilter Field:=SampleType_pos, _
+                                           Criteria1:=Sample_Type, _
+                                           VisibleDropDown:=True
+    End If
     
     'Load the Sample_Type column content from Sample_Annot
     SampleTypeArray = Utilities.Load_Columns_From_Excel("Sample_Type", _
@@ -53,26 +56,28 @@ Public Sub Autofill_Sample_Unit(Sample_Type As String, _
     End If
     
     'Load the Sample_Amount_Unit column content from Sample_Annot
-    SampleAmountUnitArray = Utilities.Load_Columns_From_Excel("Sample_Amount_Unit", _
-                                                              HeaderRowNumber:=1, _
-                                                              DataStartRowNumber:=2, _
-                                                              MessageBoxRequired:=False, _
-                                                              RemoveBlksAndReplicates:=False, _
-                                                              IgnoreHiddenRows:=True, _
-                                                              IgnoreEmptyArray:=True)
+    AutofillValueArray = Utilities.Load_Columns_From_Excel(Header_Name, _
+                                                           HeaderRowNumber:=1, _
+                                                           DataStartRowNumber:=2, _
+                                                           MessageBoxRequired:=False, _
+                                                           RemoveBlksAndReplicates:=False, _
+                                                           IgnoreHiddenRows:=True, _
+                                                           IgnoreEmptyArray:=True)
                                                               
                                                               
     'Check if SampleAmountUnitArray has any elements
     'If yes, give an overwrite warning
-    If Len(Join(SampleAmountUnitArray, "")) > 0 Then
-        Call Utilities.OverwriteHeader("Sample_Amount_Unit", _
+    If Len(Join(AutofillValueArray, "")) > 0 Then
+        Call Utilities.OverwriteHeader(Header_Name, _
                                        HeaderRowNumber:=1, _
                                        DataStartRowNumber:=2, _
                                        ClearContent:=False)
         'Filter Rows by input Sample_Type
-        ActiveSheet.Range("A1").AutoFilter Field:=SampleType_pos, _
-                                           Criteria1:=Sample_Type, _
-                                           VisibleDropDown:=True
+        If Sample_Type <> "All Sample Types" Then
+            ActiveSheet.Range("A1").AutoFilter Field:=SampleType_pos, _
+                                               Criteria1:=Sample_Type, _
+                                               VisibleDropDown:=True
+        End If
     End If
      
     'Find the total number of rows and resize the array accordingly
@@ -80,20 +85,25 @@ Public Sub Autofill_Sample_Unit(Sample_Type As String, _
     
     'Assign the relevant sample amount unit for that sample type
     If TotalRows > 1 Then
-        For i = 2 To TotalRows
-            If Cells(i, SampleType_pos).Value = Sample_Type Then
-                Cells(i, SampleAmountUnit_pos).Value = Sample_Amount_Unit
-            'Else
-            '    Cells(i, SampleAmountUnit_pos).Value = Cells(i, SampleAmountUnit_pos).Value
-            End If
-        Next i
+        If Sample_Type = "All Sample Types" Then
+            For i = 2 To TotalRows
+                Cells(i, AutofillValue_pos).Value = Autofill_Value
+            Next i
+        Else
+            For i = 2 To TotalRows
+                If Cells(i, SampleType_pos).Value = Sample_Type Then
+                    Cells(i, AutofillValue_pos).Value = Autofill_Value
+                End If
+            Next i
+            
+            MsgBox "Autofill" & vbNewLine & "Sample_Type : " & Sample_Type & vbNewLine & Header_Name & " : " & Autofill_Value & "."
+            
+            'To ensure that Filters does not affect the assignment
+            Utilities.RemoveFilterSettings
+        End If
     End If
     
-    MsgBox "Loaded Sample Type : " & Sample_Type & " with " & Sample_Amount_Unit & "."
-    
-    'To ensure that Filters does not affect the assignment
-    Utilities.RemoveFilterSettings
-    
+   
     'Resume monitoring of sheet
     Application.EnableEvents = True
     

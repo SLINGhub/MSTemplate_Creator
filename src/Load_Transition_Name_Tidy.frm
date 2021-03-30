@@ -46,35 +46,35 @@ Private Sub Tidy_Data_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, By
     Tidy_Data_File_Path.Text = ""
 End Sub
 
-' Check if input is a positive number
+' Check if input is a positive number, must be integer
 Private Sub Starting_Row_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     If Starting_Row_Number_TextBox.Value = "" Then
-        MsgBox "Please enter a positive number"
+        MsgBox "Please enter a positive integer"
         Starting_Row_Number_TextBox.SetFocus
         Cancel = True
     ElseIf Starting_Row_Number_TextBox.Value Like "*[!0-9]*" Then
-        MsgBox "Please enter a positive number"
+        MsgBox "Please enter a positive integer"
         Starting_Row_Number_TextBox.SetFocus
         Cancel = True
     ElseIf Starting_Row_Number_TextBox.Value <= 0 Or Not IsNumeric(Starting_Row_Number_TextBox.Value) Then
-        MsgBox "Please enter a positive number"
+        MsgBox "Please enter a positive integer"
         Starting_Row_Number_TextBox.SetFocus
         Cancel = True
     End If
 End Sub
 
-' Check if input is a positive number
+' Check if input is a positive number, must be integer
 Private Sub Starting_Column_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     If Starting_Column_Number_TextBox.Value = "" Then
-        MsgBox "Please enter a positive number"
+        MsgBox "Please enter a positive integer"
         Starting_Column_Number_TextBox.SetFocus
         Cancel = True
     ElseIf Starting_Column_Number_TextBox.Value Like "*[!0-9]*" Then
-        MsgBox "Please enter a positive number"
+        MsgBox "Please enter a positive integer"
         Starting_Column_Number_TextBox.SetFocus
         Cancel = True
     ElseIf Starting_Column_Number_TextBox.Value <= 0 Or Not IsNumeric(Starting_Column_Number_TextBox.Value) Then
-        MsgBox "Please enter a positive number"
+        MsgBox "Please enter a positive integer"
         Starting_Column_Number_TextBox.SetFocus
         Cancel = True
     End If

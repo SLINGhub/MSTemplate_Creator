@@ -7,8 +7,8 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = True
-Private Sub AutofillSampleAmountUnit_Click()
-    Call Autofill_Sample_Amount_Unit_Click
+Private Sub AutofillBySampleType_Click()
+    Call Autofill_By_Sample_Type_Click
 End Sub
 
 Private Sub LoadSampleAnnotationRaw_Click()

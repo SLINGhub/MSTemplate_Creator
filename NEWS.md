@@ -11,7 +11,8 @@
 
 * Update the Sample Type to be the same as the LIMS in SLING.
 * Changed the excel sheet font to "Consolas" so that the number "0" and the letter "O" can be differentiated easily.
-* Added a new button to auto fill sample amount unit based on the QC sample type.
+* Match the buttons with the relevant column colours in the sheet.
+* Added a new button to auto fill the sample amount, sample amount unit and the istd mixture volumne column based on the QC sample type.
 * If user change the concentration Custom_Unit in the ISTD_Annot sheet and there are values in the Sample Amount in the Sample_Annot sheet, the software will auto fill the concentration unit. This is to ensure the right concentration unit is updated correctly.
 
 # MSTemplate_Creator 0.0.1
