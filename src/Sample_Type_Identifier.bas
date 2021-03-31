@@ -2,27 +2,43 @@ Attribute VB_Name = "Sample_Type_Identifier"
 Public Function Get_Sample_Type(FileName As String) As String
     If isEQC(FileName) Then
         Get_Sample_Type = "EQC"
-    ElseIf isTQC(FileName) And Not isRQC(FileName) Then
-        Get_Sample_Type = "TQC"
+    ElseIf isSST(FileName) Then
+        Get_Sample_Type = "SST"
     ElseIf isBQC(FileName) Then
         Get_Sample_Type = "BQC"
+    ElseIf isTQC(FileName) And Not isRQC(FileName) Then
+        Get_Sample_Type = "TQC"
     ElseIf isRQC(FileName) Then
         Get_Sample_Type = "RQC"
-    ElseIf isLTR(FileName) Then
+    ElseIf isLTR(FileName) And Not isLTRBK(FileName) Then
         Get_Sample_Type = "LTR"
-    ElseIf isNIST(FileName) Then
+    ElseIf isNIST(FileName) And Not isNISTBK(FileName) Then
         Get_Sample_Type = "NIST"
+    ElseIf isSRM(FileName) Then
+        Get_Sample_Type = "SRM"
     ElseIf isPBLK(FileName) Then
         Get_Sample_Type = "PBLK"
+    ElseIf isUBLK(FileName) And Not isPBLK(FileName) And Not isSBLK(FileName) _
+        And Not isMBLK(FileName) And Not isLTRBK(FileName) _
+        And Not isNISTBK(FileName) Then
+        Get_Sample_Type = "UBLK"
     ElseIf isSBLK(FileName) Then
         Get_Sample_Type = "SBLK"
     ElseIf isMBLK(FileName) Then
         Get_Sample_Type = "MBLK"
-    ElseIf isUBLK(FileName) And Not isPBLK(FileName) And Not isSBLK(FileName) _
-        And Not isMBLK(FileName) Then
-        Get_Sample_Type = "UBLK"
+    ElseIf isSTD(FileName) Then
+        Get_Sample_Type = "STD"
+    ElseIf isLQQ(FileName) Then
+        Get_Sample_Type = "LQQ"
+    ElseIf isCTRL(FileName) Then
+        Get_Sample_Type = "CTRL"
+    ElseIf isDUP(FileName) Then
+        Get_Sample_Type = "DUP"
+    ElseIf isSPIK(FileName) Then
+        Get_Sample_Type = "SPIK"
+    ElseIf isLTRBK(FileName) Then
+        Get_Sample_Type = "LTRBK"
     End If
-    
     
 End Function
 
@@ -39,17 +55,16 @@ Public Function isEQC(FileName As String) As Boolean
     
 End Function
 
-Public Function isTQC(FileName As String) As Boolean
+Public Function isSST(FileName As String) As Boolean
     Dim NonLettersRegEx As New RegExp
-    Dim TQCRegEx As New RegExp
+    Dim SSTRegEx As New RegExp
     Dim OnlyLettersText As String
     NonLettersRegEx.Pattern = "[^A-Za-z]"
     NonLettersRegEx.Global = True
     
-    TQCRegEx.Pattern = "(TQC|[Tt]qc)"
+    SSTRegEx.Pattern = "(SST|[Ss]st)"
     OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
-    isTQC = TQCRegEx.Test(OnlyLettersText)
-    
+    isSST = SSTRegEx.Test(OnlyLettersText)
 End Function
 
 Public Function isBQC(FileName As String) As Boolean
@@ -62,6 +77,19 @@ Public Function isBQC(FileName As String) As Boolean
     BQCRegEx.Pattern = "([BP]QC|[Pp]qc|[Bb]qc)"
     OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
     isBQC = BQCRegEx.Test(OnlyLettersText)
+    
+End Function
+
+Public Function isTQC(FileName As String) As Boolean
+    Dim NonLettersRegEx As New RegExp
+    Dim TQCRegEx As New RegExp
+    Dim OnlyLettersText As String
+    NonLettersRegEx.Pattern = "[^A-Za-z]"
+    NonLettersRegEx.Global = True
+    
+    TQCRegEx.Pattern = "(TQC|[Tt]qc)"
+    OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
+    isTQC = TQCRegEx.Test(OnlyLettersText)
     
 End Function
 
@@ -118,6 +146,19 @@ Public Function isNIST(FileName As String) As Boolean
     NISTRegEx.Pattern = "(NIST|[Nn]ist)"
     OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
     isNIST = NISTRegEx.Test(OnlyLettersText)
+    
+End Function
+
+Public Function isSRM(FileName As String) As Boolean
+    Dim NonLettersRegEx As New RegExp
+    Dim SRMRegEx As New RegExp
+    Dim OnlyLettersText As String
+    NonLettersRegEx.Pattern = "[^A-Za-z]"
+    NonLettersRegEx.Global = True
+    
+    SRMRegEx.Pattern = "(SRM|[Ss]rm)"
+    OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
+    isSRM = SRMRegEx.Test(OnlyLettersText)
     
 End Function
 
@@ -242,4 +283,129 @@ Public Function isMBLK(FileName As String) As Boolean
 
 End Function
 
+Public Function isSTD(FileName As String) As Boolean
+    Dim NonLettersRegEx As New RegExp
+    Dim STDRegEx As New RegExp
+    Dim ISTDRegEx As New RegExp
+    Dim OnlyLettersText As String
+    NonLettersRegEx.Pattern = "[^A-Za-z]"
+    NonLettersRegEx.Global = True
+    
+    STDRegEx.Pattern = "(STD|[Ss]td)"
+    ISTDRegEx.Pattern = "(ISTD|[Ii]std)"
+    OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
+    isSTD = STDRegEx.Test(OnlyLettersText) And Not (ISTDRegEx.Test(OnlyLettersText))
+    
+End Function
 
+Public Function isLQQ(FileName As String) As Boolean
+    Dim NonLettersRegEx As New RegExp
+    Dim LQQRegEx As New RegExp
+    Dim OnlyLettersText As String
+    NonLettersRegEx.Pattern = "[^A-Za-z]"
+    NonLettersRegEx.Global = True
+    
+    LQQRegEx.Pattern = "(LQQ|[Ll]qq)"
+    OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
+    isLQQ = LQQRegEx.Test(OnlyLettersText)
+    
+End Function
+
+Public Function isCTRL(FileName As String) As Boolean
+    Dim NonLettersRegEx As New RegExp
+    Dim CTRLRegEx As New RegExp
+    Dim OnlyLettersText As String
+    NonLettersRegEx.Pattern = "[^A-Za-z]"
+    NonLettersRegEx.Global = True
+    
+    CTRLRegEx.Pattern = "(CTRL|[Cc]trl)"
+    OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
+    isCTRL = CTRLRegEx.Test(OnlyLettersText)
+    
+End Function
+
+Public Function isDUP(FileName As String) As Boolean
+    Dim NonLettersRegEx As New RegExp
+    Dim DUPRegEx As New RegExp
+    Dim OnlyLettersText As String
+    NonLettersRegEx.Pattern = "[^A-Za-z]"
+    NonLettersRegEx.Global = True
+    
+    DUPRegEx.Pattern = "(DUP|[Dd]up)"
+    OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
+    isDUP = DUPRegEx.Test(OnlyLettersText)
+    
+End Function
+
+Public Function isSPIK(FileName As String) As Boolean
+    Dim NonLettersRegEx As New RegExp
+    Dim SPIKRegEx As New RegExp
+    Dim OnlyLettersText As String
+    NonLettersRegEx.Pattern = "[^A-Za-z]"
+    NonLettersRegEx.Global = True
+    
+    SPIKRegEx.Pattern = "(SPIK|[Ss]pik)"
+    OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
+    isSPIK = SPIKRegEx.Test(OnlyLettersText)
+    
+End Function
+
+Public Function isLTRBK(FileName As String) As Boolean
+    Dim NonLettersRegEx As New RegExp
+    Dim LTRBKRegEx As New RegExp
+    Dim NoISTDLTRRegEx As New RegExp
+    Dim LTRNoISTDRegEx As New RegExp
+    Dim OnlyLettersText As String
+    NonLettersRegEx.Pattern = "[^A-Za-z]"
+    NonLettersRegEx.Global = True
+    
+    Dim BlankPattern As String
+    Dim NoISTDPattern As String
+
+    'We need a whole word match as we do not want 'blank'ets
+    BlankPattern = "(B(L|LAN)?K|[B,b](l|lan)?k)"
+    
+    'No ISTD pattern
+    NoISTDPattern = "(NO|[Nn]o)" & "([\s,_,-]+)?" & "(IS(TD)?|[Ii]std)"
+    
+    'We make the blank pattern
+    LTRBKRegEx.Pattern = "(LTR|[Ll]tr)" & "([\s,_,-]+)?" & BlankPattern
+    NoISTDLTRRegEx.Pattern = NoISTDPattern & "([\s,_,-]+)?" & "(LTR|[Ll]tr)"
+    LTRNoISTDRegEx.Pattern = "(LTR|[Ll]tr)" & "([\s,_,-]+)?" & NoISTDPattern
+
+    OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
+    isLTRBK = LTRBKRegEx.Test(OnlyLettersText) Or _
+              NoISTDLTRRegEx.Test(OnlyLettersText) Or _
+              LTRNoISTDRegEx.Test(OnlyLettersText)
+    
+End Function
+
+Public Function isNISTBK(FileName As String) As Boolean
+    Dim NonLettersRegEx As New RegExp
+    Dim NISTBKRegEx As New RegExp
+    Dim NoISTDNISTRegEx As New RegExp
+    Dim NISTNoISTDRegEx As New RegExp
+    Dim OnlyLettersText As String
+    NonLettersRegEx.Pattern = "[^A-Za-z]"
+    NonLettersRegEx.Global = True
+    
+    Dim BlankPattern As String
+    Dim NoISTDPattern As String
+
+    'We need a whole word match as we do not want 'blank'ets
+    BlankPattern = "(B(L|LAN)?K|[B,b](l|lan)?k)"
+    
+    'No ISTD pattern
+    NoISTDPattern = "(NO|[Nn]o)" & "([\s,_,-]+)?" & "(IS(TD)?|[Ii]std)"
+    
+    'We make the blank pattern
+    NISTBKRegEx.Pattern = "(NIST|[Nn]ist)" & "([\s,_,-]+)?" & BlankPattern
+    NoISTDNISTRegEx.Pattern = NoISTDPattern & "([\s,_,-]+)?" & "(NIST|[Nn]ist)"
+    NISTNoISTDRegEx.Pattern = "(NIST|[Nn]ist)" & "([\s,_,-]+)?" & NoISTDPattern
+
+    OnlyLettersText = Trim(NonLettersRegEx.Replace(FileName, " "))
+    isNISTBK = NISTBKRegEx.Test(OnlyLettersText) Or _
+              NoISTDNISTRegEx.Test(OnlyLettersText) Or _
+              NISTNoISTDRegEx.Test(OnlyLettersText)
+    
+End Function
