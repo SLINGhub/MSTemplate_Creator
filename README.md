@@ -25,23 +25,23 @@ Content** so that the macro in the file will be activated.
 Load transition names from Agilent MRM data in csv file with **Load
 Transition\_Name from Raw Data**
 
-![Load Transition\_Name from Raw Data](figures/trial.gif)
+![Load\_Transition\_Name\_from\_Raw\_Data](figures/Load_Transition_Name_from_Raw_Data.gif)
 
 Load transition names from tabular data in csv file with **Load
 Transition\_Name from Table Data**
 
-![Load Transition\_Name from Table Data](figures/trial2.gif)
+![Load\_Transition\_Name\_from\_Table\_Data](figures/Load_Transition_Name_from_Table_Data.gif)
 
 Check the internal standards with **Validate ISTD**. Once validated,
 transfer the internal standards to sheet `ISTD_Annot` with **Load ISTD
 to ISTD\_Table**
 
-![Validate ISTD](figures/trial3.gif)
+![Validate\_ISTD](figures/Validate_ISTD.gif)
 
 Once validated, transfer the internal standards to sheet `ISTD_Annot`
 with **Load ISTD to ISTD\_Table**
 
-![Load ISTD to ISTD\_Table](figures/trial4.gif)
+![Load\_ISTD\_to\_ISTD\_Table](figures/Load_ISTD_to_ISTD_Table.gif)
 
 ## Using ISTD\_Annot Sheet
 
@@ -49,7 +49,7 @@ Key in the concentration of the internal standard and convert to nM or
 other units to verify. Unit values under the column `Custom_Unit` can be
 used later to obtain the sample unit of concentration.
 
-![Convert to nM](figures/trial5.gif)
+![Convert\_to\_nM](figures/Convert_to_nM.gif)
 
 ## Using Sample\_Annot Sheet
 
@@ -57,28 +57,36 @@ Load sample names from Agilent MRM data in csv file with **Load Sample
 Annotation from Raw Data**. Use **Autofill ‘Sample’ in Sample\_Type** to
 fill empty cells under the `Sample_Type` column with “SPL”
 
-![Load Sample Annotation from Raw Data](figures/trial7.gif)
+![Load\_Sample\_Annotation\_from\_Raw\_Data](figures/Load_Sample_Annotation_from_Raw_Data.gif)
 
 It is possible to merge Agilent MRM data with a sample annotation file
 in csv.
 
-![Merge Raw Data with Sample Annotation](figures/trial10.gif)
+![Merge\_Raw\_Data\_with\_Sample\_Annotation](figures/Merge_Raw_Data_with_Sample_Annotation.gif)
 
 Load sample names from tabular data in csv file with **Load Sample
 Annotation from Table Data**. Use **Autofill ‘Sample’ in Sample\_Type**
 to fill empty cells under the `Sample_Type` column with “SPL”
 
-![Load Sample Annotation from Table Data](figures/trial6.gif)
+![Load\_Sample\_Annotation\_from\_Table\_Data](figures/Load_Sample_Annotation_from_Table_Data.gif)
 
-On the `Sample_Annot` sheet, fill in the sample amount unit for each
+Next, fill in the `Sample_Amount`, `Sample_Amount_Unit` and the
+`ISTD_Mixture_Volume_[uL]` columns. If a particular `Sample_Type` has
+consistent inputs, the **Autofill by Sample\_Type** button helps to fill
+in these consistent values quickly.
+
+![Autofill\_by\_Sample\_Type](figures/Autofill_Concentration_Unit.gif)
+
+To obtain the analyte’s concentration unit measured in each sample, go
+the `Sample_Annot` sheet and fill in the `Sample_Amount_Unit` for each
 sample. Next, on the `ISTD_Annot` sheet, select the concentration unit
 of the internal standard to use under the `Custom_Unit` column. Return
 to the `Sample_Annot` sheet and use **Autofill Concentration\_Unit** to
-obtain each sample’s unit of concentration
+fill in the `Concentration_Unit` column.
 
-![Autofill Concentration\_Unit](figures/trial8.gif)
+![Autofill\_Concentration\_Unit](figures/Autofill_Concentration_Unit.gif)
 
 Transfer Sample with QC sample type of “RQC” to `Dilution_Annot` sheet
 with **Load RQC Samples to Dilution\_Table**
 
-![Autofill Concentration\_Unit](figures/trial9.gif)
+![Load\_RQC\_Samples\_to\_Dilution\_Table](figures/Load_RQC_Samples_to_Dilution_Table.gif)
