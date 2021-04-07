@@ -65,7 +65,7 @@ Load sample names from tabular data in csv file with **Load Sample Annotation fr
 
 Next, fill in the `Sample_Amount`, `Sample_Amount_Unit` and the `ISTD_Mixture_Volume_[uL]` columns. If a particular `Sample_Type` has consistent inputs, the **Autofill by Sample_Type** button helps to fill in these consistent values quickly.
 
-![Autofill_by_Sample_Type](figures/Autofill_Concentration_Unit.gif)
+![Autofill_by_Sample_Type](figures/Autofill_by_Sample_Type.gif)
 
 To obtain the analyte's concentration unit measured in each sample, go the `Sample_Annot` sheet and fill in the `Sample_Amount_Unit` for each sample. Next, on the `ISTD_Annot` sheet, select the concentration unit of the internal standard to use under the `Custom_Unit` column. Return to the `Sample_Annot` sheet and use **Autofill Concentration_Unit** to fill in the `Concentration_Unit` column.
 

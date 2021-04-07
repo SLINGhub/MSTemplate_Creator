@@ -75,7 +75,7 @@ Next, fill in the `Sample_Amount`, `Sample_Amount_Unit` and the
 consistent inputs, the **Autofill by Sample\_Type** button helps to fill
 in these consistent values quickly.
 
-![Autofill\_by\_Sample\_Type](figures/Autofill_Concentration_Unit.gif)
+![Autofill\_by\_Sample\_Type](figures/Autofill_by_Sample_Type.gif)
 
 To obtain the analyte’s concentration unit measured in each sample, go
 the `Sample_Annot` sheet and fill in the `Sample_Amount_Unit` for each
