@@ -35,7 +35,7 @@ Load transition names from tabular data in csv file with **Load Transition_Name 
 
 ![Load_Transition_Name_from_Table_Data](figures/Load_Transition_Name_from_Table_Data.gif)
 
-Check the internal standards with **Validate ISTD**. Once validated, transfer the internal standards to sheet `ISTD_Annot` with **Load ISTD to ISTD_Table**
+Check the internal standards with **Validate ISTD**.
 
 ![Validate_ISTD](figures/Validate_ISTD.gif)
 

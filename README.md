@@ -32,9 +32,7 @@ Transition\_Name from Table Data**
 
 ![Load\_Transition\_Name\_from\_Table\_Data](figures/Load_Transition_Name_from_Table_Data.gif)
 
-Check the internal standards with **Validate ISTD**. Once validated,
-transfer the internal standards to sheet `ISTD_Annot` with **Load ISTD
-to ISTD\_Table**
+Check the internal standards with **Validate ISTD**.
 
 ![Validate\_ISTD](figures/Validate_ISTD.gif)
 
