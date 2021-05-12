@@ -102,8 +102,8 @@ Public Sub StringArrayLenTest()
                       "11_BQC-2.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_BQC_2.d", "018_BQC_PQC01")
     EmptyArray = Array()
     
-    Assert.AreEqual Utilities.StringArrayLen(TestArray), 8
-    Assert.AreEqual Utilities.StringArrayLen(EmptyArray), 0
+    Assert.AreEqual Utilities.StringArrayLen(TestArray), CLng(8)
+    Assert.AreEqual Utilities.StringArrayLen(EmptyArray), CLng(0)
 
 TestExit:
     Exit Sub
@@ -130,12 +130,12 @@ Public Sub WhereInArrayTest()
     
     'Ensure it gives an empty string array when there is no match
     Positions = Utilities.WhereInArray("Her", TestArray)
-    Assert.AreEqual Utilities.StringArrayLen(Positions), 0
+    Assert.AreEqual Utilities.StringArrayLen(Positions), CLng(0)
     
     'Ensure it gives an empty string array when test array is empty
     TestArray = Array()
     Positions = Utilities.WhereInArray("Her", TestArray)
-    Assert.AreEqual Utilities.StringArrayLen(Positions), 0
+    Assert.AreEqual Utilities.StringArrayLen(Positions), CLng(0)
 
 TestExit:
     Exit Sub

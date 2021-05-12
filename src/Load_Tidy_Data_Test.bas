@@ -57,7 +57,7 @@ Public Sub Get_Transition_Array_Tidy_Data_Row_Test()
                                                                 TransitionProperty:="Read as row observations", _
                                                                 StartingRowNum:=2, _
                                                                 StartingColumnNum:=1)
-    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), 7
+    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(7)
     
 TestExit:
     Exit Sub
@@ -91,7 +91,7 @@ Public Sub Get_Transition_Array_Tidy_Data_Column_Test()
                                                                 StartingRowNum:=1, _
                                                                 StartingColumnNum:=2)
                                                                               
-    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), 8
+    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(8)
 TestExit:
     Exit Sub
 TestFail:
@@ -131,8 +131,8 @@ Public Sub Get_Sample_Array_Tidy_Data_Row_Test()
                                                                                  StartingRowNum:=2, _
                                                                                  StartingColumnNum:=1)
                                                                                  
-    Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Tidy_Data), 7
-    Assert.AreEqual Utilities.StringArrayLen(MS_File_Array), 7
+    Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Tidy_Data), CLng(7)
+    Assert.AreEqual Utilities.StringArrayLen(MS_File_Array), CLng(7)
         
 TestExit:
     Exit Sub
@@ -174,8 +174,8 @@ Public Sub Get_Sample_Array_Tidy_Data_Column_Test()
                                                                                  StartingRowNum:=1, _
                                                                                  StartingColumnNum:=2)
                                                                                  
-    Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Tidy_Data), 7
-    Assert.AreEqual Utilities.StringArrayLen(MS_File_Array), 7
+    Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Tidy_Data), CLng(7)
+    Assert.AreEqual Utilities.StringArrayLen(MS_File_Array), CLng(7)
         
 TestExit:
     Exit Sub

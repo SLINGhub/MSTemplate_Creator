@@ -180,7 +180,7 @@ Public Sub Create_New_Sample_Annot_Raw(RawDataFiles As String)
     
     Dim MergeStatus() As String
     Dim SampleType() As String
-    Dim ArrayLength As Integer
+    Dim ArrayLength As Long
     ArrayLength = 0
     
     For i = 0 To UBound(Sample_Name_Array_from_Raw_Data) - LBound(Sample_Name_Array_from_Raw_Data)

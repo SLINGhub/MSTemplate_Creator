@@ -161,7 +161,12 @@ End Function
 
 Public Function Read_File(xFileName As Variant) As String()
     ' Load the file into a string.
-    fnum = FreeFile
+    'Dim fn As String, whole_file As String
+    'Set fso = CreateObject("Scripting.FileSystemObject")
+    'whole_file = fso.OpenTextFile(xFileName).ReadAll
+    
+    Dim fnum As Long
+    fnum = FreeFile()
     Open xFileName For Input As fnum
     whole_file = Input$(LOF(fnum), #fnum)
     Close fnum
@@ -277,7 +282,7 @@ Public Function ConvertToLetter(iCol As Integer) As String
     End If
 End Function
 
-Public Function StringArrayLen(Some_Array As Variant) As Integer
+Public Function StringArrayLen(Some_Array As Variant) As Long
     'Get the length of the array
     If Len(Join(Some_Array, "")) = 0 Then
         StringArrayLen = 0

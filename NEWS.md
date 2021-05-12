@@ -3,9 +3,6 @@
 ## TODO
 
 * Check if dilution factor definition is clear enough.
-* Slow down the gif videos in README.
-* Converted corrected gif to mp4 videos and put in powerpoint slides.
-* Add a test unit for the function that perform the autofill.  
 
 ## Completed
 
