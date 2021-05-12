@@ -19,110 +19,84 @@ It is currently distributed as platform independent source code under the MIT li
 
 Download the repository and open the excel macro file `MSTemplate_Creator.xlsm`
 
-<center>
-
+<p align="center">
 ![OpenMSTemplate_Creator](figures/OpenMSTemplate_Creator.JPG)
-
-</center>
+</p>
 
 Upon opening you may encounter this security warning. Click on **Enable Content** so that the macro in the file will be activated.
 
-<center>
-
+<p align="center">
 ![EnableContent](figures/EnableContentWarning.jpg)
-
-</center>
+</p>
 
 ## Using Transition_Annot Sheet
 
 Load transition names from Agilent MRM data in csv file with **Load Transition_Name from Raw Data**
 
-<center>
-
+<p align="center">
 ![Load_Transition_Name_from_Raw_Data](figures/Load_Transition_Name_from_Raw_Data.gif)
-
-</center>
+</p>
 
 Load transition names from tabular data in csv file with **Load Transition_Name from Table Data**
 
-<center>
-
+<p align="center">
 ![Load_Transition_Name_from_Table_Data](figures/Load_Transition_Name_from_Table_Data.gif)
-
-</center>
+</p>
 
 Check the internal standards with **Validate ISTD**.
 
-<center>
-
+<p align="center">
 ![Validate_ISTD](figures/Validate_ISTD.gif)
-
-</center>
+</p>
 
 Once validated, transfer the internal standards to sheet `ISTD_Annot` with **Load ISTD to ISTD_Table**
 
-<center>
-
+<p align="center">
 ![Load_ISTD_to_ISTD_Table](figures/Load_ISTD_to_ISTD_Table.gif)
-
-</center>
+</p>
 
 ## Using ISTD_Annot Sheet
 
 Key in the concentration of the internal standard and convert to nM or other units to verify. Unit values under the column `Custom_Unit` can be used later to obtain the sample unit of concentration.
 
-<center>
-
+<p align="center">
 ![Convert_to_nM](figures/Convert_to_nM.gif)
-
-</center>
+</p>
 
 ## Using Sample_Annot Sheet
 
 Load sample names from Agilent MRM data in csv file with **Load Sample Annotation from Raw Data**. Use **Autofill 'Sample' in Sample_Type** to fill empty cells under the `Sample_Type` column with "SPL"
 
-<center>
-
+<p align="center">
 ![Load_Sample_Annotation_from_Raw_Data](figures/Load_Sample_Annotation_from_Raw_Data.gif)
-
-</center>
+</p>
 
 It is possible to merge Agilent MRM data with a sample annotation file in csv.
 
-<center>
-
+<p align="center">
 ![Merge_Raw_Data_with_Sample_Annotation](figures/Merge_Raw_Data_with_Sample_Annotation.gif)
-
-</center>
+</p>
 
 Load sample names from tabular data in csv file with **Load Sample Annotation from Table Data**. Use **Autofill 'Sample' in Sample_Type** to fill empty cells under the `Sample_Type` column with "SPL"
 
-<center>
-
+<p align="center">
 ![Load_Sample_Annotation_from_Table_Data](figures/Load_Sample_Annotation_from_Table_Data.gif)
-
-</center>
+</p>
 
 Next, fill in the `Sample_Amount`, `Sample_Amount_Unit` and the `ISTD_Mixture_Volume_[uL]` columns. If a particular `Sample_Type` has consistent inputs, the **Autofill by Sample_Type** button helps to fill in these consistent values quickly.
 
-<center>
-
+<p align="center">
 ![Autofill_by_Sample_Type](figures/Autofill_by_Sample_Type.gif)
-
-</center>
+</p>
 
 To obtain the analyte's concentration unit measured in each sample, go the `Sample_Annot` sheet and fill in the `Sample_Amount_Unit` for each sample. Next, on the `ISTD_Annot` sheet, select the concentration unit of the internal standard to use under the `Custom_Unit` column. Return to the `Sample_Annot` sheet and use **Autofill Concentration_Unit** to fill in the `Concentration_Unit` column.
 
-<center>
-
+<p align="center">
 ![Autofill_Concentration_Unit](figures/Autofill_Concentration_Unit.gif)
-
-</center>
+</p>
 
 Transfer Sample with QC sample type of "RQC" to `Dilution_Annot` sheet with **Load RQC Samples to Dilution_Table**
 
-<center>
-
+<p align="center">
 ![Load_RQC_Samples_to_Dilution_Table](figures/Load_RQC_Samples_to_Dilution_Table.gif)
-
-</center>
+</p>
