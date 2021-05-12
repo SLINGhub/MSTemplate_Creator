@@ -8,6 +8,15 @@ knitr::opts_chunk$set(
   comment = "#>"
   
 )
+
+knitr::knit_hooks$set(imgcenter = function(before, options, envir){
+  if (before) {
+    htmltools::HTML("<p align='center'>")
+  } else {
+    htmltools::HTML("</p>")
+  }
+})
+
 ```
 
 # MSTemplate_Creator
@@ -20,13 +29,9 @@ It is currently distributed as platform independent source code under the MIT li
 
 Download the repository and open the excel macro file `MSTemplate_Creator.xlsm`
 
-```{r, fig.width = 2, fig.align="center", echo=FALSE}
+```{r, echo=FALSE, imgcenter = TRUE}
 knitr::include_graphics("figures/OpenMSTemplate_Creator.JPG")
 ```
-
-<p align="center">
-  <src="figures/OpenMSTemplate_Creator.JPG">
-</p>
 
 <p align="center">
 ![OpenMSTemplate_Creator](figures/OpenMSTemplate_Creator.JPG)

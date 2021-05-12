@@ -13,10 +13,8 @@ the MIT license.
 Download the repository and open the excel macro file
 `MSTemplate_Creator.xlsm`
 
-<img src="figures/OpenMSTemplate_Creator.JPG" style="display: block; margin: auto;" />
-
 <p align="center">
-&lt;src=“figures/OpenMSTemplate\_Creator.JPG”&gt;
+![](figures/OpenMSTemplate_Creator.JPG)
 </p>
 <p align="center">
 ![OpenMSTemplate\_Creator](figures/OpenMSTemplate_Creator.JPG "fig:")
