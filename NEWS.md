@@ -1,11 +1,12 @@
-# DCVtestkit 0.0.1.9000 (development version)
+# DCVtestkit 0.0.2.9000 (development version)
 
 ## TODO
 
 * Check if dilution factor definition is clear enough.
 
-## Completed
+# MSTemplate_Creator 0.0.2
 
+* Transfer respository from Bitbucket to GitHub
 * Update the Sample Type to be the same as the LIMS in SLING.
 * Changed the excel sheet font to "Consolas" so that the number "0" and the letter "O" can be differentiated easily.
 * Match the buttons with the relevant column colours in the sheet.
