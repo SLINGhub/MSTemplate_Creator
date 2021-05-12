@@ -11,8 +11,15 @@ more friendly interface to take in MRM transition names data exported
 directly from mass spectrometry software to create several annotation
 templates suited for automated data processing and statistical analysis.
 
-It is currently distributed as platform independent source code under
-the MIT license.
+## Meta
+
+-   We welcome [contributions](CONTRIBUTING.md) including bug reports.
+-   License: MIT
+-   Think MSTemplate_Creator is useful? Let others discover it, by
+    telling them in person, via Twitter or a blog post.
+-   Please note that this project is released with a [Contributor Code
+    of Conduct](CODE_OF_CONDUCT.md). By participating in this project
+    you agree to abide by its terms.
 
 ## Starting Up
 
