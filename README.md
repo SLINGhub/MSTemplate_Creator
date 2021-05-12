@@ -1,9 +1,3 @@
--   [MSTemplate_Creator](#mstemplate_creator)
-    -   [Starting Up](#starting-up)
-    -   [Using Transition_Annot Sheet](#using-transition_annot-sheet)
-    -   [Using ISTD_Annot Sheet](#using-istd_annot-sheet)
-    -   [Using Sample_Annot Sheet](#using-sample_annot-sheet)
-
 # MSTemplate_Creator
 
 MSTemplate_Creator is an excel macro file created to provide users a
