@@ -3,7 +3,7 @@
 <!-- badges: start -->
 
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/SLINGhub/DCVtestkit/blob/master/LICENSE.md)
 <!-- badges: end -->
 
 MSTemplate_Creator is an excel macro file created to provide users a
