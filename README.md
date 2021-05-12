@@ -1,5 +1,11 @@
 # MSTemplate_Creator
 
+<!-- badges: start -->
+
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+<!-- badges: end -->
+
 MSTemplate_Creator is an excel macro file created to provide users a
 more friendly interface to take in MRM transition names data exported
 directly from mass spectrometry software to create several annotation
