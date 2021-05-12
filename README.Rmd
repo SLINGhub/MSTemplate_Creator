@@ -5,7 +5,9 @@ output: md_document
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.align="center"
+  
 )
 ```
 
@@ -19,11 +21,19 @@ It is currently distributed as platform independent source code under the MIT li
 
 Download the repository and open the excel macro file `MSTemplate_Creator.xlsm`
 
+```{r}
+knitr::include_graphics("figures/OpenMSTemplate_Creator.JPG")
+```
+
 <p align="center">
 ![OpenMSTemplate_Creator](figures/OpenMSTemplate_Creator.JPG)
 </p>
 
 Upon opening you may encounter this security warning. Click on **Enable Content** so that the macro in the file will be activated.
+
+```{r}
+knitr::include_graphics("figures/EnableContentWarning.jpg")
+```
 
 <p align="center">
 ![EnableContent](figures/EnableContentWarning.jpg)
@@ -32,6 +42,10 @@ Upon opening you may encounter this security warning. Click on **Enable Content*
 ## Using Transition_Annot Sheet
 
 Load transition names from Agilent MRM data in csv file with **Load Transition_Name from Raw Data**
+
+```{r}
+knitr::include_graphics("figures/Load_Transition_Name_from_Raw_Data.gif")
+```
 
 <p align="center">
 ![Load_Transition_Name_from_Raw_Data](figures/Load_Transition_Name_from_Raw_Data.gif)
