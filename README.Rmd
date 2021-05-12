@@ -1,12 +1,14 @@
 ---
-output: md_document 
+output:
+  md_document:
+    toc: true
 ---
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
-  
+  comment = "#>",
+  fig.align = 'center'
 )
 ```
 
