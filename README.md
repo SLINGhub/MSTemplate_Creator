@@ -18,7 +18,9 @@ Download the repository and open the excel macro file
 <img src="figures/OpenMSTemplate_Creator.JPG" style="display: block; margin: auto;" />
 
 <p align="center">
-![OpenMSTemplate\_Creator](figures/OpenMSTemplate_Creator.JPG "fig:")
+
+![OpenMSTemplate\_Creator](figures/OpenMSTemplate_Creator.JPG)
+
 </p>
 
 Upon opening you may encounter this security warning. Click on **Enable
