@@ -14,7 +14,10 @@ Download the repository and open the excel macro file
 `MSTemplate_Creator.xlsm`
 
 <p align="center">
-![](figures/OpenMSTemplate_Creator.JPG)
+<img width="460" height="300" src="figures/OpenMSTemplate_Creator.JPG">
+</p>
+<p align="center">
+<img src="figures/OpenMSTemplate_Creator.JPG" style="display: block; margin: auto;" />
 </p>
 <p align="center">
 ![OpenMSTemplate\_Creator](figures/OpenMSTemplate_Creator.JPG "fig:")
