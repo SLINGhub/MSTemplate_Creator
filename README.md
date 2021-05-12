@@ -13,14 +13,13 @@ the MIT license.
 Download the repository and open the excel macro file
 `MSTemplate_Creator.xlsm`
 
-    knitr::include_graphics("figures/OpenMSTemplate_Creator.JPG")
-
 <img src="figures/OpenMSTemplate_Creator.JPG" style="display: block; margin: auto;" />
 
 <p align="center">
-
-![OpenMSTemplate\_Creator](figures/OpenMSTemplate_Creator.JPG)
-
+&lt;src=“figures/OpenMSTemplate\_Creator.JPG”&gt;
+</p>
+<p align="center">
+![OpenMSTemplate\_Creator](figures/OpenMSTemplate_Creator.JPG "fig:")
 </p>
 
 Upon opening you may encounter this security warning. Click on **Enable
@@ -28,7 +27,7 @@ Content** so that the macro in the file will be activated.
 
     knitr::include_graphics("figures/EnableContentWarning.jpg")
 
-<img src="figures/EnableContentWarning.jpg" style="display: block; margin: auto;" />
+![](figures/EnableContentWarning.jpg)
 
 <p align="center">
 ![EnableContent](figures/EnableContentWarning.jpg "fig:")
@@ -41,7 +40,7 @@ Transition\_Name from Raw Data**
 
     knitr::include_graphics("figures/Load_Transition_Name_from_Raw_Data.gif")
 
-<img src="figures/Load_Transition_Name_from_Raw_Data.gif" style="display: block; margin: auto;" />
+![](figures/Load_Transition_Name_from_Raw_Data.gif)
 
 <p align="center">
 ![Load\_Transition\_Name\_from\_Raw\_Data](figures/Load_Transition_Name_from_Raw_Data.gif "fig:")
