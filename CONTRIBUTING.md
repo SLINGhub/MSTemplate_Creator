@@ -49,11 +49,11 @@ Here are the summarised steps to manage the vba source code in excel, the full d
 
 ### README Documentation
 
-For the README documentation, [Rmarkdown](https://rmarkdown.rstudio.com/) is used together with ![R](https://www.r-project.org/) and [RStudio IDE](https://www.rstudio.com/products/rstudio/download/).
+For the README documentation, [Rmarkdown](https://rmarkdown.rstudio.com/) is used together with [R](https://www.r-project.org/) and [RStudio IDE](https://www.rstudio.com/products/rstudio/download/).
 
 Here are some useful resources.
-    * https://www.rstudio.com/resources/webinars/getting-started-with-r-markdown/ 
-    * https://rmarkdown.rstudio.com/github_document_format.html
+  * https://www.rstudio.com/resources/webinars/getting-started-with-r-markdown/ 
+  * https://rmarkdown.rstudio.com/github_document_format.html
 
 RStudio was used because of its friendly user interface (more button clicks than command lines) to create markdown and html document and to use git. Based on past experiences, it is easier to guide beginners to create html documents and use git using RStudio than pure command line. In addition, most people in the lab uses R. 
 
