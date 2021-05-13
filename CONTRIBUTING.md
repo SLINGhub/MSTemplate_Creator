@@ -10,7 +10,7 @@ Please note that this project is released with a [Contributor Code of Conduct](C
 
 ## Ask a question ❓️
 
-Using MSTemplate_Creator and got stuck? 
+Using `MSTemplate_Creator` and got stuck? 
 Browse the [Summary, Familiarisation and User Documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/master/docs) to see if you can find a solution. 
 
 Still stuck? Post your question as an [issue on GitHub](https://github.com/SLINGhub/MSTemplate_Creator/issues). While we cannot offer quick user support, we'll try to do our best to address it, as questions often lead to better documentation 📜 or the discovery of bugs 🐛.
