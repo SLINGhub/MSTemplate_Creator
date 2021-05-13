@@ -6,19 +6,19 @@ First of all, thanks for considering contributing to `MSTemplate_Creator` 😄! 
 
 ## Code of conduct 👩‍🏫
 
-Please note that this project is released with a ![Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
 
 ### Ask a question ❓️
 
 Using MSTemplate_Creator and got stuck? 
-Browse the ![Summary, Familiarisation and User Documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/master/docs) to see if you can find a solution. 
+Browse the [Summary, Familiarisation and User Documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/master/docs) to see if you can find a solution. 
 
-Still stuck? Post your question as an ![issue on GitHub](https://github.com/SLINGhub/MSTemplate_Creator/issues). While we cannot offer quick user support, we'll try to do our best to address it, as questions often lead to better documentation 📜 or the discovery of bugs 🐛.
+Still stuck? Post your question as an [issue on GitHub](https://github.com/SLINGhub/MSTemplate_Creator/issues). While we cannot offer quick user support, we'll try to do our best to address it, as questions often lead to better documentation 📜 or the discovery of bugs 🐛.
 
 ### Improve the documentation 📜
 
 Noticed a typo ? 
-Have a better example or dataset to explain a function? Good ![documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/master/docs) makes all the difference, so your help to improve it is very welcome!
+Have a better example or dataset to explain a function? Good [documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/master/docs) makes all the difference, so your help to improve it is very welcome!
 
 If you are just started on it, look at the Summary and Familiarisation file. 
 
@@ -32,7 +32,7 @@ I understand that some may prefer to have online documentation. Unfortunately, I
 
 ### Contribute code 📝
 
-Care to fix bugs 🐛 or implement new functionality for `MSTemplate_Creator`? Great👏! Thank you for volunteering your time to help out. Have a look at the ![issue list](https://github.com/SLINGhub/MSTemplate_Creator/issues) and leave a comment on the things you want to work on. See also the development guidelines below.
+Care to fix bugs 🐛 or implement new functionality for `MSTemplate_Creator`? Great👏! Thank you for volunteering your time to help out. Have a look at the [issue list](https://github.com/SLINGhub/MSTemplate_Creator/issues) and leave a comment on the things you want to work on. See also the development guidelines below.
 
 ## Development guidelines 👨‍💻
 
