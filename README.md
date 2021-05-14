@@ -6,22 +6,33 @@
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/SLINGhub/MSTemplate_Creator/blob/master/LICENSE.md)
 <!-- badges: end -->
 
-MSTemplate_Creator is an excel macro file created to provide users a
+`MSTemplate_Creator` is an excel macro file created to provide users a
 more friendly interface to take in MRM transition names data exported
 directly from mass spectrometry software to create several annotation
 templates suited for automated data processing and statistical analysis.
 
-## Meta
+# Table of Content
+
+-   [MSTemplate_Creator](#mstemplate_creator)
+-   [Table of Content](#table-of-content)
+-   [Meta](#meta)
+-   [Starting Up](#starting-up)
+-   [Using Transition_Annot Sheet](#using-transition_annot-sheet)
+-   [Using ISTD_Annot Sheet](#using-istd_annot-sheet)
+-   [Using Sample_Annot Sheet](#using-sample_annot-sheet)
+
+# Meta
 
 -   We welcome [contributions](CONTRIBUTING.md) including bug reports.
 -   License: MIT
--   Think MSTemplate_Creator is useful? Let others discover it, by
+-   Think `MSTemplate_Creator` is useful? Let others discover it, by
     telling them in person, via Twitter or a blog post.
 -   Please note that this project is released with a [Contributor Code
-    of Conduct](CODE_OF_CONDUCT.md). By participating in this project
-    you agree to abide by its terms.
+    of
+    Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/).
+    By participating in this project you agree to abide by its terms.
 
-## Starting Up
+# Starting Up
 
 Download the repository and open the excel macro file
 `MSTemplate_Creator.xlsm`
@@ -33,7 +44,7 @@ Content** so that the macro in the file will be activated.
 
 ![EnableContent](figures/EnableContentWarning.jpg)
 
-## Using Transition_Annot Sheet
+# Using Transition_Annot Sheet
 
 Load transition names from Agilent MRM data in csv file with **Load
 Transition_Name from Raw Data**
@@ -54,7 +65,7 @@ with **Load ISTD to ISTD_Table**
 
 ![Load_ISTD_to_ISTD_Table](figures/Load_ISTD_to_ISTD_Table.gif)
 
-## Using ISTD_Annot Sheet
+# Using ISTD_Annot Sheet
 
 Key in the concentration of the internal standard and convert to nM or
 other units to verify. Unit values under the column `Custom_Unit` can be
@@ -62,7 +73,7 @@ used later to obtain the sample unit of concentration.
 
 ![Convert_to_nM](figures/Convert_to_nM.gif)
 
-## Using Sample_Annot Sheet
+# Using Sample_Annot Sheet
 
 Load sample names from Agilent MRM data in csv file with **Load Sample
 Annotation from Raw Data**. Use **Autofill ‘Sample’ in Sample_Type** to
