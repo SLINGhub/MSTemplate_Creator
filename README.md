@@ -27,6 +27,11 @@ templates suited for automated data processing and statistical analysis.
 -   License: MIT
 -   Think `MSTemplate_Creator` is useful? Let others discover it, by
     telling them in person, via Twitter or a blog post.
+-   If you wish to acknowledge the use of this software in a journal
+    paper, please include the version number. For reproducibility, it is
+    advisable to use the software from the
+    [Releases](https://github.com/SLINGhub/MSTemplate_Creator/releases)
+    section in GitHub rather than from the master branch.
 -   Please note that this project is released with a [Contributor Code
     of
     Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/).
@@ -34,8 +39,14 @@ templates suited for automated data processing and statistical analysis.
 
 # Starting Up
 
-Download the repository and open the excel macro file
-`MSTemplate_Creator.xlsm`
+Go to the
+[Releases](https://github.com/SLINGhub/MSTemplate_Creator/releases)
+section in GitHub.
+
+![ReleasesWebpage](figures/ReleasesWebpage.JPG)
+
+Download the zip folder. Unzip the folder, double click on the excel
+macro file \`MSTemplate_Creator.xlsm\`\` to start.
 
 ![OpenMSTemplate_Creator](figures/OpenMSTemplate_Creator.JPG)
 
