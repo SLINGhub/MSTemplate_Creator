@@ -33,7 +33,7 @@ templates suited for automated data processing and statistical analysis.
 -   Think `MSTemplate_Creator` is useful? Let others discover it, by
     telling them in person, via Twitter
     [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/LOGIN)
-    or a blog post.
+    or a blog post. Do give this repository a star as well.
 
 ![GitHubStar](figures/GitHubStar.JPG)
 

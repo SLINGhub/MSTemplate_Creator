@@ -34,7 +34,7 @@ knitr::opts_chunk$set(
 
 * We welcome [contributions](CONTRIBUTING.md) including bug reports. Please note that this project is released with a [Contributor Code of Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). By participating in this project you agree to abide by its terms.
 * License: [MIT](https://github.com/SLINGhub/MSTemplate_Creator/blob/master/LICENSE.md)
-* Think `MSTemplate_Creator` is useful? Let others discover it, by telling them in person, via Twitter [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/LOGIN) or a blog post.
+* Think `MSTemplate_Creator` is useful? Let others discover it, by telling them in person, via Twitter [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/LOGIN) or a blog post. Do give this repository a star as well.
 
 ![GitHubStar](figures/GitHubStar.JPG)
 
