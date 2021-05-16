@@ -56,6 +56,9 @@ Care to fix bugs 🐛 or implement new functionality for `MSTemplate_Creator`? G
 
 ## Development guidelines 👨‍💻
 
+### Micorsoft Excel
+The current release of `MSTemplate_Creator` is run on a 64-bit Microsoft Excel 2019 application. We unfortunately, have a lack of experience if the excel macro file and its VBA codes will work on a 32-bit Microsoft Excel 2019 application or an older version of Excel.
+
 ### Excel VBA
 Here are the summarised steps to manage the vba source code in excel, the full details can be found in the Developer Documentation file.
 
