@@ -42,6 +42,10 @@ templates suited for automated data processing and statistical analysis.
     advisable to use the software from the
     [Releases](https://github.com/SLINGhub/MSTemplate_Creator/releases)
     section in GitHub rather than from the master branch.
+-   To date, the software is only able to take in the following files
+    exported from the following software.
+    -   csv files from [Agilent MassHunter Quantitative Analysis
+        Software](https://www.agilent.com/en/product/software-informatics/mass-spectrometry-software/data-analysis/quantitative-analysis)
 
 # Starting Up
 
