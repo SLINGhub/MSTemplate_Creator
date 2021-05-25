@@ -1,8 +1,8 @@
 ---
-name: Documentation Improvement 📜
+name: Documentation Improvement 📚
 about: Create a report to help us improve our documentation
 title: ''
-labels: 'documentation 📜'
+labels: 'documentation 📚'
 assignees: 'JauntyJJS'
 ---
 
