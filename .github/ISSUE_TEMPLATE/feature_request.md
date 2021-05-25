@@ -19,6 +19,6 @@ assignees: 'JauntyJJS'
 ## Feature Description
 * Describe the feature that you wish the software to have.
 * Highlight how the suggested feature would be helpful in your workflow.
-# Share some screenshots to make your explanation clearer.
+* Share some screenshots to make your explanation clearer.
 
 

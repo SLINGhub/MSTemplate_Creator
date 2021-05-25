@@ -1,6 +1,6 @@
 ---
 name: Documentation Improvement 📜
-about: Create a report to help us improve our [documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/master/docs)
+about: Create a report to help us improve our documentation
 title: ''
 labels: 'documentation 📜'
 assignees: 'JauntyJJS'
