@@ -1,8 +1,12 @@
-# DCVtestkit 0.0.2.9000 (development version)
+# MSTemplate_Creator 1.0.0.9000 (development version)
 
 ## TODO
 
 * Check if dilution factor definition is clear enough.
+
+## MSTemplate_Creator 1.0.0
+
+* Added some Github related markdown files like issue templates, contributing guidelines and code of conduct.
 
 # MSTemplate_Creator 0.0.2
 
