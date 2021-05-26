@@ -23,9 +23,9 @@ templates suited for automated data processing and statistical analysis.
 
 # Meta
 
--   We welcome [contributions](CONTRIBUTING.md) including bug reports.
-    Please note that this project is released with a [Contributor Code
-    of
+-   We welcome contributions from general questions to bug reports.
+    Check out the [contributions](CONTRIBUTING.md) guidelines. Please
+    note that this project is released with a [Contributor Code of
     Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/).
     By participating in this project you agree to abide by its terms.
 -   License:
@@ -33,7 +33,9 @@ templates suited for automated data processing and statistical analysis.
 -   Think `MSTemplate_Creator` is useful? Let others discover it, by
     telling them in person, via Twitter
     [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/LOGIN)
-    or a blog post. Do give this repository a star as well.
+    or a blog post. Do use the `🙌 Show and tell` under the [GitHub
+    Discussions](https://github.com/SLINGhub/MSTemplate_Creator/discussions)
+    and give this repository a star as well.
 
 ![GitHubStar](figures/GitHubStar.JPG)
 
@@ -46,6 +48,10 @@ templates suited for automated data processing and statistical analysis.
     exported from the following software.
     -   csv files from [Agilent MassHunter Quantitative Analysis
         Software](https://www.agilent.com/en/product/software-informatics/mass-spectrometry-software/data-analysis/quantitative-analysis)
+-   Refer to the [NEWS.md
+    file](https://github.com/SLINGhub/MSTemplate_Creator/blob/master/NEWS.md)
+    to see what is being worked on as well as update to changes between
+    back to back versions.
 
 # Starting Up
 
