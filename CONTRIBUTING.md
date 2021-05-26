@@ -33,7 +33,7 @@ Please note that this project is released with a [Contributor Code of Conduct](h
 Using `MSTemplate_Creator` and got stuck? 
 Browse the [Summary, Familiarisation and User Documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/master/docs) to see if you can find a solution. 
 
-Still stuck? Post your question as an [issue on GitHub](https://github.com/SLINGhub/MSTemplate_Creator/issues). While we cannot offer quick user support, we'll try to do our best to address it, as questions often lead to better documentation 📚 or the discovery of bugs 🐛.
+Still stuck? Post your questions as an [issue](https://github.com/SLINGhub/MSTemplate_Creator/issues) or [discussion](https://github.com/SLINGhub/MSTemplate_Creator/discussions) on GitHub. While we cannot offer quick user support, we'll try to do our best to address it, as questions often lead to better documentation 📚 or the discovery of bugs 🐛.
 
 ## Improve the documentation 📚
 
