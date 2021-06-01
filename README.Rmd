@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 # MSTemplate_Creator
 
 <!-- badges: start -->
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/SLINGhub/MSTemplate_Creator/blob/master/LICENSE.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/LICENSE.md)
 <!-- badges: end -->
 
 `MSTemplate_Creator` is an excel macro file created to provide users a more friendly interface to take in MRM transition names data exported directly from mass spectrometry software to create several annotation templates suited for automated data processing and statistical analysis.
@@ -33,15 +33,15 @@ knitr::opts_chunk$set(
 # Meta
 
 * We welcome contributions from general questions to bug reports. Check out the [contributions](CONTRIBUTING.md) guidelines. Please note that this project is released with a [Contributor Code of Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/). By participating in this project you agree to abide by its terms.
-* License: [MIT](https://github.com/SLINGhub/MSTemplate_Creator/blob/master/LICENSE.md)
+* License: [MIT](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/LICENSE.md)
 * Think `MSTemplate_Creator` is useful? Let others discover it, by telling them in person, via Twitter [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/LOGIN) or a blog post. Do use the `🙌 Show and tell` under the [GitHub Discussions](https://github.com/SLINGhub/MSTemplate_Creator/discussions) and give this repository a star as well.
 
 ![GitHubStar](figures/GitHubStar.JPG)
 
-* If you wish to acknowledge the use of this software in a journal paper, please include the version number. For reproducibility, it is advisable to use the software from the [Releases](https://github.com/SLINGhub/MSTemplate_Creator/releases) section in GitHub rather than from the master branch.
+* If you wish to acknowledge the use of this software in a journal paper, please include the version number. For reproducibility, it is advisable to use the software from the [Releases](https://github.com/SLINGhub/MSTemplate_Creator/releases) section in GitHub rather than from the main branch.
 * To date, the software is only able to take in the following files exported from the following software. 
   * csv files from [Agilent MassHunter Quantitative Analysis Software](https://www.agilent.com/en/product/software-informatics/mass-spectrometry-software/data-analysis/quantitative-analysis)
-* Refer to the [NEWS.md file](https://github.com/SLINGhub/MSTemplate_Creator/blob/master/NEWS.md) to see what is being worked on as well as update to changes between back to back versions.
+* Refer to the [NEWS.md file](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/NEWS.md) to see what is being worked on as well as update to changes between back to back versions.
 
 # Starting Up
 

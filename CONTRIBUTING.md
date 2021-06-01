@@ -10,7 +10,7 @@ This contributing file is based on a [template](https://gist.github.com/peterdes
 
 ## Versioning 🔢
 
-Refer to the [NEWS.md file](https://github.com/SLINGhub/MSTemplate_Creator/blob/master/NEWS.md) to see what is being worked on as well as update to changes between back to back versions.
+Refer to the [NEWS.md file](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/NEWS.md) to see what is being worked on as well as update to changes between back to back versions.
 
 Software version numbers indicate following: `MAJOR.MINOR.PATCH.DEVELOPMENT`. 
 
@@ -31,14 +31,14 @@ Please note that this project is released with a [Contributor Code of Conduct](h
 ## Ask a question ❓️
 
 Using `MSTemplate_Creator` and got stuck? 
-Browse the [Summary, Familiarisation and User Documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/master/docs) to see if you can find a solution. 
+Browse the [Summary, Familiarisation and User Documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/main/docs) to see if you can find a solution. 
 
 Still stuck? Post your questions as an [issue](https://github.com/SLINGhub/MSTemplate_Creator/issues) or [discussion](https://github.com/SLINGhub/MSTemplate_Creator/discussions) on GitHub. While we cannot offer quick user support, we'll try to do our best to address it, as questions often lead to better documentation 📚 or the discovery of bugs 🐛.
 
 ## Improve the documentation 📚
 
 Noticed a typo ? 
-Have a better example or dataset to explain a function? Good [documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/master/docs) makes all the difference, so your help to improve it is very welcome!
+Have a better example or dataset to explain a function? Good [documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/main/docs) makes all the difference, so your help to improve it is very welcome!
 
 If you are just started on it, look at the Summary and Familiarisation file. 
 
@@ -91,7 +91,7 @@ With the efforts made by the [R for Data Science Online Learning Community](http
 We try to follow the [GitHub flow](https://guides.github.com/introduction/flow/) for development.
 
 1. Fork [this repo](https://github.com/SLINGhub/MSTemplate_Creator) and clone it to your computer. To learn more about this process, see [this guide](https://guides.github.com/activities/forking/).
-2. If you have forked and cloned the project before and it has been a while since you worked on it, [pull changes from the original repo](https://help.github.com/articles/merging-an-upstream-repository-into-your-fork/) to your clone by using `git pull upstream master`.
+2. If you have forked and cloned the project before and it has been a while since you worked on it, [pull changes from the original repo](https://help.github.com/articles/merging-an-upstream-repository-into-your-fork/) to your clone by using `git pull upstream main`.
 3. Open the Excel file and open the vba editor. Ensure that [RubberDuck](http://rubberduckvba.com/) is installed.
 4. Make your changes:
     * Write your code.

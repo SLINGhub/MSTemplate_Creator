@@ -3,7 +3,7 @@
 <!-- badges: start -->
 
 [![License:
-MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/SLINGhub/MSTemplate_Creator/blob/master/LICENSE.md)
+MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/LICENSE.md)
 <!-- badges: end -->
 
 `MSTemplate_Creator` is an excel macro file created to provide users a
@@ -29,7 +29,7 @@ templates suited for automated data processing and statistical analysis.
     Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/).
     By participating in this project you agree to abide by its terms.
 -   License:
-    [MIT](https://github.com/SLINGhub/MSTemplate_Creator/blob/master/LICENSE.md)
+    [MIT](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/LICENSE.md)
 -   Think `MSTemplate_Creator` is useful? Let others discover it, by
     telling them in person, via Twitter
     [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/LOGIN)
@@ -43,13 +43,13 @@ templates suited for automated data processing and statistical analysis.
     paper, please include the version number. For reproducibility, it is
     advisable to use the software from the
     [Releases](https://github.com/SLINGhub/MSTemplate_Creator/releases)
-    section in GitHub rather than from the master branch.
+    section in GitHub rather than from the main branch.
 -   To date, the software is only able to take in the following files
     exported from the following software.
     -   csv files from [Agilent MassHunter Quantitative Analysis
         Software](https://www.agilent.com/en/product/software-informatics/mass-spectrometry-software/data-analysis/quantitative-analysis)
 -   Refer to the [NEWS.md
-    file](https://github.com/SLINGhub/MSTemplate_Creator/blob/master/NEWS.md)
+    file](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/NEWS.md)
     to see what is being worked on as well as update to changes between
     back to back versions.
 
