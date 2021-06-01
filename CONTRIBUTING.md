@@ -22,7 +22,7 @@ Here are key steps to keep in mind:
 
 -   Minimal, non breaking changes or bug fixes only are indicated by increasing the **patch** version number. Examples of minimal changes are are updating of documentations, fixing of typo in the software output and so on
 
--   Current development versions of our packages (i.e. master/main branch from GitHub) additionally have a **development** version number. The **development** version number is typically `9000`
+-   Current development versions of our packages (i.e. main branch from GitHub) additionally have a **development** version number. The **development** version number is typically `9000`
 
 ## Code of conduct 👩‍🏫
 
