@@ -6,7 +6,7 @@
 MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/LICENSE.md)
 [![Maintainer:
 JauntyJJS](https://img.shields.io/badge/Maintainer-JauntyJJS-blue.svg)](https://github.com/JauntyJJS)
-[![Excel](https://img.shields.io/badge/Excel-2019%2064%20bit-brightgreen)]()
+[![Excel](https://img.shields.io/badge/Excel-2019%2064%20bit-brightgreen)](https://www.microsoft.com/en-sg/microsoft-365/excel)
 <!-- badges: end -->
 
 `MSTemplate_Creator` is an excel macro file created to provide users a
