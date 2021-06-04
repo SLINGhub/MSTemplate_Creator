@@ -56,6 +56,9 @@ templates suited for automated data processing and statistical analysis.
     to see what is being worked on as well as update to changes between
     back to back versions.
 
+[Back to
+top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
+
 # Starting Up
 
 Go to the
@@ -73,6 +76,9 @@ Upon opening you may encounter this security warning. Click on **Enable
 Content** so that the macro in the file will be activated.
 
 ![EnableContent](figures/EnableContentWarning.jpg)
+
+[Back to
+top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
 
 # Using Transition_Annot Sheet
 
@@ -95,6 +101,9 @@ with **Load ISTD to ISTD_Table**
 
 ![Load_ISTD_to_ISTD_Table](figures/Load_ISTD_to_ISTD_Table.gif)
 
+[Back to
+top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
+
 # Using ISTD_Annot Sheet
 
 Key in the concentration of the internal standard and convert to nM or
@@ -102,6 +111,9 @@ other units to verify. Unit values under the column `Custom_Unit` can be
 used later to obtain the sample unit of concentration.
 
 ![Convert_to_nM](figures/Convert_to_nM.gif)
+
+[Back to
+top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
 
 # Using Sample_Annot Sheet
 
@@ -142,3 +154,6 @@ Transfer Sample with QC sample type of “RQC” to `Dilution_Annot` sheet
 with **Load RQC Samples to Dilution_Table**
 
 ![Load_RQC_Samples_to_Dilution_Table](figures/Load_RQC_Samples_to_Dilution_Table.gif)
+
+[Back to
+top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)

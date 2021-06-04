@@ -45,6 +45,8 @@ knitr::opts_chunk$set(
   * csv files from [Agilent MassHunter Quantitative Analysis Software](https://www.agilent.com/en/product/software-informatics/mass-spectrometry-software/data-analysis/quantitative-analysis)
 * Refer to the [NEWS.md file](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/NEWS.md) to see what is being worked on as well as update to changes between back to back versions.
 
+[Back to top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
+
 # Starting Up
 
 Go to the [Releases](https://github.com/SLINGhub/MSTemplate_Creator/releases) section in GitHub.
@@ -58,6 +60,8 @@ Download the zip folder. Unzip the folder, double click on the excel macro file 
 Upon opening you may encounter this security warning. Click on **Enable Content** so that the macro in the file will be activated.
 
 ![EnableContent](figures/EnableContentWarning.jpg)
+
+[Back to top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
 
 # Using Transition_Annot Sheet
 
@@ -77,11 +81,15 @@ Once validated, transfer the internal standards to sheet `ISTD_Annot` with **Loa
 
 ![Load_ISTD_to_ISTD_Table](figures/Load_ISTD_to_ISTD_Table.gif)
 
+[Back to top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
+
 # Using ISTD_Annot Sheet
 
 Key in the concentration of the internal standard and convert to nM or other units to verify. Unit values under the column `Custom_Unit` can be used later to obtain the sample unit of concentration.
 
 ![Convert_to_nM](figures/Convert_to_nM.gif)
+
+[Back to top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
 
 # Using Sample_Annot Sheet
 
@@ -108,3 +116,5 @@ To obtain the analyte's concentration unit measured in each sample, go the `Samp
 Transfer Sample with QC sample type of "RQC" to `Dilution_Annot` sheet with **Load RQC Samples to Dilution_Table**
 
 ![Load_RQC_Samples_to_Dilution_Table](figures/Load_RQC_Samples_to_Dilution_Table.gif)
+
+[Back to top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
