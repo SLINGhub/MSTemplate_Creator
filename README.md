@@ -19,6 +19,7 @@ templates suited for automated data processing and statistical analysis.
 -   [MSTemplate_Creator](#mstemplate_creator)
 -   [Table of Content](#table-of-content)
 -   [Meta](#meta)
+-   [Overview](#overview)
 -   [Starting Up](#starting-up)
 -   [Using Transition_Annot Sheet](#using-transition_annot-sheet)
 -   [Using ISTD_Annot Sheet](#using-istd_annot-sheet)

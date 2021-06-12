@@ -27,6 +27,7 @@ knitr::opts_chunk$set(
 - [MSTemplate_Creator]
 - [Table of Content]
 - [Meta]
+- [Overview]
 - [Starting Up]
 - [Using Transition_Annot Sheet]
 - [Using ISTD_Annot Sheet]
