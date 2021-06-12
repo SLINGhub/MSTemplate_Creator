@@ -40,7 +40,7 @@ Still stuck? Post your questions as an [issue](https://github.com/SLINGhub/MSTem
 Noticed a typo ? 
 Have a better example or dataset to explain a function? Good [documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/main/docs) makes all the difference, so your help to improve it is very welcome!
 
-If you are just started on it, look at the Summary and Familiarisation file. 
+If you have just started on it, look at the Summary and Familiarisation file. 
 
 If you need a step by step guide, use the User Documentation file.
 

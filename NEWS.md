@@ -3,6 +3,7 @@
 ## TODO
 
 * Check if dilution factor definition is clear enough.
+* Add documentation for the Visual Basic functions in the excel sheet. 
 
 ## MSTemplate_Creator 1.0.0
 

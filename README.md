@@ -59,6 +59,15 @@ templates suited for automated data processing and statistical analysis.
 [Back to
 top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
 
+# Overview
+
+For an overview on how the tool works, take a look at the Summary and
+Familiarisation file in the
+[documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/main/docs)
+page.
+
+[SummaryCheatSheet](figures/SummaryCheatSheet.JPG)
+
 # Starting Up
 
 Go to the
