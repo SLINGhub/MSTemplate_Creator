@@ -178,6 +178,11 @@ Public Sub Create_New_Sample_Annot_Raw(RawDataFiles As String)
     'Dim TotalRows As Long
     Sample_Name_Array_from_Raw_Data = Load_Raw_Data.Get_Sample_Name_Array(RawDataFilesArray, MS_File_Array)
     
+    'If there is no data loaded, stop the process
+    If Utilities.StringArrayLen(Sample_Name_Array_from_Raw_Data) = CLng(0) Then
+        End
+    End If
+    
     Dim MergeStatus() As String
     Dim SampleType() As String
     Dim ArrayLength As Long

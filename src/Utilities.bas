@@ -206,6 +206,7 @@ Public Function Get_Raw_Data_File_Type(ByRef Lines() As String, Delimiter As Str
     If Get_Raw_Data_File_Type = "" Then
         MsgBox "Cannot identify the raw data file type (Agilent or SciEx) for " & xFileName
         Exit Function
+        'End
     End If
     
 End Function

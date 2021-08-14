@@ -141,16 +141,20 @@ Public Function Get_Sample_Name_Array(RawDataFilesArray() As String, _
                                                                        RemoveBlksAndReplicates:=True)
         End If
         
-        'Update the subarray to the original arrays
-        Sample_Name_Array = Utilities.Concantenate_String_Arrays(Sample_Name_Array, Sample_Name_SubArray)
-        SubarrayLength = 0
+        ' When the file type is valid and we have read some data
+        If RawDataFileType <> "" Then
+            'Update the subarray to the original arrays
+            Sample_Name_Array = Utilities.Concantenate_String_Arrays(Sample_Name_Array, Sample_Name_SubArray)
+            SubarrayLength = 0
             
-        For i = 0 To Utilities.StringArrayLen(Sample_Name_SubArray) - 1
-            ReDim Preserve MS_File_SubArray(SubarrayLength)
-            MS_File_SubArray(i) = FileName
-            SubarrayLength = SubarrayLength + 1
-        Next i
-        MS_File_Array = Utilities.Concantenate_String_Arrays(MS_File_Array, MS_File_SubArray)
+            For i = 0 To Utilities.StringArrayLen(Sample_Name_SubArray) - 1
+                ReDim Preserve MS_File_SubArray(SubarrayLength)
+                MS_File_SubArray(i) = FileName
+                SubarrayLength = SubarrayLength + 1
+            Next i
+            MS_File_Array = Utilities.Concantenate_String_Arrays(MS_File_Array, MS_File_SubArray)
+        
+        End If
         
         Erase Sample_Name_SubArray
         Erase MS_File_SubArray

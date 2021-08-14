@@ -23,10 +23,11 @@ Private Sub Dilution_Annot_Clear_Click()
     If Dilution_Batch_Name.Value = True Then
         Call Utilities.Clear_Columns("Dilution_Batch_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     End If
-    If Dilution_Factor.Value = True Then
-        Call Utilities.Clear_Columns("Dilution_Factor_[%]", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    If Relative_Sample_Amount.Value = True Then
+        Call Utilities.Clear_Columns("Relative_Sample_Amount_[%]", HeaderRowNumber:=1, DataStartRowNumber:=2)
     End If
     If Injection_Volume_uL.Value = True Then
         Call Utilities.Clear_Columns("Injection_Volume_[uL]", HeaderRowNumber:=1, DataStartRowNumber:=2)
     End If
 End Sub
+

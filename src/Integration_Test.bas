@@ -1,4 +1,10 @@
 Attribute VB_Name = "Integration_Test"
+Public Sub Run_Integration_Test()
+    Transition_Name_and_ISTD_Annot_Integration_Test
+    Sample_Annot_Integration_Test
+    Sample_Annot_and_Dilution_Annot_Integration_Test
+End Sub
+
 Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
     On Error GoTo TestFail
     'We don't want excel to monitor the sheet when runnning this code
@@ -305,7 +311,7 @@ Public Sub Sample_Annot_and_Dilution_Annot_Integration_Test()
     Call Utilities.Clear_Columns("Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Dilution_Batch_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
-    Call Utilities.Clear_Columns("Dilution_Factor_[%]", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Relative_Sample_Amount_[%]", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Injection_Volume_[uL]", HeaderRowNumber:=1, DataStartRowNumber:=2)
 
     'Clear the sample annotation
