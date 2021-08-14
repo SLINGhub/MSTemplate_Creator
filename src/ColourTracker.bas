@@ -94,10 +94,11 @@ Public Function ISTDCalculationChecker(ByVal Target As Range)
                     Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
                     Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
                 ElseIf Cell.Row = 3 Then
-                    Application.EnableEvents = False
                     'Update the Concentration Unit in Sample_Annot sheet if the ISTD_Custom_Unit
                     'is changed
                     Call Autofill_Concentration_Unit_Click
+                    'Convert the units
+                    Application.EnableEvents = False
                     Dim ISTD_Custom_Unit() As String
                     ISTD_Custom_Unit = ISTD_Annot.Convert_Conc_nM_Array(Cell.Value)
                     Call Utilities.Load_To_Excel(ISTD_Custom_Unit, "Custom_Unit", HeaderRowNumber:=2, _
