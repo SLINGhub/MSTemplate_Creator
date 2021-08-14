@@ -1,9 +1,13 @@
-# MSTemplate_Creator 1.0.0.9000 (development version)
+# MSTemplate_Creator 1.0.1.9000 (development version)
 
 ## TODO
 
-* Check if dilution factor definition is clear enough.
-* Add documentation for the Visual Basic functions in the excel sheet. 
+* Check if relative sample amount definition is clear enough.
+* Add documentation for the Visual Basic functions in the excel sheet.
+
+## MSTemplate_Creator 1.0.1
+
+* Changed dilution factor to relative sample amount
 
 ## MSTemplate_Creator 1.0.0
 
