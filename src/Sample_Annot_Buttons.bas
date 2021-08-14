@@ -141,7 +141,9 @@ Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boole
     'If the active sheet is ISTD_Annot,
     'inform the users that concentration unit must be updated
     If ActiveSheet.Name = "ISTD_Annot" Then
-        MsgBox "Updating Concentration_Unit in Sample_Annot"
+        MsgBox "Updating Concentration_Unit in Sample_Annot " & _
+               "as at least one row in the Sample Amount Unit " & _
+               "column is filled"
     End If
     
     Dim ConcentrationUnitArray() As String

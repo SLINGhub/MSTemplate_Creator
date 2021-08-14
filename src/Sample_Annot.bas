@@ -231,6 +231,11 @@ Public Sub Merge_With_Sample_Annot(RawDataFiles As String, SampleAnnotFile As St
     Dim Sample_Name_Array_from_Sample_Annot() As String
     Sample_Name_Array_from_Sample_Annot = Sample_Annot.Get_Sample_Name_Array(SampleAnnotFile)
     
+    'If there is no data loaded, stop the process
+    If Utilities.StringArrayLen(Sample_Name_Array_from_Raw_Data) = CLng(0) Then
+        End
+    End If
+    
     'Match the Sample_Name from Raw Data to the one in Sample Annotation
     'Store merge status and matching index to the array
     Dim MatchingIndex() As String
@@ -245,7 +250,7 @@ Public Sub Merge_With_Sample_Annot(RawDataFiles As String, SampleAnnotFile As St
     'For i = 0 To UBound(Sample_Name_Array_from_Sample_Annot) - LBound(Sample_Name_Array_from_Sample_Annot)
     '    Debug.Print Sample_Name_Array_from_Sample_Annot(i)
     'Next i
-    
+
     For i = 0 To UBound(Sample_Name_Array_from_Raw_Data) - LBound(Sample_Name_Array_from_Raw_Data)
         'Get the positions of where the sample name of the raw data can be found in the sample annotation
         Dim Positions() As String

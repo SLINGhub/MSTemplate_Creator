@@ -4,10 +4,16 @@ Public Function Get_Sorted_Transition_Array_Raw(RawDataFiles As String) As Strin
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
 
     'Leave the program if we have an empty array
-    If Len(Join(Transition_Array, "")) = 0 Then
-        MsgBox "Could not find any Transition Names"
+    'If Len(Join(Transition_Array, "")) = 0 Then
+    '    MsgBox "Could not find any Transition Names"
+    '    Exit Function
+    'End If
+    
+    'If there is no data loaded, stop the process
+    If Utilities.StringArrayLen(Transition_Array) = CLng(0) Then
         Exit Function
     End If
+    
     'Sort the array
     QuickSort ThisArray:=Transition_Array
     Get_Sorted_Transition_Array_Raw = Transition_Array
@@ -27,8 +33,13 @@ Public Function Get_Sorted_Transition_Array_Tidy(TidyDataFiles As String, _
                                                                 StartingColumnNum:=StartingColumnNum)
                                                                 
     'Leave the program if we have an empty array
-    If Len(Join(Transition_Array, "")) = 0 Then
-        MsgBox "Could not find any Transition Names"
+    'If Len(Join(Transition_Array, "")) = 0 Then
+    '    MsgBox "Could not find any Transition Names"
+    '    Exit Function
+    'End If
+    
+    'If there is no data loaded, stop the process
+    If Utilities.StringArrayLen(Transition_Array) = CLng(0) Then
         Exit Function
     End If
     
