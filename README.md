@@ -131,8 +131,10 @@ top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
 # Using Sample_Annot Sheet
 
 Load sample names from Agilent MRM data in csv file with **Load Sample
-Annotation from Raw Data**. Use **Autofill ‘Sample’ in Sample_Type** to
-fill empty cells under the `Sample_Type` column with “SPL”
+Annotation from Raw Data**.
+
+Use **Autofill ‘Sample’ in Sample_Type** to fill empty cells under the
+`Sample_Type` column with “SPL”
 
 ![Load_Sample_Annotation_from_Raw_Data](figures/Load_Sample_Annotation_from_Raw_Data.gif)
 
