@@ -1,4 +1,4 @@
-# MSTemplate_Creator <img src="figures/logo.png" align="right" height="139" />
+# MSTemplate_Creator <img src="figures/logo.png" align="right" height="200" />
 
 <!-- badges: start -->
 
