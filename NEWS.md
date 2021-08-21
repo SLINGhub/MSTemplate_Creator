@@ -8,6 +8,7 @@
 ## MSTemplate_Creator 1.0.1
 
 * Changed dilution factor to relative sample amount
+* Added a logo
 
 ## MSTemplate_Creator 1.0.0
 

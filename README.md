@@ -1,4 +1,4 @@
-# MSTemplate_Creator
+# MSTemplate_Creator <img src="figures/logo.png" align="right" height="139" />
 
 <!-- badges: start -->
 
@@ -16,7 +16,7 @@ templates suited for automated data processing and statistical analysis.
 
 # Table of Content
 
--   [MSTemplate_Creator](#mstemplate_creator)
+-   \[MSTemplate_Creator\]
 -   [Table of Content](#table-of-content)
 -   [Meta](#meta)
 -   [Overview](#overview)
