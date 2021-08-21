@@ -5,12 +5,12 @@
 * Check if relative sample amount definition is clear enough.
 * Add documentation for the Visual Basic functions in the excel sheet.
 
-## MSTemplate_Creator 1.0.1
+# MSTemplate_Creator 1.0.1
 
 * Changed dilution factor to relative sample amount
 * Added a logo
 
-## MSTemplate_Creator 1.0.0
+# MSTemplate_Creator 1.0.0
 
 * Added some Github related markdown files like issue templates, contributing guidelines and code of conduct.
 
