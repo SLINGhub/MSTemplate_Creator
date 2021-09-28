@@ -322,7 +322,7 @@ Public Sub Sample_Annot_and_Dilution_Annot_Integration_Test()
     Call Utilities.Clear_Columns("Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Amount", HeaderRowNumber:=1, DataStartRowNumber:=2)
     Call Utilities.Clear_Columns("Sample_Amount_Unit", HeaderRowNumber:=1, DataStartRowNumber:=2)
-    Call Utilities.Clear_Columns("ISTD_Mixture_Volume_[ul]", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("ISTD_Mixture_Volume_[uL]", HeaderRowNumber:=1, DataStartRowNumber:=2)
     MsgBox "Dilution_Annot test complete"
 
     

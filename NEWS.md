@@ -4,6 +4,12 @@
 
 * Check if relative sample amount definition is clear enough.
 * Add documentation for the Visual Basic functions in the excel sheet.
+* Update documentation on the concentration unit test.
+
+## Done
+
+* Change concentration unit to have uL as the denominator instead of mL.
+* Create unit test for finding concentration unit.
 
 # MSTemplate_Creator 1.0.1
 

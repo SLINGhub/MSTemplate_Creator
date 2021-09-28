@@ -22,15 +22,15 @@ Public Function Convert_Conc_nM_Array(Custom_Unit As String) As String()
     'Get Factor Value based on NewUnit
     FactorValue = 1
     Select Case Custom_Unit
-    Case "[M] or [mmol/mL]"
+    Case "[M] or [umol/uL]"
         FactorValue = 10 ^ (-9)
-    Case "[mM] or [umol/mL]"
+    Case "[mM] or [nmol/uL]"
         FactorValue = 10 ^ (-6)
-    Case "[uM] or [nmol/mL]"
+    Case "[uM] or [pmol/uL]"
         FactorValue = 10 ^ (-3)
-    Case "[nM] or [pmol/mL]"
+    Case "[nM] or [fmol/uL]"
         FactorValue = 1
-    Case "[pM] or [fmol/mL]"
+    Case "[pM] or [amol/uL]"
         FactorValue = 10 ^ 3
     End Select
     
