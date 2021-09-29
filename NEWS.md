@@ -4,7 +4,7 @@
 
 * Check if relative sample amount definition is clear enough.
 * Add documentation for the Visual Basic functions in the excel sheet.
-* Update documentation on the concentration unit test.
+* Try out the code inspection feature in Rubberduck.
 
 ## Done
 
