@@ -56,7 +56,7 @@ Sub Load_Sample_Name_To_Dilution_Annot_Click()
     'Check if SampleNameArray has any elements
     'If not no need to transfer
     If Len(Join(SampleNameArray, "")) = 0 Then
-        End
+        Exit Sub
     End If
     
     'Go to the Dilution_Annot sheet
@@ -96,23 +96,15 @@ Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boole
     ISTD_Custom_Unit_ColNumber = Utilities.Get_Header_Col_Position("Custom_Unit", 2, _
                                                                    WorksheetName:="ISTD_Annot")
                                                                    
-    'Get the custom unit value
+    'Get the mol concentration from custom unit value
     Dim Custom_Unit As String
     Custom_Unit = Worksheets("ISTD_Annot").Cells(3, ISTD_Custom_Unit_ColNumber)
     Application.EnableEvents = True
-
+    
+    'Custom Unit Value is of the form "[?M] or [?mol/uL]"
+    'Function tries to get ?mol from the above string
     Dim Right_Custom_Unit As String
-    Dim RightConcUnitRegEx As New RegExp
-    'Get the right value after "or"
-    RightConcUnitRegEx.Pattern = "(.*or)"
-    RightConcUnitRegEx.Global = True
-    Right_Custom_Unit = Trim(RightConcUnitRegEx.Replace(Custom_Unit, " "))
-    'Remove square brackets and mL
-    RightConcUnitRegEx.Pattern = "[\[\]]"
-    Right_Custom_Unit = Trim(RightConcUnitRegEx.Replace(Right_Custom_Unit, " "))
-    RightConcUnitRegEx.Pattern = "/mL"
-    'Right_Custom_Unit = RightConcUnitRegEx.Execute(Custom_Unit)(0).SubMatches(0)
-    Right_Custom_Unit = Trim(RightConcUnitRegEx.Replace(Right_Custom_Unit, " "))
+    Right_Custom_Unit = Concentration_Unit.Get_Mol_From_Custom_ISTD_Concentration_Unit(Custom_Unit)
     'Debug.Print Right_Custom_Unit
 
     'To ensure that Filters does not affect the assignment

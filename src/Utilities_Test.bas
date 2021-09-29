@@ -185,11 +185,11 @@ Public Sub Load_Columns_From_Excel_NoFilter_Test()
     Sheets("Lists").Activate
     
     Dim CorrectArray(0 To 4) As String
-    CorrectArray(0) = "[M] or [mmol/mL]"
-    CorrectArray(1) = "[mM] or [umol/mL]"
-    CorrectArray(2) = "[uM] or [nmol/mL]"
-    CorrectArray(3) = "[nM] or [pmol/mL]"
-    CorrectArray(4) = "[pM] or [fmol/mL]"
+    CorrectArray(0) = "[M] or [umol/uL]"
+    CorrectArray(1) = "[mM] or [nmol/uL]"
+    CorrectArray(2) = "[uM] or [pmol/uL]"
+    CorrectArray(3) = "[nM] or [fmol/uL]"
+    CorrectArray(4) = "[pM] or [amol/uL]"
     
     Dim Concentration_Unit_Array() As String
     Concentration_Unit_Array = Utilities.Load_Columns_From_Excel("Concentration_Unit", HeaderRowNumber:=1, _
