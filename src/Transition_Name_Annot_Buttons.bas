@@ -24,6 +24,11 @@ Sub Load_Transition_Name_ISTD_Click()
     'Excel resume monitoring the sheet
     Application.EnableEvents = True
     
+    'If we have an empty array, leave the sub
+    If Len(Join(ISTD_Array, "")) = 0 Then
+        Exit Sub
+    End If
+    
     'Validate the ISTD column
     Call Validate_ISTD_Click(MessageBoxRequired:=False)
       
@@ -54,6 +59,24 @@ Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
                                                    IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
     'Excel resume monitoring the sheet
     Application.EnableEvents = True
+    
+    'If we have an empty array, leave the sub
+    If Len(Join(Transition_Array, "")) = 0 And Len(Join(ISTD_Array, "")) = 0 Then
+        If MessageBoxRequired Then
+            MsgBox "No entries in both Transition_Name and Transition_Name_ISTD to validate."
+        End If
+        Exit Sub
+    ElseIf Len(Join(Transition_Array, "")) <> 0 And Len(Join(ISTD_Array, "")) = 0 Then
+        If MessageBoxRequired Then
+            MsgBox "No entries in Transition_Name_ISTD to validate."
+        End If
+        Exit Sub
+    ElseIf Len(Join(Transition_Array, "")) = 0 And Len(Join(ISTD_Array, "")) <> 0 Then
+        If MessageBoxRequired Then
+            MsgBox "No entries in Transition_Name to validate."
+        End If
+        Exit Sub
+    End If
     
     'Both arrays should not be empty
     Call Transition_Name_Annot.VerifyISTD(Transition_Array, ISTD_Array, MessageBoxRequired:=MessageBoxRequired, Testing:=Testing)

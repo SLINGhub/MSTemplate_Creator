@@ -56,7 +56,7 @@ Sub Load_Sample_Name_To_Dilution_Annot_Click()
     'Check if SampleNameArray has any elements
     'If not no need to transfer
     If Len(Join(SampleNameArray, "")) = 0 Then
-        End
+        Exit Sub
     End If
     
     'Go to the Dilution_Annot sheet

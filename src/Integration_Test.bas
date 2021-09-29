@@ -1,8 +1,63 @@
 Attribute VB_Name = "Integration_Test"
 Public Sub Run_Integration_Test()
+    Nothing_To_Transfer_Test
     Transition_Name_and_ISTD_Annot_Integration_Test
     Sample_Annot_Integration_Test
     Sample_Annot_and_Dilution_Annot_Integration_Test
+End Sub
+
+Public Sub Nothing_To_Transfer_Test()
+    On Error GoTo TestFail
+    'We don't want excel to monitor the sheet when runnning this code
+    Application.EnableEvents = False
+    'To ensure that Filters does not affect the assignment
+    Utilities.RemoveFilterSettings
+    
+    'Test that the button works when there are no
+    'Transition_Name_ISTD to validate and transfer
+    'from Transition_Name_Annot to ISTD_Annot
+    Sheets("Transition_Name_Annot").Activate
+    
+    'When both columns are empty
+    Transition_Name_Annot_Buttons.Load_Transition_Name_ISTD_Click
+    Transition_Name_Annot_Buttons.Validate_ISTD_Click
+    
+    'When only Transition_Name_ISTD column is empty
+    Dim Transition_Array(2) As String
+    Transition_Array(0) = "Transition_Array1"
+    Transition_Array(1) = "Transition_Array2"
+    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, _
+                                 DataStartRowNumber:=2, MessageBoxRequired:=False)
+    Transition_Name_Annot_Buttons.Validate_ISTD_Click
+    Call Utilities.Clear_Columns("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    
+    'When only Transition_Name column is empty
+    Transition_Array(0) = "Transition_ISTD1"
+    Transition_Array(1) = "Transition_ISTD2"
+    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name_ISTD", HeaderRowNumber:=1, _
+                                 DataStartRowNumber:=2, MessageBoxRequired:=False)
+    Transition_Name_Annot_Buttons.Validate_ISTD_Click
+    Call Utilities.Clear_Columns("Transition_Name_ISTD", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    
+    MsgBox "Nothing to transfer in Transition_Name_Annot test complete"
+    
+    'Test that the button works when there are no
+    'samples with sample type RQC to transfer from Sample_Annot
+    'to Dilution_Annot
+    Sheets("Sample_Annot").Activate
+    Sample_Annot_Buttons.Load_Sample_Name_To_Dilution_Annot_Click
+    Call Utilities.Clear_Columns("Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Call Utilities.Clear_Columns("Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2)
+    MsgBox "Nothing to transfer in Sample_Annot test complete"
+
+    'Excel resume monitoring the sheet
+    Application.EnableEvents = True
+    
+TestFail:
+    Application.EnableEvents = True
+    Exit Sub
 End Sub
 
 Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
