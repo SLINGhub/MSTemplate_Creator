@@ -237,6 +237,18 @@ Public Function Get_Transition_Array_Raw(RawDataFiles As String) As String()
                 End If
             Next i
             
+            'Do a forward fill on the first header line
+            Dim fill_header_word As String
+            fill_header_word = first_header_line(0)
+            
+            For i = LBound(first_header_line) To UBound(first_header_line)
+                If first_header_line(i) = "" Then
+                    first_header_line(i) = fill_header_word
+                Else
+                    fill_header_word = first_header_line(i)
+                End If
+            Next i
+            
             'Get the index of qualifier method transition
             'Get the index of data file
             'Get the max number of qualifier a transition can have
@@ -262,6 +274,7 @@ Public Function Get_Transition_Array_Raw(RawDataFiles As String) As String()
             ArrayLength = 0
             
             For i = LBound(first_header_line) To UBound(first_header_line)
+            
                 isQualifier_Method_Col = Qualifier_Method_Col.Test(first_header_line(i))
                 isTransition_Col = Transition_Col.Test(second_header_line(i))
                 isDataFileName_Col = DataFileName_Col.Test(second_header_line(i))
@@ -286,11 +299,7 @@ Public Function Get_Transition_Array_Raw(RawDataFiles As String) As String()
             
             No_of_Qual_per_Transition = No_of_Qualifier_Method_Transition \ No_of_DataFileName_Col
             ReDim Preserve line_subset_index(No_of_Qual_per_Transition)
-            
-            'For i = LBound(line_subset_index) To UBound(line_subset_index)
-            '    Debug.Print line_subset_index(i)
-            'Next i
-            
+                        
             Transition_Array = Get_Transition_Array_Agilent_Compound(Transition_Array, Lines, line_subset_index, 2, Delimiter, True, True)
             
             'When the Raw File is from Sciex

@@ -64,6 +64,37 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Transition_Annot From Raw MS Data")
+Public Sub Get_Transition_Array_Wide_Table_With_Qualifier_Test()
+    On Error GoTo TestFail
+    
+    Dim TestFolder As String
+    Dim Transition_Array() As String
+    Dim RawDataFiles As String
+    Dim FileThere As Boolean
+    
+    'Indicate path to the test data folder
+    TestFolder = ThisWorkbook.Path & "\Testdata\"
+    RawDataFiles = TestFolder & "AgilentRawDataTest3_Qualifier.csv"
+    
+    'Check if the data file exists
+    FileThere = (Dir(RawDataFiles) > "")
+        If FileThere = False Then
+            MsgBox "File name " & RawDataFiles & " cannot be found."
+            End
+        End If
+    
+    'Load the transition names and load it to excel
+    Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
+    
+    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(15)
+
+TestExit:
+    Exit Sub
+TestFail:
+    Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
+End Sub
+
+'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Compound_Table_Test()
     On Error GoTo TestFail
     
@@ -87,6 +118,37 @@ Public Sub Get_Transition_Array_Compound_Table_Test()
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
     
     Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(122)
+
+TestExit:
+    Exit Sub
+TestFail:
+    Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
+End Sub
+
+'@TestMethod("Get Transition_Annot From Raw MS Data")
+Public Sub Get_Transition_Array_Compound_Table_With_Qualifier_Test()
+    On Error GoTo TestFail
+    
+    Dim TestFolder As String
+    Dim Transition_Array() As String
+    Dim RawDataFiles As String
+    Dim FileThere As Boolean
+    
+    'Indicate path to the test data folder
+    TestFolder = ThisWorkbook.Path & "\Testdata\"
+    RawDataFiles = TestFolder & "CompoundTableForm_Qualifier.csv"
+    
+    'Check if the data file exists
+    FileThere = (Dir(RawDataFiles) > "")
+        If FileThere = False Then
+            MsgBox "File name " & RawDataFiles & " cannot be found."
+            End
+        End If
+
+    'Load the transition names and load it to excel
+    Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
+    
+    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(15)
 
 TestExit:
     Exit Sub
