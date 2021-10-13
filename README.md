@@ -67,9 +67,11 @@ top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
 For an overview on how the tool works, take a look at the Summary and
 Familiarisation file in the
 [documentation](https://github.com/SLINGhub/MSTemplate_Creator/tree/main/docs)
-page. Below is a preview of the Summary file.
+page.
 
-![SummaryCheatSheet](figures/SummaryCheatSheet.JPG)
+![SummaryCheatSheet](figures/SummaryCheatSheet1.JPG)
+
+![SummaryCheatSheet](figures/SummaryCheatSheet2.JPG)
 
 [Back to
 top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)

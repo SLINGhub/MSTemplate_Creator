@@ -8,10 +8,13 @@
 
 ## Done
 
+* Fix bugs when reading transition names with qualifiers in Agilent Compound Table form.
 * Change concentration unit to have uL as the denominator instead of mL.
+* Create unit test for reading transition names with Qualifiers for Agilent Wide Table and Compound Table form.
 * Create unit test for finding concentration unit.
 * Update documentation on the concentration unit test.
 * Add an integration test "Nothing_To_Transfer_Test" to check that the program can still run when there is no data to another sheet.
+
 
 # MSTemplate_Creator 1.0.1
 
