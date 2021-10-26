@@ -6,7 +6,7 @@
 * Add documentation for the Visual Basic functions in the excel sheet.
 * Try out the code inspection feature in Rubberduck.
 
-## Done
+## MSTemplate_Creator 1.1.0
 
 * Fix bugs when reading transition names with qualifiers in Agilent Compound Table form.
 * Change concentration unit to have uL as the denominator instead of mL.

@@ -16,6 +16,8 @@ friendly interface to take in MRM transition names data exported
 directly from mass spectrometry software to create several annotation
 templates suited for automated data processing and statistical analysis.
 
+<br> ![AboutMSTemplate_Creator](figures/AboutMSTemplate_Creator.png)
+
 # Table of Content
 
 -   [MSTemplate_Creator](#mstemplate_creator)
