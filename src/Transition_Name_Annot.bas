@@ -1,4 +1,35 @@
 Attribute VB_Name = "Transition_Name_Annot"
+'' Function: Get_Sorted_Transition_Array_Raw
+'' --- Code
+''  Public Function Get_Sorted_Transition_Array_Raw(RawDataFiles As String) As String()
+'' ---
+''
+'' Description:
+''
+'' Get Transition Names from an input raw data file, put them into
+'' a string array and sort them in alphabetical order.
+''
+'' Parameters:
+''
+''    RawDataFiles As String - File path to an Agilent Raw Data File in csv.
+''
+'' Returns:
+''    A string array of Transition Names sorted in alphabetical order
+''
+'' Examples:
+''
+'' --- Code
+''   Dim TestFolder As String
+''   Dim RawDataFiles As String
+''   Dim Transition_Array() As String
+''
+''  'Indicate path to the test data folder
+''   TestFolder = ThisWorkbook.Path & "\Testdata\"
+''   RawDataFiles = TestFolder & "AgilentRawDataTest1.csv"
+''
+''  'Load the transition names and load it to excel
+''   Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
+'' ---
 Public Function Get_Sorted_Transition_Array_Raw(RawDataFiles As String) As String()
     Dim Transition_Array() As String
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)

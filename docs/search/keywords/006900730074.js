@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("ist",["Function"],[["ISTD_Mixture_Volume_TextBox_Change",,[[,,,,0,"File:Autofill_By_Sample_Type.frm:ISTD_Mixture_Volume_TextBox_Change"]]],["ISTD_Mixture_Volume_TextBox_Exit",,[[,,,,0,"File:Autofill_By_Sample_Type.frm:ISTD_Mixture_Volume_TextBox_Exit"]]]]);

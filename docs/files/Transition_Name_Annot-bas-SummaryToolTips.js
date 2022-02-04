@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:Transition_Name_Annot.bas",{});

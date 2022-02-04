@@ -599,3 +599,16 @@ Public Function Load_Columns_From_Excel(HeaderName As String, HeaderRowNumber As
 End Function
 
 
+Public Function Sheet_Code_Name_Exists(oWB As Workbook, sCodeName As String) As Boolean
+     
+    Dim oSht As Object
+     
+    For Each oSht In oWB.Sheets
+        'Debug.Print oSht.CodeName
+        If oSht.CodeName = sCodeName Then
+            Sheet_Code_Name_Exists = True
+            Exit For
+        End If
+    Next
+     
+End Function

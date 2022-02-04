@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:Autofill_By_Sample_Type.frm",{});

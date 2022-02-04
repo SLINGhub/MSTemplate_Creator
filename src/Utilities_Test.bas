@@ -32,6 +32,19 @@ Public Sub TestCleanup()
     'this method runs after every test in the module.
 End Sub
 
+'@TestMethod("Sheet Name Integrity Test")
+Public Sub Sheet_Code_Name_Exists_Test()
+    On Error GoTo TestFail
+    
+    Assert.AreEqual Utilities.Sheet_Code_Name_Exists(ActiveWorkbook, "Lists"), True
+    Assert.AreEqual Utilities.Sheet_Code_Name_Exists(ActiveWorkbook, "Does not Exists"), False
+
+TestExit:
+    Exit Sub
+TestFail:
+    Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
+End Sub
+
 '@TestMethod("Annotation Properties")
 Public Sub Get_Header_Col_Position_Test()
     On Error GoTo TestFail
