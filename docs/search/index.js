@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixIndexLoaded(["aut","for","get","ini","ist","sam"]);
+﻿NDSearch.OnPrefixIndexLoaded(["aut","cle","con","dil","for","get","ini","inv","ist","sam","tra"]);

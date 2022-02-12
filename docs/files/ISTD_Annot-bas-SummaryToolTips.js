@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:ISTD_Annot.bas",{});

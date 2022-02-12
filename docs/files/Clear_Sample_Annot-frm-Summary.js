@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("File:Clear_Sample_Annot.frm","Clear_Sample_Annot.frm");NDSummary.OnSummaryLoaded("File:Clear_Sample_Annot.frm",[["Excel VBA","ExcelVBA"]],[["Functions","Function"],["Groups","Group"]],[[24,0,1,"Functions","Functions"],[25,0,0,"Sample_Annot_Clear_Click","Sample_Annot_Clear_Click"]]);

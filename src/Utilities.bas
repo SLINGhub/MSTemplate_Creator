@@ -598,17 +598,30 @@ Public Function Load_Columns_From_Excel(HeaderName As String, HeaderRowNumber As
     
 End Function
 
-
-Public Function Sheet_Code_Name_Exists(oWB As Workbook, sCodeName As String) As Boolean
+Public Function Check_Sheet_Code_Name_Exists(oWB As Workbook, sCodeName As String) As Boolean
      
-    Dim oSht As Object
+    Dim oSht As Worksheet
      
     For Each oSht In oWB.Sheets
         'Debug.Print oSht.CodeName
         If oSht.CodeName = sCodeName Then
-            Sheet_Code_Name_Exists = True
+            Check_Sheet_Code_Name_Exists = True
             Exit For
         End If
     Next
      
 End Function
+
+Public Function Get_Sheet_By_Code_Name(oWB As Workbook, sCodeName As String) As Worksheet
+
+    ' Check if the sheet whose code name exists
+    Dim oSh As Worksheet
+    For Each oSh In oWB.Worksheets
+        If oSh.CodeName = sCodeName Then
+            Set Get_Sheet_By_Code_Name = oSh
+            Exit Function
+        End If
+    Next
+    
+End Function
+

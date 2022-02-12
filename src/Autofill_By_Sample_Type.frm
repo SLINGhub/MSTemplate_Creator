@@ -288,18 +288,18 @@ Private Sub UserForm_Initialize()
     Dim Cell_Location As Range
     
     ' Get the Lists worksheet from the active workbook
-    ' The List is a code name
+    ' Lists is a code name
     ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
-    Dim ws As Worksheet
+    Dim Lists_Worksheet As Worksheet
     
     ' Check if the sheet whose code name is Lists exists
     ' If not, give an error message
-    If Utilities.Sheet_Code_Name_Exists(ActiveWorkbook, "Lists") = True Then
-        Set ws = Lists
-    Else
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "Lists") = False Then
         MsgBox ("Sheet containing list of Sample Types is missing")
         Exit Sub
     End If
+    
+    Set Lists_Worksheet = Lists
     
     ' In the Sample_Type_ComboBox, add "All Sample Types"
     ' as the first item in the drop down list
@@ -307,7 +307,7 @@ Private Sub UserForm_Initialize()
     
     ' Add in the Sample_Type_ComboBox, the list given
     ' in the Table called SampleType found in the "Lists" sheet
-    For Each Cell_Location In ws.Range("SampleType")
+    For Each Cell_Location In Lists_Worksheet.Range("SampleType")
          With Me.Sample_Type_ComboBox
               .AddItem Cell_Location.Value
          End With
@@ -315,7 +315,7 @@ Private Sub UserForm_Initialize()
     
     ' Add in the Sample_Amount_Unit_ComboBox, the list given
     ' in the Table called SampleAmountUnit found in the "Lists" sheet
-    For Each Cell_Location In ws.Range("SampleAmountUnit")
+    For Each Cell_Location In Lists_Worksheet.Range("SampleAmountUnit")
          With Me.Sample_Amount_Unit_ComboBox
               .AddItem Cell_Location.Value
          End With

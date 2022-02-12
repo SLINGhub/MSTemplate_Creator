@@ -13,6 +13,25 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Option Explicit
+'@Folder("Transition_Annot_Buttons")
+
+
+'' Function: Invalid_ISTD_Ok_Button_Click
+'' --- Code
+''  Private Sub Invalid_ISTD_Ok_Button_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Transition_Name_Annot_Invalid_ISTD_Message_OK_Button.png)
+''
+'' Message box will disappear after clicking the button.
+'' Users must correct the invalid ISTD input.
+''
 Private Sub Invalid_ISTD_Ok_Button_Click()
     Unload Invalid_ISTD_MsgBox
 End Sub

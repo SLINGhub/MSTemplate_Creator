@@ -1,9 +1,66 @@
 Attribute VB_Name = "ColourTracker"
-'Sheet ISTD_Annot Functions
-Public Function ISTDCalculationChecker(ByVal Target As Range)
-    Sheets("ISTD_Annot").Activate
+'@IgnoreModule IntegerDataType
+Option Explicit
+'@Folder("Colour Tracker")
+
+'' Group: Colour Tracker
+''
+'' Function: ISTD_Calculation_Checker
+'' --- Code
+''  Public Sub ISTD_Calculation_Checker(ByVal Target As Range)
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when certain cells in
+'' the ISTD_Annot sheet is changed.
+''
+'' Here is the list of expected behaviours
+''
+'' When users first fill in the column Transition_Name_ISTD,
+'' The correspnding rows in the ISTD_Conc_[nM] and Custom Unit
+'' column will turn red
+''
+'' (see ISTD_Annot_First_Fill_In.png)
+''
+'' Columns and rows will turn green when the button
+'' "Convert to nM and Verify" is pressed when either
+'' both ISTD_Conc_[nM] and ISTD_[MW] is entered or
+'' the ISTD_Conc_[nM] is entered. Custom units will
+'' be automatically calculated.
+''
+'' (see ISTD_Annot_Press_Convert_Button.png)
+''
+'' From there if any entries is modified but the row has an
+'' Transition_Name_ISTD entry, both
+'' ISTD_Conc_[nM] and ISTD_[MW] cells will turn white
+'' but ISTD_Conc_[nM] and Custom Unit will turn red.
+''
+'' (see ISTD_Annot_Modify_Entries.png)
+''
+'' If the Transition_Name_ISTD entry is removed, all the
+'' columns will turn white
+''
+'' (see ISTD_Annot_Remove_ISTD_Entries.png)
+''
+Public Sub ISTD_Calculation_Checker(ByVal Target As Range)
+
+    ' Get the ISTD_Annot worksheet from the active workbook
+    ' The ISTDAnnot is a code name
+    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+    Dim ISTD_Annot_Worksheet As Worksheet
     
-    'Application.EnableEvents = True
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "ISTDAnnot") = False Then
+        MsgBox ("Sheet ISTD_Annot is missing")
+        Application.EnableEvents = True
+        Exit Sub
+    End If
+    
+    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnot")
+      
+    ISTD_Annot_Worksheet.Activate
+    
+    Application.EnableEvents = True
     
     'Get column position of Transition_Name_ISTD
     Dim ISTDHeaderColNumber As Integer
@@ -18,20 +75,22 @@ Public Function ISTDCalculationChecker(ByVal Target As Range)
     ISTD_Custom_Unit_ColNumber = Utilities.Get_Header_Col_Position("Custom_Unit", 2)
     
     Dim ISTDHeaderColLetter As String
-    Dim ISTD_Conc_ng_ColLetter As String
-    Dim ISTD_MW_ColLetter As String
-    Dim ISTD_Conc_nM_ColLetter As String
+    'Dim ISTD_Conc_ng_ColLetter As String
+    'Dim ISTD_MW_ColLetter As String
+    'Dim ISTD_Conc_nM_ColLetter As String
     Dim ISTD_Custom_Unit_ColLetter As String
     ISTDHeaderColLetter = Utilities.ConvertToLetter(ISTDHeaderColNumber)
-    ISTD_Conc_ng_ColLetter = Utilities.ConvertToLetter(ISTD_Conc_ng_ColNumber)
-    ISTD_MW_ColLetter = Utilities.ConvertToLetter(ISTD_MW_ColNumber)
-    ISTD_Conc_nM_ColLetter = Utilities.ConvertToLetter(ISTD_Conc_nM_ColNumber)
+    'ISTD_Conc_ng_ColLetter = Utilities.ConvertToLetter(ISTD_Conc_ng_ColNumber)
+    'ISTD_MW_ColLetter = Utilities.ConvertToLetter(ISTD_MW_ColNumber)
+    'ISTD_Conc_nM_ColLetter = Utilities.ConvertToLetter(ISTD_Conc_nM_ColNumber)
     ISTD_Custom_Unit_ColLetter = Utilities.ConvertToLetter(ISTD_Custom_Unit_ColNumber)
     
     Dim RelatedRange As String
+    Dim Cell As Range
+
     RelatedRange = ISTDHeaderColLetter & ":" & ISTD_Custom_Unit_ColLetter
         
-    If Not Intersect(Range(RelatedRange), Target) Is Nothing Then
+    If Not Intersect(ISTD_Annot_Worksheet.Range(RelatedRange), Target) Is Nothing Then
         'Debug.Print Intersect(Range(RelatedRange), Target).Address
         
         'If rows are deleted, leave the function
@@ -40,80 +99,110 @@ Public Function ISTDCalculationChecker(ByVal Target As Range)
         'If Target.Address = Target.EntireRow.Address Then
         '    Exit Function
         'End If
-        
-        For Each Cell In Intersect(Range(RelatedRange), Target)
+           
+        For Each Cell In Intersect(ISTD_Annot_Worksheet.Range(RelatedRange), Target)
             Select Case Cell.Column
             Case ISTDHeaderColNumber
-                'ISTD has been modified or just added
-                Cells(Cell.Row, ISTDHeaderColNumber).Interior.Color = xlNone
-                Cells(Cell.Row, ISTD_Conc_ng_ColNumber).Interior.Color = xlNone
-                Cells(Cell.Row, ISTD_MW_ColNumber).Interior.Color = xlNone
-                If Cell.Value = "" Then
-                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
-                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
+                ' When ISTD has been modified or just added in that row,
+                ' remove all colours in the Transition_Name_ISTD, ISTD_Conc_[ng/mL]
+                ' and ISTD_[MW] column for that corresponding row
+                ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTDHeaderColNumber).Interior.Color = xlNone
+                ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Conc_ng_ColNumber).Interior.Color = xlNone
+                ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_MW_ColNumber).Interior.Color = xlNone
+                ' For the ISTD_Conc_[nM] column and the Custom Unit column,
+                ' If the row has an ISTD added/modified, colour them red to warn users they need to be changed or filled in
+                ' If the row has an ISTD remove, colur them white
+                If Cell.Value = vbNullString Then
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
                 Else
-                    'Warn users they need to be changed or filled in
-                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
                 End If
             Case ISTD_Conc_ng_ColNumber, ISTD_MW_ColNumber
                 'Remove the green format if it exists
-                Cells(Cell.Row, ISTD_Conc_ng_ColNumber).Interior.Color = xlNone
-                Cells(Cell.Row, ISTD_MW_ColNumber).Interior.Color = xlNone
+                ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Conc_ng_ColNumber).Interior.Color = xlNone
+                ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_MW_ColNumber).Interior.Color = xlNone
                 'If it has been modified under the presence of an ISTD
-                If Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
+                If Not ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTDHeaderColNumber) = vbNullString Then
                     'Warn users they need to be changed or filled in
-                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
                 End If
             Case ISTD_Conc_nM_ColNumber
                 'Warns user that they must fill up the cell as there is an ISTD
-                If Cell.Value = "" And Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+                If Cell.Value = vbNullString And Not ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTDHeaderColNumber) = vbNullString Then
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
                     'Blank value is valid as there is no ISTD
-                ElseIf Cell.Value = "" And Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
-                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
+                ElseIf Cell.Value = vbNullString And ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTDHeaderColNumber) = vbNullString Then
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
                     'Warn users values has been modified
-                ElseIf Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+                ElseIf Not ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTDHeaderColNumber) = vbNullString Then
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
                 End If
             Case ISTD_Custom_Unit_ColNumber
                 'Warns user that they must fill up the cell as there is an ISTD
-                If Cell.Row > 3 And Cell.Value = "" And Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+                If Cell.Row > 3 And Cell.Value = vbNullString And Not ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTDHeaderColNumber) = vbNullString Then
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
                     'Blank value is valid as there is no ISTD
-                ElseIf Cell.Row > 3 And Cell.Value = "" And Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
-                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
+                ElseIf Cell.Row > 3 And Cell.Value = vbNullString And ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTDHeaderColNumber) = vbNullString Then
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = xlNone
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = xlNone
                     'Warn users values has been modified
-                ElseIf Cell.Row > 3 And Not Cells(Cell.Row, ISTDHeaderColNumber) = "" Then
-                    Cells(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
-                    Cells(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
+                ElseIf Cell.Row > 3 And Not ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTDHeaderColNumber) = vbNullString Then
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Conc_nM_ColNumber).Interior.Color = RGB(255, 200, 200)
+                    ISTD_Annot_Worksheet.Cells.Item(Cell.Row, ISTD_Custom_Unit_ColLetter).Interior.Color = RGB(255, 200, 200)
                 ElseIf Cell.Row = 3 Then
                     'Update the Concentration Unit in Sample_Annot sheet if the ISTD_Custom_Unit
                     'is changed
-                    Call Autofill_Concentration_Unit_Click
+                    Sample_Annot_Buttons.Autofill_Concentration_Unit_Click
                     'Convert the units
                     Application.EnableEvents = False
                     Dim ISTD_Custom_Unit() As String
                     ISTD_Custom_Unit = ISTD_Annot.Convert_Conc_nM_Array(Cell.Value)
-                    Call Utilities.Load_To_Excel(ISTD_Custom_Unit, "Custom_Unit", HeaderRowNumber:=2, _
-                                                 DataStartRowNumber:=4, MessageBoxRequired:=False)
-                    Sheets("ISTD_Annot").Activate
+                    Utilities.Load_To_Excel Data_Array:=ISTD_Custom_Unit, _
+                                            HeaderName:="Custom_Unit", _
+                                            HeaderRowNumber:=2, _
+                                            DataStartRowNumber:=4, _
+                                            MessageBoxRequired:=False
+                    ISTD_Annot_Worksheet.Activate
                     Application.EnableEvents = True
                 End If
             End Select
         Next Cell
     End If
 
-End Function
+End Sub
 
-'Sheet Transition_Name_Annot Function
-Public Function ChangeToBlankWhenChanged(ByVal Target As Range)
+
+'' Function: Transition_Name_Annot_Checker
+'' --- Code
+''  Public Sub Transition_Name_Annot_Checker(ByVal Target As Range)
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when certain cells in
+'' the Transition_Name_Annot sheet is changed.
+''
+'' Here is the list of expected behaviours
+''
+'' When a cell in Transition_Name_ISTD has been modified,
+'' the cell will turn white.
+''
+'' (see Transition_Name_Annot_Modify_ISTD_Entries.png)
+''
+'' When a cell in Transition_Name has been modified,
+'' the cell will turn white. All cells in the Transition_Name_ISTD
+'' column will also turn white
+''
+'' (see Transition_Name_Annot_Modify_Transition_Entries.png)
+''
+Public Sub Transition_Name_Annot_Checker(ByVal Target As Range)
     'Application.ScreenUpdating = False
     'EventState = Application.EnableEvents
     Application.EnableEvents = False
@@ -122,9 +211,21 @@ Public Function ChangeToBlankWhenChanged(ByVal Target As Range)
     'PageBreakState = ActiveSheet.DisplayPageBreaks
     'ActiveSheet.DisplayPageBreaks = False
     
-    Sheets("Transition_Name_Annot").Activate
+    ' Get the Transition_Annot worksheet from the active workbook
+    ' The TransitionNameAnnot is a code name
+    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+    Dim Transition_Name_Annot_Worksheet As Worksheet
+       
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "TransitionNameAnnot") = False Then
+        MsgBox ("Sheet Transition_Name_Annot is missing")
+        Application.EnableEvents = True
+        Exit Sub
+    End If
     
-
+    Set Transition_Name_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "TransitionNameAnnot")
+            
+    Transition_Name_Annot_Worksheet.Activate
+    
     'Get column position of the headers
     Dim Transition_Name_ColNumber As Integer
     Dim Transition_Name_ISTD_ColNumber As Integer
@@ -137,46 +238,46 @@ Public Function ChangeToBlankWhenChanged(ByVal Target As Range)
     Transition_Name_ISTD_ColLetter = Utilities.ConvertToLetter(Transition_Name_ISTD_ColNumber)
 
     Dim RelatedRange As String
+    Dim Cell As Range
     RelatedRange = Transition_Name_ColLetter & ":" & Transition_Name_ISTD_ColLetter
     
     'When there is a change
-    If Not Intersect(Range(RelatedRange), Target) Is Nothing Then
+    If Not Intersect(Transition_Name_Annot_Worksheet.Range(RelatedRange), Target) Is Nothing Then
         'Debug.Print Intersect(Range(RelatedRange), Target).Address
         
         'If rows are deleted, leave the function
         'If Target.Address = Target.EntireRow.Address Then
         '    Exit Function
         'End If
-        
-        
-        For Each Cell In Intersect(Range(RelatedRange), Target)
+
+        For Each Cell In Intersect(Transition_Name_Annot_Worksheet.Range(RelatedRange), Target)
             Select Case Cell.Column
                 'If changes are made in the Transition_Name column
             Case Transition_Name_ColNumber
                 Dim TotalRows As Long
-                TotalRows = Cells(Rows.Count, ConvertToLetter(Transition_Name_ColNumber)).End(xlUp).Row
+                TotalRows = Transition_Name_Annot_Worksheet.Cells.Item(Transition_Name_Annot_Worksheet.Rows.Count, ConvertToLetter(Transition_Name_ColNumber)).End(xlUp).Row
                 If TotalRows > 1 Then
-                    Range(Transition_Name_ColLetter & Cell.Row & ":" & Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
+                    Transition_Name_Annot_Worksheet.Range(Transition_Name_ColLetter & Cell.Row & ":" & Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
                     'Whole Transition_Name_ISTD column must be white
-                    Range(Transition_Name_ISTD_ColLetter & "2:" & Transition_Name_ISTD_ColLetter & TotalRows).Interior.Color = xlNone
+                    Transition_Name_Annot_Worksheet.Range(Transition_Name_ISTD_ColLetter & "2:" & Transition_Name_ISTD_ColLetter & TotalRows).Interior.Color = xlNone
                 Else
                     'Whole Transition_Name_ISTD column must be white
-                    Range(Transition_Name_ColLetter & Cell.Row & ":" & Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
+                    Transition_Name_Annot_Worksheet.Range(Transition_Name_ColLetter & Cell.Row & ":" & Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
                 End If
             Case Transition_Name_ISTD_ColNumber
-                Range(Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
+                Transition_Name_Annot_Worksheet.Range(Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
             End Select
 
         Next Cell
         
     End If
 
-    
     'ActiveSheet.DisplayPageBreaks = PageBreakState
     'Application.Calculation = CalcState
     'Application.EnableEvents = EventState
     'Application.ScreenUpdating = True
     Application.EnableEvents = True
 
-End Function
+End Sub
+
 

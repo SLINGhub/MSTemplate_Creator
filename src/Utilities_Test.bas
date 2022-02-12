@@ -33,11 +33,26 @@ Public Sub TestCleanup()
 End Sub
 
 '@TestMethod("Sheet Name Integrity Test")
-Public Sub Sheet_Code_Name_Exists_Test()
+Public Sub Check_Sheet_Code_Name_Exists_Test()
     On Error GoTo TestFail
     
-    Assert.AreEqual Utilities.Sheet_Code_Name_Exists(ActiveWorkbook, "Lists"), True
-    Assert.AreEqual Utilities.Sheet_Code_Name_Exists(ActiveWorkbook, "Does not Exists"), False
+    Assert.AreEqual Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "Lists"), True
+    Assert.AreEqual Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "Does not Exists"), False
+
+TestExit:
+    Exit Sub
+TestFail:
+    Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
+End Sub
+
+'@TestMethod("Sheet Name Integrity Test")
+Public Sub Get_Sheet_By_Code_Name_Test()
+    On Error GoTo TestFail
+    
+    Dim ISTD_Annot_Worksheet As Worksheet
+    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnot")
+    
+    Assert.AreEqual ISTD_Annot_Worksheet.CodeName, "ISTDAnnot"
 
 TestExit:
     Exit Sub

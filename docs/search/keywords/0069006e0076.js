@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("inv",["Function"],[["Invalid_ISTD_Ok_Button_Click",,[[,,,,0,"File:Invalid_ISTD_MsgBox.frm:Invalid_ISTD_Ok_Button_Click"]]]]);

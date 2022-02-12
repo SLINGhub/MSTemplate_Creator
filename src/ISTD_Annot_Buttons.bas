@@ -20,7 +20,7 @@ Sub nM_calculation_Click()
     
     Dim ISTD_Conc_nM() As String
     Dim ISTD_Custom_Unit() As String
-    ISTD_Conc_nM = ISTD_Annot.Get_ISTD_Conc_nM_Array()
+    ISTD_Conc_nM = ISTD_Annot.Get_ISTD_Conc_nM_Array(ColourCellRequired:=True)
     Call Utilities.Load_To_Excel(ISTD_Conc_nM, "ISTD_Conc_[nM]", HeaderRowNumber:=3, DataStartRowNumber:=4, MessageBoxRequired:=False)
     ISTD_Custom_Unit = ISTD_Annot.Convert_Conc_nM_Array(Custom_Unit)
     Call Utilities.Load_To_Excel(ISTD_Custom_Unit, "Custom_Unit", HeaderRowNumber:=2, DataStartRowNumber:=4, MessageBoxRequired:=False)

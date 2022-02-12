@@ -13,12 +13,33 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Option Explicit
+'@Folder("Transition_Annot_Buttons")
+
+'' Function: Transition_Name_Annot_Clear_Click
+'' --- Code
+''  Private Sub Transition_Name_Annot_Clear_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the Clear Data button is
+'' left clicked
+''
+'' (see Transition_Name_Annot_Clear_Data_Button.png)
+''
+'' All data found in the columns that was checked will be cleared.
+''
 Private Sub Transition_Name_Annot_Clear_Click()
     If Transition_Name.Value = True Then
-        Call Utilities.Clear_Columns("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Utilities.Clear_Columns HeaderToClear:="Transition_Name", _
+                                HeaderRowNumber:=1, _
+                                DataStartRowNumber:=2
     End If
     If Transition_Name_ISTD.Value = True Then
-        Call Utilities.Clear_Columns("Transition_Name_ISTD", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Utilities.Clear_Columns HeaderToClear:="Transition_Name_ISTD", _
+                                HeaderRowNumber:=1, _
+                                DataStartRowNumber:=2
     End If
 End Sub
 

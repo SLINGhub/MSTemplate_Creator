@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:Clear_Sample_Annot.frm",{});

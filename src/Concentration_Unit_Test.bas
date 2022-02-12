@@ -6,31 +6,31 @@ Option Private Module
 '@Folder("Tests")
 
 Private Assert As Object
-Private Fakes As Object
+'Private Fakes As Object
 
 '@ModuleInitialize
 Private Sub ModuleInitialize()
     'this method runs once per module.
     Set Assert = CreateObject("Rubberduck.AssertClass")
-    Set Fakes = CreateObject("Rubberduck.FakesProvider")
+    'Set Fakes = CreateObject("Rubberduck.FakesProvider")
 End Sub
 
 '@ModuleCleanup
 Private Sub ModuleCleanup()
     'this method runs once per module.
     Set Assert = Nothing
-    Set Fakes = Nothing
+    'Set Fakes = Nothing
 End Sub
 
-'@TestInitialize
-Public Sub TestInitialize()
-    'this method runs before every test in the module.
-End Sub
-
-'@TestCleanup
-Public Sub TestCleanup()
-    'this method runs after every test in the module.
-End Sub
+''@TestInitialize
+'Public Sub TestInitialize()
+'    'this method runs before every test in the module.
+'End Sub
+'
+''@TestCleanup
+'Public Sub TestCleanup()
+'    'this method runs after every test in the module.
+'End Sub
 
 '@TestMethod("Get Concentration Unit")
 Public Sub Get_Mol_From_Custom_ISTD_Concentration_Unit_Test()
@@ -44,7 +44,7 @@ Public Sub Get_Mol_From_Custom_ISTD_Concentration_Unit_Test()
     
     Assert.AreEqual Output_Custom_Unit, "pmol"
 
-TestExit:
+'TestExit:
     Exit Sub
 TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description

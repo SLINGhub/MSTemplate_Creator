@@ -13,29 +13,62 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Option Explicit
+'@Folder("Sample_Annot_Buttons")
+
+'' Function: Sample_Annot_Clear_Click
+'' --- Code
+''  Private Sub Sample_Annot_Clear_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the Clear Data button is
+'' left clicked
+''
+'' (see Sample_Annot_Clear_Data_Button.png)
+''
+'' All data found in the columns that was checked will be cleared.
+''
 Private Sub Sample_Annot_Clear_Click()
     If Data_File_Name.Value = True Then
-        Call Utilities.Clear_Columns("Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Utilities.Clear_Columns HeaderToClear:="Data_File_Name", _
+                                HeaderRowNumber:=1, _
+                                DataStartRowNumber:=2
     End If
     If Merge_Status.Value = True Then
-        Call Utilities.Clear_Columns("Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Utilities.Clear_Columns HeaderToClear:="Merge_Status", _
+                                HeaderRowNumber:=1, _
+                                DataStartRowNumber:=2
     End If
     If Sample_Name.Value = True Then
-        Call Utilities.Clear_Columns("Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Utilities.Clear_Columns HeaderToClear:="Sample_Name", _
+                                HeaderRowNumber:=1, _
+                                DataStartRowNumber:=2
     End If
     If Sample_Type.Value = True Then
-        Call Utilities.Clear_Columns("Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Utilities.Clear_Columns HeaderToClear:="Sample_Type", _
+                                HeaderRowNumber:=1, _
+                                DataStartRowNumber:=2
     End If
     If Sample_Amount.Value = True Then
-        Call Utilities.Clear_Columns("Sample_Amount", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Utilities.Clear_Columns HeaderToClear:="Sample_Amount", _
+                                HeaderRowNumber:=1, _
+                                DataStartRowNumber:=2
     End If
     If Sample_Amount_Unit.Value = True Then
-        Call Utilities.Clear_Columns("Sample_Amount_Unit", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Utilities.Clear_Columns HeaderToClear:="Sample_Amount_Unit", _
+                                HeaderRowNumber:=1, _
+                                DataStartRowNumber:=2
     End If
     If ISTD_Mixture_Volume.Value = True Then
-        Call Utilities.Clear_Columns("ISTD_Mixture_Volume_[ul]", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Utilities.Clear_Columns HeaderToClear:="ISTD_Mixture_Volume_[ul]", _
+                                HeaderRowNumber:=1, _
+                                DataStartRowNumber:=2
     End If
     If Concentration_Unit.Value = True Then
-        Call Utilities.Clear_Columns("Concentration_Unit", HeaderRowNumber:=1, DataStartRowNumber:=2)
+        Utilities.Clear_Columns HeaderToClear:="Concentration_Unit", _
+                                HeaderRowNumber:=1, _
+                                DataStartRowNumber:=2
     End If
 End Sub

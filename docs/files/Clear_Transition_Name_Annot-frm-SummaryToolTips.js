@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:Clear_Transition_Name_Annot.frm",{});

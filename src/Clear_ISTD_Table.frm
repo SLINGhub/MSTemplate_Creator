@@ -13,19 +13,46 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Option Explicit
+'@Folder("ISTD_Annot_Buttons")
+
+'' Function: ISTD_Table_Clear_Click
+'' --- Code
+''  Private Sub ISTD_Table_Clear_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the Clear Data button is
+'' left clicked
+''
+'' (see ISTD_Annot_Clear_Data_Button.png)
+''
+'' All data found in the columns that was checked will be cleared.
+''
 Private Sub ISTD_Table_Clear_Click()
     If Transition_Name_ISTD.Value = True Then
-        Call Utilities.Clear_Columns("Transition_Name_ISTD", HeaderRowNumber:=2, DataStartRowNumber:=4)
+        Utilities.Clear_Columns HeaderToClear:="Transition_Name_ISTD", _
+                                HeaderRowNumber:=2, _
+                                DataStartRowNumber:=4
     End If
     If ISTD_Conc_ngmL.Value = True Then
-        Call Utilities.Clear_Columns("ISTD_Conc_[ng/mL]", HeaderRowNumber:=3, DataStartRowNumber:=4)
+        Utilities.Clear_Columns HeaderToClear:="ISTD_Conc_[ng/mL]", _
+                                HeaderRowNumber:=3, _
+                                DataStartRowNumber:=4
     End If
     If ISTD_MW.Value = True Then
-        Call Utilities.Clear_Columns("ISTD_[MW]", HeaderRowNumber:=3, DataStartRowNumber:=4)
+        Utilities.Clear_Columns HeaderToClear:="ISTD_[MW]", _
+                                HeaderRowNumber:=3, _
+                                DataStartRowNumber:=4
     End If
     If ISTD_Conc_nM.Value = True Then
-        Call Utilities.Clear_Columns("ISTD_Conc_[nM]", HeaderRowNumber:=3, DataStartRowNumber:=4)
-        Call Utilities.Clear_Columns("Custom_Unit", HeaderRowNumber:=2, DataStartRowNumber:=4)
+        Utilities.Clear_Columns HeaderToClear:="ISTD_Conc_[nM]", _
+                                HeaderRowNumber:=3, _
+                                DataStartRowNumber:=4
+        Utilities.Clear_Columns HeaderToClear:="Custom_Unit", _
+                                HeaderRowNumber:=2, _
+                                DataStartRowNumber:=4
     End If
 End Sub
 

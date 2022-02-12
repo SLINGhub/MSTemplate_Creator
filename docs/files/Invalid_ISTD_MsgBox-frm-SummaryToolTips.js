@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:Invalid_ISTD_MsgBox.frm",{});

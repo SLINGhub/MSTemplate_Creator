@@ -13,6 +13,23 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Option Explicit
+'@Folder("Dilution_Annot_Buttons")
+
+'' Function: Dilution_Annot_Clear_Click
+'' --- Code
+''  Private Sub Dilution_Annot_Clear_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the Clear Data button is
+'' left clicked
+''
+'' (see Dilution_Annot_Clear_Data_Button.png)
+''
+'' All data found in the columns that was checked will be cleared.
+''
 Private Sub Dilution_Annot_Clear_Click()
     If Data_File_Name.Value = True Then
         Utilities.Clear_Columns HeaderToClear:="Data_File_Name", _

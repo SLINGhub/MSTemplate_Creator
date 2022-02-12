@@ -13,6 +13,9 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Option Explicit
+'@Folder("Sample_Annot_Buttons")
+
 Private Sub Concentration_Unit_Ok_Button_Click()
     Unload Concentration_Unit_MsgBox
 End Sub
