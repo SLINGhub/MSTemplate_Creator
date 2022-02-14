@@ -27,7 +27,10 @@ Option Explicit
 '' "Convert to nM and Verify" is pressed when either
 '' both ISTD_Conc_[nM] and ISTD_[MW] is entered or
 '' the ISTD_Conc_[nM] is entered. Custom units will
-'' be automatically calculated.
+'' be automatically calculated. Do note that this
+'' colouring of cells is done by the function
+'' ISTD_Annot.Get_ISTD_Conc_nM_Array and not this
+'' function.
 ''
 '' (see ISTD_Annot_Press_Convert_Button.png)
 ''
@@ -46,17 +49,17 @@ Option Explicit
 Public Sub ISTD_Calculation_Checker(ByVal Target As Range)
 
     ' Get the ISTD_Annot worksheet from the active workbook
-    ' The ISTDAnnot is a code name
+    ' The ISTDAnnotSheet is a code name
     ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
     Dim ISTD_Annot_Worksheet As Worksheet
     
-    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "ISTDAnnot") = False Then
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "ISTDAnnotSheet") = False Then
         MsgBox ("Sheet ISTD_Annot is missing")
         Application.EnableEvents = True
         Exit Sub
     End If
     
-    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnot")
+    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnotSheet")
       
     ISTD_Annot_Worksheet.Activate
     

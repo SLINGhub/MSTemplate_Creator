@@ -50,9 +50,9 @@ Public Sub Get_Sheet_By_Code_Name_Test()
     On Error GoTo TestFail
     
     Dim ISTD_Annot_Worksheet As Worksheet
-    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnot")
+    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnotSheet")
     
-    Assert.AreEqual ISTD_Annot_Worksheet.CodeName, "ISTDAnnot"
+    Assert.AreEqual ISTD_Annot_Worksheet.CodeName, "ISTDAnnotSheet"
 
 TestExit:
     Exit Sub

@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixDataLoaded("cle",["Function"],[["Clear_Dilution_Annot_Click",,[[,,,,0,"File:Dilution_Annot_Buttons.bas:Clear_Dilution_Annot_Click"]]]]);
+﻿NDSearch.OnPrefixDataLoaded("cle",["Function"],[["Clear_Dilution_Annot_Click",,[[,,,,0,"File:Dilution_Annot_Buttons.bas:Clear_Dilution_Annot_Click"]]],["Clear_ISTD_Table_Click",,[[,,,,0,"File:ISTD_Annot_Buttons.bas:Clear_ISTD_Table_Click"]]],["ClearISTDTable_Click",,[[,,,,0,"File:ISTDAnnotSheet.cls:ClearISTDTable_Click"]]]]);

@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("File:ISTD_Annot_Buttons.bas","ISTD_Annot_Buttons.bas");NDSummary.OnSummaryLoaded("File:ISTD_Annot_Buttons.bas",[["Excel VBA","ExcelVBA"]],[["Functions","Function"],["Groups","Group"]],[[28,0,1,"Functions","Functions"],[39,0,0,"Clear_ISTD_Table_Click","Clear_ISTD_Table_Click"],[40,0,0,"Convert_To_Nanomolar_Click","Convert_To_Nanomolar_Click"]]);

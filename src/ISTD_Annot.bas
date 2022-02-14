@@ -12,6 +12,20 @@ Option Explicit
 ''
 '' Get the concentration values from the ISTD_Conc_[nM] column
 '' and convert them based the units provided in the input Custom_Unit
+'' and output as a string array.
+''
+'' (see ISTD_Annot_ISTD_Conc_nM_Column.png)
+''
+'' Currently, the accepted input for Custom_Unit are
+''
+''  - [M] or [umol/uL]
+''  - [mM] or [nmol/uL]
+''  - [uM] or [pmol/uL]
+''  - [nM] or [fmol/uL]
+''  - [pM] or [amol/uL]
+''
+'' Any other input will still return a string array but no conversion
+'' of value.
 ''
 '' Parameters:
 ''
@@ -48,17 +62,17 @@ Public Function Convert_Conc_nM_Array(ByVal Custom_Unit As String) As String()
     Dim FactorValue As Double
     
     ' Get the ISTD_Annot worksheet from the active workbook
-    ' The ISTDAnnot is a code name
+    ' The ISTDAnnotSheet is a code name
     ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
     Dim ISTD_Annot_Worksheet As Worksheet
     
-    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "ISTDAnnot") = False Then
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "ISTDAnnotSheet") = False Then
         MsgBox ("Sheet ISTD_Annot is missing")
         Application.EnableEvents = True
         Exit Function
     End If
     
-    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnot")
+    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnotSheet")
       
     ISTD_Annot_Worksheet.Activate
       
@@ -115,9 +129,21 @@ End Function
 '' the values from the ISTD_Conc_[ng/mL] and ISTD_[MW] column or from
 '' manual input from the users on the ISTD_Conc_[nM] column itself.
 ''
+'' (see ISTD_Annot_ISTD_Conc_nM_Calculation_1.png)
+''
+'' Output string array will be {"500", "100"}
+''
+'' Calculation of ISTD_Conc_[nM] from ISTD_Conc_[ng/mL] and ISTD_[MW] is
+''
+'' ISTD_Conc_[nM] = ISTD_Conc_[ng/mL] / ISTD_[MW] * 1000
+''
 '' If all ISTD_Conc_[ng/mL], ISTD_[MW] and ISTD_Conc_[nM] column are filled
 '' the calculated concentration values from ISTD_Conc_[ng/mL] and ISTD_[MW]
 '' will take priority to avoid confusion.
+''
+'' (see ISTD_Annot_ISTD_Conc_nM_Calculation_2.png)
+''
+'' Output string array will be {"500", "100"}
 ''
 '' Parameters:
 ''
@@ -133,17 +159,17 @@ End Function
 Public Function Get_ISTD_Conc_nM_Array(ByVal ColourCellRequired As Boolean) As String()
 
     ' Get the ISTD_Annot worksheet from the active workbook
-    ' The ISTDAnnot is a code name
+    ' The ISTDAnnotSheet is a code name
     ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
     Dim ISTD_Annot_Worksheet As Worksheet
     
-    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "ISTDAnnot") = False Then
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "ISTDAnnotSheet") = False Then
         MsgBox ("Sheet ISTD_Annot is missing")
         Application.EnableEvents = True
         Exit Function
     End If
     
-    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnot")
+    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnotSheet")
       
     ISTD_Annot_Worksheet.Activate
 
