@@ -94,10 +94,9 @@ TestExit:
     Utilities.Clear_Columns HeaderToClear:="ISTD_Conc_[nM]", _
                             HeaderRowNumber:=3, _
                             DataStartRowNumber:=4
+    Application.EnableEvents = True
     Exit Sub
 TestFail:
-    Utilities.Clear_Columns HeaderToClear:="ISTD_Conc_[nM]", _
-                            HeaderRowNumber:=3, _
-                            DataStartRowNumber:=4
+    Application.EnableEvents = True
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub

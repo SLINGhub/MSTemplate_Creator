@@ -215,17 +215,17 @@ Public Sub Transition_Name_Annot_Checker(ByVal Target As Range)
     'ActiveSheet.DisplayPageBreaks = False
     
     ' Get the Transition_Annot worksheet from the active workbook
-    ' The TransitionNameAnnot is a code name
+    ' The TransitionNameAnnotSheet is a code name
     ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
     Dim Transition_Name_Annot_Worksheet As Worksheet
        
-    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "TransitionNameAnnot") = False Then
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "TransitionNameAnnotSheet") = False Then
         MsgBox ("Sheet Transition_Name_Annot is missing")
         Application.EnableEvents = True
         Exit Sub
     End If
     
-    Set Transition_Name_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "TransitionNameAnnot")
+    Set Transition_Name_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "TransitionNameAnnotSheet")
             
     Transition_Name_Annot_Worksheet.Activate
     

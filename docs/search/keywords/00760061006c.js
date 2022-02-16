@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("val",["Function"],[["Validate_ISTD_Click",,[[,,,,0,"File:Transition_Name_Annot_Buttons.bas:Validate_ISTD_Click"]]],["ValidateISTD_Click",,[[,,,,0,"File:TransitionNameAnnotSheet.cls:ValidateISTD_Click"]]]]);

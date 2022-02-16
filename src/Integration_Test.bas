@@ -180,7 +180,7 @@ Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
     Range(ISTD_Conc_ng_ColLetter & 4 & ":" & ISTD_MW_ColLetter & 5) = [{100,2,30,10}]
     
     'Perform the calculation
-    ISTD_Annoy_Buttons.Convert_To_Nanomolar_Click
+    ISTD_Annot_Buttons.Convert_To_Nanomolar_Click
     MsgBox "Calculation is complete"
     
     'Clear the columns as the test for this worksheet is complete

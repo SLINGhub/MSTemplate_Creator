@@ -37,6 +37,19 @@ Option Explicit
 ''    A string array of concentration converted to the provided input units.
 ''
 '' --- Code
+''    ' Get the ISTD_Annot worksheet from the active workbook
+''    ' The ISTDAnnotSheet is a code name
+''    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+''    Dim ISTD_Annot_Worksheet As Worksheet
+''
+''    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "ISTDAnnotSheet") = False Then
+''        MsgBox ("Sheet ISTD_Annot is missing")
+''        Application.EnableEvents = True
+''        Exit Sub
+''    End If
+''
+''    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnotSheet")
+''
 ''    Dim ISTD_Conc_nM(2) As String
 ''    Dim ISTD_Custom_Unit() As String
 ''    Dim Custom_Unit As String

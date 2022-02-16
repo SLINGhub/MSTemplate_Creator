@@ -1,22 +1,81 @@
 Attribute VB_Name = "Transition_Name_Annot_Buttons"
-'Sheet Transition_Name_Annot Function
+Option Explicit
+'@Folder("Transition_Name_Annot Functions")
 
-Sub Clear_Transition_Name_Annot_Click()
+'' Function: Clear_Transition_Name_Annot_Click
+'' --- Code
+''  Public Sub Clear_Transition_Name_Annot_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Transition_Annot_Clear_Columns_Button.png)
+''
+'' The following pop up box will appear. Asking the users
+'' which column to clear.
+''
+'' (see Transition_Annot_Clear_Data_Pop_Up.png)
+''
+Public Sub Clear_Transition_Name_Annot_Click()
     'To ensure that Filters does not affect the assignment
     Utilities.RemoveFilterSettings
     Clear_Transition_Name_Annot.Show
 End Sub
 
-Sub Load_Transition_Name_ISTD_Click()
-    Sheets("Transition_Name_Annot").Activate
+'' Function: Load_Transition_Name_ISTD_Click
+'' --- Code
+''  Public Sub Load_Transition_Name_ISTD_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Transition_Annot_Load_ISTD_To_ISTD_Table_Button.png)
+''
+'' The program will first verify if all the ISTD are valid.
+''
+'' If not all are valid, the following message box will appear and the program will stop
+''
+'' (see Transition_Name_Annot_Verify_ISTD_Invalid_ISTD_Message.png)
+''
+'' If there are no entries in the Transition_Name_ISTD column, the following meesage will appear
+''
+'' (see Transition_Annot_Load_Zero_ISTD.png)
+''
+'' If all entries in the Transition_Name_ISTD column are valid, the program will transfer the entries
+'' to the Transition_Name_ISTD column in ISTD_Annot sheet with its duplicates removed.
+''
+'' (see Transition_Annot_Load_Two_ISTD.png)
+''
+Public Sub Load_Transition_Name_ISTD_Click()
 
+    ' Get the Transition_Name_Annot worksheet from the active workbook
+    ' The TransitionNameAnnotSheet is a code name
+    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+    Dim Transition_Name_Annot_Worksheet As Worksheet
+    
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "TransitionNameAnnotSheet") = False Then
+        MsgBox ("Sheet Transition_Name_Annot is missing")
+        Application.EnableEvents = True
+        Exit Sub
+    End If
+    
+    Set Transition_Name_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "TransitionNameAnnotSheet")
+      
+    Transition_Name_Annot_Worksheet.Activate
+    
     'To ensure that Filters does not affect the assignment
     Utilities.RemoveFilterSettings
     
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
     Dim ISTD_Array() As String
-    ISTD_Array = Utilities.Load_Columns_From_Excel("Transition_Name_ISTD", HeaderRowNumber:=1, _
+    ISTD_Array = Utilities.Load_Columns_From_Excel(HeaderName:="Transition_Name_ISTD", HeaderRowNumber:=1, _
                                                    DataStartRowNumber:=2, MessageBoxRequired:=True, _
                                                    RemoveBlksAndReplicates:=True, _
                                                    IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
@@ -25,22 +84,112 @@ Sub Load_Transition_Name_ISTD_Click()
     Application.EnableEvents = True
     
     'If we have an empty array, leave the sub
-    If Len(Join(ISTD_Array, "")) = 0 Then
+    If Len(Join(ISTD_Array, vbNullString)) = 0 Then
         Exit Sub
     End If
     
     'Validate the ISTD column
-    Call Validate_ISTD_Click(MessageBoxRequired:=False)
+    Transition_Name_Annot_Buttons.Validate_ISTD_Click MessageBoxRequired:=False
       
-    'Go to the ISTD_Annot sheet
-    Sheets("ISTD_Annot").Activate
-    Call Utilities.OverwriteHeader("Transition_Name_ISTD", HeaderRowNumber:=2, DataStartRowNumber:=4)
-    Call Utilities.Load_To_Excel(ISTD_Array, "Transition_Name_ISTD", HeaderRowNumber:=2, DataStartRowNumber:=4, MessageBoxRequired:=True)
+    ' Get the ISTD_Annot worksheet from the active workbook
+    ' The ISTDAnnotSheet is a code name
+    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+    Dim ISTD_Annot_Worksheet As Worksheet
+    
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "ISTDAnnotSheet") = False Then
+        MsgBox ("Sheet ISTD_Annot is missing")
+        Application.EnableEvents = True
+        Exit Sub
+    End If
+    
+    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnotSheet")
+      
+    ISTD_Annot_Worksheet.Activate
+  
+    Utilities.OverwriteHeader HeaderName:="Transition_Name_ISTD", _
+                              HeaderRowNumber:=2, _
+                              DataStartRowNumber:=4
+                              
+    Utilities.Load_To_Excel Data_Array:=ISTD_Array, _
+                            HeaderName:="Transition_Name_ISTD", _
+                            HeaderRowNumber:=2, _
+                            DataStartRowNumber:=4, _
+                            MessageBoxRequired:=True
 End Sub
 
-Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
-                        Optional ByVal Testing As Boolean = False)
-    Sheets("Transition_Name_Annot").Activate
+'' Function: Validate_ISTD_Click
+'' --- Code
+''  Public Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
+''                                 Optional ByVal Testing As Boolean = False)
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Transition_Annot_Validate_ISTD_Button.png)
+''
+'' The program will first load entries from the Transition_Annot and the
+'' Transition_Annot_ISTD column.
+''
+'' It will first check if these columns are empty or not.
+''
+'' The following message box will appear if both columns are empty.
+''
+'' (see Transition_Annot_Validate_No_Transition_And_ISTD_Message.png)
+''
+'' The following message box will appear if only the Transition_Annot column is empty.
+''
+'' (see Transition_Annot_Validate_No_Transition_Message.png)
+''
+'' The following message box will appear if only the Transition_Annot_ISTD column is empty.
+''
+'' (see Transition_Annot_Validate_No_ISTD_Message.png)
+''
+'' Next, it uses the function Transition_Name_Annot.Verify_ISTD to verify
+'' if the ISTD is valid.
+''
+'' Input is valid if the entires can also be found in the column Transition_Annot
+''
+'' See this function documentation for more information
+''
+'' Parameters:
+''
+''    MessageBoxRequired As Boolean - When set to True, the following pop up boxes will appear
+''
+'' (see Transition_Annot_Validate_No_Transition_And_ISTD_Message.png)
+''
+'' (see Transition_Annot_Validate_No_Transition_Message.png)
+''
+'' (see Transition_Annot_Validate_No_ISTD_Message.png)
+''
+'' (see Transition_Name_Annot_Verify_ISTD_All_Valid_ISTD_Message.png)
+''
+''    Testing As Boolean - When set to False, after the function is used, it will exit the program as this
+''                         function is meant to be run alone or as a last/final step.
+''                         When set to True, after the function is used, it will exit the function and
+''                         other functions can be called
+''
+''
+Public Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
+                               Optional ByVal Testing As Boolean = False)
+                        
+    ' Get the Transition_Name_Annot worksheet from the active workbook
+    ' The TransitionNameAnnotSheet is a code name
+    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+    Dim Transition_Name_Annot_Worksheet As Worksheet
+    
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "TransitionNameAnnotSheet") = False Then
+        MsgBox ("Sheet Transition_Name_Annot is missing")
+        Application.EnableEvents = True
+        Exit Sub
+    End If
+    
+    Set Transition_Name_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "TransitionNameAnnotSheet")
+      
+    Transition_Name_Annot_Worksheet.Activate
+
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
     
@@ -49,11 +198,11 @@ Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
     
     Dim Transition_Array() As String
     Dim ISTD_Array() As String
-    Transition_Array = Utilities.Load_Columns_From_Excel("Transition_Name", HeaderRowNumber:=1, _
+    Transition_Array = Utilities.Load_Columns_From_Excel(HeaderName:="Transition_Name", HeaderRowNumber:=1, _
                                                          DataStartRowNumber:=2, MessageBoxRequired:=False, _
                                                          RemoveBlksAndReplicates:=True, _
                                                          IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
-    ISTD_Array = Utilities.Load_Columns_From_Excel("Transition_Name_ISTD", HeaderRowNumber:=1, _
+    ISTD_Array = Utilities.Load_Columns_From_Excel(HeaderName:="Transition_Name_ISTD", HeaderRowNumber:=1, _
                                                    DataStartRowNumber:=2, MessageBoxRequired:=False, _
                                                    RemoveBlksAndReplicates:=True, _
                                                    IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
@@ -61,17 +210,17 @@ Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
     Application.EnableEvents = True
     
     'If we have an empty array, leave the sub
-    If Len(Join(Transition_Array, "")) = 0 And Len(Join(ISTD_Array, "")) = 0 Then
+    If Len(Join(Transition_Array, vbNullString)) = 0 And Len(Join(ISTD_Array, vbNullString)) = 0 Then
         If MessageBoxRequired Then
             MsgBox "No entries in both Transition_Name and Transition_Name_ISTD to validate."
         End If
         Exit Sub
-    ElseIf Len(Join(Transition_Array, "")) <> 0 And Len(Join(ISTD_Array, "")) = 0 Then
+    ElseIf Len(Join(Transition_Array, vbNullString)) <> 0 And Len(Join(ISTD_Array, vbNullString)) = 0 Then
         If MessageBoxRequired Then
             MsgBox "No entries in Transition_Name_ISTD to validate."
         End If
         Exit Sub
-    ElseIf Len(Join(Transition_Array, "")) = 0 And Len(Join(ISTD_Array, "")) <> 0 Then
+    ElseIf Len(Join(Transition_Array, vbNullString)) = 0 And Len(Join(ISTD_Array, vbNullString)) <> 0 Then
         If MessageBoxRequired Then
             MsgBox "No entries in Transition_Name to validate."
         End If
@@ -79,18 +228,56 @@ Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
     End If
     
     'Both arrays should not be empty
-    Call Transition_Name_Annot.VerifyISTD(Transition_Array, ISTD_Array, MessageBoxRequired:=MessageBoxRequired, Testing:=Testing)
+    Transition_Name_Annot.Verify_ISTD Transition_Array:=Transition_Array, _
+                                      ISTD_Array:=ISTD_Array, _
+                                      MessageBoxRequired:=MessageBoxRequired, _
+                                      Testing:=Testing
     
 End Sub
 
-Sub GetTransitionArray_Click()
+'' Function: Get_Transition_Array_Click
+'' --- Code
+''  Public Sub Get_Transition_Array_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Transition_Annot_Load_Transition_Name_Raw_Button.png)
+''
+'' The following pop up box will appear. Asking the users
+'' which raw file to load.
+''
+'' (see Transition_Annot_Load_Transition_Name_Raw_Choose_Files.png)
+''
+'' Click on "Open" and the transition names from the raw data will automatically be loaded
+''
+'' (see Transition_Annot_Load_Transition_Name_Raw_Loaded.png)
+''
+Public Sub Get_Transition_Array_Click()
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
-    Sheets("Transition_Name_Annot").Activate
+    
+    ' Get the Transition_Name_Annot worksheet from the active workbook
+    ' The TransitionNameAnnotSheet is a code name
+    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+    Dim Transition_Name_Annot_Worksheet As Worksheet
+    
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "TransitionNameAnnotSheet") = False Then
+        MsgBox ("Sheet Transition_Name_Annot is missing")
+        Application.EnableEvents = True
+        Exit Sub
+    End If
+    
+    Set Transition_Name_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "TransitionNameAnnotSheet")
+      
+    Transition_Name_Annot_Worksheet.Activate
     
     Dim Transition_Array() As String
     Dim RawDataFiles As String
-    
+    Dim xFileNames As Variant
     
     xFileNames = Application.GetOpenFilename(Title:="Load MS Raw Data", MultiSelect:=True)
     
@@ -107,21 +294,65 @@ Sub GetTransitionArray_Click()
     Application.EnableEvents = True
     
     'Leave the program if we have an empty array
-    If Len(Join(Transition_Array, "")) = 0 Then
+    If Len(Join(Transition_Array, vbNullString)) = 0 Then
         'Don't need to display message as we did that in
         'Transition_Name_Annot.Get_Sorted_Transition_Array_Raw
         Exit Sub
     End If
     
-    Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
-    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, _
-                                 DataStartRowNumber:=2, MessageBoxRequired:=True)
+    Utilities.OverwriteHeader HeaderName:="Transition_Name", _
+                              HeaderRowNumber:=1, _
+                              DataStartRowNumber:=2
+                              
+    Utilities.Load_To_Excel Data_Array:=Transition_Array, _
+                            HeaderName:="Transition_Name", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=True
 End Sub
 
-Sub GetTransitionArrayTidy_Click()
+'' Function: Get_Transition_Array_Tidy_Click
+'' --- Code
+''  Public Sub Get_Transition_Array_Tidy_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Transition_Annot_Load_Transition_Name_Tidy_Button.png)
+''
+'' The following pop up box will appear. Asking the users
+'' which tabular data file to load.
+''
+'' (see Transition_Annot_Load_Transition_Name_Tidy_Pop_Up.png)
+''
+'' Correct usage are summarised as follows
+''
+'' (see Transition_Annot_Load_Transition_Name_Tidy_Column_Loaded.png)
+''
+'' (see Transition_Annot_Load_Transition_Name_Tidy_Row_Loaded.png)
+''
+Public Sub Get_Transition_Array_Tidy_Click()
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
-    Sheets("Transition_Name_Annot").Activate
+    
+    ' Get the Transition_Name_Annot worksheet from the active workbook
+    ' The TransitionNameAnnotSheet is a code name
+    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+    Dim Transition_Name_Annot_Worksheet As Worksheet
+    
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "TransitionNameAnnotSheet") = False Then
+        MsgBox ("Sheet Transition_Name_Annot is missing")
+        Application.EnableEvents = True
+        Exit Sub
+    End If
+    
+    Set Transition_Name_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "TransitionNameAnnotSheet")
+      
+    Transition_Name_Annot_Worksheet.Activate
+    
     Dim Transition_Array() As String
     Load_Transition_Name_Tidy.Show
      
@@ -142,18 +373,21 @@ Sub GetTransitionArrayTidy_Click()
     Application.EnableEvents = True
     
     'Leave the program if we have an empty array
-    If Len(Join(Transition_Array, "")) = 0 Then
+    If Len(Join(Transition_Array, vbNullString)) = 0 Then
         'Don't need to display message as we did that in
         'Transition_Name_Annot.Get_Sorted_Transition_Array_Tidy
         Exit Sub
     End If
     
-    Call Utilities.OverwriteHeader("Transition_Name", HeaderRowNumber:=1, DataStartRowNumber:=2)
-    Call Utilities.Load_To_Excel(Transition_Array, "Transition_Name", HeaderRowNumber:=1, _
-                                 DataStartRowNumber:=2, MessageBoxRequired:=True)
+    Utilities.OverwriteHeader HeaderName:="Transition_Name", _
+                              HeaderRowNumber:=1, _
+                              DataStartRowNumber:=2
+                              
+    Utilities.Load_To_Excel Data_Array:=Transition_Array, _
+                            HeaderName:="Transition_Name", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=True
     
 End Sub
-
-
-
 

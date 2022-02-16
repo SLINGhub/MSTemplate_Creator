@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("File:Transition_Name_Annot_Test.bas","Transition_Name_Annot_Test.bas");NDSummary.OnSummaryLoaded("File:Transition_Name_Annot_Test.bas",[["Excel VBA","ExcelVBA"]],[["Functions","Function"],["Groups","Group"]],[[52,0,1,"Functions","Functions"],[56,0,0,"Verify_ISTD_Test","Verify_ISTD_Test"]]);
