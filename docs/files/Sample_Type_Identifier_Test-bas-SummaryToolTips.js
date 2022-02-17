@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:Sample_Type_Identifier_Test.bas",{});

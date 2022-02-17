@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("isc",["Function"],[["isCTRL",,[[,,,,0,"File:Sample_Type_Identifier.bas:isCTRL"]]],["isCTRL_Test",,[[,,,,0,"File:Sample_Type_Identifier_Test.bas:isCTRL_Test"]]]]);

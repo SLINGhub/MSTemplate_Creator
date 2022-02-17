@@ -35,7 +35,7 @@ Option Explicit
 ''   RawDataFiles = TestFolder & "AgilentRawDataTest1.csv"
 ''
 ''   ' Get the transition names
-''   Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
+''   Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
 '' ---
 Public Function Get_Sorted_Transition_Array_Raw(ByRef RawDataFiles As String) As String()
     Dim Transition_Array() As String

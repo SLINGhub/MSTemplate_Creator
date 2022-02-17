@@ -1,0 +1,1 @@
+﻿NDSearch.OnPrefixDataLoaded("isb",["Function"],[["isBLK",,[[,,,,0,"File:Sample_Type_Identifier.bas:isBLK"]]],["isBLK_Test",,[[,,,,0,"File:Sample_Type_Identifier_Test.bas:isBLK_Test"]]],["isBQC",,[[,,,,0,"File:Sample_Type_Identifier.bas:isBQC"]]],["isBQC_Test",,[[,,,,0,"File:Sample_Type_Identifier_Test.bas:isBQC_Test"]]]]);
