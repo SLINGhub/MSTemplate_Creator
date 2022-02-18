@@ -3,7 +3,7 @@ Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Autofill_By_Sample_Type
    Caption         =   "Autofill_By_Sample_Type"
    ClientHeight    =   3720
    ClientLeft      =   120
-   ClientTop       =   465
+   ClientTop       =   468
    ClientWidth     =   7740
    OleObjectBlob   =   "Autofill_By_Sample_Type.frx":0000
    StartUpPosition =   1  'CenterOwner

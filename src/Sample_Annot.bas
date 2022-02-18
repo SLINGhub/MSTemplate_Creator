@@ -1,9 +1,26 @@
 Attribute VB_Name = "Sample_Annot"
-Public Sub Autofill_Column_By_Sample_Type(Sample_Type As String, _
-                                          Header_Name As String, _
-                                          Autofill_Value As String)
+Option Explicit
+'@Folder("Sample_Annot Functions")
+'@IgnoreModule IntegerDataType
 
-    Sheets("Sample_Annot").Activate
+Public Sub Autofill_Column_By_Sample_Type(ByRef Sample_Type As String, _
+                                          ByRef Header_Name As String, _
+                                          ByVal Autofill_Value As String)
+
+    ' Get the Sample_Annot worksheet from the active workbook
+    ' The SampleAnnotSheet is a code name
+    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+    Dim Sample_Annot_Worksheet As Worksheet
+    
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "SampleAnnotSheet") = False Then
+        MsgBox ("Sheet Sample_Annot is missing")
+        Application.EnableEvents = True
+        Exit Sub
+    End If
+    
+    Set Sample_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "SampleAnnotSheet")
+      
+    Sample_Annot_Worksheet.Activate
    
     'To ensure that Filters does not affect the assignment
     Utilities.RemoveFilterSettings
@@ -14,7 +31,7 @@ Public Sub Autofill_Column_By_Sample_Type(Sample_Type As String, _
     Dim SampleTypeArray() As String
     Dim AutofillValueArray() As String
     Dim TotalRows As Long
-    Dim i As Long
+    Dim SampleTypeArrayIndex As Long
     
     'Check if the column Sample_Type exists
     Dim SampleType_pos As Integer
@@ -42,7 +59,7 @@ Public Sub Autofill_Column_By_Sample_Type(Sample_Type As String, _
                                                               
     'Check if SampleTypeArray has any elements
     'If not there is nothing to fill
-    If Len(Join(SampleTypeArray, "")) = 0 Then
+    If Len(Join(SampleTypeArray, vbNullString)) = 0 Then
         'To ensure that Filters does not affect the assignment
         Utilities.RemoveFilterSettings
     
@@ -67,34 +84,34 @@ Public Sub Autofill_Column_By_Sample_Type(Sample_Type As String, _
                                                               
     'Check if SampleAmountUnitArray has any elements
     'If yes, give an overwrite warning
-    If Len(Join(AutofillValueArray, "")) > 0 Then
-        Call Utilities.OverwriteHeader(Header_Name, _
-                                       HeaderRowNumber:=1, _
-                                       DataStartRowNumber:=2, _
-                                       ClearContent:=False)
+    If Len(Join(AutofillValueArray, vbNullString)) > 0 Then
+        Utilities.OverwriteHeader HeaderName:=Header_Name, _
+                                  HeaderRowNumber:=1, _
+                                  DataStartRowNumber:=2, _
+                                  ClearContent:=False
         'Filter Rows by input Sample_Type
         If Sample_Type <> "All Sample Types" Then
-            ActiveSheet.Range("A1").AutoFilter Field:=SampleType_pos, _
-                                               Criteria1:=Sample_Type, _
-                                               VisibleDropDown:=True
+            Sample_Annot_Worksheet.Range("A1").AutoFilter Field:=SampleType_pos, _
+                                                          Criteria1:=Sample_Type, _
+                                                          VisibleDropDown:=True
         End If
     End If
      
     'Find the total number of rows and resize the array accordingly
-    TotalRows = Cells(Rows.Count, ConvertToLetter(SampleType_pos)).End(xlUp).Row
+    TotalRows = Sample_Annot_Worksheet.Cells.Item(Sample_Annot_Worksheet.Rows.Count, ConvertToLetter(SampleType_pos)).End(xlUp).Row
     
     'Assign the relevant sample amount unit for that sample type
     If TotalRows > 1 Then
         If Sample_Type = "All Sample Types" Then
-            For i = 2 To TotalRows
-                Cells(i, AutofillValue_pos).Value = Autofill_Value
-            Next i
+            For SampleTypeArrayIndex = 2 To TotalRows
+                Sample_Annot_Worksheet.Cells.Item(SampleTypeArrayIndex, AutofillValue_pos).Value = Autofill_Value
+            Next SampleTypeArrayIndex
         Else
-            For i = 2 To TotalRows
-                If Cells(i, SampleType_pos).Value = Sample_Type Then
-                    Cells(i, AutofillValue_pos).Value = Autofill_Value
+            For SampleTypeArrayIndex = 2 To TotalRows
+                If Sample_Annot_Worksheet.Cells.Item(SampleTypeArrayIndex, SampleType_pos).Value = Sample_Type Then
+                    Sample_Annot_Worksheet.Cells.Item(SampleTypeArrayIndex, AutofillValue_pos).Value = Autofill_Value
                 End If
-            Next i
+            Next SampleTypeArrayIndex
             
             MsgBox "Autofill" & vbNewLine & "Sample_Type : " & Sample_Type & vbNewLine & Header_Name & " : " & Autofill_Value & "."
             
@@ -110,12 +127,26 @@ Public Sub Autofill_Column_By_Sample_Type(Sample_Type As String, _
                                           
 End Sub
 
-Public Sub Create_New_Sample_Annot_Tidy(TidyDataFiles As String, _
-                                        DataFileType As String, _
-                                        SampleProperty As String, _
-                                        StartingRowNum As Integer, _
-                                        StartingColumnNum As Integer)
-    Sheets("Sample_Annot").Activate
+Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
+                                        ByRef DataFileType As String, _
+                                        ByRef SampleProperty As String, _
+                                        ByRef StartingRowNum As Integer, _
+                                        ByRef StartingColumnNum As Integer)
+    
+    ' Get the Sample_Annot worksheet from the active workbook
+    ' The SampleAnnotSheet is a code name
+    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+    Dim Sample_Annot_Worksheet As Worksheet
+    
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "SampleAnnotSheet") = False Then
+        MsgBox ("Sheet Sample_Annot is missing")
+        Application.EnableEvents = True
+        Exit Sub
+    End If
+    
+    Set Sample_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "SampleAnnotSheet")
+      
+    Sample_Annot_Worksheet.Activate
     
     'File are taken from userfrom Load_Sample_Annot_Tidy
     'Hence they must exists and joined together by ;
@@ -136,17 +167,18 @@ Public Sub Create_New_Sample_Annot_Tidy(TidyDataFiles As String, _
     Dim MergeStatus() As String
     Dim SampleType() As String
     Dim ArrayLength As Integer
+    Dim Sample_Name_Array_Index As Integer
     ArrayLength = 0
     
-    For i = 0 To UBound(Sample_Name_Array_from_Tidy_Data) - LBound(Sample_Name_Array_from_Tidy_Data)
+    For Sample_Name_Array_Index = 0 To UBound(Sample_Name_Array_from_Tidy_Data) - LBound(Sample_Name_Array_from_Tidy_Data)
         ReDim Preserve MergeStatus(ArrayLength)
         ReDim Preserve SampleType(ArrayLength)
         
         MergeStatus(ArrayLength) = "Valid"
-        SampleType(ArrayLength) = Sample_Type_Identifier.Get_Sample_Type(Sample_Name_Array_from_Tidy_Data(i))
+        SampleType(ArrayLength) = Sample_Type_Identifier.Get_Sample_Type(Sample_Name_Array_from_Tidy_Data(Sample_Name_Array_Index))
         
         ArrayLength = ArrayLength + 1
-    Next i
+    Next Sample_Name_Array_Index
     
     Dim HeaderNameArray(0 To 3) As String
     HeaderNameArray(0) = "Data_File_Name"
@@ -165,8 +197,23 @@ Public Sub Create_New_Sample_Annot_Tidy(TidyDataFiles As String, _
 
 End Sub
 
-Public Sub Create_New_Sample_Annot_Raw(RawDataFiles As String)
-    Sheets("Sample_Annot").Activate
+Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
+
+    ' Get the Sample_Annot worksheet from the active workbook
+    ' The SampleAnnotSheet is a code name
+    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+    Dim Sample_Annot_Worksheet As Worksheet
+    
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "SampleAnnotSheet") = False Then
+        MsgBox ("Sheet Sample_Annot is missing")
+        Application.EnableEvents = True
+        Exit Sub
+    End If
+    
+    Set Sample_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "SampleAnnotSheet")
+      
+    Sample_Annot_Worksheet.Activate
+
     'File are taken from userfrom Load_Sample_Annot_Raw
     'Hence they must exists and joined together by ;
     Dim RawDataFilesArray() As String
@@ -186,17 +233,18 @@ Public Sub Create_New_Sample_Annot_Raw(RawDataFiles As String)
     Dim MergeStatus() As String
     Dim SampleType() As String
     Dim ArrayLength As Long
+    Dim Sample_Name_Array_Index As Integer
     ArrayLength = 0
     
-    For i = 0 To UBound(Sample_Name_Array_from_Raw_Data) - LBound(Sample_Name_Array_from_Raw_Data)
+    For Sample_Name_Array_Index = 0 To UBound(Sample_Name_Array_from_Raw_Data) - LBound(Sample_Name_Array_from_Raw_Data)
         ReDim Preserve MergeStatus(ArrayLength)
         ReDim Preserve SampleType(ArrayLength)
         
         MergeStatus(ArrayLength) = "Valid"
-        SampleType(ArrayLength) = Sample_Type_Identifier.Get_Sample_Type(Sample_Name_Array_from_Raw_Data(i))
+        SampleType(ArrayLength) = Sample_Type_Identifier.Get_Sample_Type(Sample_Name_Array_from_Raw_Data(Sample_Name_Array_Index))
         
         ArrayLength = ArrayLength + 1
-    Next i
+    Next Sample_Name_Array_Index
     
     Dim HeaderNameArray(0 To 3) As String
     HeaderNameArray(0) = "Data_File_Name"
@@ -214,8 +262,24 @@ Public Sub Create_New_Sample_Annot_Raw(RawDataFiles As String)
     
 End Sub
 
-Public Sub Merge_With_Sample_Annot(RawDataFiles As String, SampleAnnotFile As String)
-    Sheets("Sample_Annot").Activate
+Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
+                                   ByRef SampleAnnotFile As String)
+
+    ' Get the Sample_Annot worksheet from the active workbook
+    ' The SampleAnnotSheet is a code name
+    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+    Dim Sample_Annot_Worksheet As Worksheet
+    
+    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "SampleAnnotSheet") = False Then
+        MsgBox ("Sheet Sample_Annot is missing")
+        Application.EnableEvents = True
+        Exit Sub
+    End If
+    
+    Set Sample_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "SampleAnnotSheet")
+      
+    Sample_Annot_Worksheet.Activate
+    
     'File are taken from userfrom Load_Sample_Annot_Raw
     'Hence they must exists and joined together by ;
     Dim RawDataFilesArray() As String
@@ -238,12 +302,14 @@ Public Sub Merge_With_Sample_Annot(RawDataFiles As String, SampleAnnotFile As St
     
     'Match the Sample_Name from Raw Data to the one in Sample Annotation
     'Store merge status and matching index to the array
-    Dim MatchingIndex() As String
+    Dim MatchingIndexArray() As String
     Dim MergeStatus() As String
     Dim SampleType() As String
     Dim MergeFailure As Boolean
     Dim ArrayLength As Integer
-    MergeFailure = False
+    Dim Sample_Name_Array_Index As Integer
+    
+    'MergeFailure = False
     ArrayLength = 0
     
     'For debugging
@@ -251,44 +317,45 @@ Public Sub Merge_With_Sample_Annot(RawDataFiles As String, SampleAnnotFile As St
     '    Debug.Print Sample_Name_Array_from_Sample_Annot(i)
     'Next i
 
-    For i = 0 To UBound(Sample_Name_Array_from_Raw_Data) - LBound(Sample_Name_Array_from_Raw_Data)
+    For Sample_Name_Array_Index = 0 To UBound(Sample_Name_Array_from_Raw_Data) - LBound(Sample_Name_Array_from_Raw_Data)
         'Get the positions of where the sample name of the raw data can be found in the sample annotation
         Dim Positions() As String
-        Positions = WhereInArray(Sample_Name_Array_from_Raw_Data(i), Sample_Name_Array_from_Sample_Annot)
+        Positions = WhereInArray(Sample_Name_Array_from_Raw_Data(Sample_Name_Array_Index), Sample_Name_Array_from_Sample_Annot)
         
         ReDim Preserve MergeStatus(ArrayLength)
-        ReDim Preserve MatchingIndex(ArrayLength)
+        ReDim Preserve MatchingIndexArray(ArrayLength)
         ReDim Preserve SampleType(ArrayLength)
         
         'Display results if there is no match, unique match or duplicates
         If StringArrayLen(Positions) = 0 Then
             'Debug.Print "Empty"
             MergeStatus(ArrayLength) = "Missing in Annot File"
-            MatchingIndex(ArrayLength) = ""
+            MatchingIndexArray(ArrayLength) = vbNullString
             MergeFailure = True
         ElseIf StringArrayLen(Positions) > 1 Then
             'Debug.Print "Duplicate"
-            For j = 0 To UBound(Positions) - LBound(Positions)
+            Dim DuplicatePositionIndex As Integer
+            For DuplicatePositionIndex = 0 To UBound(Positions) - LBound(Positions)
                 If Load_Sample_Annot_Raw.Is_Column_Name_Present.Value = True Then
-                    Positions(j) = CStr(CInt(Positions(j)) + 2)
+                    Positions(DuplicatePositionIndex) = CStr(CInt(Positions(DuplicatePositionIndex)) + 2)
                 Else
-                    Positions(j) = CStr(CInt(Positions(j)) + 1)
+                    Positions(DuplicatePositionIndex) = CStr(CInt(Positions(DuplicatePositionIndex)) + 1)
                 End If
-            Next j
+            Next DuplicatePositionIndex
             
             MergeStatus(ArrayLength) = "Duplicate at line " & Join(Positions, ", ")
-            MatchingIndex(ArrayLength) = ""
+            MatchingIndexArray(ArrayLength) = vbNullString
             MergeFailure = True
         Else
             'Debug.Print "Ok"
             MergeStatus(ArrayLength) = "Valid"
-            MatchingIndex(ArrayLength) = Positions(0)
+            MatchingIndexArray(ArrayLength) = Positions(0)
         End If
         
-        SampleType(ArrayLength) = Sample_Type_Identifier.Get_Sample_Type(Sample_Name_Array_from_Raw_Data(i))
+        SampleType(ArrayLength) = Sample_Type_Identifier.Get_Sample_Type(Sample_Name_Array_from_Raw_Data(Sample_Name_Array_Index))
         
         ArrayLength = ArrayLength + 1
-    Next i
+    Next Sample_Name_Array_Index
     
     Dim HeaderNameArray(0 To 3) As String
     HeaderNameArray(0) = "Data_File_Name"
@@ -298,14 +365,14 @@ Public Sub Merge_With_Sample_Annot(RawDataFiles As String, SampleAnnotFile As St
     Call Utilities.OverwriteSeveralHeaders(HeaderNameArray, HeaderRowNumber:=1, DataStartRowNumber:=2)
       
     'Load Data into the excel sheet
-    Call Sample_Annot.Load_Sample_Info_To_Excel(SampleAnnotFile, MatchingIndex)
+    Call Sample_Annot.Load_Sample_Info_To_Excel(SampleAnnotFile, MatchingIndexArray)
     Call Utilities.Load_To_Excel(MS_File_Array, "Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(MergeStatus, "Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(Sample_Name_Array_from_Raw_Data, "Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     Call Utilities.Load_To_Excel(SampleType, "Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
     
     'Notify the user if some rows in the raw data cannot merge with the sample annotation
-    If MergeFailure Then
+    If MergeFailure = True Then
         MsgBox ("Some rows in the raw data are unable to merge with the annotation file.")
     End If
     
@@ -322,8 +389,9 @@ Private Function Get_Sample_Name_Array(ByRef xFileName As String) As String()
     Dim Lines() As String
     Dim Delimiter As String
     Dim first_line() As String
+    Dim LinesIndex As Integer
     Lines = ReadFile(xFileName)
-    Delimiter = GetDelimiter(xFileName)
+    Delimiter = Get_Delimiter(xFileName)
     
     'Get the first line from sample annot file
     first_line = Split(Lines(0), Delimiter)
@@ -331,8 +399,8 @@ Private Function Get_Sample_Name_Array(ByRef xFileName As String) As String()
     'Get the data starting row and the right column for the Sample Name
     Dim data_starting_line As Integer
     Dim Sample_Column_Name_pos As Integer
-    data_starting_line = GetSampleAnnotStartingLine
-    Sample_Column_Name_pos = GetSampleColumnNamePosition(first_line)
+    data_starting_line = Get_Sample_Annot_Starting_Line
+    Sample_Column_Name_pos = Get_Sample_Column_Name_Position(first_line)
     
     'Get the column name to extract the sample name from sample annotation file
     Dim Sample_Column_Name As String
@@ -345,25 +413,25 @@ Private Function Get_Sample_Name_Array(ByRef xFileName As String) As String()
     ArrayLength = 0
 
     'Check that it is not empty, it should not be empty based on how we code the userform Load_Sample_Annot_Raw
-    If Sample_Column_Name <> "" Then
+    If Sample_Column_Name <> vbNullString Then
                         
         'Extract the sample name into the array
-        For j = data_starting_line To UBound(Lines) - 1
+        For LinesIndex = data_starting_line To UBound(Lines) - 1
             'Get the data at the right pos and remove whitespaces
-            Sample_Data = Trim(Split(Lines(j), Delimiter)(Sample_Column_Name_pos))
+            Sample_Data = Trim$(Split(Lines(LinesIndex), Delimiter)(Sample_Column_Name_pos))
             ReDim Preserve Sample_Name_Array(ArrayLength)
             Sample_Name_Array(ArrayLength) = Sample_Data
             'Debug.Print Sample_Name_Array(ArrayLength)
             ArrayLength = ArrayLength + 1
-        Next j
+        Next LinesIndex
             
-        Call ClearDotD_inAgilentDataFile(Sample_Name_Array)
+        Sample_Name_Array = Sample_Annot.Clear_DotD_In_Agilent_Data_File(Sample_Name_Array)
     End If
     Get_Sample_Name_Array = Sample_Name_Array
     
 End Function
 
-Private Function GetSampleColumnNamePosition(first_line() As String) As Integer
+Private Function Get_Sample_Column_Name_Position(ByRef first_line() As String) As Integer
 
     'Get the column name to extract the sample name from sample annotation file
     Dim Sample_Column_Name As String
@@ -379,16 +447,19 @@ Private Function GetSampleColumnNamePosition(first_line() As String) As Integer
     Else
         'If the sample annotation has no headers,
         'Name will be "Column {Some Number}" use regular expression to get the number
-        Dim regEx As New RegExp
+        Dim column_number As String
+        Dim regEx As RegExp
+        Set regEx = New RegExp
         regEx.Pattern = "\d+"
-        Sample_Column_Name_pos = CInt(regEx.Execute(Sample_Column_Name)(0)) - 1
+        column_number = regEx.Execute(Sample_Column_Name).Item(0)
+        Sample_Column_Name_pos = CInt(column_number) - 1
     End If
     
-    GetSampleColumnNamePosition = Sample_Column_Name_pos
+    Get_Sample_Column_Name_Position = Sample_Column_Name_pos
 
 End Function
 
-Private Function GetSampleAnnotStartingLine() As Integer
+Private Function Get_Sample_Annot_Starting_Line() As Integer
 
     Dim data_starting_line As Integer
     
@@ -402,25 +473,31 @@ Private Function GetSampleAnnotStartingLine() As Integer
         data_starting_line = 0
     End If
     
-    GetSampleAnnotStartingLine = data_starting_line
+    Get_Sample_Annot_Starting_Line = data_starting_line
 
 End Function
 
-Private Function GetDelimiter(xFileName As Variant) As String
-    FileExtent = Right(xFileName, Len(xFileName) - InStrRev(xFileName, "."))
+Private Function Get_Delimiter(ByRef xFileName As Variant) As String
+
+    Dim FileExtent As Variant
+    FileExtent = Right$(xFileName, Len(xFileName) - InStrRev(xFileName, "."))
     'Get the first line
     If FileExtent = "csv" Then
-        GetDelimiter = ","
+        Get_Delimiter = ","
     ElseIf FileExtent = "txt" Then
-        GetDelimiter = vbTab
+        Get_Delimiter = vbTab
     Else
         MsgBox "Cannot identify delimiter due to unusual file type"
         End
     End If
+    
 End Function
 
-Private Function ReadFile(xFileName As Variant) As String()
+Private Function ReadFile(ByVal xFileName As Variant) As String()
     ' Load the file into a string.
+    Dim fnum As Variant
+    Dim whole_file As Variant
+    
     fnum = FreeFile
     Open xFileName For Input As fnum
     whole_file = Input$(LOF(fnum), #fnum)
@@ -431,13 +508,15 @@ Private Function ReadFile(xFileName As Variant) As String()
     
 End Function
 
-Private Sub ClearDotD_inAgilentDataFile(ByRef AgilentDataFile() As String)
-    For i = 0 To Utilities.StringArrayLen(AgilentDataFile) - 1
-        AgilentDataFile(i) = Trim(Replace(AgilentDataFile(i), ".d", ""))
-    Next i
-End Sub
+Private Function Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As String) As String()
+    Dim AgilentDataFileIndex As Integer
+    For AgilentDataFileIndex = 0 To Utilities.StringArrayLen(AgilentDataFile) - 1
+        AgilentDataFile(AgilentDataFileIndex) = Trim$(Replace(AgilentDataFile(AgilentDataFileIndex), ".d", vbNullString))
+    Next AgilentDataFileIndex
+    Clear_DotD_In_Agilent_Data_File = AgilentDataFile
+End Function
 
-Private Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, ByRef MatchingIndex() As String)
+Private Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, ByRef MatchingIndexArray() As String)
 
     'Assign the textbox values from UserFrom Load_Sample_Annot_Raw to array MapHeaders
     Dim MapHeaders(0 To 1) As String
@@ -462,54 +541,68 @@ Private Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, ByRef MatchingI
     Dim Delimiter As String
     Dim one_line() As String
     Lines = ReadFile(xFileName)
-    Delimiter = GetDelimiter(xFileName)
+    Delimiter = Get_Delimiter(xFileName)
     
     'Get the first line from sample annot file
     one_line = Split(Lines(0), Delimiter)
     
-    For i = LBound(MapHeaders) To UBound(MapHeaders)
+    Dim MapHeadersIndex As Integer
+    
+    For MapHeadersIndex = LBound(MapHeaders) To UBound(MapHeaders)
         'Check that it is not empty
-        If MapHeaders(i) <> "" Then
+        If MapHeaders(MapHeadersIndex) <> vbNullString Then
             'If not empty, get header position from sample annot file
             'Should not have an error as we have check that the columns are in oneline
             If Load_Sample_Annot_Raw.Is_Column_Name_Present.Value = True Then
-                pos = Application.Match(MapHeaders(i), one_line, False) - 1
+                pos = Application.Match(MapHeaders(MapHeadersIndex), one_line, False) - 1
             Else
                 'If the sample annotation has no headers
                 'Name will be "Column {Some Number}" use regular expression to get the number
-                Dim regEx As New RegExp
+                Dim column_number As String
+                Dim regEx As RegExp
+                Set regEx = New RegExp
                 regEx.Pattern = "\d+"
-                pos = CInt(regEx.Execute(MapHeaders(i))(0)) - 1
+                column_number = regEx.Execute(MapHeaders(MapHeadersIndex)).Item(0)
+                pos = CInt(column_number) - 1
             End If
             
             'Get that position data from sample annot file and assign it to an MapHeaders_Array
             Dim MapHeaders_Array() As String
+            Dim MatchingIndex As Integer
+            Dim Sample_Data As String
+            Dim ArrayLength As Integer
             ArrayLength = 0
             
-            For j = 0 To UBound(MatchingIndex)
+            For MatchingIndex = 0 To UBound(MatchingIndexArray)
                 ReDim Preserve MapHeaders_Array(ArrayLength)
-                If Len(MatchingIndex(j)) <> 0 Then
+                If Len(MatchingIndexArray(MatchingIndex)) <> 0 Then
                     If Load_Sample_Annot_Raw.Is_Column_Name_Present.Value = True Then
                         'We need to add one as the sample annot file has an additional header which we do not want to include
-                        Sample_Data = Trim(Split(Lines(CInt(MatchingIndex(j)) + 1), Delimiter)(pos))
+                        Sample_Data = Trim$(Split(Lines(CInt(MatchingIndexArray(MatchingIndex)) + 1), Delimiter)(pos))
                     Else
-                        Sample_Data = Trim(Split(Lines(CInt(MatchingIndex(j))), Delimiter)(pos))
+                        Sample_Data = Trim$(Split(Lines(CInt(MatchingIndexArray(MatchingIndex))), Delimiter)(pos))
                     End If
                     MapHeaders_Array(ArrayLength) = Sample_Data
                     'Debug.Print MapHeaders_Array(ArrayLength)
                 Else
-                    MapHeaders_Array(ArrayLength) = ""
+                    MapHeaders_Array(ArrayLength) = vbNullString
                 End If
                 ArrayLength = ArrayLength + 1
-            Next j
+            Next MatchingIndex
             
             'We clear any existing entries when necessary, by then the user should have indicated that they want
             'to overwrite the data in the sub Merge_With_Sample_Annot
-            Call Utilities.Clear_Columns(DestHeaders(i), HeaderRowNumber:=1, DataStartRowNumber:=2)
-            Call Utilities.Load_To_Excel(MapHeaders_Array, DestHeaders(i), HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
+            Utilities.Clear_Columns HeaderToClear:=DestHeaders(MapHeadersIndex), _
+                                    HeaderRowNumber:=1, _
+                                    DataStartRowNumber:=2
+            Utilities.Load_To_Excel Data_Array:=MapHeaders_Array, _
+                                    HeaderName:=DestHeaders(MapHeadersIndex), _
+                                    HeaderRowNumber:=1, _
+                                    DataStartRowNumber:=2, _
+                                    MessageBoxRequired:=False
             
         End If
-    Next i
+    Next MapHeadersIndex
     
 End Sub
 

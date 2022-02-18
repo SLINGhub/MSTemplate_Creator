@@ -1,9 +1,9 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Load_Transition_Name_Tidy 
    Caption         =   "Load_Transition_Name_Table"
-   ClientHeight    =   5070
+   ClientHeight    =   5064
    ClientLeft      =   120
-   ClientTop       =   465
+   ClientTop       =   468
    ClientWidth     =   9240.001
    OleObjectBlob   =   "Load_Transition_Name_Tidy.frx":0000
    StartUpPosition =   1  'CenterOwner

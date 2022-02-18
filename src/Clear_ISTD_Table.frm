@@ -1,9 +1,9 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Clear_ISTD_Table 
    Caption         =   "Clear ISTD_Table"
-   ClientHeight    =   3015
+   ClientHeight    =   3012
    ClientLeft      =   120
-   ClientTop       =   465
+   ClientTop       =   468
    ClientWidth     =   3540
    OleObjectBlob   =   "Clear_ISTD_Table.frx":0000
    StartUpPosition =   1  'CenterOwner

@@ -3,8 +3,8 @@ Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Clear_Dilution_Annot
    Caption         =   "Clear Dilution_Annot"
    ClientHeight    =   3720
    ClientLeft      =   120
-   ClientTop       =   465
-   ClientWidth     =   3555
+   ClientTop       =   468
+   ClientWidth     =   3552
    OleObjectBlob   =   "Clear_Dilution_Annot.frx":0000
    StartUpPosition =   1  'CenterOwner
 End
