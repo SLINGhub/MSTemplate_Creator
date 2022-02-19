@@ -280,8 +280,9 @@ Public Sub Sample_Annot_Integration_Test()
     Load_Sample_Annot_Raw.ISTD_Mixture_Volume_Text.Text = "ISTD Volume"
     
     'Test merging with existing sample annotation with raw data
-    Call Sample_Annot.Merge_With_Sample_Annot(RawDataFiles:=RawDataFiles, SampleAnnotFile:=SampleAnnotFile)
-    Call Autofill_Sample_Type_Click
+    Sample_Annot.Merge_With_Sample_Annot RawDataFiles:=RawDataFiles, _
+                                         SampleAnnotFile:=SampleAnnotFile
+    Sample_Annot_Buttons.Autofill_Sample_Type_Click
     MsgBox "Merging raw data with sample annotation test complete"
     
     'Clear the sample annotation

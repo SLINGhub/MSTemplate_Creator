@@ -3,9 +3,78 @@ Option Explicit
 '@Folder("Sample_Annot Functions")
 '@IgnoreModule IntegerDataType
 
-Public Sub Autofill_Column_By_Sample_Type(ByRef Sample_Type As String, _
-                                          ByRef Header_Name As String, _
-                                          ByVal Autofill_Value As String)
+
+'' Function: Autofill_Column_By_QC_Sample_Type
+'' --- Code
+''  Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
+''                                               ByRef Header_Name As String, _
+''                                               ByVal Autofill_Value As String)
+'' ---
+''
+'' Description:
+''
+'' Fill in the column indicated by Header_Name with the value
+'' indicated by Autofill_Value on rows whose sample type matches
+'' Sample_Type
+''
+'' Parameters:
+''
+''    Sample_Type As String - Name of the QC Sample Type to match like
+''                            SPL or BQC. To choose all sample types,
+''                            the input is All Sample Types
+''
+''    Header_Name As String - Name of the column to fill in. Currently,
+''                            we only use "Sample Amount", "Sample_Amount_Unit"
+''                            and "ISTD_Mixture_Volume_[uL]"
+''
+''    Autofill_Value As String - Value to fill in at column "Header_Name on
+''                               rows whose sample type matches Sample_Type
+''
+'' Examples:
+''
+'' --- Code
+''    ' Get the Sample_Annot worksheet from the active workbook
+''    ' The SampleAnnotSheet is a code name
+''    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+''    Dim Sample_Annot_Worksheet As Worksheet
+''
+''    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "SampleAnnotSheet") = False Then
+''        MsgBox ("Sheet Sample_Annot is missing")
+''        Application.EnableEvents = True
+''        Exit Sub
+''    End If
+''
+''    Set Sample_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "SampleAnnotSheet")
+''
+''    Sample_Annot_Worksheet.Activate
+''
+''    Dim Sample_Amount_Array() As String
+''    Dim ISTD_Mixture_Volume_uL_Array() As String
+''
+''    Dim QC_Sample_Type_Array(4) As String
+''    QC_Sample_Type_Array(0) = "SPL"
+''    QC_Sample_Type_Array(1) = "BQC"
+''    QC_Sample_Type_Array(2) = "TQC"
+''    QC_Sample_Type_Array(3) = "TQC"
+''    QC_Sample_Type_Array(4) = "BQC"
+''
+''    Utilities.Load_To_Excel Data_Array:=QC_Sample_Type_Array, _
+''                            HeaderName:="Sample_Type", _
+''                            HeaderRowNumber:=1, _
+''                            DataStartRowNumber:=2, _
+''                            MessageBoxRequired:=False
+''
+''    Autofill_Column_By_QC_Sample_Type Sample_Type:="BQC", _
+''                                      Header_Name:="Sample_Amount", _
+''                                      Autofill_Value:="10"
+''
+''    Autofill_Column_By_QC_Sample_Type Sample_Type:="All Sample Types", _
+''                                      Header_Name:="ISTD_Mixture_Volume_[uL]", _
+''                                      Autofill_Value:="190
+'' ---
+Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
+                                             ByRef Header_Name As String, _
+                                             ByVal Autofill_Value As String)
 
     ' Get the Sample_Annot worksheet from the active workbook
     ' The SampleAnnotSheet is a code name
@@ -127,6 +196,56 @@ Public Sub Autofill_Column_By_Sample_Type(ByRef Sample_Type As String, _
                                           
 End Sub
 
+'' Function: Create_New_Sample_Annot_Tidy
+'' --- Code
+''  Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
+''                                          ByRef DataFileType As String, _
+''                                          ByRef SampleProperty As String, _
+''                                          ByRef StartingRowNum As Integer, _
+''                                          ByRef StartingColumnNum As Integer)
+'' ---
+''
+'' Description:
+''
+'' Create Sample Annotation from an input data file in tabular form and output
+'' them into the Sample_Annot sheet. The columns filled will be
+''
+'' - Data_File_Name
+'' - Merge_Status
+'' - Sample_Name
+'' - Sample_Type
+''
+'' Parameters:
+''
+''    TidyDataFiles As String - File path to a tabular/tidy data file.
+''                              If multiple files are required, the different
+''                              file path must be separated by ";"
+''                              Eg. {FilePath 1};{FilePath 2}
+''
+''    DataFileType As String - File type of the input tabular/tidy data file
+''
+''    TransitionProperty As String - Choose "Read as column variables" if transition names are the column name.
+''                                   Choose "Read as row observations" if transition names are row entries.
+''
+''    StartingRowNum As Integer - Starting row number to read the tabular data
+''
+''    StartingColumnNum As Integer - Starting column number to read the tabular data
+''
+'' Examples:
+''
+'' --- Code
+''    Dim TestFolder As String
+''    Dim TidyDataColumnFiles As String
+''
+''    TestFolder = ThisWorkbook.Path & "\Testdata\"
+''    TidyDataColumnFiles = TestFolder & "TidySampleColumn.csv"
+''
+''    Sample_Annot.Create_New_Sample_Annot_Tidy TidyDataFiles:=TidyDataColumnFiles, _
+''                                              DataFileType:="csv", _
+''                                              SampleProperty:="Read as column variables", _
+''                                              StartingRowNum:=1, _
+''                                              StartingColumnNum:=2
+'' ---
 Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
                                         ByRef DataFileType As String, _
                                         ByRef SampleProperty As String, _
@@ -175,7 +294,7 @@ Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
         ReDim Preserve SampleType(ArrayLength)
         
         MergeStatus(ArrayLength) = "Valid"
-        SampleType(ArrayLength) = Sample_Type_Identifier.Get_Sample_Type(Sample_Name_Array_from_Tidy_Data(Sample_Name_Array_Index))
+        SampleType(ArrayLength) = Sample_Type_Identifier.Get_QC_Sample_Type(Sample_Name_Array_from_Tidy_Data(Sample_Name_Array_Index))
         
         ArrayLength = ArrayLength + 1
     Next Sample_Name_Array_Index
@@ -186,17 +305,69 @@ Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
     HeaderNameArray(2) = "Sample_Name"
     HeaderNameArray(3) = "Sample_Type"
     
-    Call Utilities.OverwriteSeveralHeaders(HeaderNameArray, HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Utilities.OverwriteSeveralHeaders HeaderNameArray:=HeaderNameArray, _
+                                      HeaderRowNumber:=1, _
+                                      DataStartRowNumber:=2
     
-    Call Utilities.Load_To_Excel(MS_File_Array, "Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
-    Call Utilities.Load_To_Excel(MergeStatus, "Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
-    Call Utilities.Load_To_Excel(Sample_Name_Array_from_Tidy_Data, "Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
-    Call Utilities.Load_To_Excel(SampleType, "Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
+    Utilities.Load_To_Excel Data_Array:=MS_File_Array, _
+                            HeaderName:="Data_File_Name", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
+                            
+    Utilities.Load_To_Excel Data_Array:=MergeStatus, _
+                            HeaderName:="Merge_Status", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
+                            
+    Utilities.Load_To_Excel Data_Array:=Sample_Name_Array_from_Tidy_Data, _
+                            HeaderName:="Sample_Name", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
+                            
+    Utilities.Load_To_Excel Data_Array:=SampleType, _
+                            HeaderName:="Sample_Type", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
     
-                                                                                    
-
 End Sub
 
+'' Function: Create_New_Sample_Annot_Raw
+'' --- Code
+''  Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
+'' ---
+''
+'' Description:
+''
+'' Create Sample Annotation from an input raw data file and output
+'' them into the Sample_Annot sheet. The columns filled will be
+''
+'' - Data_File_Name
+'' - Merge_Status
+'' - Sample_Name
+'' - Sample_Type
+''
+'' Parameters:
+''
+''    RawDataFiles As String - File path to a Raw Data (Agilent) File in csv.
+''                             If multiple files are required, the different
+''                             file path must be separated by ";"
+''                             Eg. {FilePath 1};{FilePath 2}
+''
+'' Examples:
+''
+'' --- Code
+''    Dim TestFolder As String
+''    Dim RawDataFiles As String
+''
+''    TestFolder = ThisWorkbook.Path & "\Testdata\"
+''    RawDataFiles = TestFolder & "AgilentRawDataTest1.csv"
+''
+''    Sample_Annot.Create_New_Sample_Annot_Raw RawDataFiles:=RawDataFiles
+'' ---
 Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
 
     ' Get the Sample_Annot worksheet from the active workbook
@@ -241,7 +412,7 @@ Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
         ReDim Preserve SampleType(ArrayLength)
         
         MergeStatus(ArrayLength) = "Valid"
-        SampleType(ArrayLength) = Sample_Type_Identifier.Get_Sample_Type(Sample_Name_Array_from_Raw_Data(Sample_Name_Array_Index))
+        SampleType(ArrayLength) = Sample_Type_Identifier.Get_QC_Sample_Type(Sample_Name_Array_from_Raw_Data(Sample_Name_Array_Index))
         
         ArrayLength = ArrayLength + 1
     Next Sample_Name_Array_Index
@@ -252,16 +423,91 @@ Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
     HeaderNameArray(2) = "Sample_Name"
     HeaderNameArray(3) = "Sample_Type"
     
-    Call Utilities.OverwriteSeveralHeaders(HeaderNameArray, HeaderRowNumber:=1, DataStartRowNumber:=2)
+    Utilities.OverwriteSeveralHeaders HeaderNameArray:=HeaderNameArray, _
+                                      HeaderRowNumber:=1, _
+                                      DataStartRowNumber:=2
     
-    Call Utilities.Load_To_Excel(MS_File_Array, "Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
-    Call Utilities.Load_To_Excel(MergeStatus, "Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
-    Call Utilities.Load_To_Excel(Sample_Name_Array_from_Raw_Data, "Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
-    Call Utilities.Load_To_Excel(SampleType, "Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
+    Utilities.Load_To_Excel Data_Array:=MS_File_Array, _
+                            HeaderName:="Data_File_Name", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
+                            
+    Utilities.Load_To_Excel Data_Array:=MergeStatus, _
+                            HeaderName:="Merge_Status", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
+                            
+    Utilities.Load_To_Excel Data_Array:=Sample_Name_Array_from_Raw_Data, _
+                            HeaderName:="Sample_Name", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
+                            
+    Utilities.Load_To_Excel Data_Array:=SampleType, _
+                            HeaderName:="Sample_Type", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
     
     
 End Sub
 
+'' Function: Merge_With_Sample_Annot
+'' --- Code
+''  Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
+''                                     ByRef SampleAnnotFile As String)
+'' ---
+''
+'' Description:
+''
+'' Merge the an input raw data file with a user input
+'' sample annotation file. The merged data is then outputted
+'' into the Sample_Annot sheet. The columns filled will be
+''
+'' - Data_File_Name
+'' - Merge_Status
+'' - Sample_Name
+'' - Sample_Type
+''
+'' It is also possible to fill in the these columns if the user's
+'' input sample annotation file provides these information.
+''
+'' - Sample_Amount
+'' - ISTD_Mixture_Volume_[uL]
+''
+'' Should there be any issues with the merge, a message box will appear.
+''
+'' (see Sample_Annot_Merge_Issues.png)
+''
+'' Users are encouraged to see the Merge_Status column to see what is wrong.
+''
+'' (see Sample_Annot_Merge_Issue_Details.png)
+''
+'' Parameters:
+''
+''    RawDataFiles As String - File path to a Raw Data (Agilent) File in csv.
+''                             If multiple files are required, the different
+''                             file path must be separated by ";"
+''                             Eg. {FilePath 1};{FilePath 2}
+''
+''    SampleAnnotFile As String - File path to a user input sample annotation
+''                                file in csv.
+''
+''
+'' --- Code
+''    Dim TestFolder As String
+''    Dim RawDataFiles As String
+''    Dim SampleAnnotFile As String
+''
+''    TestFolder = ThisWorkbook.Path & "\Testdata\"
+''    RawDataFiles = TestFolder & "AgilentRawDataTest1.csv"
+''    SampleAnnotFile = TestFolder & "Sample_Annotation_Example.csv"
+''
+''    Sample_Annot.Merge_With_Sample_Annot RawDataFiles:=RawDataFiles, _
+''                                         SampleAnnotFile:=SampleAnnotFile
+'' ---
 Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
                                    ByRef SampleAnnotFile As String)
 
@@ -293,7 +539,7 @@ Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
     
     'Load the Sample_Name from Sample Annotation
     Dim Sample_Name_Array_from_Sample_Annot() As String
-    Sample_Name_Array_from_Sample_Annot = Sample_Annot.Get_Sample_Name_Array(SampleAnnotFile)
+    Sample_Name_Array_from_Sample_Annot = Sample_Annot.Get_Sample_Name_Array_From_Annot_File(SampleAnnotFile)
     
     'If there is no data loaded, stop the process
     If Utilities.StringArrayLen(Sample_Name_Array_from_Raw_Data) = CLng(0) Then
@@ -352,7 +598,7 @@ Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
             MatchingIndexArray(ArrayLength) = Positions(0)
         End If
         
-        SampleType(ArrayLength) = Sample_Type_Identifier.Get_Sample_Type(Sample_Name_Array_from_Raw_Data(Sample_Name_Array_Index))
+        SampleType(ArrayLength) = Sample_Type_Identifier.Get_QC_Sample_Type(Sample_Name_Array_from_Raw_Data(Sample_Name_Array_Index))
         
         ArrayLength = ArrayLength + 1
     Next Sample_Name_Array_Index
@@ -362,14 +608,38 @@ Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
     HeaderNameArray(1) = "Merge_Status"
     HeaderNameArray(2) = "Sample_Name"
     HeaderNameArray(3) = "Sample_Type"
-    Call Utilities.OverwriteSeveralHeaders(HeaderNameArray, HeaderRowNumber:=1, DataStartRowNumber:=2)
+    
+    Utilities.OverwriteSeveralHeaders HeaderNameArray:=HeaderNameArray, _
+                                      HeaderRowNumber:=1, _
+                                      DataStartRowNumber:=2
       
     'Load Data into the excel sheet
-    Call Sample_Annot.Load_Sample_Info_To_Excel(SampleAnnotFile, MatchingIndexArray)
-    Call Utilities.Load_To_Excel(MS_File_Array, "Data_File_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
-    Call Utilities.Load_To_Excel(MergeStatus, "Merge_Status", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
-    Call Utilities.Load_To_Excel(Sample_Name_Array_from_Raw_Data, "Sample_Name", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
-    Call Utilities.Load_To_Excel(SampleType, "Sample_Type", HeaderRowNumber:=1, DataStartRowNumber:=2, MessageBoxRequired:=False)
+    Sample_Annot.Load_Sample_Info_To_Excel xFileName:=SampleAnnotFile, _
+                                           MatchingIndexArray:=MatchingIndexArray
+                                           
+    Utilities.Load_To_Excel Data_Array:=MS_File_Array, _
+                            HeaderName:="Data_File_Name", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
+                            
+    Utilities.Load_To_Excel Data_Array:=MergeStatus, _
+                            HeaderName:="Merge_Status", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
+                            
+    Utilities.Load_To_Excel Data_Array:=Sample_Name_Array_from_Raw_Data, _
+                            HeaderName:="Sample_Name", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
+                            
+    Utilities.Load_To_Excel Data_Array:=SampleType, _
+                            HeaderName:="Sample_Type", _
+                            HeaderRowNumber:=1, _
+                            DataStartRowNumber:=2, _
+                            MessageBoxRequired:=False
     
     'Notify the user if some rows in the raw data cannot merge with the sample annotation
     If MergeFailure = True Then
@@ -378,7 +648,39 @@ Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
     
 End Sub
 
-Private Function Get_Sample_Name_Array(ByRef xFileName As String) As String()
+'' Function: Get_Sample_Name_Array_From_Annot_File
+'' --- Code
+''  Private Function Get_Sample_Name_Array_From_Annot_File(ByRef xFileName As String) As String()
+'' ---
+''
+'' Description:
+''
+'' Get an array of Sample Names from a given
+'' sample annotation file in csv and tabular form.
+''
+'' If the sample names ends with .d, we will remove the .d.
+''
+'' Parameters:
+''
+''    xFileName As String - File path to a Sample Annotation File in csv.
+''
+'' Returns:
+''    A string array of Sample Names.
+''
+'' Examples:
+''
+'' --- Code
+''    'Load the Sample_Name from Sample Annotation
+''
+''    Dim SampleAnnotFile As String
+''    Dim Sample_Name_Array_from_Sample_Annot() As String
+''
+''    TestFolder = ThisWorkbook.Path & "\Testdata\"
+''    SampleAnnotFile = TestFolder & "Sample_Annotation_Example.csv"
+''
+''    Sample_Name_Array_from_Sample_Annot = Sample_Annot.Get_Sample_Name_Array_From_Annot_File(SampleAnnotFile)
+'' ---
+Private Function Get_Sample_Name_Array_From_Annot_File(ByRef xFileName As String) As String()
 
     'When no file is selected
     If TypeName(xFileName) = "Boolean" Then
@@ -391,7 +693,7 @@ Private Function Get_Sample_Name_Array(ByRef xFileName As String) As String()
     Dim first_line() As String
     Dim LinesIndex As Integer
     Lines = ReadFile(xFileName)
-    Delimiter = Get_Delimiter(xFileName)
+    Delimiter = Sample_Annot.Get_Delimiter(xFileName)
     
     'Get the first line from sample annot file
     first_line = Split(Lines(0), Delimiter)
@@ -399,8 +701,8 @@ Private Function Get_Sample_Name_Array(ByRef xFileName As String) As String()
     'Get the data starting row and the right column for the Sample Name
     Dim data_starting_line As Integer
     Dim Sample_Column_Name_pos As Integer
-    data_starting_line = Get_Sample_Annot_Starting_Line
-    Sample_Column_Name_pos = Get_Sample_Column_Name_Position(first_line)
+    data_starting_line = Sample_Annot.Get_Sample_Annot_Starting_Line_From_Annot_File
+    Sample_Column_Name_pos = Sample_Annot.Get_Sample_Column_Name_Position_From_Annot_File(first_line)
     
     'Get the column name to extract the sample name from sample annotation file
     Dim Sample_Column_Name As String
@@ -427,11 +729,60 @@ Private Function Get_Sample_Name_Array(ByRef xFileName As String) As String()
             
         Sample_Name_Array = Sample_Annot.Clear_DotD_In_Agilent_Data_File(Sample_Name_Array)
     End If
-    Get_Sample_Name_Array = Sample_Name_Array
+    Get_Sample_Name_Array_From_Annot_File = Sample_Name_Array
     
 End Function
 
-Private Function Get_Sample_Column_Name_Position(ByRef first_line() As String) As Integer
+'' Function: Get_Sample_Column_Name_Position_From_Annot_File
+'' --- Code
+''  Private Function Get_Sample_Column_Name_Position_From_Annot_File(ByRef first_line() As String) As Integer
+'' ---
+''
+'' Description:
+''
+'' Get the column position where the "Sample Name" column is located
+'' as indicated in the Sample_Name text box.
+''
+'' In the case when the input sample annotation file has headers, it will
+'' look like this.
+''
+'' (see Sample_Annot_Merge_Sample_Name_With_Headers.png)
+''
+'' In the case when the input sample annotation file has headers, it will
+'' look like this.
+''
+'' (see Sample_Annot_Merge_Sample_Name_No_Headers.png)
+''
+'' Parameters:
+''
+''    first_line() As String - A string array of column names or the first row
+''                             of the input sample annotation file.
+''
+'' Returns:
+''    An integer indicating where "Sample Name" column is located
+''    as indicated in the Sample_Name text box.
+''
+'' Examples:
+''
+'' --- Code
+''    'Load the Sample_Name from Sample Annotation
+''
+''    Dim SampleAnnotFile As String
+''    Dim first_line(4) As String
+''
+''    first_line(0) = "Sample"
+''    first_line(1) = "ID"
+''    first_line(2) = "TimePoint"
+''    first_line(3) = "Cell Number"
+''    first_line(4) = "ISTD Volume"
+''
+''    Load_Sample_Annot_Raw.Sample_Name_Text.Text = "Sample"
+''
+''    'Get the data starting row and the right column for the Sample Name
+''    Dim Sample_Column_Name_pos As Integer
+''    Sample_Column_Name_pos = Sample_Annot.Get_Sample_Column_Name_Position_From_Annot_File(first_line)
+'' ---
+Private Function Get_Sample_Column_Name_Position_From_Annot_File(ByRef first_line() As String) As Integer
 
     'Get the column name to extract the sample name from sample annotation file
     Dim Sample_Column_Name As String
@@ -455,11 +806,38 @@ Private Function Get_Sample_Column_Name_Position(ByRef first_line() As String) A
         Sample_Column_Name_pos = CInt(column_number) - 1
     End If
     
-    Get_Sample_Column_Name_Position = Sample_Column_Name_pos
+    Get_Sample_Column_Name_Position_From_Annot_File = Sample_Column_Name_pos
 
 End Function
 
-Private Function Get_Sample_Annot_Starting_Line() As Integer
+'' Function: Get_Sample_Annot_Starting_Line_From_Annot_File
+'' --- Code
+''  Private Function Get_Sample_Annot_Starting_Line_From_Annot_File() As Integer
+'' ---
+''
+'' Description:
+''
+'' Get the starting line where the data is from the annotation file.
+'' It should be 0 if the data has no headers and 1 if there is.
+'' We assume that the column names is on the first line.
+'' Basically, it just check if this check box is checked or not
+''
+'' (see Sample_Annot_Merge_Sample_Name_Headers_Checkbox.png)
+''
+'' Returns:
+''    An integer indicating 0 if the data has no headers and 1 if there is.
+''
+'' Examples:
+''
+'' --- Code
+''    'Get the data starting row
+''
+''    Load_Sample_Annot_Raw.Is_Column_Name_Present.Value = True
+''
+''    Dim data_starting_line As Integer
+''    data_starting_line = Sample_Annot.Get_Sample_Annot_Starting_Line_From_Annot_File
+'' ---
+Private Function Get_Sample_Annot_Starting_Line_From_Annot_File() As Integer
 
     Dim data_starting_line As Integer
     
@@ -473,9 +851,10 @@ Private Function Get_Sample_Annot_Starting_Line() As Integer
         data_starting_line = 0
     End If
     
-    Get_Sample_Annot_Starting_Line = data_starting_line
+    Get_Sample_Annot_Starting_Line_From_Annot_File = data_starting_line
 
 End Function
+
 
 Private Function Get_Delimiter(ByRef xFileName As Variant) As String
 

@@ -33,26 +33,26 @@ End Sub
 '    'this method runs after every test in the module.
 'End Sub
 
-'' Function: Get_Sample_Type_Test
+'' Function: Get_QC_Sample_Type_Test
 '' --- Code
-''  Public Sub Get_Sample_Type_Test()
+''  Public Sub Get_QC_Sample_Type_Test()
 '' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Sample_Type_Identifier.Get_Sample_Type is working
+'' Sample_Type_Identifier.Get_QC_Sample_Type is working
 ''
 '' Test data are
 ''
 ''  - A string array TestArray
 ''  - A string array QCArray
 ''
-'' Function will assert if Sample_Type_Identifier.Get_Sample_Type(TestArray)
+'' Function will assert if Sample_Type_Identifier.Get_QC_Sample_Type(TestArray)
 '' gives the same output as QCArray
 ''
 '@TestMethod("Get QC Sample Type")
-Public Sub Get_Sample_Type_Test()
+Public Sub Get_QC_Sample_Type_Test()
     On Error GoTo TestFail
     
     Dim TestArray As Variant
@@ -70,9 +70,9 @@ Public Sub Get_Sample_Type_Test()
                     "DUP", "SPIK", "LTRBK", "NISTBK")
 
     For arrayIndex = 0 To UBound(TestArray) - LBound(TestArray)
-        'Debug.Print Sample_Type_Identifier.Get_Sample_Type(CStr(TestArray(arrayIndex))) & ": " & _
+        'Debug.Print Sample_Type_Identifier.Get_QC_Sample_Type(CStr(TestArray(arrayIndex))) & ": " & _
                      TestArray(arrayIndex)
-        Assert.AreEqual Sample_Type_Identifier.Get_Sample_Type(CStr(TestArray(arrayIndex))), _
+        Assert.AreEqual Sample_Type_Identifier.Get_QC_Sample_Type(CStr(TestArray(arrayIndex))), _
                         CStr(QCArray(arrayIndex))
     Next
 

@@ -41,6 +41,8 @@ End Sub
 '' Function that controls what happens when the following button is
 '' left clicked.
 ''
+'' (see ISTD_Annot_Clear_Columns_Button.png)
+''
 '' Currently, it calls the function ISTD_Annot_Buttons.Clear_ISTD_Table_Click
 ''
 '' See documentation of this function for more information.
@@ -58,6 +60,8 @@ End Sub
 ''
 '' Function that controls what happens when the following button is
 '' left clicked.
+''
+'' (see ISTD_Annot_Convert_To_Nanomolar_Button.png)
 ''
 '' Currently, it calls the function ISTD_Annot_Buttons.Convert_To_Nanomolar_Click
 ''

@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:DilutionAnnotSheet.cls",{78:"<div class=\"NDToolTip TFunction LVisualBasic\"><div id=\"NDPrototype78\" class=\"NDPrototype\"><div class=\"PSection PPlainSection\">Private Sub ClearDilutionAnnot_Click()</div></div></div>"});

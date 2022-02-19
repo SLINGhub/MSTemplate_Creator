@@ -2,9 +2,9 @@ Attribute VB_Name = "Sample_Type_Identifier"
 Option Explicit
 '@Folder("Sample Annot Functions")
 
-'' Function: Get_Sample_Type
+'' Function: Get_QC_Sample_Type
 '' --- Code
-''  Public Function Get_Sample_Type(ByVal FileName As String) As String
+''  Public Function Get_QC_Sample_Type(ByVal FileName As String) As String
 '' ---
 ''
 '' Description:
@@ -30,51 +30,51 @@ Option Explicit
 ''                      "DUP16", "SPIK17", "LTRBK18", "NISTBK19")
 ''
 ''    For arrayIndex = 0 To UBound(TestArray) - LBound(TestArray)
-''        Debug.Print Sample_Type_Identifier.Get_Sample_Type(CStr(TestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Get_QC_Sample_Type(CStr(TestArray(arrayIndex))) & ": " & _
 ''                    TestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function Get_Sample_Type(ByVal FileName As String) As String
+Public Function Get_QC_Sample_Type(ByVal FileName As String) As String
     If isEQC(FileName) Then
-        Get_Sample_Type = "EQC"
+        Get_QC_Sample_Type = "EQC"
     ElseIf isSST(FileName) Then
-        Get_Sample_Type = "SST"
+        Get_QC_Sample_Type = "SST"
     ElseIf isBQC(FileName) Then
-        Get_Sample_Type = "BQC"
+        Get_QC_Sample_Type = "BQC"
     ElseIf isTQC(FileName) And Not isRQC(FileName) Then
-        Get_Sample_Type = "TQC"
+        Get_QC_Sample_Type = "TQC"
     ElseIf isRQC(FileName) Then
-        Get_Sample_Type = "RQC"
+        Get_QC_Sample_Type = "RQC"
     ElseIf isLTR(FileName) And Not isLTRBK(FileName) Then
-        Get_Sample_Type = "LTR"
+        Get_QC_Sample_Type = "LTR"
     ElseIf isNIST(FileName) And Not isNISTBK(FileName) Then
-        Get_Sample_Type = "NIST"
+        Get_QC_Sample_Type = "NIST"
     ElseIf isSRM(FileName) Then
-        Get_Sample_Type = "SRM"
+        Get_QC_Sample_Type = "SRM"
     ElseIf isPBLK(FileName) Then
-        Get_Sample_Type = "PBLK"
+        Get_QC_Sample_Type = "PBLK"
     ElseIf isBLK(FileName) And Not isPBLK(FileName) And Not isSBLK(FileName) _
         And Not isMBLK(FileName) And Not isLTRBK(FileName) _
         And Not isNISTBK(FileName) Then
-        Get_Sample_Type = "UBLK"
+        Get_QC_Sample_Type = "UBLK"
     ElseIf isSBLK(FileName) Then
-        Get_Sample_Type = "SBLK"
+        Get_QC_Sample_Type = "SBLK"
     ElseIf isMBLK(FileName) Then
-        Get_Sample_Type = "MBLK"
+        Get_QC_Sample_Type = "MBLK"
     ElseIf isSTD(FileName) Then
-        Get_Sample_Type = "STD"
+        Get_QC_Sample_Type = "STD"
     ElseIf isLQQ(FileName) Then
-        Get_Sample_Type = "LQQ"
+        Get_QC_Sample_Type = "LQQ"
     ElseIf isCTRL(FileName) Then
-        Get_Sample_Type = "CTRL"
+        Get_QC_Sample_Type = "CTRL"
     ElseIf isDUP(FileName) Then
-        Get_Sample_Type = "DUP"
+        Get_QC_Sample_Type = "DUP"
     ElseIf isSPIK(FileName) Then
-        Get_Sample_Type = "SPIK"
+        Get_QC_Sample_Type = "SPIK"
     ElseIf isLTRBK(FileName) Then
-        Get_Sample_Type = "LTRBK"
+        Get_QC_Sample_Type = "LTRBK"
     ElseIf isNISTBK(FileName) Then
-        Get_Sample_Type = "NISTBK"
+        Get_QC_Sample_Type = "NISTBK"
     End If
     
 End Function

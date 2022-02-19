@@ -37,9 +37,9 @@ Option Explicit
 '' autofill value in the input ISTD_Mixture_Volume text box value
 ''
 Private Sub Autofill_ISTD_Mixture_Volume_Button_Click()
-    Sample_Annot.Autofill_Column_By_Sample_Type Sample_Type:=Sample_Type_ComboBox.Value, _
-                                                Header_Name:="ISTD_Mixture_Volume_[uL]", _
-                                                Autofill_Value:=ISTD_Mixture_Volume_TextBox.Value
+    Sample_Annot.Autofill_Column_By_QC_Sample_Type Sample_Type:=Sample_Type_ComboBox.Value, _
+                                                   Header_Name:="ISTD_Mixture_Volume_[uL]", _
+                                                   Autofill_Value:=ISTD_Mixture_Volume_TextBox.Value
 End Sub
 
 '' Function: Autofill_Sample_Amount_Button_Click
@@ -61,9 +61,9 @@ End Sub
 '' autofill value in the input Sample_Amount text box value
 ''
 Private Sub Autofill_Sample_Amount_Button_Click()
-    Sample_Annot.Autofill_Column_By_Sample_Type Sample_Type:=Sample_Type_ComboBox.Value, _
-                                                Header_Name:="Sample_Amount", _
-                                                Autofill_Value:=Sample_Amount_TextBox.Value
+    Sample_Annot.Autofill_Column_By_QC_Sample_Type Sample_Type:=Sample_Type_ComboBox.Value, _
+                                                   Header_Name:="Sample_Amount", _
+                                                   Autofill_Value:=Sample_Amount_TextBox.Value
 End Sub
 
 '' Function: Autofill_Sample_Amount_Unit_Button_Click
@@ -85,9 +85,9 @@ End Sub
 '' autofill value in the input Sample_Amount_Unit text box value
 ''
 Private Sub Autofill_Sample_Amount_Unit_Button_Click()
-    Sample_Annot.Autofill_Column_By_Sample_Type Sample_Type:=Sample_Type_ComboBox.Value, _
-                                                Header_Name:="Sample_Amount_Unit", _
-                                                Autofill_Value:=Sample_Amount_Unit_ComboBox.Value
+    Sample_Annot.Autofill_Column_By_QC_Sample_Type Sample_Type:=Sample_Type_ComboBox.Value, _
+                                                   Header_Name:="Sample_Amount_Unit", _
+                                                   Autofill_Value:=Sample_Amount_Unit_ComboBox.Value
 End Sub
 
 '' Group: Autofill Text Box Change Function
