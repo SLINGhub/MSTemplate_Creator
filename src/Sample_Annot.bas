@@ -673,6 +673,7 @@ End Sub
 ''    'Load the Sample_Name from Sample Annotation
 ''
 ''    Dim SampleAnnotFile As String
+''    Dim TestFolder As String
 ''    Dim Sample_Name_Array_from_Sample_Annot() As String
 ''
 ''    TestFolder = ThisWorkbook.Path & "\Testdata\"
@@ -692,7 +693,7 @@ Private Function Get_Sample_Name_Array_From_Annot_File(ByRef xFileName As String
     Dim Delimiter As String
     Dim first_line() As String
     Dim LinesIndex As Integer
-    Lines = ReadFile(xFileName)
+    Lines = Sample_Annot.Read_File(xFileName)
     Delimiter = Sample_Annot.Get_Delimiter(xFileName)
     
     'Get the first line from sample annot file
@@ -767,7 +768,6 @@ End Function
 '' --- Code
 ''    'Load the Sample_Name from Sample Annotation
 ''
-''    Dim SampleAnnotFile As String
 ''    Dim first_line(4) As String
 ''
 ''    first_line(0) = "Sample"
@@ -855,7 +855,40 @@ Private Function Get_Sample_Annot_Starting_Line_From_Annot_File() As Integer
 
 End Function
 
-
+'' Function: Get_Delimiter
+'' --- Code
+''  Private Function Get_Delimiter(ByRef xFileName As Variant) As String
+'' ---
+''
+'' Description:
+''
+'' Get the delimiter of the input file. Currently, we can only
+'' identify "," if a .csv file is provided and tab if a .txt file
+'' is provided.
+''
+'' Parameters:
+''
+''    xFileName As String - File path to the input file in csv or tab separated.
+''
+'' Returns:
+''    A string "," if a .csv file is provided or vbtab if a
+''    .txt file is provided.
+''
+'' Examples:
+''
+'' --- Code
+''    Dim SampleAnnotFile As String
+''    Dim TestFolder As String
+''
+''    Dim Lines() As String
+''    Dim Delimiter As String
+''
+''    TestFolder = ThisWorkbook.Path & "\Testdata\"
+''    SampleAnnotFile = TestFolder & "Sample_Annotation_Example.csv"
+''
+''    Lines = Sample_Annot.Read_File(SampleAnnotFile)
+''    Delimiter = Sample_Annot.Get_Delimiter(SampleAnnotFile)
+'' ---
 Private Function Get_Delimiter(ByRef xFileName As Variant) As String
 
     Dim FileExtent As Variant
@@ -872,7 +905,44 @@ Private Function Get_Delimiter(ByRef xFileName As Variant) As String
     
 End Function
 
-Private Function ReadFile(ByVal xFileName As Variant) As String()
+'' Function: Read_File
+'' --- Code
+''  Private Function Read_File(ByVal xFileName As Variant) As String()
+'' ---
+''
+'' Description:
+''
+'' Read the input file line by line.
+''
+'' Parameters:
+''
+''    xFileName As String - File path to an input file in csv or tab separated.
+''
+'' Returns:
+''    A string array in which each entry is one row of data separated
+''    by a delimiter. For example, in a .csv file, the delimiter is
+''    usually ",". If the file has a header and one line of data, the
+''    array will look like this.
+''
+''    - Read_File(0) = "Column1,Column2"
+''    - Read_File(1) = "Data1,Data2"
+''
+'' Examples:
+''
+'' --- Code
+''    Dim SampleAnnotFile As String
+''    Dim TestFolder As String
+''
+''    Dim Lines() As String
+''    Dim Delimiter As String
+''
+''    TestFolder = ThisWorkbook.Path & "\Testdata\"
+''    SampleAnnotFile = TestFolder & "Sample_Annotation_Example.csv"
+''
+''    Lines = Sample_Annot.Read_File(SampleAnnotFile)
+''    Delimiter = Sample_Annot.Get_Delimiter(SampleAnnotFile)
+'' ---
+Private Function Read_File(ByVal xFileName As Variant) As String()
     ' Load the file into a string.
     Dim fnum As Variant
     Dim whole_file As Variant
@@ -883,10 +953,42 @@ Private Function ReadFile(ByVal xFileName As Variant) As String()
     Close fnum
     
     ' Break the file into lines.
-    ReadFile = Split(whole_file, vbCrLf)
+    Read_File = Split(whole_file, vbCrLf)
     
 End Function
 
+'' Function: Clear_DotD_In_Agilent_Data_File
+'' --- Code
+''  Private Function Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As String) As String()
+'' ---
+''
+'' Description:
+''
+'' Remove the ".d" in the AgilentDataFile String Array.
+'' The Agilent files from Agilent MassHunter Quant has a
+'' "Data File" column which is unique in every row and is usually
+'' used as the Sample Name. The "Data File" column usually ends
+'' with ".d". This function helps to remove this ".d"
+''
+'' Parameters:
+''
+''    AgilentDataFile() As String - A string array in which each
+''                                  entry is a data file name that
+''                                  ends with ".d"
+''
+'' Returns:
+''    A string array in which each entry has ".d" remove
+''
+'' Examples:
+''
+'' --- Code
+''    Dim Sample_Name_Array(1) As String
+''
+''    Sample_Name_Array(0) = "Sample_Name_1.d"
+''    Sample_Name_Array(1) = "Sample_Name_2.d"
+''
+''    Sample_Name_Array = Sample_Annot.Clear_DotD_In_Agilent_Data_File(Sample_Name_Array)
+'' ---
 Private Function Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As String) As String()
     Dim AgilentDataFileIndex As Integer
     For AgilentDataFileIndex = 0 To Utilities.StringArrayLen(AgilentDataFile) - 1
@@ -895,6 +997,51 @@ Private Function Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As Stri
     Clear_DotD_In_Agilent_Data_File = AgilentDataFile
 End Function
 
+'' Function: Load_Sample_Info_To_Excel
+'' --- Code
+''  Private Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, ByRef MatchingIndexArray() As String)
+'' ---
+''
+'' Description:
+''
+'' Output the sample information (Sample_Amount and ISTD_Mixture_Volume_[uL])
+'' found in the sample annotation file to the Sample_Annot sheet
+''
+'' Parameters:
+''
+''    xFileName As String - File path to a Sample Annotation File in csv.
+''
+''    MatchingIndexArray() As String - A string array of row positions indicating
+''                                     which unique row in the sample annotation file
+''                                     matches the sample name of the input raw data.
+''                                     Sample information from these matching rows will
+''                                     be loaded into the Sample_Annot sheet.
+''                                     Rows that cannot be matched because it is not
+''                                     indicated or is repeated more than once in the
+''                                     sample annotation file are left as blank.
+''
+'' Examples:
+''
+'' --- Code
+''    Dim SampleAnnotFile As String
+''    Dim TestFolder As String
+''
+''    TestFolder = ThisWorkbook.Path & "\Testdata\"
+''    SampleAnnotFile = TestFolder & "Sample_Annotation_Example.csv"
+''
+''    Load_Sample_Annot_Raw.Sample_Amount_Text.Text = "Cell Number"
+''    Load_Sample_Annot_Raw.ISTD_Mixture_Volume_Text.Text = "ISTD Volume"
+''
+''    Dim MatchingIndexArray(4) As String
+''    MatchingIndexArray(0) = "1"
+''    MatchingIndexArray(1) = "2"
+''    MatchingIndexArray(2) = "3"
+''    MatchingIndexArray(3) = vbNullString
+''    MatchingIndexArray(4) = "4"
+''
+''    Sample_Annot.Load_Sample_Info_To_Excel xFileName:=SampleAnnotFile
+''                                           MatchingIndexArray:=MatchingIndexArray
+'' ---
 Private Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, ByRef MatchingIndexArray() As String)
 
     'Assign the textbox values from UserFrom Load_Sample_Annot_Raw to array MapHeaders
@@ -919,8 +1066,8 @@ Private Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, ByRef MatchingI
     Dim Lines() As String
     Dim Delimiter As String
     Dim one_line() As String
-    Lines = ReadFile(xFileName)
-    Delimiter = Get_Delimiter(xFileName)
+    Lines = Sample_Annot.Read_File(xFileName)
+    Delimiter = Sample_Annot.Get_Delimiter(xFileName)
     
     'Get the first line from sample annot file
     one_line = Split(Lines(0), Delimiter)
