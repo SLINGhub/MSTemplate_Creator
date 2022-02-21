@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Load_Sample_Annot_Tidy 
    Caption         =   "Load_Sample_Annot_Table"
-   ClientHeight    =   4455
-   ClientLeft      =   120
-   ClientTop       =   465
-   ClientWidth     =   9480.001
+   ClientHeight    =   3552
+   ClientLeft      =   108
+   ClientTop       =   372
+   ClientWidth     =   7584
    OleObjectBlob   =   "Load_Sample_Annot_Tidy.frx":0000
    StartUpPosition =   1  'CenterOwner
 End

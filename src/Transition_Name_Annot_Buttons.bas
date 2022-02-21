@@ -43,7 +43,7 @@ End Sub
 ''
 '' (see Transition_Name_Annot_Verify_ISTD_Invalid_ISTD_Message.png)
 ''
-'' If there are no entries in the Transition_Name_ISTD column, the following meesage will appear
+'' If there are no entries in the Transition_Name_ISTD column, the following message will appear
 ''
 '' (see Transition_Annot_Load_Zero_ISTD.png)
 ''

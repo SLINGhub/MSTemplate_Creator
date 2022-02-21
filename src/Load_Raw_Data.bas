@@ -1,24 +1,4 @@
 Attribute VB_Name = "Load_Raw_Data"
-Private Sub Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As String)
-    For i = 0 To Utilities.StringArrayLen(AgilentDataFile) - 1
-        AgilentDataFile(i) = Trim(Replace(AgilentDataFile(i), ".d", ""))
-    Next i
-End Sub
-
-
-Private Function Get_Delimiter(xFileName As Variant) As String
-    FileExtent = Right(xFileName, Len(xFileName) - InStrRev(xFileName, "."))
-    'Get the first line
-    If FileExtent = "csv" Then
-        Get_Delimiter = ","
-    ElseIf FileExtent = "txt" Then
-        Get_Delimiter = vbTab
-    Else
-        MsgBox "Cannot identify delimiter due to unusual file type"
-        End
-    End If
-End Function
-
 Private Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() As String, ByRef Lines() As String, ByRef line_subset_index() As Integer, _
                                                        DataStartRowNumber As Integer, Delimiter As String, _
                                                        MessageBoxRequired As Boolean, RemoveBlksAndReplicates As Boolean, _
@@ -85,7 +65,7 @@ Public Function Get_Sample_Name_Array(RawDataFilesArray() As String, _
         Dim FileName As String
         Dim RawDataFileType As String
         Lines = Utilities.Read_File(xFileName)
-        Delimiter = Get_Delimiter(xFileName)
+        Delimiter = Utilities.Get_Delimiter(xFileName)
         FileName = Utilities.Get_File_Base_Name(xFileName)
         RawDataFileType = Utilities.Get_Raw_Data_File_Type(Lines, Delimiter, FileName)
         
@@ -103,7 +83,7 @@ Public Function Get_Sample_Name_Array(RawDataFilesArray() As String, _
                                                                        DataStartRowNumber:=2, _
                                                                        Delimiter:=Delimiter, _
                                                                        RemoveBlksAndReplicates:=True)
-            Call Clear_DotD_In_Agilent_Data_File(Sample_Name_SubArray)
+            Sample_Name_SubArray = Utilities.Clear_DotD_In_Agilent_Data_File(Sample_Name_SubArray)
             
             'When the Raw file is from Agilent CompoundTableForm
         ElseIf RawDataFileType = "AgilentCompoundForm" Then
@@ -129,7 +109,7 @@ Public Function Get_Sample_Name_Array(RawDataFilesArray() As String, _
                 End If
             Next i
             
-            Call Clear_DotD_In_Agilent_Data_File(Sample_Name_SubArray)
+            Sample_Name_SubArray = Utilities.Clear_DotD_In_Agilent_Data_File(Sample_Name_SubArray)
             
             'When the Raw File is from Sciex
         ElseIf RawDataFileType = "Sciex" Then
@@ -190,7 +170,7 @@ Public Function Get_Transition_Array_Raw(RawDataFiles As String) As String()
         Dim FileName As String
         Dim RawDataFileType As String
         Lines = Utilities.Read_File(RawDataFile)
-        Delimiter = Get_Delimiter(RawDataFile)
+        Delimiter = Utilities.Get_Delimiter(RawDataFile)
         FileName = Utilities.Get_File_Base_Name(RawDataFile)
         RawDataFileType = Utilities.Get_Raw_Data_File_Type(Lines, Delimiter, FileName)
     

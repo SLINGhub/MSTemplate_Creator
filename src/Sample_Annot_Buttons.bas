@@ -3,6 +3,23 @@ Option Explicit
 '@Folder("Sample_Annot Functions")
 '@IgnoreModule IntegerDataType
 
+'' Function: Autofill_By_Sample_Type_Click
+'' --- Code
+''  Public Sub Autofill_By_Sample_Type_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Sample_Annot_Autofill_By_Sample_Type_Button.png)
+''
+'' The following pop up box will appear. Asking the users
+'' which column to clear.
+''
+'' (see Sample_Annot_Autofill_By_Sample_Type_Pop_Up.png)
+''
 Public Sub Autofill_By_Sample_Type_Click()
 
     ' Get the Sample_Annot worksheet from the active workbook
@@ -26,6 +43,22 @@ Public Sub Autofill_By_Sample_Type_Click()
      
 End Sub
 
+'' Function: Load_Sample_Name_To_Dilution_Annot_Click
+'' --- Code
+''  Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Sample_Annot_Load_Sample_Name_To_Dilution_Annot_Button.png)
+''
+'' The system will copy all RQC samples into the sheet "Dilution_Annot"
+''
+'' (see Sample_Annot_Load_Sample_Name_To_Dilution_Annot_Results.png)
+''
 Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
     
     ' Get the Sample_Annot worksheet from the active workbook
@@ -135,6 +168,23 @@ Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
     
 End Sub
 
+'' Function: Clear_Sample_Table_Click
+'' --- Code
+''  Public Sub Clear_Sample_Table_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Sample_Annot_Clear_Columns_Button.png)
+''
+'' The following pop up box will appear. Asking the users
+'' which column to clear.
+''
+'' (see Sample_Annot_Clear_Data_Pop_Up.png)
+''
 Public Sub Clear_Sample_Table_Click()
     'To ensure that Filters does not affect the assignment
     Utilities.RemoveFilterSettings
@@ -142,6 +192,29 @@ Public Sub Clear_Sample_Table_Click()
     Clear_Sample_Annot.Show
 End Sub
 
+'' Function: Autofill_Concentration_Unit_Click
+'' --- Code
+''  Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
+''                                               Optional ByVal Testing As Boolean = False)
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Sample_Annot_Autofill_Concentration_Unit_Button.png)
+''
+'' If there are some entry in the Sample_Amount_Unit column,
+'' the program will use the custom unit section from the ISTD_Annot sheet
+'' to create the following concentration units.
+''
+'' (see Sample_Annot_Autofill_Concentration_Unit_Results.png)
+''
+'' Concentration units will be updated
+'' if there are some entry in the Sample_Amount_Unit column
+'' and the custom unit section from the ISTD_Annot sheet is changed.
+''
 Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
                                              Optional ByVal Testing As Boolean = False)
                                       
@@ -265,6 +338,23 @@ Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired A
     
 End Sub
 
+'' Function: Autofill_Sample_Type_Click
+'' --- Code
+''  Public Sub Autofill_Sample_Type_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Sample_Annot_Autofill_Sample_Type_Button.png)
+''
+'' Any blank cells in the Sample_Type columns with a Sample_Name
+'' will be filled with sample type "SPL"
+''
+'' (see Sample_Annot_Autofill_Sample_Type_Results.png)
+''
 Public Sub Autofill_Sample_Type_Click()
 
     ' Get the Sample_Annot worksheet from the active workbook
@@ -322,6 +412,23 @@ Public Sub Autofill_Sample_Type_Click()
 
 End Sub
 
+'' Function: Load_Sample_Annot_Tidy_Column_Name_Click
+'' --- Code
+''  Public Sub Load_Sample_Annot_Tidy_Column_Name_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Sample_Annot_Load_Sample_Annot_Tidy_Column_Name_Button.png)
+''
+'' The following pop up box will appear. Asking the users
+'' which column to clear.
+''
+'' (see Sample_Annot_Load_Sample_Annot_Tidy_Column_Name_Pop_Up.png)
+''
 Public Sub Load_Sample_Annot_Tidy_Column_Name_Click()
     
     ' Get the Sample_Annot worksheet from the active workbook
@@ -358,6 +465,23 @@ Public Sub Load_Sample_Annot_Tidy_Column_Name_Click()
     
 End Sub
 
+'' Function: Load_Sample_Annot_Raw_Column_Name_Click
+'' --- Code
+''  Public Sub Load_Sample_Annot_Raw_Column_Name_Click()
+'' ---
+''
+'' Description:
+''
+'' Function that controls what happens when the following button is
+'' left clicked.
+''
+'' (see Sample_Annot_Load_Sample_Annot_Raw_Column_Name_Button.png)
+''
+'' The following pop up box will appear. Asking the users
+'' which column to clear.
+''
+'' (see Sample_Annot_Load_Sample_Annot_Raw_Column_Name_Pop_Up.png)
+''
 Public Sub Load_Sample_Annot_Raw_Column_Name_Click()
     'Assume first row are the headers
     'Assume headers are fully filled, not empty

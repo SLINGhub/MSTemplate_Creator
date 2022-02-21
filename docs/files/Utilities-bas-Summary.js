@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("File:Utilities.bas","Utilities.bas");NDSummary.OnSummaryLoaded("File:Utilities.bas",[["Excel VBA","ExcelVBA"]],[["Functions","Function"],["Groups","Group"]],[[67,0,1,"Functions","Functions"],[86,0,0,"Read_File","Read_File"],[94,0,0,"Get_Delimiter","Get_Delimiter"],[95,0,0,"Clear_DotD_In_Agilent_Data_File","Clear_DotD_In_Agilent_Data_File"]]);

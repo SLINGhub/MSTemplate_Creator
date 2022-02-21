@@ -159,13 +159,51 @@ Public Function Load_Columns_From_2Darray(ByRef strArray() As String, ByRef Line
     
 End Function
 
+'' Function: Read_File
+'' --- Code
+''  Public Function Read_File(ByVal xFileName As Variant) As String()
+'' ---
+''
+'' Description:
+''
+'' Read the input file line by line.
+''
+'' Parameters:
+''
+''    xFileName As Variant - File path to an input file in csv or tab separated.
+''
+'' Returns:
+''    A string array in which each entry is one row of data separated
+''    by a delimiter. For example, in a .csv file, the delimiter is
+''    usually ",". If the file has a header and one line of data, the
+''    array will look like this.
+''
+''    - Read_File(0) = "Column1,Column2"
+''    - Read_File(1) = "Data1,Data2"
+''
+'' Examples:
+''
+'' --- Code
+''    Dim SampleAnnotFile As String
+''    Dim TestFolder As String
+''
+''    Dim Lines() As String
+''    Dim Delimiter As String
+''
+''    TestFolder = ThisWorkbook.Path & "\Testdata\"
+''    SampleAnnotFile = TestFolder & "Sample_Annotation_Example.csv"
+''
+''    Lines = Utilities.Read_File(SampleAnnotFile)
+''    Delimiter = Utilities.Get_Delimiter(SampleAnnotFile)
+'' ---
 Public Function Read_File(xFileName As Variant) As String()
     ' Load the file into a string.
     'Dim fn As String, whole_file As String
     'Set fso = CreateObject("Scripting.FileSystemObject")
     'whole_file = fso.OpenTextFile(xFileName).ReadAll
+    Dim fnum As Variant
+    Dim whole_file As Variant
     
-    Dim fnum As Long
     fnum = FreeFile()
     Open xFileName For Input As fnum
     whole_file = Input$(LOF(fnum), #fnum)
@@ -175,6 +213,57 @@ Public Function Read_File(xFileName As Variant) As String()
     Read_File = Split(whole_file, vbCrLf)
     
 End Function
+
+'' Function: Get_Delimiter
+'' --- Code
+''  Public Function Get_Delimiter(ByRef xFileName As Variant) As String
+'' ---
+''
+'' Description:
+''
+'' Get the delimiter of the input file. Currently, we can only
+'' identify "," if a .csv file is provided and tab if a .txt file
+'' is provided.
+''
+'' Parameters:
+''
+''    xFileName As String - File path to the input file in csv or tab separated.
+''
+'' Returns:
+''    A string "," if a .csv file is provided or vbtab if a
+''    .txt file is provided.
+''
+'' Examples:
+''
+'' --- Code
+''    Dim SampleAnnotFile As String
+''    Dim TestFolder As String
+''
+''    Dim Lines() As String
+''    Dim Delimiter As String
+''
+''    TestFolder = ThisWorkbook.Path & "\Testdata\"
+''    SampleAnnotFile = TestFolder & "Sample_Annotation_Example.csv"
+''
+''    Lines = Utilities.Read_File(SampleAnnotFile)
+''    Delimiter = Utilities.Get_Delimiter(SampleAnnotFile)
+'' ---
+Public Function Get_Delimiter(xFileName As Variant) As String
+
+    Dim FileExtent As Variant
+    FileExtent = Right$(xFileName, Len(xFileName) - InStrRev(xFileName, "."))
+    'Get the first line
+    If FileExtent = "csv" Then
+        Get_Delimiter = ","
+    ElseIf FileExtent = "txt" Then
+        Get_Delimiter = vbTab
+    Else
+        MsgBox "Cannot identify delimiter due to unusual file type"
+        End
+    End If
+    
+End Function
+
 
 Public Function Get_File_Base_Name(xFileName As Variant) As String
     Dim fso As Object
@@ -527,6 +616,46 @@ Public Sub Clear_Columns(HeaderToClear As String, HeaderRowNumber As Integer, Da
         Range(ConvertToLetter(HeaderColNumber) & CStr(DataStartRowNumber) & ":" & ConvertToLetter(HeaderColNumber) & TotalRows).ClearContents
     End If
 End Sub
+
+'' Function: Clear_DotD_In_Agilent_Data_File
+'' --- Code
+''  Public Function Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As String) As String()
+'' ---
+''
+'' Description:
+''
+'' Remove the ".d" in the AgilentDataFile String Array.
+'' The Agilent files from Agilent MassHunter Quant has a
+'' "Data File" column which is unique in every row and is usually
+'' used as the Sample Name. The "Data File" column usually ends
+'' with ".d". This function helps to remove this ".d"
+''
+'' Parameters:
+''
+''    AgilentDataFile() As String - A string array in which each
+''                                  entry is a data file name that
+''                                  ends with ".d"
+''
+'' Returns:
+''    A string array in which each entry has ".d" remove
+''
+'' Examples:
+''
+'' --- Code
+''    Dim Sample_Name_Array(1) As String
+''
+''    Sample_Name_Array(0) = "Sample_Name_1.d"
+''    Sample_Name_Array(1) = "Sample_Name_2.d"
+''
+''    Sample_Name_Array = Utilities.Clear_DotD_In_Agilent_Data_File(Sample_Name_Array)
+'' ---
+Public Function Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As String) As String()
+    Dim AgilentDataFileIndex As Integer
+    For AgilentDataFileIndex = 0 To Utilities.StringArrayLen(AgilentDataFile) - 1
+        AgilentDataFile(AgilentDataFileIndex) = Trim$(Replace(AgilentDataFile(AgilentDataFileIndex), ".d", vbNullString))
+    Next AgilentDataFileIndex
+    Clear_DotD_In_Agilent_Data_File = AgilentDataFile
+End Function
 
 Public Function Load_Columns_From_Excel(HeaderName As String, HeaderRowNumber As Integer, _
                                         DataStartRowNumber As Integer, _
