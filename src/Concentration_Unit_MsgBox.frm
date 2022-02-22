@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Concentration_Unit_MsgBox 
    Caption         =   "Concentration Unit"
-   ClientHeight    =   2064
-   ClientLeft      =   -12
+   ClientHeight    =   2070
+   ClientLeft      =   -15
    ClientTop       =   -60
-   ClientWidth     =   2208
+   ClientWidth     =   2205
    OleObjectBlob   =   "Concentration_Unit_MsgBox.frx":0000
    StartUpPosition =   1  'CenterOwner
 End

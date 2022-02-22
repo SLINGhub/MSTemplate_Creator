@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:Load_Transition_Name_Tidy.frm",{});

@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Invalid_ISTD_MsgBox 
    Caption         =   "Invalid ISTD"
-   ClientHeight    =   2448
-   ClientLeft      =   -12
-   ClientTop       =   -72
-   ClientWidth     =   2928
+   ClientHeight    =   2445
+   ClientLeft      =   -15
+   ClientTop       =   -75
+   ClientWidth     =   2925
    OleObjectBlob   =   "Invalid_ISTD_MsgBox.frx":0000
    StartUpPosition =   1  'CenterOwner
 End

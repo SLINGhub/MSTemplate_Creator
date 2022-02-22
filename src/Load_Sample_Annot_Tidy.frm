@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Load_Sample_Annot_Tidy 
    Caption         =   "Load_Sample_Annot_Table"
-   ClientHeight    =   2832
-   ClientLeft      =   96
-   ClientTop       =   288
-   ClientWidth     =   6060
+   ClientHeight    =   2820
+   ClientLeft      =   90
+   ClientTop       =   210
+   ClientWidth     =   4845
    OleObjectBlob   =   "Load_Sample_Annot_Tidy.frx":0000
    StartUpPosition =   1  'CenterOwner
 End
@@ -22,6 +22,7 @@ End Sub
 
 ' Load the file path of the tidy data
 Private Sub Browse_Tidy_Data_Click()
+    Dim xFileNames As Variant
     xFileNames = Application.GetOpenFilename(Title:="Load Raw Data File", MultiSelect:=True)
     
     'When no file is selected
