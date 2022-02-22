@@ -1,0 +1,1 @@
+﻿NDSummary.OnToolTipsLoaded("File:Load_Tidy_Data.bas",{});

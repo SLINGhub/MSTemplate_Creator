@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Clear_Transition_Name_Annot 
    Caption         =   "Clear Transition_Name_Annot"
-   ClientHeight    =   1872
+   ClientHeight    =   1488
    ClientLeft      =   96
    ClientTop       =   384
    ClientWidth     =   2928

@@ -6,32 +6,48 @@ Option Private Module
 '@Folder("Tests")
 
 Private Assert As Object
-Private Fakes As Object
+'Private Fakes As Object
 
 '@ModuleInitialize
 Private Sub ModuleInitialize()
     'this method runs once per module.
     Set Assert = CreateObject("Rubberduck.AssertClass")
-    Set Fakes = CreateObject("Rubberduck.FakesProvider")
+    'Set Fakes = CreateObject("Rubberduck.FakesProvider")
 End Sub
 
 '@ModuleCleanup
 Private Sub ModuleCleanup()
     'this method runs once per module.
     Set Assert = Nothing
-    Set Fakes = Nothing
+    'Set Fakes = Nothing
 End Sub
 
-'@TestInitialize
-Private Sub TestInitialize()
-    'This method runs before every test in the module..
-End Sub
+''@TestInitialize
+'Private Sub TestInitialize()
+'    'This method runs before every test in the module..
+'End Sub
 
-'@TestCleanup
-Private Sub TestCleanup()
-    'this method runs after every test in the module.
-End Sub
+''@TestCleanup
+'Private Sub TestCleanup()
+'    'this method runs after every test in the module.
+'End Sub
 
+'' Function: Get_Transition_Array_Tidy_Data_Row_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_Tidy_Data_Row_Test()
+'' ---
+''
+'' Description:
+''
+'' Function used to test if the function
+'' Load_Tidy_Data.Get_Transition_Array_Tidy is working
+''
+'' Test files are
+''
+''  - TidyTransitionRow.csv
+''
+'' Function will assert if Transition_Array has 7 elements
+''
 '@TestMethod("Get Transition_Annot From Tidy Data")
 Public Sub Get_Transition_Array_Tidy_Data_Row_Test()
     On Error GoTo TestFail
@@ -45,7 +61,7 @@ Public Sub Get_Transition_Array_Tidy_Data_Row_Test()
     TidyDataRowFiles = TestFolder & "TidyTransitionRow.csv"
     
     'Check if the data file exists
-    FileThere = (Dir(TidyDataRowFiles) > "")
+    FileThere = (Dir(TidyDataRowFiles) > vbNullString)
         If FileThere = False Then
             MsgBox "File name " & TidyDataRowFiles & " cannot be found."
             End
@@ -59,12 +75,29 @@ Public Sub Get_Transition_Array_Tidy_Data_Row_Test()
                                                                 StartingColumnNum:=1)
     Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(7)
     
+    GoTo TestExit
 TestExit:
     Exit Sub
 TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'' Function: Get_Transition_Array_Tidy_Data_Column_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_Tidy_Data_Column_Test()
+'' ---
+''
+'' Description:
+''
+'' Function used to test if the function
+'' Load_Tidy_Data.Get_Transition_Array_Tidy is working
+''
+'' Test files are
+''
+''  - TidyTransitionColumn.csv
+''
+'' Function will assert if Transition_Array has 8 elements
+''
 '@TestMethod("Get Transition_Annot From Tidy Data")
 Public Sub Get_Transition_Array_Tidy_Data_Column_Test()
     On Error GoTo TestFail
@@ -78,7 +111,7 @@ Public Sub Get_Transition_Array_Tidy_Data_Column_Test()
     TidyDataColumnFiles = TestFolder & "TidyTransitionColumn.csv"
     
     'Check if the data file exists
-    FileThere = (Dir(TidyDataColumnFiles) > "")
+    FileThere = (Dir(TidyDataColumnFiles) > vbNullString)
         If FileThere = False Then
             MsgBox "File name " & TidyDataColumnFiles & " cannot be found."
             End
@@ -92,17 +125,36 @@ Public Sub Get_Transition_Array_Tidy_Data_Column_Test()
                                                                 StartingColumnNum:=2)
                                                                               
     Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(8)
+    
+    GoTo TestExit
 TestExit:
     Exit Sub
 TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'' Function: Get_Sample_Array_Tidy_Data_Row_Test
+'' --- Code
+''  Public Sub Get_Sample_Array_Tidy_Data_Row_Test()
+'' ---
+''
+'' Description:
+''
+'' Function used to test if the function
+'' Load_Tidy_Data.Get_Sample_Name_Array_Tidy is working
+''
+'' Test files are
+''
+''  - TidySampleRow.csv
+''
+'' Function will assert if Sample_Name_Array_from_Tidy_Data has 7 elements
+'' Function will assert if MS_File_Array has 7 elements
+''
 '@TestMethod("Get Sample_Annot From Tidy Data")
 Public Sub Get_Sample_Array_Tidy_Data_Row_Test()
     On Error GoTo TestFail
     Dim TestFolder As String
-    Dim Transition_Array() As String
+    'Dim Transition_Array() As String
     Dim TidyDataRowFiles As String
     Dim JoinedFiles As String
     Dim FileThere As Boolean
@@ -115,7 +167,7 @@ Public Sub Get_Sample_Array_Tidy_Data_Row_Test()
     TidyDataRowFiles = TestFolder & "TidySampleRow.csv"
     
     'Check if the data file exists
-    FileThere = (Dir(TidyDataRowFiles) > "")
+    FileThere = (Dir(TidyDataRowFiles) > vbNullString)
         If FileThere = False Then
             MsgBox "File name " & TidyDataRowFiles & " cannot be found."
             End
@@ -134,18 +186,35 @@ Public Sub Get_Sample_Array_Tidy_Data_Row_Test()
     Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Tidy_Data), CLng(7)
     Assert.AreEqual Utilities.StringArrayLen(MS_File_Array), CLng(7)
         
+    GoTo TestExit
 TestExit:
     Exit Sub
 TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
-
+'' Function: Get_Sample_Array_Tidy_Data_Column_Test(
+'' --- Code
+''  Public Sub Get_Sample_Array_Tidy_Data_Column_Test(()
+'' ---
+''
+'' Description:
+''
+'' Function used to test if the function
+'' Load_Tidy_Data.Get_Sample_Name_Array_Tidy is working
+''
+'' Test files are
+''
+''  - TidySampleColumn.csv
+''
+'' Function will assert if Sample_Name_Array_from_Tidy_Data has 7 elements
+'' Function will assert if MS_File_Array has 7 elements
+''
 '@TestMethod("Get Sample_Annot From Tidy Data")
 Public Sub Get_Sample_Array_Tidy_Data_Column_Test()
     On Error GoTo TestFail
     Dim TestFolder As String
-    Dim Transition_Array() As String
+    'Dim Transition_Array() As String
     Dim TidyDataColumnFiles As String
     Dim JoinedFiles As String
     Dim FileThere As Boolean
@@ -158,7 +227,7 @@ Public Sub Get_Sample_Array_Tidy_Data_Column_Test()
     TidyDataColumnFiles = TestFolder & "TidySampleColumn.csv"
     
     'Check if the data file exists
-    FileThere = (Dir(TidyDataColumnFiles) > "")
+    FileThere = (Dir(TidyDataColumnFiles) > vbNullString)
         If FileThere = False Then
             MsgBox "File name " & TidyDataColumnFiles & " cannot be found."
             End
@@ -167,8 +236,8 @@ Public Sub Get_Sample_Array_Tidy_Data_Column_Test()
     JoinedFiles = Join(Array(TidyDataColumnFiles), ";")
     TidyDataFilesArray = Split(JoinedFiles, ";")
         
-    Sample_Name_Array_from_Tidy_Data = Load_Tidy_Data.Get_Sample_Name_Array_Tidy(TidyDataFilesArray(), _
-                                                                                 MS_File_Array, _
+    Sample_Name_Array_from_Tidy_Data = Load_Tidy_Data.Get_Sample_Name_Array_Tidy(TidyDataFilesArray:=TidyDataFilesArray, _
+                                                                                 MS_File_Array:=MS_File_Array, _
                                                                                  DataFileType:="csv", _
                                                                                  SampleProperty:="Read as column variables", _
                                                                                  StartingRowNum:=1, _
@@ -176,7 +245,8 @@ Public Sub Get_Sample_Array_Tidy_Data_Column_Test()
                                                                                  
     Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Tidy_Data), CLng(7)
     Assert.AreEqual Utilities.StringArrayLen(MS_File_Array), CLng(7)
-        
+       
+    GoTo TestExit
 TestExit:
     Exit Sub
 TestFail:

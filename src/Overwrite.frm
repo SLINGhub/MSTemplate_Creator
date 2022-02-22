@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Overwrite 
    Caption         =   "Overwrite"
-   ClientHeight    =   1380
-   ClientLeft      =   84
-   ClientTop       =   300
-   ClientWidth     =   3432
+   ClientHeight    =   1188
+   ClientLeft      =   0
+   ClientTop       =   -72
+   ClientWidth     =   2784
    OleObjectBlob   =   "Overwrite.frx":0000
    StartUpPosition =   1  'CenterOwner
 End

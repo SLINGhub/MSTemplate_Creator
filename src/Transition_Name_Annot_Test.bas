@@ -43,6 +43,7 @@ End Sub
 '' Transition_Annot.Verify_ISTD is working
 ''
 '' Test data are
+''
 ''  - A string array Transition_Array = {"SM 44:1", "SM 44:2", "SM 46:2", "SM 46:3"}
 ''  - A string array ISTD_Array = {"SM 44:1", "SM 44:2", "", "SM 44:1"}
 ''

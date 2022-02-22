@@ -1,7 +1,7 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Clear_Dilution_Annot 
    Caption         =   "Clear Dilution_Annot"
-   ClientHeight    =   2976
+   ClientHeight    =   2376
    ClientLeft      =   108
    ClientTop       =   372
    ClientWidth     =   2832

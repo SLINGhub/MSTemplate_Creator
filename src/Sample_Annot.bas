@@ -199,10 +199,10 @@ End Sub
 '' Function: Create_New_Sample_Annot_Tidy
 '' --- Code
 ''  Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
-''                                          ByRef DataFileType As String, _
-''                                          ByRef SampleProperty As String, _
-''                                          ByRef StartingRowNum As Integer, _
-''                                          ByRef StartingColumnNum As Integer)
+''                                          ByVal DataFileType As String, _
+''                                          ByVal SampleProperty As String, _
+''                                          ByVal StartingRowNum As Integer, _
+''                                          ByVal StartingColumnNum As Integer)
 '' ---
 ''
 '' Description:
@@ -247,10 +247,10 @@ End Sub
 ''                                              StartingColumnNum:=2
 '' ---
 Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
-                                        ByRef DataFileType As String, _
-                                        ByRef SampleProperty As String, _
-                                        ByRef StartingRowNum As Integer, _
-                                        ByRef StartingColumnNum As Integer)
+                                        ByVal DataFileType As String, _
+                                        ByVal SampleProperty As String, _
+                                        ByVal StartingRowNum As Integer, _
+                                        ByVal StartingColumnNum As Integer)
     
     ' Get the Sample_Annot worksheet from the active workbook
     ' The SampleAnnotSheet is a code name

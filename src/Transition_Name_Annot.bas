@@ -5,7 +5,7 @@ Option Explicit
 
 '' Function: Get_Sorted_Transition_Array_Raw
 '' --- Code
-''  Public Function Get_Sorted_Transition_Array_Raw(ByRef RawDataFiles As String) As String()
+''  Public Function Get_Sorted_Transition_Array_Raw(ByVal RawDataFiles As String) As String()
 '' ---
 ''
 '' Description:
@@ -37,7 +37,7 @@ Option Explicit
 ''   ' Get the transition names
 ''   Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
 '' ---
-Public Function Get_Sorted_Transition_Array_Raw(ByRef RawDataFiles As String) As String()
+Public Function Get_Sorted_Transition_Array_Raw(ByVal RawDataFiles As String) As String()
     Dim Transition_Array() As String
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
 
@@ -118,11 +118,11 @@ End Function
 ''                                                                             StartingColumnNum:=1)
 ''
 '' ---
-Public Function Get_Sorted_Transition_Array_Tidy(ByRef TidyDataFiles As String, _
-                                                 ByRef DataFileType As String, _
-                                                 ByRef TransitionProperty As String, _
-                                                 ByRef StartingRowNum As Integer, _
-                                                 ByRef StartingColumnNum As Integer) As String()
+Public Function Get_Sorted_Transition_Array_Tidy(ByVal TidyDataFiles As String, _
+                                                 ByVal DataFileType As String, _
+                                                 ByVal TransitionProperty As String, _
+                                                 ByVal StartingRowNum As Integer, _
+                                                 ByVal StartingColumnNum As Integer) As String()
                                                  
     Dim Transition_Array() As String
     Transition_Array = Load_Tidy_Data.Get_Transition_Array_Tidy(TidyDataFiles:=TidyDataFiles, _
