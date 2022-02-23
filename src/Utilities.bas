@@ -551,7 +551,7 @@ Public Sub OverwriteHeader(HeaderName As String, HeaderRowNumber As Integer, _
     
     'Show the Overwrite choice box
     If HeaderName <> "" Then
-        Overwrite.Label1.Caption = "There exists " & HeaderName & " in the sheet. Do you want to overwrite them ?"
+        Overwrite.Are_You_Sure_Message.Caption = "There exists " & HeaderName & " in the sheet. Do you want to overwrite them ?"
     End If
     Overwrite.Show
     

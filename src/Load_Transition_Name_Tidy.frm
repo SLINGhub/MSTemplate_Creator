@@ -99,7 +99,7 @@ End Sub
 '' (see Transition_Annot_Tidy_Data_File_Path_KeyUp_Text_Box.png)
 ''
 '' The text box will be cleared to prevent an invalid file path.
-'' The Create new Transition Annotation button will be enabled.
+'' The Create new Transition Annotation button will be disabled.
 ''
 Private Sub Tidy_Data_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
     'Clear all text when people try to edit the file path
@@ -197,7 +197,7 @@ End Sub
 '' If Read as row observations is chosen, the starting row number
 '' will be set to 2 while the starting column number will be set to 1
 ''
-'' (see Sample_Annot_Load_Sample_Annot_Tidy_Column_Name_Pop_Up2.png)
+'' (see Transition_Annot_Load_Sample_Annot_Tidy_Column_Name_Pop_Up2.png)
 ''
 Private Sub Transition_Name_Property_ComboBox_Change()
 

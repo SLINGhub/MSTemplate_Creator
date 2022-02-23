@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixDataLoaded("bro",["Function"],[["Browse_Tidy_Data_Click",,[[,,,,0,"File:Load_Transition_Name_Tidy.frm:Browse_Tidy_Data_Click"]]]]);
+﻿NDSearch.OnPrefixDataLoaded("bro",["Function"],[["Browse_Raw_Data_Click",,[[,,,,0,"File:Load_Sample_Annot_Raw.frm:Browse_Raw_Data_Click"]]],["Browse_Sample_Annot_Click",,[[,,,,0,"File:Load_Sample_Annot_Raw.frm:Browse_Sample_Annot_Click"]]],["Browse_Tidy_Data_Click",,[[,,,,0,"File:Load_Sample_Annot_Tidy.frm:Browse_Tidy_Data_Click"]]]]);

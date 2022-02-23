@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixDataLoaded("tid",["Function"],[["Tidy_Data_File_Path_KeyUp",,[[,,,,0,"File:Load_Transition_Name_Tidy.frm:Tidy_Data_File_Path_KeyUp"]]]]);
+﻿NDSearch.OnPrefixDataLoaded("tid",["Function"],[["Tidy_Data_File_Path_KeyUp",,[[,,,,0,"File:Load_Sample_Annot_Tidy.frm:Tidy_Data_File_Path_KeyUp"]]]]);
