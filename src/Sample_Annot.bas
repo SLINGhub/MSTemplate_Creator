@@ -7,7 +7,7 @@ Option Explicit
 '' Function: Autofill_Column_By_QC_Sample_Type
 '' --- Code
 ''  Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
-''                                               ByRef Header_Name As String, _
+''                                               ByVal Header_Name As String, _
 ''                                               ByVal Autofill_Value As String)
 '' ---
 ''
@@ -73,7 +73,7 @@ Option Explicit
 ''                                      Autofill_Value:="190
 '' ---
 Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
-                                             ByRef Header_Name As String, _
+                                             ByVal Header_Name As String, _
                                              ByVal Autofill_Value As String)
 
     ' Get the Sample_Annot worksheet from the active workbook
@@ -92,7 +92,7 @@ Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
     Sample_Annot_Worksheet.Activate
    
     'To ensure that Filters does not affect the assignment
-    Utilities.RemoveFilterSettings
+    Utilities.Remove_Filter_Settings
     
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
@@ -130,7 +130,7 @@ Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
     'If not there is nothing to fill
     If Len(Join(SampleTypeArray, vbNullString)) = 0 Then
         'To ensure that Filters does not affect the assignment
-        Utilities.RemoveFilterSettings
+        Utilities.Remove_Filter_Settings
     
         'Resume monitoring of sheet
         Application.EnableEvents = True
@@ -154,10 +154,10 @@ Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
     'Check if SampleAmountUnitArray has any elements
     'If yes, give an overwrite warning
     If Len(Join(AutofillValueArray, vbNullString)) > 0 Then
-        Utilities.OverwriteHeader HeaderName:=Header_Name, _
-                                  HeaderRowNumber:=1, _
-                                  DataStartRowNumber:=2, _
-                                  ClearContent:=False
+        Utilities.Overwrite_Header HeaderName:=Header_Name, _
+                                   HeaderRowNumber:=1, _
+                                   DataStartRowNumber:=2, _
+                                   ClearContent:=False
         'Filter Rows by input Sample_Type
         If Sample_Type <> "All Sample Types" Then
             Sample_Annot_Worksheet.Range("A1").AutoFilter Field:=SampleType_pos, _
@@ -167,7 +167,7 @@ Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
     End If
      
     'Find the total number of rows and resize the array accordingly
-    TotalRows = Sample_Annot_Worksheet.Cells.Item(Sample_Annot_Worksheet.Rows.Count, ConvertToLetter(SampleType_pos)).End(xlUp).Row
+    TotalRows = Sample_Annot_Worksheet.Cells.Item(Sample_Annot_Worksheet.Rows.Count, Utilities.Convert_To_Letter(SampleType_pos)).End(xlUp).Row
     
     'Assign the relevant sample amount unit for that sample type
     If TotalRows > 1 Then
@@ -185,7 +185,7 @@ Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
             MsgBox "Autofill" & vbNewLine & "Sample_Type : " & Sample_Type & vbNewLine & Header_Name & " : " & Autofill_Value & "."
             
             'To ensure that Filters does not affect the assignment
-            Utilities.RemoveFilterSettings
+            Utilities.Remove_Filter_Settings
         End If
     End If
     
@@ -305,9 +305,9 @@ Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
     HeaderNameArray(2) = "Sample_Name"
     HeaderNameArray(3) = "Sample_Type"
     
-    Utilities.OverwriteSeveralHeaders HeaderNameArray:=HeaderNameArray, _
-                                      HeaderRowNumber:=1, _
-                                      DataStartRowNumber:=2
+    Utilities.Overwrite_Several_Headers HeaderNameArray:=HeaderNameArray, _
+                                        HeaderRowNumber:=1, _
+                                        DataStartRowNumber:=2
     
     Utilities.Load_To_Excel Data_Array:=MS_File_Array, _
                             HeaderName:="Data_File_Name", _
@@ -397,7 +397,7 @@ Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
     Sample_Name_Array_from_Raw_Data = Load_Raw_Data.Get_Sample_Name_Array(RawDataFilesArray, MS_File_Array)
     
     'If there is no data loaded, stop the process
-    If Utilities.StringArrayLen(Sample_Name_Array_from_Raw_Data) = CLng(0) Then
+    If Utilities.Get_String_Array_Len(Sample_Name_Array_from_Raw_Data) = CLng(0) Then
         End
     End If
     
@@ -423,9 +423,9 @@ Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
     HeaderNameArray(2) = "Sample_Name"
     HeaderNameArray(3) = "Sample_Type"
     
-    Utilities.OverwriteSeveralHeaders HeaderNameArray:=HeaderNameArray, _
-                                      HeaderRowNumber:=1, _
-                                      DataStartRowNumber:=2
+    Utilities.Overwrite_Several_Headers HeaderNameArray:=HeaderNameArray, _
+                                        HeaderRowNumber:=1, _
+                                        DataStartRowNumber:=2
     
     Utilities.Load_To_Excel Data_Array:=MS_File_Array, _
                             HeaderName:="Data_File_Name", _
@@ -542,7 +542,7 @@ Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
     Sample_Name_Array_from_Sample_Annot = Sample_Annot.Get_Sample_Name_Array_From_Annot_File(SampleAnnotFile)
     
     'If there is no data loaded, stop the process
-    If Utilities.StringArrayLen(Sample_Name_Array_from_Raw_Data) = CLng(0) Then
+    If Utilities.Get_String_Array_Len(Sample_Name_Array_from_Raw_Data) = CLng(0) Then
         End
     End If
     
@@ -566,19 +566,19 @@ Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
     For Sample_Name_Array_Index = 0 To UBound(Sample_Name_Array_from_Raw_Data) - LBound(Sample_Name_Array_from_Raw_Data)
         'Get the positions of where the sample name of the raw data can be found in the sample annotation
         Dim Positions() As String
-        Positions = WhereInArray(Sample_Name_Array_from_Raw_Data(Sample_Name_Array_Index), Sample_Name_Array_from_Sample_Annot)
+        Positions = Utilities.Where_In_Array(Sample_Name_Array_from_Raw_Data(Sample_Name_Array_Index), Sample_Name_Array_from_Sample_Annot)
         
         ReDim Preserve MergeStatus(ArrayLength)
         ReDim Preserve MatchingIndexArray(ArrayLength)
         ReDim Preserve SampleType(ArrayLength)
         
         'Display results if there is no match, unique match or duplicates
-        If StringArrayLen(Positions) = 0 Then
+        If Utilities.Get_String_Array_Len(Positions) = 0 Then
             'Debug.Print "Empty"
             MergeStatus(ArrayLength) = "Missing in Annot File"
             MatchingIndexArray(ArrayLength) = vbNullString
             MergeFailure = True
-        ElseIf StringArrayLen(Positions) > 1 Then
+        ElseIf Utilities.Get_String_Array_Len(Positions) > 1 Then
             'Debug.Print "Duplicate"
             Dim DuplicatePositionIndex As Integer
             For DuplicatePositionIndex = 0 To UBound(Positions) - LBound(Positions)
@@ -609,9 +609,9 @@ Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
     HeaderNameArray(2) = "Sample_Name"
     HeaderNameArray(3) = "Sample_Type"
     
-    Utilities.OverwriteSeveralHeaders HeaderNameArray:=HeaderNameArray, _
-                                      HeaderRowNumber:=1, _
-                                      DataStartRowNumber:=2
+    Utilities.Overwrite_Several_Headers HeaderNameArray:=HeaderNameArray, _
+                                        HeaderRowNumber:=1, _
+                                        DataStartRowNumber:=2
       
     'Load Data into the excel sheet
     Sample_Annot.Load_Sample_Info_To_Excel xFileName:=SampleAnnotFile, _

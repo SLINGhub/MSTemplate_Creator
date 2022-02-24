@@ -71,7 +71,7 @@ Public Sub Get_Transition_Array_Wide_Table_Test()
     'Load the transition names and load it to excel
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
     
-    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(30)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Transition_Array), CLng(30)
 
     GoTo TestExit
 TestExit:
@@ -119,7 +119,7 @@ Public Sub Get_Transition_Array_Wide_Table_With_Qualifier_Test()
     'Load the transition names and load it to excel
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
     
-    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(15)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Transition_Array), CLng(15)
 
     GoTo TestExit
 TestExit:
@@ -167,7 +167,7 @@ Public Sub Get_Transition_Array_Compound_Table_Test()
     'Load the transition names and load it to excel
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
     
-    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(122)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Transition_Array), CLng(122)
 
     GoTo TestExit
 TestExit:
@@ -324,7 +324,7 @@ Public Sub Get_Transition_Array_Agilent_Compound_Test()
     Assert.AreEqual Transition_Name_And_Qualifier_Transition_Column_Indexes(2), CLng(14)
     Assert.AreEqual Transition_Name_And_Qualifier_Transition_Column_Indexes(3), CLng(18)
     
-    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(15)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Transition_Array), CLng(15)
     
     Assert.AreEqual Transition_Array(0), "Sph d16:1"
     Assert.AreEqual Transition_Array(1), "Qualifier (272.2 -> 236.1)"
@@ -381,7 +381,7 @@ Public Sub Get_Transition_Array_Compound_Table_With_Qualifier_Test()
     'Load the transition names and load it to excel
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
     
-    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(15)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Transition_Array), CLng(15)
 
     GoTo TestExit
 TestExit:
@@ -429,7 +429,7 @@ Public Sub Get_Transition_Array_SciEx_Data_Test()
     'Load the transition names and load it to excel
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
     
-    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(224)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Transition_Array), CLng(224)
 
     GoTo TestExit
 TestExit:
@@ -489,7 +489,7 @@ Public Sub Get_Transition_Array_Multiple_Data_Test()
     'Load the transition names and load it to excel
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=JoinedFiles)
     
-    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(653)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Transition_Array), CLng(653)
 
     GoTo TestExit
 TestExit:
@@ -537,7 +537,7 @@ Public Sub Get_Transition_Array_Invalid_Data_Test()
     'Load the transition names into an array
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
     
-    Assert.AreEqual Utilities.StringArrayLen(Transition_Array), CLng(0)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Transition_Array), CLng(0)
 
     GoTo TestExit
 TestExit:
@@ -597,8 +597,8 @@ Public Sub Get_Sample_Name_Array_Wide_Table_Test()
     Sample_Name_Array_from_Raw_Data = Load_Raw_Data.Get_Sample_Name_Array(RawDataFilesArray, _
                                                                           MS_File_Array)
 
-    Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Raw_Data), CLng(533)
-    Assert.AreEqual Utilities.StringArrayLen(MS_File_Array), CLng(533)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Sample_Name_Array_from_Raw_Data), CLng(533)
+    Assert.AreEqual Utilities.Get_String_Array_Len(MS_File_Array), CLng(533)
 
     GoTo TestExit
 TestExit:
@@ -658,8 +658,8 @@ Public Sub Get_Sample_Name_Array_Compound_Table_Test()
     'Load the sample name and datafile name into the two arrays
     Sample_Name_Array_from_Raw_Data = Load_Raw_Data.Get_Sample_Name_Array(RawDataFilesArray, MS_File_Array)
     
-    Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Raw_Data), CLng(50)
-    Assert.AreEqual Utilities.StringArrayLen(MS_File_Array), CLng(50)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Sample_Name_Array_from_Raw_Data), CLng(50)
+    Assert.AreEqual Utilities.Get_String_Array_Len(MS_File_Array), CLng(50)
 
     GoTo TestExit
 TestExit:
@@ -719,8 +719,8 @@ Public Sub Get_Sample_Name_Array_SciEx_Data_Test()
     'Load the sample name and datafile name into the two arrays
     Sample_Name_Array_from_Raw_Data = Load_Raw_Data.Get_Sample_Name_Array(RawDataFilesArray, MS_File_Array)
     
-    Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Raw_Data), CLng(61)
-    Assert.AreEqual Utilities.StringArrayLen(MS_File_Array), CLng(61)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Sample_Name_Array_from_Raw_Data), CLng(61)
+    Assert.AreEqual Utilities.Get_String_Array_Len(MS_File_Array), CLng(61)
 
     GoTo TestExit
 TestExit:
@@ -783,8 +783,8 @@ Public Sub Get_Sample_Name_Array_Multiple_Data_Test()
     'Load the sample name and datafile name into the two arrays
     Sample_Name_Array_from_Raw_Data = Load_Raw_Data.Get_Sample_Name_Array(RawDataFilesArray, MS_File_Array)
     
-    Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Raw_Data), CLng(664)
-    Assert.AreEqual Utilities.StringArrayLen(MS_File_Array), CLng(664)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Sample_Name_Array_from_Raw_Data), CLng(664)
+    Assert.AreEqual Utilities.Get_String_Array_Len(MS_File_Array), CLng(664)
 
     GoTo TestExit
 TestExit:
@@ -844,8 +844,8 @@ Public Sub Get_Sample_Name_Array_Invalid_Data_Test()
     'Load the sample name and datafile name into the two arrays
     Sample_Name_Array_from_Raw_Data = Load_Raw_Data.Get_Sample_Name_Array(RawDataFilesArray, MS_File_Array)
     
-    Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Raw_Data), CLng(0)
-    Assert.AreEqual Utilities.StringArrayLen(MS_File_Array), CLng(0)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Sample_Name_Array_from_Raw_Data), CLng(0)
+    Assert.AreEqual Utilities.Get_String_Array_Len(MS_File_Array), CLng(0)
 
     GoTo TestExit
 TestExit:

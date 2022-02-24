@@ -1,1 +1,1 @@
-﻿NDSearch.OnPrefixDataLoaded("ove",["Function"],[["Overwrite_Button_Click",,[[,,,,0,"File:Overwrite.frm:Overwrite_Button_Click"]]]]);
+﻿NDSearch.OnPrefixDataLoaded("ove",["Function"],[["Overwrite_Button_Click",,[[,,,,0,"File:Overwrite.frm:Overwrite_Button_Click"]]],["Overwrite_Header",,[[,,,,0,"File:Utilities.bas:Overwrite_Header"]]],["Overwrite_Several_Headers",,[[,,,,0,"File:Utilities.bas:Overwrite_Several_Headers"]]]]);

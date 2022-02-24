@@ -48,12 +48,12 @@ Public Function Get_Sorted_Transition_Array_Raw(ByVal RawDataFiles As String) As
     'End If
     
     'If there is no data loaded, stop the process
-    If Utilities.StringArrayLen(Transition_Array) = CLng(0) Then
+    If Utilities.Get_String_Array_Len(Transition_Array) = CLng(0) Then
         Exit Function
     End If
     
     'Sort the array
-    QuickSort ThisArray:=Transition_Array
+    Utilities.Quick_Sort ThisArray:=Transition_Array
     Get_Sorted_Transition_Array_Raw = Transition_Array
 End Function
 
@@ -138,12 +138,12 @@ Public Function Get_Sorted_Transition_Array_Tidy(ByVal TidyDataFiles As String, 
     'End If
     
     'If there is no data loaded, stop the process
-    If Utilities.StringArrayLen(Transition_Array) = CLng(0) Then
+    If Utilities.Get_String_Array_Len(Transition_Array) = CLng(0) Then
         Exit Function
     End If
     
     'Sort the array
-    QuickSort ThisArray:=Transition_Array
+    Utilities.Quick_Sort ThisArray:=Transition_Array
     Get_Sorted_Transition_Array_Tidy = Transition_Array
 End Function
 
@@ -277,7 +277,7 @@ Public Sub Verify_ISTD(ByRef Transition_Array() As String, ByRef ISTD_Array() As
     
     'Get the number of entries in the "Transition_Name" column (including the title)
     Dim TotalRows As Long
-    TotalRows = Transition_Name_Annot_Worksheet.Cells.Item(Transition_Name_Annot_Worksheet.Rows.Count, ConvertToLetter(Transition_Name_ColNumber)).End(xlUp).Row
+    TotalRows = Transition_Name_Annot_Worksheet.Cells.Item(Transition_Name_Annot_Worksheet.Rows.Count, Utilities.Convert_To_Letter(Transition_Name_ColNumber)).End(xlUp).Row
     
     Dim rowIndex As Integer
     Dim InArray As Boolean
@@ -289,7 +289,7 @@ Public Sub Verify_ISTD(ByRef Transition_Array() As String, ByRef ISTD_Array() As
             Transition_Name_Annot_Worksheet.Cells.Item(rowIndex + 2, Transition_Name_ISTD_ColNumber).Interior.Color = RGB(255, 255, 153)
         Else
             ' Check if the ISTD is valid
-            InArray = Utilities.IsInArray(Transition_Name_Annot_Worksheet.Cells.Item(rowIndex + 2, Transition_Name_ISTD_ColNumber).Value, Transition_Array)
+            InArray = Utilities.Is_In_Array(Transition_Name_Annot_Worksheet.Cells.Item(rowIndex + 2, Transition_Name_ISTD_ColNumber).Value, Transition_Array)
             If Not InArray Then
                 ReDim Preserve InvalidISTD(ArrayLength)
                 InvalidISTD(ArrayLength) = Transition_Name_Annot_Worksheet.Cells.Item(rowIndex + 2, Transition_Name_ISTD_ColNumber).Value
@@ -302,7 +302,7 @@ Public Sub Verify_ISTD(ByRef Transition_Array() As String, ByRef ISTD_Array() As
         End If
     Next rowIndex
         
-    If Utilities.StringArrayLen(InvalidISTD) <> 0 Then
+    If Utilities.Get_String_Array_Len(InvalidISTD) <> 0 Then
         'Put the invalid ISTD in the list box to be displayed
         For rowIndex = 0 To UBound(InvalidISTD) - LBound(InvalidISTD)
             Invalid_ISTD_MsgBox.Invalid_ISTD_ListBox.AddItem InvalidISTD(rowIndex)

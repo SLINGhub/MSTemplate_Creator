@@ -21,7 +21,7 @@ Option Explicit
 ''
 Public Sub Clear_Transition_Name_Annot_Click()
     'To ensure that Filters does not affect the assignment
-    Utilities.RemoveFilterSettings
+    Utilities.Remove_Filter_Settings
     Clear_Transition_Name_Annot.Show
 End Sub
 
@@ -70,7 +70,7 @@ Public Sub Load_Transition_Name_ISTD_Click()
     Transition_Name_Annot_Worksheet.Activate
     
     'To ensure that Filters does not affect the assignment
-    Utilities.RemoveFilterSettings
+    Utilities.Remove_Filter_Settings
     
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
@@ -106,9 +106,9 @@ Public Sub Load_Transition_Name_ISTD_Click()
       
     ISTD_Annot_Worksheet.Activate
   
-    Utilities.OverwriteHeader HeaderName:="Transition_Name_ISTD", _
-                              HeaderRowNumber:=2, _
-                              DataStartRowNumber:=4
+    Utilities.Overwrite_Header HeaderName:="Transition_Name_ISTD", _
+                               HeaderRowNumber:=2, _
+                               DataStartRowNumber:=4
                               
     Utilities.Load_To_Excel Data_Array:=ISTD_Array, _
                             HeaderName:="Transition_Name_ISTD", _
@@ -194,7 +194,7 @@ Public Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = Tr
     Application.EnableEvents = False
     
     'To ensure that Filters does not affect the assignment
-    Utilities.RemoveFilterSettings
+    Utilities.Remove_Filter_Settings
     
     Dim Transition_Array() As String
     Dim ISTD_Array() As String
@@ -300,7 +300,7 @@ Public Sub Get_Transition_Array_Click()
         Exit Sub
     End If
     
-    Utilities.OverwriteHeader HeaderName:="Transition_Name", _
+    Utilities.Overwrite_Header HeaderName:="Transition_Name", _
                               HeaderRowNumber:=1, _
                               DataStartRowNumber:=2
                               
@@ -379,7 +379,7 @@ Public Sub Get_Transition_Array_Tidy_Click()
         Exit Sub
     End If
     
-    Utilities.OverwriteHeader HeaderName:="Transition_Name", _
+    Utilities.Overwrite_Header HeaderName:="Transition_Name", _
                               HeaderRowNumber:=1, _
                               DataStartRowNumber:=2
                               

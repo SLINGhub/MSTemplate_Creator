@@ -77,7 +77,7 @@ Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
     Sample_Annot_Worksheet.Activate
     
     'To ensure that Filters does not affect the assignment
-    Utilities.RemoveFilterSettings
+    Utilities.Remove_Filter_Settings
     
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
@@ -111,7 +111,7 @@ Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
     'Debug.Print FileNameArray(1)
     
     'To ensure that Filters does not affect the assignment
-    Utilities.RemoveFilterSettings
+    Utilities.Remove_Filter_Settings
     
     'Resume monitoring of sheet
     Application.EnableEvents = True
@@ -139,7 +139,7 @@ Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
     
     'Check if FileNameArray has any elements
     If Len(Join(FileNameArray, vbNullString)) > 0 Then
-        Utilities.OverwriteHeader HeaderName:="Data_File_Name", _
+        Utilities.Overwrite_Header HeaderName:="Data_File_Name", _
                                   HeaderRowNumber:=1, _
                                   DataStartRowNumber:=2
         Utilities.Load_To_Excel Data_Array:=FileNameArray, _
@@ -147,7 +147,7 @@ Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
                                 HeaderRowNumber:=1, _
                                 DataStartRowNumber:=2, _
                                 MessageBoxRequired:=False
-        Utilities.OverwriteHeader HeaderName:="Sample_Name", _
+        Utilities.Overwrite_Header HeaderName:="Sample_Name", _
                                   HeaderRowNumber:=1, _
                                   DataStartRowNumber:=2
         Utilities.Load_To_Excel Data_Array:=SampleNameArray, _
@@ -156,7 +156,7 @@ Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
                                 DataStartRowNumber:=2, _
                                 MessageBoxRequired:=True
     Else
-        Utilities.OverwriteHeader HeaderName:="Sample_Name", _
+        Utilities.Overwrite_Header HeaderName:="Sample_Name", _
                                   HeaderRowNumber:=1, _
                                 DataStartRowNumber:=2
         Utilities.Load_To_Excel Data_Array:=SampleNameArray, _
@@ -187,7 +187,7 @@ End Sub
 ''
 Public Sub Clear_Sample_Table_Click()
     'To ensure that Filters does not affect the assignment
-    Utilities.RemoveFilterSettings
+    Utilities.Remove_Filter_Settings
     
     Clear_Sample_Annot.Show
 End Sub
@@ -251,7 +251,7 @@ Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired A
     'Debug.Print Right_Custom_Unit
 
     'To ensure that Filters does not affect the assignment
-    Utilities.RemoveFilterSettings
+    Utilities.Remove_Filter_Settings
     
     Dim Sample_Amount_Unit() As String
     Sample_Amount_Unit = Utilities.Load_Columns_From_Excel(HeaderName:="Sample_Amount_Unit", HeaderRowNumber:=1, _
@@ -262,8 +262,8 @@ Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired A
     'Get the length of Sample_Amount_Unit
     Dim max_length As Integer
     max_length = 0
-    If Utilities.StringArrayLen(Sample_Amount_Unit) > max_length Then
-            max_length = Utilities.StringArrayLen(Sample_Amount_Unit)
+    If Utilities.Get_String_Array_Len(Sample_Amount_Unit) > max_length Then
+            max_length = Utilities.Get_String_Array_Len(Sample_Amount_Unit)
     End If
     
     'Leave the program if max_length is 0
@@ -299,7 +299,7 @@ Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired A
             ConcentrationUnitArray(lenArrayIndex) = ConcentrationUnit
             
             'Collect Unique concentration unit
-            InArray = Utilities.IsInArray(ConcentrationUnit, UniqueConcentrationUnitArray)
+            InArray = Utilities.Is_In_Array(ConcentrationUnit, UniqueConcentrationUnitArray)
             If Not InArray Then
                 ReDim Preserve UniqueConcentrationUnitArray(UniqueArraryLength)
                 UniqueConcentrationUnitArray(UniqueArraryLength) = ConcentrationUnit
@@ -311,7 +311,7 @@ Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired A
     Next lenArrayIndex
     
     'Load to Excel
-    Utilities.OverwriteHeader HeaderName:="Concentration_Unit", _
+    Utilities.Overwrite_Header HeaderName:="Concentration_Unit", _
                               HeaderRowNumber:=1, _
                               DataStartRowNumber:=2, _
                               WorksheetName:="Sample_Annot"
@@ -323,7 +323,7 @@ Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired A
                             MessageBoxRequired:=False
                                  
     'Display a summary box of unique concentration units
-    If Utilities.StringArrayLen(UniqueConcentrationUnitArray) <> 0 Then
+    If Utilities.Get_String_Array_Len(UniqueConcentrationUnitArray) <> 0 Then
         'Put the concentration units in the list box to be displayed
         For lenArrayIndex = 0 To UBound(UniqueConcentrationUnitArray) - LBound(UniqueConcentrationUnitArray)
             Concentration_Unit_MsgBox.Concentration_Unit_ListBox.AddItem UniqueConcentrationUnitArray(lenArrayIndex)
@@ -373,7 +373,7 @@ Public Sub Autofill_Sample_Type_Click()
     Sample_Annot_Worksheet.Activate
     
     'To ensure that Filters does not affect the assignment
-    Utilities.RemoveFilterSettings
+    Utilities.Remove_Filter_Settings
     
     Dim SampleArray() As String
     Dim TotalRows As Long
@@ -388,7 +388,7 @@ Public Sub Autofill_Sample_Type_Click()
     SampleType_pos = Utilities.Get_Header_Col_Position("Sample_Type", HeaderRowNumber:=1)
    
     'Find the total number of rows and resize the array accordingly
-    TotalRows = Sample_Annot_Worksheet.Cells.Item(Sample_Annot_Worksheet.Rows.Count, ConvertToLetter(SampleName_pos)).End(xlUp).Row
+    TotalRows = Sample_Annot_Worksheet.Cells.Item(Sample_Annot_Worksheet.Rows.Count, Utilities.Convert_To_Letter(SampleName_pos)).End(xlUp).Row
     ReDim SampleArray(0 To TotalRows - 1)
     
     'Assign "Sample" if there is no sample type
@@ -408,7 +408,7 @@ Public Sub Autofill_Sample_Type_Click()
                             HeaderRowNumber:=1, _
                             DataStartRowNumber:=2, _
                             MessageBoxRequired:=False
-    'Range(ConvertToLetter(SampleType_pos) & "2").Resize(UBound(SampleArray) + 1) = Application.Transpose(SampleArray)
+    'Range(Utilities.Convert_To_Letter(SampleType_pos) & "2").Resize(UBound(SampleArray) + 1) = Application.Transpose(SampleArray)
 
 End Sub
 

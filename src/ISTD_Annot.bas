@@ -94,7 +94,7 @@ Public Function Convert_Conc_nM_Array(ByVal Custom_Unit As String) As String()
                                                   RemoveBlksAndReplicates:=False, _
                                                   IgnoreHiddenRows:=False, IgnoreEmptyArray:=True)
     
-    lenArray = Utilities.StringArrayLen(ISTD_Conc)
+    lenArray = Utilities.Get_String_Array_Len(ISTD_Conc)
     
     'Leave the program if lenArray is 0
     If lenArray = 0 Then
@@ -192,11 +192,11 @@ Public Function Get_ISTD_Conc_nM_Array(ByVal ColourCellRequired As Boolean) As S
     Dim ISTD_MW_ColLetter As String
     Dim ISTD_Conc_nM_ColLetter As String
     Dim ISTD_Custom_Unit_ColLetter As String
-    Transition_Name_ISTD_ColLetter = Utilities.ConvertToLetter(Utilities.Get_Header_Col_Position("Transition_Name_ISTD", 2))
-    ISTD_Conc_ng_ColLetter = Utilities.ConvertToLetter(Utilities.Get_Header_Col_Position("ISTD_Conc_[ng/mL]", 3))
-    ISTD_MW_ColLetter = Utilities.ConvertToLetter(Utilities.Get_Header_Col_Position("ISTD_[MW]", 3))
-    ISTD_Conc_nM_ColLetter = Utilities.ConvertToLetter(Utilities.Get_Header_Col_Position("ISTD_Conc_[nM]", 3))
-    ISTD_Custom_Unit_ColLetter = Utilities.ConvertToLetter(Utilities.Get_Header_Col_Position("Custom_Unit", 2))
+    Transition_Name_ISTD_ColLetter = Utilities.Convert_To_Letter(Utilities.Get_Header_Col_Position("Transition_Name_ISTD", 2))
+    ISTD_Conc_ng_ColLetter = Utilities.Convert_To_Letter(Utilities.Get_Header_Col_Position("ISTD_Conc_[ng/mL]", 3))
+    ISTD_MW_ColLetter = Utilities.Convert_To_Letter(Utilities.Get_Header_Col_Position("ISTD_[MW]", 3))
+    ISTD_Conc_nM_ColLetter = Utilities.Convert_To_Letter(Utilities.Get_Header_Col_Position("ISTD_Conc_[nM]", 3))
+    ISTD_Custom_Unit_ColLetter = Utilities.Convert_To_Letter(Utilities.Get_Header_Col_Position("Custom_Unit", 2))
     
     'Declare three dynamic arrays
     Dim ISTD_Conc_ngmL() As String
@@ -220,9 +220,9 @@ Public Function Get_ISTD_Conc_nM_Array(ByVal ColourCellRequired As Boolean) As S
     'Declare an array of the three array length
     Dim lenArrayIndex As Integer
     Dim lenArray(0 To 2) As Integer
-    lenArray(0) = Utilities.StringArrayLen(ISTD_Conc_ngmL)
-    lenArray(1) = Utilities.StringArrayLen(ISTD_MW)
-    lenArray(2) = Utilities.StringArrayLen(ISTD_Conc_nM)
+    lenArray(0) = Utilities.Get_String_Array_Len(ISTD_Conc_ngmL)
+    lenArray(1) = Utilities.Get_String_Array_Len(ISTD_MW)
+    lenArray(2) = Utilities.Get_String_Array_Len(ISTD_Conc_nM)
     
     'Get the length of the longest array
     Dim max_length As Integer

@@ -94,14 +94,14 @@ Public Function Get_Sample_Name_Array_Tidy(ByRef TidyDataFilesArray() As String,
             FileName = Utilities.Get_File_Base_Name(TidyDataFile)
             
             If SampleProperty = "Read as column variables" Then
-            Sample_Name_SubArray = Utilities.Load_Rows_From_2Darray(strArray:=Sample_Name_SubArray, _
+            Sample_Name_SubArray = Utilities.Load_Rows_From_2Darray(InputStringArray:=Sample_Name_SubArray, _
                                                                     Lines:=Lines, _
                                                                     DataStartColumnNumber:=StartingColumnNum - 1, _
                                                                     Delimiter:=",", _
                                                                     RemoveBlksAndReplicates:=True, _
                                                                     DataStartRowNumber:=StartingRowNum - 1)
             ElseIf SampleProperty = "Read as row observations" Then
-            Sample_Name_SubArray = Utilities.Load_Columns_From_2Darray(strArray:=Sample_Name_SubArray, _
+            Sample_Name_SubArray = Utilities.Load_Columns_From_2Darray(InputStringArray:=Sample_Name_SubArray, _
                                                                        Lines:=Lines, _
                                                                        DataStartColumnNumber:=StartingColumnNum - 1, _
                                                                        DataStartRowNumber:=StartingRowNum - 1, _
@@ -115,7 +115,7 @@ Public Function Get_Sample_Name_Array_Tidy(ByRef TidyDataFilesArray() As String,
         Sample_Name_Array = Utilities.Concantenate_String_Arrays(Sample_Name_Array, Sample_Name_SubArray)
         SubarrayLength = 0
             
-        For Sample_Name_SubArray_Index = 0 To Utilities.StringArrayLen(Sample_Name_SubArray) - 1
+        For Sample_Name_SubArray_Index = 0 To Utilities.Get_String_Array_Len(Sample_Name_SubArray) - 1
             ReDim Preserve MS_File_SubArray(SubarrayLength)
             MS_File_SubArray(Sample_Name_SubArray_Index) = FileName
             SubarrayLength = SubarrayLength + 1
@@ -166,7 +166,7 @@ End Function
 '    For Each TidyDataFile In TidyDataFilesArray
 '
 '        'We update the array length for Transition_Array
-'        ArrayLength = Utilities.StringArrayLen(Transition_Array)
+'        ArrayLength = Utilities.Get_String_Array_Len(Transition_Array)
 '
 '        'Ensure that the excel file do not pop up when
 '        'the code to reading the excel file
@@ -189,7 +189,7 @@ End Function
 '            'Debug.Print Transition_Name
 '
 '            'Check if the Transition name is not empty and duplicate
-'            InArray = Utilities.IsInArray(Transition_Name, Transition_Array)
+'            InArray = Utilities.Is_In_Array(Transition_Name, Transition_Array)
 '            If Len(Transition_Name) <> 0 And Not InArray Then
 '                    ReDim Preserve Transition_Array(ArrayLength)
 '                    Transition_Array(ArrayLength) = Transition_Name
@@ -299,7 +299,7 @@ Public Function Get_Transition_Array_Tidy_CSV(ByVal TidyDataFiles As String, _
         'FileName = Utilities.Get_File_Base_Name(TidyDataFile)
         
         If TransitionProperty = "Read as column variables" Then
-            Transition_Array = Utilities.Load_Rows_From_2Darray(strArray:=Transition_Array, _
+            Transition_Array = Utilities.Load_Rows_From_2Darray(InputStringArray:=Transition_Array, _
                                                                 Lines:=Lines, _
                                                                 DataStartColumnNumber:=StartingColumnNum - 1, _
                                                                 Delimiter:=",", _
@@ -312,7 +312,7 @@ Public Function Get_Transition_Array_Tidy_CSV(ByVal TidyDataFiles As String, _
             '                                                    RowName:="Sample_Name", _
             '                                                    RowNameNumber:=0)
         ElseIf TransitionProperty = "Read as row observations" Then
-            Transition_Array = Utilities.Load_Columns_From_2Darray(strArray:=Transition_Array, _
+            Transition_Array = Utilities.Load_Columns_From_2Darray(InputStringArray:=Transition_Array, _
                                                                    Lines:=Lines, _
                                                                    DataStartColumnNumber:=StartingColumnNum - 1, _
                                                                    DataStartRowNumber:=StartingRowNum - 1, _

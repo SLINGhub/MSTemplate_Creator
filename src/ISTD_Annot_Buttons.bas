@@ -22,7 +22,7 @@ Option Explicit
 ''
 Public Sub Clear_ISTD_Table_Click()
     'To ensure that Filters does not affect the assignment
-    Utilities.RemoveFilterSettings
+    Utilities.Remove_Filter_Settings
     Clear_ISTD_Table.Show
 End Sub
 

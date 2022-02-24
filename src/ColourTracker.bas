@@ -82,11 +82,11 @@ Public Sub ISTD_Calculation_Checker(ByVal Target As Range)
     'Dim ISTD_MW_ColLetter As String
     'Dim ISTD_Conc_nM_ColLetter As String
     Dim ISTD_Custom_Unit_ColLetter As String
-    ISTDHeaderColLetter = Utilities.ConvertToLetter(ISTDHeaderColNumber)
-    'ISTD_Conc_ng_ColLetter = Utilities.ConvertToLetter(ISTD_Conc_ng_ColNumber)
-    'ISTD_MW_ColLetter = Utilities.ConvertToLetter(ISTD_MW_ColNumber)
-    'ISTD_Conc_nM_ColLetter = Utilities.ConvertToLetter(ISTD_Conc_nM_ColNumber)
-    ISTD_Custom_Unit_ColLetter = Utilities.ConvertToLetter(ISTD_Custom_Unit_ColNumber)
+    ISTDHeaderColLetter = Utilities.Convert_To_Letter(ISTDHeaderColNumber)
+    'ISTD_Conc_ng_ColLetter = Utilities.Convert_To_Letter(ISTD_Conc_ng_ColNumber)
+    'ISTD_MW_ColLetter = Utilities.Convert_To_Letter(ISTD_MW_ColNumber)
+    'ISTD_Conc_nM_ColLetter = Utilities.Convert_To_Letter(ISTD_Conc_nM_ColNumber)
+    ISTD_Custom_Unit_ColLetter = Utilities.Convert_To_Letter(ISTD_Custom_Unit_ColNumber)
     
     Dim RelatedRange As String
     Dim Cell As Range
@@ -237,8 +237,8 @@ Public Sub Transition_Name_Annot_Checker(ByVal Target As Range)
     
     Dim Transition_Name_ColLetter As String
     Dim Transition_Name_ISTD_ColLetter As String
-    Transition_Name_ColLetter = Utilities.ConvertToLetter(Transition_Name_ColNumber)
-    Transition_Name_ISTD_ColLetter = Utilities.ConvertToLetter(Transition_Name_ISTD_ColNumber)
+    Transition_Name_ColLetter = Utilities.Convert_To_Letter(Transition_Name_ColNumber)
+    Transition_Name_ISTD_ColLetter = Utilities.Convert_To_Letter(Transition_Name_ISTD_ColNumber)
 
     Dim RelatedRange As String
     Dim Cell As Range
@@ -258,7 +258,7 @@ Public Sub Transition_Name_Annot_Checker(ByVal Target As Range)
                 'If changes are made in the Transition_Name column
             Case Transition_Name_ColNumber
                 Dim TotalRows As Long
-                TotalRows = Transition_Name_Annot_Worksheet.Cells.Item(Transition_Name_Annot_Worksheet.Rows.Count, ConvertToLetter(Transition_Name_ColNumber)).End(xlUp).Row
+                TotalRows = Transition_Name_Annot_Worksheet.Cells.Item(Transition_Name_Annot_Worksheet.Rows.Count, Utilities.Convert_To_Letter(Transition_Name_ColNumber)).End(xlUp).Row
                 If TotalRows > 1 Then
                     Transition_Name_Annot_Worksheet.Range(Transition_Name_ColLetter & Cell.Row & ":" & Transition_Name_ISTD_ColLetter & Cell.Row).Interior.Color = xlNone
                     'Whole Transition_Name_ISTD column must be white

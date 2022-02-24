@@ -188,12 +188,12 @@ Public Sub Get_Sample_Name_Array_From_Annot_File_Test()
 
     Sample_Name_Array_from_Sample_Annot = Sample_Annot.Get_Sample_Name_Array_From_Annot_File(SampleAnnotFile)
     
-    'Debug.Print Utilities.StringArrayLen(Sample_Name_Array_from_Sample_Annot)
+    'Debug.Print Utilities.Get_String_Array_Len(Sample_Name_Array_from_Sample_Annot)
     'Debug.Print Sample_Name_Array_from_Sample_Annot(0)
     'Debug.Print Sample_Name_Array_from_Sample_Annot(1)
     'Debug.Print Sample_Name_Array_from_Sample_Annot(2)
     
-    Assert.AreEqual Utilities.StringArrayLen(Sample_Name_Array_from_Sample_Annot), CLng(55)
+    Assert.AreEqual Utilities.Get_String_Array_Len(Sample_Name_Array_from_Sample_Annot), CLng(55)
     Assert.AreEqual Sample_Name_Array_from_Sample_Annot(0), "1_untreated"
     Assert.AreEqual Sample_Name_Array_from_Sample_Annot(1), "1_untreated"
     Assert.AreEqual Sample_Name_Array_from_Sample_Annot(2), "1_3h"

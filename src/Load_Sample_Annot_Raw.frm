@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Load_Sample_Annot_Raw 
    Caption         =   "Load_Sample_Annot_Raw"
-   ClientHeight    =   7995
-   ClientLeft      =   60
-   ClientTop       =   180
-   ClientWidth     =   13470
+   ClientHeight    =   9996.001
+   ClientLeft      =   96
+   ClientTop       =   288
+   ClientWidth     =   16824
    OleObjectBlob   =   "Load_Sample_Annot_Raw.frx":0000
    StartUpPosition =   1  'CenterOwner
 End
@@ -155,21 +155,21 @@ Private Sub Browse_Sample_Annot_Click()
         'We find how many columns does the data has
         Dim MaxColumn As Long
         Dim NumOfColumns As Long
-        Dim Lines_Index As Long
+        Dim lines_index As Long
         
         MaxColumn = 0
-        For Lines_Index = 0 To UBound(Lines) - 1
-            NumOfColumns = Utilities.StringArrayLen(Split(Lines(Lines_Index), ","))
+        For lines_index = 0 To UBound(Lines) - 1
+            NumOfColumns = Utilities.Get_String_Array_Len(Split(Lines(lines_index), ","))
             If NumOfColumns > MaxColumn Then
                 MaxColumn = NumOfColumns
             End If
-        Next Lines_Index
+        Next lines_index
         
         'Update the Listbox to show the column names detected
         Load_Sample_Annot_Raw.Column_Name_List.Clear
-        For Lines_Index = 1 To MaxColumn
-            Load_Sample_Annot_Raw.Column_Name_List.AddItem "Column " & CInt(Lines_Index)
-        Next Lines_Index
+        For lines_index = 1 To MaxColumn
+            Load_Sample_Annot_Raw.Column_Name_List.AddItem "Column " & CInt(lines_index)
+        Next lines_index
         
     End If
     

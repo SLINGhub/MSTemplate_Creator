@@ -60,14 +60,14 @@ Public Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() A
                                                       ByVal RemoveBlksAndReplicates As Boolean, _
                                                       Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
                                                        
-    'We are updating the strArray
+    'We are updating the InputStringArray
     'Dim TotalRows As Long
     Dim Transition_Name As String
     Dim InArray As Boolean
     Dim LinesIndex As Long
     Dim Transition_Name_And_Qualifier_Transition_Column_Index As Long
     Dim ArrayLength As Long
-    ArrayLength = Utilities.StringArrayLen(Transition_Array)
+    ArrayLength = Utilities.Get_String_Array_Len(Transition_Array)
     
     For LinesIndex = DataStartRowNumber To UBound(Lines) - 1
         For Transition_Name_And_Qualifier_Transition_Column_Index = LBound(Transition_Name_And_Qualifier_Transition_Column_Indexes) To UBound(Transition_Name_And_Qualifier_Transition_Column_Indexes)
@@ -76,7 +76,7 @@ Public Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() A
             
             If RemoveBlksAndReplicates Then
                 'Check if the Transition name is not empty and duplicate
-                InArray = Utilities.IsInArray(Transition_Name, Transition_Array)
+                InArray = Utilities.Is_In_Array(Transition_Name, Transition_Array)
                 If Len(Transition_Name) <> 0 And Not InArray Then
                     'If we found a qualifier, rename it as it is provided in transitions (###->###)
                     If Not Transition_Name_And_Qualifier_Transition_Column_Index = 0 Then
@@ -185,7 +185,7 @@ Public Function Get_Sample_Name_Array(ByRef RawDataFilesArray() As String, _
         'When the Raw file is from Agilent WideTableForm
         If RawDataFileType = "AgilentWideForm" Then
         
-            Sample_Name_SubArray = Utilities.Load_Columns_From_2Darray(strArray:=Sample_Name_SubArray, _
+            Sample_Name_SubArray = Utilities.Load_Columns_From_2Darray(InputStringArray:=Sample_Name_SubArray, _
                                                                        Lines:=Lines, _
                                                                        HeaderName:="Data File", _
                                                                        HeaderRowNumber:=1, _
@@ -227,7 +227,7 @@ Public Function Get_Sample_Name_Array(ByRef RawDataFilesArray() As String, _
             
             'When the Raw File is from Sciex
         ElseIf RawDataFileType = "Sciex" Then
-            Sample_Name_SubArray = Utilities.Load_Columns_From_2Darray(strArray:=Sample_Name_SubArray, _
+            Sample_Name_SubArray = Utilities.Load_Columns_From_2Darray(InputStringArray:=Sample_Name_SubArray, _
                                                                        Lines:=Lines, _
                                                                        HeaderName:="Sample Name", _
                                                                        HeaderRowNumber:=0, _
@@ -242,7 +242,7 @@ Public Function Get_Sample_Name_Array(ByRef RawDataFilesArray() As String, _
             Sample_Name_Array = Utilities.Concantenate_String_Arrays(Sample_Name_Array, Sample_Name_SubArray)
             SubarrayLength = 0
             
-            For Sample_Name_SubArray_Index = 0 To Utilities.StringArrayLen(Sample_Name_SubArray) - 1
+            For Sample_Name_SubArray_Index = 0 To Utilities.Get_String_Array_Len(Sample_Name_SubArray) - 1
                 ReDim Preserve MS_File_SubArray(SubarrayLength)
                 MS_File_SubArray(Sample_Name_SubArray_Index) = FileName
                 SubarrayLength = SubarrayLength + 1
@@ -335,14 +335,14 @@ Public Function Get_Transition_Array_Raw(ByVal RawDataFiles As String) As String
             first_line = Split(Lines(0), Delimiter)
             
             'We update the array length of Transition_Array
-            ArrayLength = Utilities.StringArrayLen(Transition_Array)
+            ArrayLength = Utilities.Get_String_Array_Len(Transition_Array)
             
             For first_line_index = 1 To UBound(first_line)
                 'Remove the whitespace and results and method'
                 Transition_Name = Trim$(Replace(first_line(first_line_index), "Results", vbNullString))
                 Transition_Name = Trim$(Replace(Transition_Name, "Method", vbNullString))
                 'Check if the Transition name is not empty and duplicate
-                InArray = Utilities.IsInArray(Transition_Name, Transition_Array)
+                InArray = Utilities.Is_In_Array(Transition_Name, Transition_Array)
                 If Transition_Name <> vbNullString And Not InArray Then
                     ReDim Preserve Transition_Array(ArrayLength)
                     Transition_Array(ArrayLength) = Transition_Name
@@ -451,7 +451,7 @@ Public Function Get_Transition_Array_Raw(ByVal RawDataFiles As String) As String
             
             'When the Raw File is from Sciex
         ElseIf RawDataFileType = "Sciex" Then
-            Transition_Array = Utilities.Load_Columns_From_2Darray(strArray:=Transition_Array, _
+            Transition_Array = Utilities.Load_Columns_From_2Darray(InputStringArray:=Transition_Array, _
                                                                    Lines:=Lines, _
                                                                    HeaderName:="Component Name", _
                                                                    HeaderRowNumber:=0, _

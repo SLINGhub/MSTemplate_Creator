@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Clear_Transition_Name_Annot 
    Caption         =   "Clear Transition_Name_Annot"
-   ClientHeight    =   1875
-   ClientLeft      =   75
-   ClientTop       =   285
-   ClientWidth     =   2340
+   ClientHeight    =   2340
+   ClientLeft      =   108
+   ClientTop       =   396
+   ClientWidth     =   2928
    OleObjectBlob   =   "Clear_Transition_Name_Annot.frx":0000
    StartUpPosition =   1  'CenterOwner
 End
