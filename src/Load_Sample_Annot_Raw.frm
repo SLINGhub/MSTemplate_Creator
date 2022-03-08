@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Load_Sample_Annot_Raw 
    Caption         =   "Load_Sample_Annot_Raw"
-   ClientHeight    =   9996.001
-   ClientLeft      =   96
-   ClientTop       =   288
-   ClientWidth     =   16824
+   ClientHeight    =   10005
+   ClientLeft      =   90
+   ClientTop       =   285
+   ClientWidth     =   16830
    OleObjectBlob   =   "Load_Sample_Annot_Raw.frx":0000
    StartUpPosition =   1  'CenterOwner
 End

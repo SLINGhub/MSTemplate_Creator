@@ -36,6 +36,8 @@ Option Explicit
 '' Returns:
 ''    A string array of concentration converted to the provided input units.
 ''
+'' Examples:
+''
 '' --- Code
 ''    ' Get the ISTD_Annot worksheet from the active workbook
 ''    ' The ISTDAnnotSheet is a code name
@@ -169,6 +171,87 @@ End Function
 '' Returns:
 ''    A string array of concentration from the ISTD_Conc_[nM] column.
 ''
+'' Examples:
+''
+'' --- Code
+''    'We don't want excel to monitor the sheet when runnning this code
+''    Application.EnableEvents = False
+''
+''    ' Get the ISTD_Annot worksheet from the active workbook
+''    ' The ISTDAnnotSheet is a code name
+''    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename
+''    Dim ISTD_Annot_Worksheet As Worksheet
+''
+''    If Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "ISTDAnnotSheet") = False Then
+''        MsgBox ("Sheet ISTD_Annot is missing")
+''        Application.EnableEvents = True
+''        Exit Sub
+''    End If
+''
+''    Set ISTD_Annot_Worksheet = Utilities.Get_Sheet_By_Code_Name(ActiveWorkbook, "ISTDAnnotSheet")
+''
+''    ISTD_Annot_Worksheet.Activate
+''
+''    Dim Transition_Name_ISTD(1) As String
+''    Dim ISTD_Conc_ng_per_mL(0) As String
+''    Dim ISTD_Conc_MW(0) As String
+''    Dim ISTD_Conc_nM(1) As String
+''    Dim ISTD_Conc_nM_Results() As String
+''    Dim ISTD_Custom_Unit_ColNumber As Integer
+''    Dim Custom_Unit As String
+''    Dim ISTD_Custom_Unit() As String
+''
+''    Transition_Name_ISTD(0) = "ISTD1"
+''    Transition_Name_ISTD(1) = "ISTD2"
+''    ISTD_Conc_ng_per_mL(0) = "1"
+''    ISTD_Conc_MW(0) = "2"
+''    ISTD_Conc_nM(0) = vbNullString
+''    ISTD_Conc_nM(1) = "100"
+''    ISTD_Custom_Unit_ColNumber = Utilities.Get_Header_Col_Position("Custom_Unit", 2)
+''    Custom_Unit = ISTD_Annot_Worksheet.Cells.Item(3, ISTD_Custom_Unit_ColNumber)
+''
+''    Utilities.Load_To_Excel Data_Array:=Transition_Name_ISTD, _
+''                            HeaderName:="Transition_Name_ISTD", _
+''                            HeaderRowNumber:=2, _
+''                            DataStartRowNumber:=4, _
+''                            MessageBoxRequired:=False
+''
+''    Utilities.Load_To_Excel Data_Array:=ISTD_Conc_ng_per_mL, _
+''                            HeaderName:="ISTD_Conc_[ng/mL]", _
+''                            HeaderRowNumber:=3, _
+''                            DataStartRowNumber:=4, _
+''                            MessageBoxRequired:=False
+''
+''    Utilities.Load_To_Excel Data_Array:=ISTD_Conc_MW, _
+''                            HeaderName:="ISTD_[MW]", _
+''                            HeaderRowNumber:=3, _
+''                            DataStartRowNumber:=4, _
+''                            MessageBoxRequired:=False
+''
+''    Utilities.Load_To_Excel Data_Array:=ISTD_Conc_nM, _
+''                            HeaderName:="ISTD_Conc_[nM]", _
+''                            HeaderRowNumber:=3, _
+''                            DataStartRowNumber:=4, _
+''                            MessageBoxRequired:=False
+''
+''    ISTD_Conc_nM_Results = ISTD_Annot.Get_ISTD_Conc_nM_Array(ColourCellRequired:=True)
+''
+''    Utilities.Load_To_Excel Data_Array:=ISTD_Conc_nM_Results, _
+''                            HeaderName:="ISTD_Conc_[nM]", _
+''                            HeaderRowNumber:=3, _
+''                            DataStartRowNumber:=4, _
+''                            MessageBoxRequired:=False
+''
+''    ISTD_Custom_Unit = ISTD_Annot.Convert_Conc_nM_Array(Custom_Unit)
+''
+''    Utilities.Load_To_Excel Data_Array:=ISTD_Custom_Unit, _
+''                            HeaderName:="Custom_Unit", _
+''                            HeaderRowNumber:=2, _
+''                            DataStartRowNumber:=4, _
+''                            MessageBoxRequired:=False
+''
+''    Application.EnableEvents = True
+'' ---
 Public Function Get_ISTD_Conc_nM_Array(ByVal ColourCellRequired As Boolean) As String()
 
     ' Get the ISTD_Annot worksheet from the active workbook

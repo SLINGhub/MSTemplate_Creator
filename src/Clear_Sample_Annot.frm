@@ -1,9 +1,9 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Clear_Sample_Annot 
    Caption         =   "Clear Sample_Annot"
-   ClientHeight    =   4776
-   ClientLeft      =   108
-   ClientTop       =   396
+   ClientHeight    =   4785
+   ClientLeft      =   105
+   ClientTop       =   390
    ClientWidth     =   3720
    OleObjectBlob   =   "Clear_Sample_Annot.frx":0000
    StartUpPosition =   1  'CenterOwner
