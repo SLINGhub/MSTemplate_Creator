@@ -1,10 +1,10 @@
 VERSION 5.00
 Begin {C62A69F0-16DC-11CE-9E98-00AA00574A4F} Autofill_By_Sample_Type 
    Caption         =   "Autofill_By_Sample_Type"
-   ClientHeight    =   3720
+   ClientHeight    =   3975
    ClientLeft      =   120
    ClientTop       =   405
-   ClientWidth     =   6180
+   ClientWidth     =   7770
    OleObjectBlob   =   "Autofill_By_Sample_Type.frx":0000
    StartUpPosition =   1  'CenterOwner
 End
