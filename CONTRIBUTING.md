@@ -46,7 +46,7 @@ If you need a step by step guide, use the User Documentation file.
 
 If you need to understand the source code organisation and details, the Developer Documentation file will be useful.
 
-We apologise that function documentation is not available at this moment and is still a work in progress. Do help us if you can.
+If you need to understand how each function in the source code works, refer to this [Code Documentation](https://slinghub.github.io/MSTemplate_Creator/) generated using [Natural Docs](https://www.naturaldocs.org/)
 
 I understand that some may prefer to have online documentation. Unfortunately, I do not have the expertise to do that for vba code at this point of time.
 
@@ -72,9 +72,10 @@ Here are the summarised steps to manage the vba source code in excel, the full d
     * https://www.bernardvukas.com/testing/tutorial-excel-vba-unit-testing/
     * https://rubberduckvba.wordpress.com/2017/10/19/how-to-unit-test-vba-code/
     * https://rubberduckvba.wordpress.com/2019/01/05/code-insights-with-rubberduck-excel/
-4. To export the vba source in excel modules and sheets to the src folder, run the function in the Export_VBA module. 
+4. To export the vba source in excel modules and sheets to the [src](https://github.com/SLINGhub/MSTemplate_Creator/tree/main/src) folder, run the function in the Export_VBA module. 
 ![ExportVBA](figures/ExportVBA.JPG)
 Refer to the Developer Documentation file to see a step by step guide on how to enable it. If there are alternative tools, do let us know. It will be helpful 🙏 if a step by step guide is also provided to help us learn and utilise these alternative tools quickly.
+5. Install [Natural Docs](https://www.naturaldocs.org/) to generate the code documentation easily. Refer to the Developer Documentation file to see a step by step guide. 
 
 ### README Documentation
 
