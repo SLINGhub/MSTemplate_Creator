@@ -1,4 +1,4 @@
-# MSTemplate_Creator 1.1.1.9000 (development version)
+# MSTemplate_Creator 1.1.0.9000 (development version)
 
 ## TODO
 
