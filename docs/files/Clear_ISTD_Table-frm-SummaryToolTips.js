@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Clear_ISTD_Table.frm",{});
+﻿NDSummary.OnToolTipsLoaded("File:Clear_ISTD_Table.frm",{238:"<div class=\"NDToolTip TFunction LVisualBasic\"><div id=\"NDPrototype238\" class=\"NDPrototype\"><div class=\"PSection PPlainSection\">Private Sub ISTD_Table_Clear_Click()</div></div></div>"});

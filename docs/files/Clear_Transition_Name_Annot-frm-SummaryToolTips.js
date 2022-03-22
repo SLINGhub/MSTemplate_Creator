@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Clear_Transition_Name_Annot.frm",{});
+﻿NDSummary.OnToolTipsLoaded("File:Clear_Transition_Name_Annot.frm",{234:"<div class=\"NDToolTip TFunction LVisualBasic\"><div id=\"NDPrototype234\" class=\"NDPrototype\"><div class=\"PSection PPlainSection\">Private Sub Transition_Name_Annot_Clear_Click()</div></div></div>"});

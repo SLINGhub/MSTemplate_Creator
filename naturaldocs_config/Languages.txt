@@ -1,4 +1,4 @@
-﻿Format: 2.1.1
+﻿Format: 2.2
 
 # This is the Natural Docs languages file for this project.  If you change
 # anything here, it will apply to THIS PROJECT ONLY.  You can edit the version
@@ -9,15 +9,17 @@
 # Ignored Extensions
 # ------------------------------------------------------------------------
 
-Ignore Extensions: .frx .cls
+# If you'd like to prevent certain file extensions from being scanned by
+# Natural Docs, you can do it like this:
+#
+# Ignore Extensions: [extension] [extension] ...
 
 
 # Languages
 # ------------------------------------------------------------------------
+# The syntax reference is after the definitions.
 
 Language: Excel VBA
-
-   Extensions: bas frm
 
    Line Comment: ''
    Line Extender: _
@@ -60,8 +62,8 @@ Language: Excel VBA
 #
 # Aliases: [alias] [alias] ...
 # [Add/Replace] Aliases: [alias] [alias] ...
-#    Defines alternate names for the language that can be used to start a code
-#    block.
+#    Defines alternative names for the language that can be used to start a
+#    code block.
 #
 #
 # Properties for Basic Language Support Only

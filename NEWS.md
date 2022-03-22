@@ -3,8 +3,12 @@
 ## TODO
 
 * Check if relative sample amount definition is clear enough.
+* Decide on the most suited open source licence.
+
+## Done
+* Try out the code inspection feature in [RubberDuck](http://rubberduckvba.com/).
 * Add documentation for the Visual Basic functions in the excel sheet.
-* Try out the code inspection feature in Rubberduck.
+* Give instructions on how to use Natural Docs in Developers documentation and readme guide
 
 # MSTemplate_Creator 1.1.0
 

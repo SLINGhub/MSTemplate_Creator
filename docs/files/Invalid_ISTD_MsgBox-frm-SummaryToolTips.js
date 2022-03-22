@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Invalid_ISTD_MsgBox.frm",{});
+﻿NDSummary.OnToolTipsLoaded("File:Invalid_ISTD_MsgBox.frm",{211:"<div class=\"NDToolTip TFunction LVisualBasic\"><div id=\"NDPrototype211\" class=\"NDPrototype\"><div class=\"PSection PPlainSection\">Private Sub Invalid_ISTD_Ok_Button_Click()</div></div></div>"});

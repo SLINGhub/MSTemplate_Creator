@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Dilution_Annot_Buttons.bas",{});
+﻿NDSummary.OnToolTipsLoaded("File:Dilution_Annot_Buttons.bas",{216:"<div class=\"NDToolTip TFunction LVisualBasic\"><div id=\"NDPrototype216\" class=\"NDPrototype\"><div class=\"PSection PPlainSection\">Public Sub Clear_Dilution_Annot_Click()</div></div></div>"});

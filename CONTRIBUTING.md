@@ -72,7 +72,9 @@ Here are the summarised steps to manage the vba source code in excel, the full d
     * https://www.bernardvukas.com/testing/tutorial-excel-vba-unit-testing/
     * https://rubberduckvba.wordpress.com/2017/10/19/how-to-unit-test-vba-code/
     * https://rubberduckvba.wordpress.com/2019/01/05/code-insights-with-rubberduck-excel/
-4. To import/export the vba source in excel modules and sheets to the src folder, [Excel VBA Developer Tools](http://vbatools.sourceforge.net/) is used. Refer to the Developer Documentation file to see a step by step guide on how to enable it. We admit that this tool is not easy to install. If there are alternative tools, do let us know. It will be helpful 🙏 if a step by step guide is also provided to help us learn and utilise these alternative tools quickly.
+4. To export the vba source in excel modules and sheets to the src folder, run the function in the Export_VBA module. 
+![ExportVBA](figures/ExportVBA.JPG)
+Refer to the Developer Documentation file to see a step by step guide on how to enable it. If there are alternative tools, do let us know. It will be helpful 🙏 if a step by step guide is also provided to help us learn and utilise these alternative tools quickly.
 
 ### README Documentation
 

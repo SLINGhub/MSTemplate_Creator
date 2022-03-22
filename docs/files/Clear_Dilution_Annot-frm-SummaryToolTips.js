@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Clear_Dilution_Annot.frm",{});
+﻿NDSummary.OnToolTipsLoaded("File:Clear_Dilution_Annot.frm",{240:"<div class=\"NDToolTip TFunction LVisualBasic\"><div id=\"NDPrototype240\" class=\"NDPrototype\"><div class=\"PSection PPlainSection\">Private Sub Dilution_Annot_Clear_Click()</div></div></div>"});

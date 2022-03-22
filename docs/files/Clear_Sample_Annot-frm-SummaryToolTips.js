@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Clear_Sample_Annot.frm",{});
+﻿NDSummary.OnToolTipsLoaded("File:Clear_Sample_Annot.frm",{236:"<div class=\"NDToolTip TFunction LVisualBasic\"><div id=\"NDPrototype236\" class=\"NDPrototype\"><div class=\"PSection PPlainSection\">Private Sub Sample_Annot_Clear_Click()</div></div></div>"});

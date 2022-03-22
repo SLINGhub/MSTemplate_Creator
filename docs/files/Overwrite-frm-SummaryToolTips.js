@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Overwrite.frm",{});
+﻿NDSummary.OnToolTipsLoaded("File:Overwrite.frm",{146:"<div class=\"NDToolTip TFunction LVisualBasic\"><div id=\"NDPrototype146\" class=\"NDPrototype\"><div class=\"PSection PPlainSection\">Private Sub Cancel_Button_Click()</div></div></div>",147:"<div class=\"NDToolTip TFunction LVisualBasic\"><div id=\"NDPrototype147\" class=\"NDPrototype\"><div class=\"PSection PPlainSection\">Private Sub Overwrite_Button_Click()</div></div></div>"});
