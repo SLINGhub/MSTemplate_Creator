@@ -1,1 +1,0 @@
-﻿NDSearch.OnPrefixDataLoaded("isn",["Function"],[["isNIST",,[[,,,,0,"File:Sample_Type_Identifier.bas:isNIST"]]],["isNIST_Test",,[[,,,,0,"File:Sample_Type_Identifier_Test.bas:isNIST_Test"]]],["isNISTBK",,[[,,,,0,"File:Sample_Type_Identifier.bas:isNISTBK"]]],["isNISTBK_Test",,[[,,,,0,"File:Sample_Type_Identifier_Test.bas:isNISTBK_Test"]]]]);

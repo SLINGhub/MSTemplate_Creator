@@ -32,10 +32,9 @@ End Sub
 '    'this method runs after every test in the module.
 'End Sub
 
+'@TestMethod("Get Transition_Annot From Tidy Data")
+
 '' Function: Get_Transition_Array_Tidy_Data_Row_Test
-'' --- Code
-''  Public Sub Get_Transition_Array_Tidy_Data_Row_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -48,7 +47,6 @@ End Sub
 ''
 '' Function will assert if Transition_Array has 7 elements
 ''
-'@TestMethod("Get Transition_Annot From Tidy Data")
 Public Sub Get_Transition_Array_Tidy_Data_Row_Test()
     On Error GoTo TestFail
     Dim TestFolder As String
@@ -82,10 +80,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Transition_Annot From Tidy Data")
+
 '' Function: Get_Transition_Array_Tidy_Data_Column_Test
-'' --- Code
-''  Public Sub Get_Transition_Array_Tidy_Data_Column_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -98,7 +95,6 @@ End Sub
 ''
 '' Function will assert if Transition_Array has 8 elements
 ''
-'@TestMethod("Get Transition_Annot From Tidy Data")
 Public Sub Get_Transition_Array_Tidy_Data_Column_Test()
     On Error GoTo TestFail
     Dim TestFolder As String
@@ -133,10 +129,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Sample_Annot From Tidy Data")
+
 '' Function: Get_Sample_Array_Tidy_Data_Row_Test
-'' --- Code
-''  Public Sub Get_Sample_Array_Tidy_Data_Row_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -150,7 +145,6 @@ End Sub
 '' Function will assert if Sample_Name_Array_from_Tidy_Data has 7 elements
 '' Function will assert if MS_File_Array has 7 elements
 ''
-'@TestMethod("Get Sample_Annot From Tidy Data")
 Public Sub Get_Sample_Array_Tidy_Data_Row_Test()
     On Error GoTo TestFail
     Dim TestFolder As String
@@ -193,10 +187,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Sample_Annot From Tidy Data")
+
 '' Function: Get_Sample_Array_Tidy_Data_Column_Test(
-'' --- Code
-''  Public Sub Get_Sample_Array_Tidy_Data_Column_Test(()
-'' ---
 ''
 '' Description:
 ''
@@ -210,7 +203,6 @@ End Sub
 '' Function will assert if Sample_Name_Array_from_Tidy_Data has 7 elements
 '' Function will assert if MS_File_Array has 7 elements
 ''
-'@TestMethod("Get Sample_Annot From Tidy Data")
 Public Sub Get_Sample_Array_Tidy_Data_Column_Test()
     On Error GoTo TestFail
     Dim TestFolder As String

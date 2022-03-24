@@ -12,9 +12,6 @@ Option Explicit
 '@Folder("Sheets")
 
 '' Function: AutofillBySampleType_Click
-'' --- Code
-''  Private Sub AutofillBySampleType_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -32,9 +29,6 @@ Private Sub AutofillBySampleType_Click()
 End Sub
 
 '' Function: LoadSampleAnnotationRaw_Click
-'' --- Code
-''  Private Sub LoadSampleAnnotationRaw_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -52,9 +46,6 @@ Private Sub LoadSampleAnnotationRaw_Click()
 End Sub
 
 '' Function: LoadSampleAnnotationTidy_Click
-'' --- Code
-''  Private Sub LoadSampleAnnotationTidy_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -72,9 +63,6 @@ Private Sub LoadSampleAnnotationTidy_Click()
 End Sub
 
 '' Function: AutofillSampleType_Click
-'' --- Code
-''  Private Sub AutofillSampleType_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -92,9 +80,6 @@ Private Sub AutofillSampleType_Click()
 End Sub
 
 '' Function: AutofillConcentrationUnit_Click
-'' --- Code
-''  Private Sub AutofillConcentrationUnit_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -112,9 +97,6 @@ Private Sub AutofillConcentrationUnit_Click()
 End Sub
 
 '' Function: ClearSampleTable_Click
-'' --- Code
-''  Private Sub ClearSampleTable_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -132,9 +114,6 @@ Private Sub ClearSampleTable_Click()
 End Sub
 
 '' Function: LoadSampleNameToDilution_Click
-'' --- Code
-''  Private Sub LoadSampleNameToDilution_Click()
-'' ---
 ''
 '' Description:
 ''

@@ -12,9 +12,6 @@ Option Explicit
 '@Folder("Dilution Annot Functions")
 
 '' Function: ClearDilutionAnnot_Click
-'' --- Code
-''  Private Sub ClearDilutionAnnot_Click()
-'' ---
 ''
 '' Description:
 ''

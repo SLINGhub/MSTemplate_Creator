@@ -32,10 +32,9 @@ End Sub
 '    'this method runs after every test in the module.
 'End Sub
 
+'@TestMethod("Sheet Name Integrity Test")
+
 '' Function: Check_Sheet_Code_Name_Exists_Test
-'' --- Code
-''  Public Sub Check_Sheet_Code_Name_Exists_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -43,7 +42,6 @@ End Sub
 '' Utilities.Check_Sheet_Code_Name_Exists is working
 ''
 '' Function will assert if the sheet code name exists
-'@TestMethod("Sheet Name Integrity Test")
 Public Sub Check_Sheet_Code_Name_Exists_Test()
     On Error GoTo TestFail
     
@@ -57,10 +55,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Sheet Name Integrity Test")
+
 '' Function: Get_Sheet_By_Code_Name_Test
-'' --- Code
-''  Public Sub Get_Sheet_By_Code_Name_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -69,7 +66,6 @@ End Sub
 ''
 '' Function will assert if the sheet name is correct given
 '' a provided code name.
-'@TestMethod("Sheet Name Integrity Test")
 Public Sub Get_Sheet_By_Code_Name_Test()
     On Error GoTo TestFail
     
@@ -85,10 +81,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Annotation Properties")
+
 '' Function: Get_Header_Col_Position_Test
-'' --- Code
-''  Public Sub Get_Header_Col_Position_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -98,7 +93,6 @@ End Sub
 '' Function will assert if the correct header/column position
 '' is provided when user input a header/column name from the
 '' sheet.
-'@TestMethod("Annotation Properties")
 Public Sub Get_Header_Col_Position_Test()
     On Error GoTo TestFail
     
@@ -168,10 +162,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Annotation Properties")
+
 '' Function: Last_Used_Row_Number_Test
-'' --- Code
-''  Public Sub Last_Used_Row_Number_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -180,7 +173,6 @@ End Sub
 ''
 '' Function will assert if the number of used rows
 '' is correct in the Lists sheet.
-'@TestMethod("Annotation Properties")
 Public Sub Last_Used_Row_Number_Test()
     On Error GoTo TestFail
     
@@ -209,10 +201,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Letter Conversion")
+
 '' Function: Convert_To_Letter_Test
-'' --- Code
-''  Public Sub Convert_To_Letter_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -221,8 +212,7 @@ End Sub
 ''
 '' Function will assert if the correct alphabet is converted
 '' when it receives an integer.
-'@TestMethod("Letter Conversion")
-Public Sub Convert_To_Letter_Test()                 'TODO Rename test
+Public Sub Convert_To_Letter_Test()
     On Error GoTo TestFail
     
     Assert.AreEqual Utilities.Convert_To_Letter(1), "A"
@@ -286,10 +276,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("String Array Test")
+
 '' Function: Get_String_Array_Len_Test
-'' --- Code
-''  Public Sub Get_String_Array_Len_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -298,7 +287,6 @@ End Sub
 ''
 '' Function will assert if the total number of elements
 '' in the input string array is correct.
-'@TestMethod("String Array Test")
 Public Sub Get_String_Array_Len_Test()
     On Error GoTo TestFail
     
@@ -320,10 +308,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("String Array Test")
+
 '' Function: Where_In_Array_Test
-'' --- Code
-''  Public Sub Where_In_Array_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -333,7 +320,6 @@ End Sub
 '' Function will assert if the correct array position
 '' is provided given the input array and an element to
 '' search in the array.
-'@TestMethod("String Array Test")
 Public Sub Where_In_Array_Test()
     On Error GoTo TestFail
     
@@ -366,10 +352,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("String Array Test")
+
 '' Function: Is_In_Array_Test
-'' --- Code
-''  Public Sub Is_In_Array_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -379,7 +364,6 @@ End Sub
 '' Function will assert if the function correctly
 '' identified if an input string is in a given
 '' string array.
-'@TestMethod("String Array Test")
 Public Sub Is_In_Array_Test()
     On Error GoTo TestFail
     
@@ -397,10 +381,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("String Array Test")
+
 '' Function: Clear_DotD_In_Agilent_Data_File_Test
-'' --- Code
-''  Public Sub Clear_DotD_In_Agilent_Data_File_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -409,7 +392,6 @@ End Sub
 ''
 '' Function will assert if the function removes
 '' the ".d" at the end of an input string.
-'@TestMethod("String Array Test")
 Public Sub Clear_DotD_In_Agilent_Data_File_Test()
     On Error GoTo TestFail
     
@@ -431,10 +413,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Sorting Test")
+
 '' Function: Quick_Sort_Test
-'' --- Code
-''  Public Sub Quick_Sort_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -443,7 +424,6 @@ End Sub
 ''
 '' Function will assert if an input string array
 '' is sorted in alphabetical order correctly.
-'@TestMethod("Sorting Test")
 Public Sub Quick_Sort_Test()
     On Error GoTo TestFail
     
@@ -462,10 +442,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Array From One Excel Column")
+
 '' Function: Load_Columns_From_Excel_NoFilter_Test
-'' --- Code
-''  Public Sub Load_Columns_From_Excel_NoFilter_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -474,7 +453,6 @@ End Sub
 ''
 '' Function will assert if the Concentration_Unit in
 '' the Lists Sheet is loaded correctly.
-'@TestMethod("Get Array From One Excel Column")
 Public Sub Load_Columns_From_Excel_NoFilter_Test()
     On Error GoTo TestFail
     
@@ -514,10 +492,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Array From One Excel Column")
+
 '' Function: Load_Columns_From_Excel_Filter_Test
-'' --- Code
-''  Public Sub Load_Columns_From_Excel_Filter_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -527,7 +504,6 @@ End Sub
 '' Function will assert if the filtered Sample_Type
 '' (only load those that contains "QC") in
 '' the Lists Sheet is loaded correctly.
-'@TestMethod("Get Array From One Excel Column")
 Public Sub Load_Columns_From_Excel_Filter_Test()
     On Error GoTo TestFail
     
@@ -580,10 +556,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Read Files")
+
 '' Function: Read_File_Test
-'' --- Code
-''  Public Sub Read_File_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -592,7 +567,6 @@ End Sub
 ''
 '' Function will assert if it reads the file
 '' Sample_Annotation_Example.csv correctly.
-'@TestMethod("Read Files")
 Public Sub Read_File_Test()
     On Error GoTo TestFail
     
@@ -615,10 +589,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Read Files")
+
 '' Function: Get_Delimiter_Test
-'' --- Code
-''  Public Sub Get_Delimiter_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -628,7 +601,6 @@ End Sub
 '' Function will assert if it correctly
 '' get the delimiter from the file
 '' Sample_Annotation_Example.csv.
-'@TestMethod("Read Files")
 Public Sub Get_Delimiter_Test()
     On Error GoTo TestFail
 
@@ -651,10 +623,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Read Files")
+
 '' Function: Get_File_Base_Name_Test
-'' --- Code
-''  Public Sub Get_File_Base_Name_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -664,7 +635,6 @@ End Sub
 '' Function will assert if it correctly
 '' get the file base name from a given
 '' test file path.
-'@TestMethod("Read Files")
 Public Sub Get_File_Base_Name_Test()
     On Error GoTo TestFail
     
@@ -686,10 +656,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Read Files")
+
 '' Function: Get_Raw_Data_File_Type_Test
-'' --- Code
-''  Public Sub Get_Raw_Data_File_Type_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -700,7 +669,6 @@ End Sub
 '' file type is returned for an Agilent Wide Table
 '' Form file, Agilent Compound Table file and
 '' Sciex text file.
-'@TestMethod("Read Files")
 Public Sub Get_Raw_Data_File_Type_Test()
     
     Dim Lines() As String
@@ -744,10 +712,9 @@ Public Sub Get_Raw_Data_File_Type_Test()
 
 End Sub
 
+'@TestMethod("Load Data From 2Darray")
+
 '' Function: Get_Header_Col_Position_From_2Darray_Test
-'' --- Code
-''  Public Sub Get_Header_Col_Position_From_2Darray_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -756,7 +723,6 @@ End Sub
 ''
 '' Function will assert if the correct column position
 '' is provided.
-'@TestMethod("Load Data From 2Darray")
 Public Sub Get_Header_Col_Position_From_2Darray_Test()
     On Error GoTo TestFail
     
@@ -798,10 +764,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Load Data From 2Darray")
+
 '' Function: Get_RowName_Position_From_2Darray_Test
-'' --- Code
-''  Public Sub Get_RowName_Position_From_2Darray_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -810,7 +775,6 @@ End Sub
 ''
 '' Function will assert if the correct row position
 '' is provided.
-'@TestMethod("Load Data From 2Darray")
 Public Sub Get_RowName_Position_From_2Darray_Test()
     On Error GoTo TestFail
     
@@ -851,10 +815,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Load Data From 2Darray")
+
 '' Function: Load_Rows_From_2Darray_Test
-'' --- Code
-''  Public Sub Load_Rows_From_2Darray_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -863,7 +826,6 @@ End Sub
 ''
 '' Function will assert if a row from an input data in tabular
 '' form is read correctly into a string array.
-'@TestMethod("Load Data From 2Darray")
 Public Sub Load_Rows_From_2Darray_Test()
     On Error GoTo TestFail
 
@@ -911,10 +873,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Load Data From 2Darray")
+
 '' Function: Load_Columns_From_2Darray_Test
-'' --- Code
-''  Public Sub Load_Columns_From_2Darray_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -923,7 +884,6 @@ End Sub
 ''
 '' Function will assert if a column from an input data in tabular
 '' form is read correctly into a string array.
-'@TestMethod("Load Data From 2Darray")
 Public Sub Load_Columns_From_2Darray_Test()
     On Error GoTo TestFail
 
@@ -970,10 +930,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Load and Clear Data in Excel")
+
 '' Function: Load_To_Excel_And_Clear_Columns_Test
-'' --- Code
-''  Public Sub Load_To_Excel_And_Clear_Columns_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -984,7 +943,6 @@ End Sub
 '' Function will assert if a given string array is
 '' loaded unto the excel sheet correctly. Once loaded,
 '' it will check if the given array can be cleared.
-'@TestMethod("Load and Clear Data in Excel")
 Public Sub Load_To_Excel_And_Clear_Columns_Test()
     On Error GoTo TestFail
     

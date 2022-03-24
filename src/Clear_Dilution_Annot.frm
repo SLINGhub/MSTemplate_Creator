@@ -17,9 +17,6 @@ Option Explicit
 '@Folder("Dilution_Annot_Buttons")
 
 '' Function: Dilution_Annot_Clear_Click
-'' --- Code
-''  Private Sub Dilution_Annot_Clear_Click()
-'' ---
 ''
 '' Description:
 ''

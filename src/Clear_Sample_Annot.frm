@@ -17,9 +17,6 @@ Option Explicit
 '@Folder("Sample_Annot_Buttons")
 
 '' Function: Sample_Annot_Clear_Click
-'' --- Code
-''  Private Sub Sample_Annot_Clear_Click()
-'' ---
 ''
 '' Description:
 ''

@@ -3,10 +3,6 @@ Option Explicit
 '@Folder("Utilities Functions")
 
 '' Function: Concantenate_String_Arrays
-'' --- Code
-''  Public Function Concantenate_String_Arrays(ByRef TopArray() As String, _
-''                                             ByRef BottomArray() As String) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -59,12 +55,6 @@ Public Function Concantenate_String_Arrays(ByRef TopArray() As String, _
 End Function
 
 '' Function: Get_RowName_Position_From_2Darray
-'' --- Code
-''  Public Function Get_RowName_Position_From_2Darray(ByRef Lines() As String, _
-''                                                    ByVal RowName As String, _
-''                                                    ByVal RowNameNumber As Variant, _
-''                                                    ByVal Delimiter As String) As Variant
-'' ---
 ''
 '' Description:
 ''
@@ -156,16 +146,6 @@ Public Function Get_RowName_Position_From_2Darray(ByRef Lines() As String, _
 End Function
 
 '' Function: Load_Rows_From_2Darray
-'' --- Code
-''  Public Function Load_Rows_From_2Darray(ByRef InputStringArray() As String, _
-''                                         ByRef Lines() As String, _
-''                                         ByVal DataStartColumnNumber As Long, _
-''                                         ByVal Delimiter As String, _
-''                                         ByVal RemoveBlksAndReplicates As Boolean, _
-''                                         Optional ByVal RowName As String, _
-''                                         Optional ByVal RowNameNumber As Variant, _
-''                                         Optional ByVal DataStartRowNumber As Variant) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -294,12 +274,6 @@ Public Function Load_Rows_From_2Darray(ByRef InputStringArray() As String, _
 End Function
 
 '' Function: Get_Header_Col_Position_From_2Darray
-'' --- Code
-''  Public Function Get_Header_Col_Position_From_2Darray(ByRef Lines() As String, _
-''                                                       ByVal HeaderName As String, _
-''                                                       ByVal HeaderRowNumber As Variant, _
-''                                                       ByVal Delimiter As String) As Variant
-'' ---
 ''
 '' Description:
 ''
@@ -392,16 +366,6 @@ Public Function Get_Header_Col_Position_From_2Darray(ByRef Lines() As String, _
 End Function
 
 '' Function: Load_Columns_From_2Darray
-'' --- Code
-''  Public Function Load_Columns_From_2Darray(ByRef InputStringArray() As String, _
-''                                            ByRef Lines() As String, _
-''                                            ByVal DataStartRowNumber As Long, _
-''                                            ByVal Delimiter As String, _
-''                                            ByVal RemoveBlksAndReplicates As Boolean, _
-''                                            Optional ByVal HeaderName As String, _
-''                                            Optional ByVal HeaderRowNumber As Variant, _
-''                                            Optional ByVal DataStartColumnNumber As Variant) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -525,9 +489,6 @@ Public Function Load_Columns_From_2Darray(ByRef InputStringArray() As String, _
 End Function
 
 '' Function: Read_File
-'' --- Code
-''  Public Function Read_File(ByVal xFileName As Variant) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -580,9 +541,6 @@ Public Function Read_File(ByVal xFileName As Variant) As String()
 End Function
 
 '' Function: Get_Delimiter
-'' --- Code
-''  Public Function Get_Delimiter(ByRef xFileName As Variant) As String
-'' ---
 ''
 '' Description:
 ''
@@ -630,9 +588,6 @@ Public Function Get_Delimiter(ByVal xFileName As Variant) As String
 End Function
 
 '' Function: Get_File_Base_Name
-'' --- Code
-''  Public Function Get_File_Base_Name(ByVal xFileName As Variant) As String
-'' ---
 ''
 '' Description:
 ''
@@ -666,11 +621,6 @@ Public Function Get_File_Base_Name(ByVal xFileName As Variant) As String
 End Function
 
 '' Function: Get_Raw_Data_File_Type
-'' --- Code
-''  Public Function Get_Raw_Data_File_Type(ByRef Lines() As String, _
-''                                         ByVal Delimiter As String, _
-''                                         ByVal xFileName As String) As String
-'' ---
 ''
 '' Description:
 ''
@@ -766,9 +716,6 @@ Public Function Get_Raw_Data_File_Type(ByRef Lines() As String, _
 End Function
 
 '' Function: Remove_Filter_Settings
-'' --- Code
-''  Public Sub Remove_Filter_Settings()
-'' ---
 ''
 '' Description:
 ''
@@ -848,9 +795,6 @@ Public Function Get_Header_Col_Position(ByVal HeaderName As String, _
 End Function
 
 '' Function: Last_Used_Row_Number
-'' --- Code
-''  Public Function Last_Used_Row_Number() As Long
-'' ---
 ''
 '' Description:
 ''
@@ -901,9 +845,6 @@ Public Function Last_Used_Row_Number() As Long
 End Function
 
 '' Function: Convert_To_Letter
-'' --- Code
-''  Public Function Convert_To_Letter(ByVal Column_Index As Long) As String
-'' ---
 ''
 '' Description:
 ''
@@ -947,9 +888,6 @@ Public Function Convert_To_Letter(ByVal Column_Index As Long) As String
 End Function
 
 '' Function: Get_String_Array_Len
-'' --- Code
-''  Public Function Get_String_Array_Len(ByRef Some_Array As Variant) As Long
-'' ---
 ''
 '' Description:
 ''
@@ -989,10 +927,6 @@ Public Function Get_String_Array_Len(ByRef Some_Array As Variant) As Long
 End Function
 
 '' Function: Where_In_Array
-'' --- Code
-''  Public Function Where_In_Array(ByVal valToBeFound As Variant, _
-''                                 ByVal arr As Variant) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -1049,10 +983,6 @@ IsInArrayError:
 End Function
 
 '' Function: Is_In_Array
-'' --- Code
-''  Public Function Is_In_Array(ByVal valToBeFound As Variant, _
-''                              ByVal arr As Variant) As Boolean
-'' ---
 ''
 '' Description:
 ''
@@ -1102,9 +1032,6 @@ IsInArrayError:
 End Function
 
 '' Function: Quick_Sort
-'' --- Code
-''  Public Sub Quick_Sort(ByRef ThisArray As Variant)
-'' ---
 ''
 '' Description:
 ''
@@ -1199,11 +1126,6 @@ Private Sub Quick_Sort_Recursive(ByRef ThisArray As Variant, _
 End Sub
 
 '' Function: Overwrite_Several_Headers
-'' --- Code
-''  Public Sub Overwrite_Several_Headers(ByRef HeaderNameArray() As String, _
-''                                       ByVal HeaderRowNumber As Long, _
-''                                       ByVal DataStartRowNumber As Long)
-'' ---
 ''
 '' Description:
 ''
@@ -1258,14 +1180,6 @@ Public Sub Overwrite_Several_Headers(ByRef HeaderNameArray() As String, _
 End Sub
 
 '' Function: Overwrite_Header
-'' --- Code
-''  Public Sub Overwrite_Header(ByVal HeaderName As String, _
-''                              ByVal HeaderRowNumber As Long, _
-''                              ByVal DataStartRowNumber As Long, _
-''                              Optional ByVal WorksheetName As String = vbNullString, _
-''                              Optional ByVal ClearContent As Boolean = True, _
-''                              Optional ByVal Testing As Boolean = False)
-'' ---
 ''
 '' Description:
 ''
@@ -1354,15 +1268,6 @@ Public Sub Overwrite_Header(ByVal HeaderName As String, _
 End Sub
 
 '' Function: Load_To_Excel
-'' --- Code
-''  Public Sub Load_To_Excel(ByRef Data_Array() As String, _
-''                           ByVal HeaderName As String, _
-''                           ByVal HeaderRowNumber As Long, _
-''                           ByVal DataStartRowNumber As Long, _
-''                           ByVal MessageBoxRequired As Boolean, _
-''                           Optional ByVal WorksheetName As String = vbNullString, _
-''                           Optional ByVal NumberFormat As String = "General")
-'' ---
 ''
 '' Description:
 ''
@@ -1450,12 +1355,6 @@ Public Sub Load_To_Excel(ByRef Data_Array() As String, _
 End Sub
 
 '' Function: Clear_Columns
-'' --- Code
-''  Public Sub Clear_Columns(ByVal HeaderToClear As String, _
-''                           ByVal HeaderRowNumber As Long, _
-''                           ByVal DataStartRowNumber As Long, _
-''                           Optional ByVal ClearFormat As Boolean = False)
-'' ---
 ''
 '' Description:
 ''
@@ -1531,9 +1430,6 @@ Public Sub Clear_Columns(ByVal HeaderToClear As String, _
 End Sub
 
 '' Function: Clear_DotD_In_Agilent_Data_File
-'' --- Code
-''  Public Function Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As String) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -1571,16 +1467,6 @@ Public Function Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As Strin
 End Function
 
 '' Function: Load_Columns_From_Excel
-'' --- Code
-''  Public Function Load_Columns_From_Excel(ByVal HeaderName As String, _
-''                                          ByVal HeaderRowNumber As Long, _
-''                                          ByVal DataStartRowNumber As Long, _
-''                                          ByVal MessageBoxRequired As Boolean, _
-''                                          ByVal RemoveBlksAndReplicates As Boolean, _
-''                                          Optional ByVal WorksheetName As String = vbNullString, _
-''                                          Optional ByVal IgnoreHiddenRows As Boolean = True, _
-''                                          Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -1719,10 +1605,6 @@ Public Function Load_Columns_From_Excel(ByVal HeaderName As String, _
 End Function
 
 '' Function: Check_Sheet_Code_Name_Exists
-'' --- Code
-''  Public Function Check_Sheet_Code_Name_Exists(ByVal InputWorkbook As Workbook, _
-''                                               ByVal InputCodeName As String) As Boolean
-'' ---
 ''
 '' Description:
 ''
@@ -1762,10 +1644,6 @@ Public Function Check_Sheet_Code_Name_Exists(ByVal InputWorkbook As Workbook, _
 End Function
 
 '' Function: Get_Sheet_By_Code_Name
-'' --- Code
-''  Public Function Check_Sheet_Code_Name_Exists(ByVal InputWorkbook As Workbook, _
-''                                               ByVal InputCodeName As String) As Boolean
-'' ---
 ''
 '' Description:
 ''
@@ -1805,9 +1683,6 @@ Public Function Get_Sheet_By_Code_Name(ByVal InputWorkbook As Workbook, _
 End Function
 
 '' Function: Get_Folder
-'' --- Code
-''  Public Function Get_Folder() As String
-'' ---
 ''
 '' Description:
 ''

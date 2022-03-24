@@ -33,10 +33,9 @@ End Sub
 '    'this method runs after every test in the module.
 'End Sub
 
+'@TestMethod("Autofill Columns By QC Sample Type")
+
 '' Function: Autofill_Column_By_QC_Sample_Type_Test
-'' --- Code
-''  Public Sub Autofill_Column_By_QC_Sample_Type_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -61,7 +60,6 @@ End Sub
 '' Check if the ISTD_Mixture_Volume_uL_Array is
 '' {"190", "190", "190", "190", "190"}
 ''
-'@TestMethod("Autofill Columns By QC Sample Type")
 Public Sub Autofill_Column_By_QC_Sample_Type_Test()
     On Error GoTo TestFail
     
@@ -147,10 +145,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Sample Annot Information")
+
 '' Function: Get_Sample_Name_Array_From_Annot_File_Test
-'' --- Code
-''  Public Sub Get_Sample_Name_Array_From_Annot_File_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -170,7 +167,6 @@ End Sub
 ''
 '' The first three elements are "1_untreated", "1_untreated" and "1_3h"
 ''
-'@TestMethod("Get Sample Annot Information")
 Public Sub Get_Sample_Name_Array_From_Annot_File_Test()
     On Error GoTo TestFail
     
@@ -210,10 +206,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Sample Annot Information")
+
 '' Function: Get_Sample_Column_Name_Position_From_Annot_File_Test
-'' --- Code
-''  Public Sub Get_Sample_Column_Name_Position_From_Annot_File_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -230,7 +225,6 @@ End Sub
 '' Sample_Annot.Get_Sample_Column_Name_Position_From_Annot_File(first_line)
 '' should return 0 as "Sample" is is the first element of first_line
 ''
-'@TestMethod("Get Sample Annot Information")
 Public Sub Get_Sample_Column_Name_Position_From_Annot_File_Test()
     On Error GoTo TestFail
     
@@ -265,10 +259,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Sample Annot Information")
+
 '' Function: Get_Sample_Annot_Starting_Line_From_Annot_File_Test
-'' --- Code
-''  Public Sub Get_Sample_Annot_Starting_Line_From_Annot_File_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -283,7 +276,6 @@ End Sub
 '' Sample_Annot.Get_Sample_Annot_Starting_Line_From_Annot_File
 '' should return 1
 ''
-'@TestMethod("Get Sample Annot Information")
 Public Sub Get_Sample_Annot_Starting_Line_From_Annot_File_Test()
     On Error GoTo TestFail
     
@@ -313,10 +305,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Load Sample Annot Information")
+
 '' Function: Load_Sample_Info_To_Excel_Test
-'' --- Code
-''  Public Sub Load_Sample_Info_To_Excel_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -343,7 +334,6 @@ End Sub
 '' Function will assert if the ISTD_Mixture_Volume_[uL] column array is
 '' {"1", "2", "4", "", "5"}.
 ''
-'@TestMethod("Load Sample Annot Information")
 Public Sub Load_Sample_Info_To_Excel_Test()
     On Error GoTo TestFail
 

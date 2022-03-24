@@ -6,9 +6,6 @@ Option Explicit
 '' Group: Colour Tracker
 ''
 '' Function: ISTD_Calculation_Checker
-'' --- Code
-''  Public Sub ISTD_Calculation_Checker(ByVal Target As Range)
-'' ---
 ''
 '' Description:
 ''
@@ -183,9 +180,6 @@ End Sub
 
 
 '' Function: Transition_Name_Annot_Checker
-'' --- Code
-''  Public Sub Transition_Name_Annot_Checker(ByVal Target As Range)
-'' ---
 ''
 '' Description:
 ''

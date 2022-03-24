@@ -4,9 +4,6 @@ Option Explicit
 '@IgnoreModule IntegerDataType
 
 '' Function: Clear_ISTD_Table_Click
-'' --- Code
-''  Public Sub Clear_ISTD_Table_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -27,9 +24,6 @@ Public Sub Clear_ISTD_Table_Click()
 End Sub
 
 '' Function: Convert_To_Nanomolar_Click
-'' --- Code
-''  Public Sub Convert_To_Nanomolar_Click()
-'' ---
 ''
 '' Description:
 ''

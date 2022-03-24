@@ -3,15 +3,6 @@ Option Explicit
 '@Folder("Load Data Functions")
 
 '' Function: Get_Transition_Array_Agilent_Compound
-'' --- Code
-''  Public Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() As String, _
-''                                                        ByRef Lines() As String, _
-''                                                        ByRef Transition_Name_And_Qualifier_Transition_Column_Indexes() As Long, _
-''                                                        ByVal DataStartRowNumber As Long, _
-''                                                        ByVal Delimiter As String, _
-''                                                        ByVal RemoveBlksAndReplicates As Boolean, _
-''                                                        Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -106,10 +97,6 @@ Public Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() A
 End Function
 
 '' Function: Get_Sample_Name_Array
-'' --- Code
-''  Public Function Get_Sample_Name_Array(ByRef RawDataFilesArray() As String, _
-''                                        ByRef MS_File_Array() As String) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -259,9 +246,6 @@ Public Function Get_Sample_Name_Array(ByRef RawDataFilesArray() As String, _
 End Function
 
 '' Function: Get_Transition_Array_Raw
-'' --- Code
-''  Public Function Get_Transition_Array_Raw(ByVal RawDataFiles As String) As String()
-'' ---
 ''
 '' Description:
 ''

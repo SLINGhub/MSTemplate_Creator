@@ -4,9 +4,6 @@ Option Explicit
 '@IgnoreModule IntegerDataType
 
 '' Function: Get_Sorted_Transition_Array_Raw
-'' --- Code
-''  Public Function Get_Sorted_Transition_Array_Raw(ByVal RawDataFiles As String) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -58,13 +55,6 @@ Public Function Get_Sorted_Transition_Array_Raw(ByVal RawDataFiles As String) As
 End Function
 
 '' Function: Get_Sorted_Transition_Array_Tidy
-'' --- Code
-''  Public Function Get_Sorted_Transition_Array_Tidy(ByRef TidyDataFiles As String, _
-''                                                   ByRef DataFileType As String, _
-''                                                   ByRef TransitionProperty As String, _
-''                                                   ByRef StartingRowNum As Integer, _
-''                                                   ByRef StartingColumnNum As Integer) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -148,11 +138,6 @@ Public Function Get_Sorted_Transition_Array_Tidy(ByVal TidyDataFiles As String, 
 End Function
 
 '' Function: Verify_ISTD
-'' --- Code
-''  Public Sub Verify_ISTD(ByRef Transition_Array() As String, ByRef ISTD_Array() As String, _
-''                         Optional ByVal MessageBoxRequired As Boolean = True, _
-''                         Optional ByVal Testing As Boolean = False)
-'' ---
 ''
 '' Description:
 ''
@@ -197,6 +182,7 @@ End Function
 '' Examples:
 ''
 '' --- Code
+''
 ''    ' Get the Transition_Name_Annot worksheet from the active workbook
 ''    ' The TransitionNameAnnotSheet is a code name
 ''    ' Refer to https://riptutorial.com/excel-vba/example/11272/worksheet--name---index-or--codename

@@ -4,9 +4,6 @@ Option Explicit
 '@IgnoreModule IntegerDataType
 
 '' Function: Convert_Conc_nM_Array
-'' --- Code
-''  Public Function Convert_Conc_nM_Array(ByVal Custom_Unit As String) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -134,9 +131,6 @@ End Function
 
 
 '' Function: Get_ISTD_Conc_nM_Array
-'' --- Code
-''  Public Function Get_ISTD_Conc_nM_Array(ColourCellRequired As Boolean) As String()
-'' ---
 ''
 '' Description:
 ''

@@ -5,11 +5,6 @@ Option Explicit
 
 
 '' Function: Autofill_Column_By_QC_Sample_Type
-'' --- Code
-''  Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
-''                                               ByVal Header_Name As String, _
-''                                               ByVal Autofill_Value As String)
-'' ---
 ''
 '' Description:
 ''
@@ -197,13 +192,6 @@ Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
 End Sub
 
 '' Function: Create_New_Sample_Annot_Tidy
-'' --- Code
-''  Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
-''                                          ByVal DataFileType As String, _
-''                                          ByVal SampleProperty As String, _
-''                                          ByVal StartingRowNum As Integer, _
-''                                          ByVal StartingColumnNum As Integer)
-'' ---
 ''
 '' Description:
 ''
@@ -336,9 +324,6 @@ Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
 End Sub
 
 '' Function: Create_New_Sample_Annot_Raw
-'' --- Code
-''  Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
-'' ---
 ''
 '' Description:
 ''
@@ -455,10 +440,6 @@ Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
 End Sub
 
 '' Function: Merge_With_Sample_Annot
-'' --- Code
-''  Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
-''                                     ByRef SampleAnnotFile As String)
-'' ---
 ''
 '' Description:
 ''
@@ -649,9 +630,6 @@ Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
 End Sub
 
 '' Function: Get_Sample_Name_Array_From_Annot_File
-'' --- Code
-''  Public Function Get_Sample_Name_Array_From_Annot_File(ByRef xFileName As String) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -739,9 +717,6 @@ Public Function Get_Sample_Name_Array_From_Annot_File(ByRef xFileName As String)
 End Function
 
 '' Function: Get_Sample_Column_Name_Position_From_Annot_File
-'' --- Code
-''  Public Function Get_Sample_Column_Name_Position_From_Annot_File(ByRef first_line() As String) As Integer
-'' ---
 ''
 '' Description:
 ''
@@ -816,9 +791,6 @@ Public Function Get_Sample_Column_Name_Position_From_Annot_File(ByRef first_line
 End Function
 
 '' Function: Get_Sample_Annot_Starting_Line_From_Annot_File
-'' --- Code
-''  Public Function Get_Sample_Annot_Starting_Line_From_Annot_File() As Integer
-'' ---
 ''
 '' Description:
 ''
@@ -861,9 +833,6 @@ Public Function Get_Sample_Annot_Starting_Line_From_Annot_File() As Integer
 End Function
 
 '' Function: Load_Sample_Info_To_Excel
-'' --- Code
-''  Public Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, ByRef MatchingIndexArray() As String)
-'' ---
 ''
 '' Description:
 ''

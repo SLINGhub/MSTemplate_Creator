@@ -33,6 +33,17 @@ End Sub
 'End Sub
 
 '@TestMethod("Get Concentration Unit")
+
+'' Function: Get_Mol_From_Custom_ISTD_Concentration_Unit_Test
+''
+'' Description:
+''
+'' Function used to test if the function
+'' Concentration_Unit.Get_Mol_From_Custom_ISTD_Concentration_Unit is working
+''
+'' Test string is "[uM] or [pmol/uL]". The function should return
+'' "pmol"
+''
 Public Sub Get_Mol_From_Custom_ISTD_Concentration_Unit_Test()
     On Error GoTo TestFail
     
@@ -43,8 +54,10 @@ Public Sub Get_Mol_From_Custom_ISTD_Concentration_Unit_Test()
     Output_Custom_Unit = Concentration_Unit.Get_Mol_From_Custom_ISTD_Concentration_Unit(Custom_ISTD_Concentration_Unit)
     
     Assert.AreEqual Output_Custom_Unit, "pmol"
+    
+    GoTo TestExit
 
-'TestExit:
+TestExit:
     Exit Sub
 TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description

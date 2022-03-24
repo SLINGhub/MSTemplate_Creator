@@ -3,14 +3,6 @@ Option Explicit
 '@Folder("Load Data Functions")
 
 '' Function: Get_Sample_Name_Array_Tidy
-'' --- Code
-''  Public Function Get_Sample_Name_Array_Tidy(ByRef TidyDataFilesArray() As String, _
-''                                             ByRef MS_File_Array() As String, _
-''                                             ByVal DataFileType As String, _
-''                                             ByVal SampleProperty As String, _
-''                                             ByVal StartingRowNum As Long, _
-''                                             ByVal StartingColumnNum As Long) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -129,7 +121,6 @@ Public Function Get_Sample_Name_Array_Tidy(ByRef TidyDataFilesArray() As String,
     Get_Sample_Name_Array_Tidy = Sample_Name_Array
 End Function
 
-'TODO include sheet name
 'Private Function Get_Transition_Array_Tidy_Excel(ByVal TidyDataFiles As String, _
 '                                                 ByVal TransitionProperty As String, _
 '                                                 ByVal StartingRowNum As Long, _
@@ -210,12 +201,6 @@ End Function
 'End Function
 
 '' Function: Get_Transition_Array_Tidy_CSV
-'' --- Code
-'' Public Function Get_Transition_Array_Tidy_CSV(ByVal TidyDataFiles As String, _
-''                                               ByVal TransitionProperty As String, _
-''                                               ByVal StartingRowNum As Long, _
-''                                               ByVal StartingColumnNum As Long) As String()
-'' ---
 ''
 '' Description:
 ''
@@ -327,13 +312,6 @@ Public Function Get_Transition_Array_Tidy_CSV(ByVal TidyDataFiles As String, _
 End Function
 
 '' Function: Get_Transition_Array_Tidy
-'' --- Code
-''  Public Function Get_Transition_Array_Tidy(ByVal TidyDataFiles As String, _
-''                                            ByVal DataFileType As String, _
-''                                            ByVal TransitionProperty As String, _
-''                                            ByVal StartingRowNum As Long, _
-''                                            ByVal StartingColumnNum As Long) As String()
-'' ---
 ''
 '' Description:
 ''

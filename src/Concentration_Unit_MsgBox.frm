@@ -16,6 +16,17 @@ Attribute VB_Exposed = False
 Option Explicit
 '@Folder("Sample_Annot_Buttons")
 
+'' Function: Concentration_Unit_Ok_Button_Click
+''
+'' Description:
+''
+'' Function that controls what happens when the Ok button is
+'' left clicked on this message box
+''
+'' (see Concentration_Unit_Ok_Button.png)
+''
+'' Message box will be unloaded.
+''
 Private Sub Concentration_Unit_Ok_Button_Click()
     Unload Concentration_Unit_MsgBox
 End Sub

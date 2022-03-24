@@ -27,10 +27,9 @@ Public Property Let whatsclicked(ByVal let_whatsclicked As String)
     master_whatsclicked = let_whatsclicked
 End Property
 
+'' Group: Functions
+''
 '' Function: Create_New_Transition_Annot_Button_Click
-'' --- Code
-''  Private Sub Create_New_Transition_Annot_Button_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -49,9 +48,6 @@ Private Sub Create_New_Transition_Annot_Button_Click()
 End Sub
 
 '' Function: Browse_Tidy_Data_Click
-'' --- Code
-''  Private Sub Browse_Tidy_Data_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -87,9 +83,6 @@ Private Sub Browse_Tidy_Data_Click()
 End Sub
 
 '' Function: Tidy_Data_File_Path_KeyUp
-'' --- Code
-''  Private Sub Tidy_Data_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
-'' ---
 ''
 '' Description:
 ''
@@ -108,9 +101,6 @@ Private Sub Tidy_Data_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, By
 End Sub
 
 '' Function: Starting_Row_Number_TextBox_Exit
-'' --- Code
-''  Private Sub Starting_Row_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-'' ---
 ''
 '' Description:
 ''
@@ -143,9 +133,6 @@ Private Sub Starting_Row_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoole
 End Sub
 
 '' Function: Starting_Column_Number_TextBox_Exit
-'' --- Code
-''  Private Sub Starting_Column_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
-'' ---
 ''
 '' Description:
 ''
@@ -178,9 +165,6 @@ Private Sub Starting_Column_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBo
 End Sub
 
 '' Function: Transition_Name_Property_ComboBox_Change
-'' --- Code
-''  Private Sub Transition_Name_Property_ComboBox_Change()
-'' ---
 ''
 '' Description:
 ''
@@ -216,9 +200,6 @@ End Sub
 '' Group: Form Initialisation
 ''
 '' Function: Load_Transition_Name_Tidy form initialisation
-'' --- Code
-''  Private Sub UserForm_Initialize()
-'' ---
 ''
 '' Description:
 ''

@@ -19,9 +19,6 @@ Option Explicit
 '' Group: Autofill Button Function
 ''
 '' Function: Autofill_ISTD_Mixture_Volume_Button_Click
-'' --- Code
-''  Private Sub Autofill_ISTD_Mixture_Volume_Button_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -43,9 +40,6 @@ Private Sub Autofill_ISTD_Mixture_Volume_Button_Click()
 End Sub
 
 '' Function: Autofill_Sample_Amount_Button_Click
-'' --- Code
-''  Private Sub Autofill_Sample_Amount_Button_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -67,9 +61,6 @@ Private Sub Autofill_Sample_Amount_Button_Click()
 End Sub
 
 '' Function: Autofill_Sample_Amount_Unit_Button_Click
-'' --- Code
-''  Private Sub Autofill_Sample_Amount_Unit_Button_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -93,9 +84,6 @@ End Sub
 '' Group: Autofill Text Box Change Function
 ''
 '' Function: ISTD_Mixture_Volume_TextBox_Change
-'' --- Code
-''  Private Sub ISTD_Mixture_Volume_TextBox_Change()
-'' ---
 ''
 '' Description:
 ''
@@ -117,9 +105,6 @@ Private Sub ISTD_Mixture_Volume_TextBox_Change()
 End Sub
 
 '' Function: Sample_Amount_TextBox_Change
-'' --- Code
-''  Private Sub Sample_Amount_TextBox_Change()
-'' ---
 ''
 '' Description:
 ''
@@ -143,9 +128,6 @@ End Sub
 '' Group: Autofill Combo Box Change Function
 ''
 '' Function: Sample_Amount_Unit_ComboBox_Change
-'' --- Code
-''  Private Sub Sample_Amount_Unit_ComboBox_Change()
-'' ---
 ''
 '' Description:
 ''
@@ -167,9 +149,6 @@ Private Sub Sample_Amount_Unit_ComboBox_Change()
 End Sub
 
 '' Function: Sample_Type_ComboBox_Change
-'' --- Code
-''  Private Sub Sample_Type_ComboBox_Change()
-'' ---
 ''
 '' Description:
 ''
@@ -201,9 +180,6 @@ End Sub
 '' Group: Autofill Text Box Exit Function
 ''
 '' Function: ISTD_Mixture_Volume_TextBox_Exit
-'' --- Code
-''  Private Sub ISTD_Mixture_Volume_TextBox_Exit()
-'' ---
 ''
 '' Description:
 ''
@@ -232,9 +208,6 @@ Private Sub ISTD_Mixture_Volume_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoole
 End Sub
 
 '' Function: Sample_Amount_TextBox_Exit
-'' --- Code
-''  Private Sub Sample_Amount_TextBox_Exit()
-'' ---
 ''
 '' Description:
 ''
@@ -265,9 +238,6 @@ End Sub
 '' Group: Form Initialisation
 ''
 '' Function: Autofill_By_Sample_Type form initialisation
-'' --- Code
-''  Private Sub UserForm_Initialize()
-'' ---
 ''
 '' Description:
 ''

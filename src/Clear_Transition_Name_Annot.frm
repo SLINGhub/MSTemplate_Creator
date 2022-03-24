@@ -17,9 +17,6 @@ Option Explicit
 '@Folder("Transition_Annot_Buttons")
 
 '' Function: Transition_Name_Annot_Clear_Click
-'' --- Code
-''  Private Sub Transition_Name_Annot_Clear_Click()
-'' ---
 ''
 '' Description:
 ''

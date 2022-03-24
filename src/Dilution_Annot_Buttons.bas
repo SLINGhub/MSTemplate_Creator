@@ -3,9 +3,6 @@ Option Explicit
 '@Folder("Dilution Annot Functions")
 
 '' Function: Clear_Dilution_Annot_Click
-'' --- Code
-''  Public Sub Clear_Dilution_Annot_Click()
-'' ---
 ''
 '' Description:
 ''

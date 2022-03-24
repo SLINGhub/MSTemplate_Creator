@@ -3,9 +3,6 @@ Option Explicit
 '@Folder("Sample Annot Functions")
 
 '' Function: Get_QC_Sample_Type
-'' --- Code
-''  Public Function Get_QC_Sample_Type(ByVal FileName As String) As String
-'' ---
 ''
 '' Description:
 ''
@@ -35,54 +32,51 @@ Option Explicit
 ''    Next
 '' ---
 Public Function Get_QC_Sample_Type(ByVal FileName As String) As String
-    If isEQC(FileName) Then
+    If Is_EQC(FileName) Then
         Get_QC_Sample_Type = "EQC"
-    ElseIf isSST(FileName) Then
+    ElseIf Is_SST(FileName) Then
         Get_QC_Sample_Type = "SST"
-    ElseIf isBQC(FileName) Then
+    ElseIf Is_BQC(FileName) Then
         Get_QC_Sample_Type = "BQC"
-    ElseIf isTQC(FileName) And Not isRQC(FileName) Then
+    ElseIf Is_TQC(FileName) And Not Is_RQC(FileName) Then
         Get_QC_Sample_Type = "TQC"
-    ElseIf isRQC(FileName) Then
+    ElseIf Is_RQC(FileName) Then
         Get_QC_Sample_Type = "RQC"
-    ElseIf isLTR(FileName) And Not isLTRBK(FileName) Then
+    ElseIf Is_LTR(FileName) And Not Is_LTRBK(FileName) Then
         Get_QC_Sample_Type = "LTR"
-    ElseIf isNIST(FileName) And Not isNISTBK(FileName) Then
+    ElseIf Is_NIST(FileName) And Not Is_NISTBK(FileName) Then
         Get_QC_Sample_Type = "NIST"
-    ElseIf isSRM(FileName) Then
+    ElseIf Is_SRM(FileName) Then
         Get_QC_Sample_Type = "SRM"
-    ElseIf isPBLK(FileName) Then
+    ElseIf Is_PBLK(FileName) Then
         Get_QC_Sample_Type = "PBLK"
-    ElseIf isBLK(FileName) And Not isPBLK(FileName) And Not isSBLK(FileName) _
-        And Not isMBLK(FileName) And Not isLTRBK(FileName) _
-        And Not isNISTBK(FileName) Then
+    ElseIf Is_BLK(FileName) And Not Is_PBLK(FileName) And Not Is_SBLK(FileName) _
+        And Not Is_MBLK(FileName) And Not Is_LTRBK(FileName) _
+        And Not Is_NISTBK(FileName) Then
         Get_QC_Sample_Type = "UBLK"
-    ElseIf isSBLK(FileName) Then
+    ElseIf Is_SBLK(FileName) Then
         Get_QC_Sample_Type = "SBLK"
-    ElseIf isMBLK(FileName) Then
+    ElseIf Is_MBLK(FileName) Then
         Get_QC_Sample_Type = "MBLK"
-    ElseIf isSTD(FileName) Then
+    ElseIf Is_STD(FileName) Then
         Get_QC_Sample_Type = "STD"
-    ElseIf isLQQ(FileName) Then
+    ElseIf Is_LQQ(FileName) Then
         Get_QC_Sample_Type = "LQQ"
-    ElseIf isCTRL(FileName) Then
+    ElseIf Is_CTRL(FileName) Then
         Get_QC_Sample_Type = "CTRL"
-    ElseIf isDUP(FileName) Then
+    ElseIf Is_DUP(FileName) Then
         Get_QC_Sample_Type = "DUP"
-    ElseIf isSPIK(FileName) Then
+    ElseIf Is_SPIK(FileName) Then
         Get_QC_Sample_Type = "SPIK"
-    ElseIf isLTRBK(FileName) Then
+    ElseIf Is_LTRBK(FileName) Then
         Get_QC_Sample_Type = "LTRBK"
-    ElseIf isNISTBK(FileName) Then
+    ElseIf Is_NISTBK(FileName) Then
         Get_QC_Sample_Type = "NISTBK"
     End If
     
 End Function
 
-'' Function: isEQC
-'' --- Code
-''  Public Function isEQC(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_EQC
 ''
 '' Description:
 ''
@@ -105,11 +99,11 @@ End Function
 ''    EQCTestArray = Array("EQC", "001_EQC_TQC prerun 01")
 ''
 ''    For arrayIndex = 0 To UBound(EQCTestArray) - LBound(EQCTestArray)
-''        Debug.Print Sample_Type_Identifier.isEQC(CStr(EQCTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_EQC(CStr(EQCTestArray(arrayIndex))) & ": " & _
 ''                    EQCTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isEQC(ByVal FileName As String) As Boolean
+Public Function Is_EQC(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim EQCRegEx As RegExp
@@ -120,14 +114,11 @@ Public Function isEQC(ByVal FileName As String) As Boolean
     
     EQCRegEx.Pattern = "(EQC|[Ee]qc)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isEQC = EQCRegEx.Test(OnlyLettersText)
+    Is_EQC = EQCRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isSST
-'' --- Code
-''  Public Function isSST(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_SST
 ''
 '' Description:
 ''
@@ -151,11 +142,11 @@ End Function
 ''                     "018_SST-GroupA-01")
 ''
 ''    For arrayIndex = 0 To UBound(SSTTestArray) - LBound(SSTTestArray)
-''        Debug.Print Sample_Type_Identifier.isSST(CStr(SSTTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_SST(CStr(SSTTestArray(arrayIndex))) & ": " & _
 ''                    SSTTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isSST(ByVal FileName As String) As Boolean
+Public Function Is_SST(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim SSTRegEx As RegExp
@@ -167,13 +158,10 @@ Public Function isSST(ByVal FileName As String) As Boolean
     
     SSTRegEx.Pattern = "(SST|[Ss]st)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isSST = SSTRegEx.Test(OnlyLettersText)
+    Is_SST = SSTRegEx.Test(OnlyLettersText)
 End Function
 
-'' Function: isBQC
-'' --- Code
-''  Public Function isBQC(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_BQC
 ''
 '' Description:
 ''
@@ -199,11 +187,11 @@ End Function
 ''                         "11_BQC-2.d", "20032017_TAG_SNEHAMTHD__Dogs_PL_BQC_2.d", "018_BQC_PQC01")
 ''
 ''    For arrayIndex = 0 To UBound(BQCTestArray) - LBound(BQCTestArray)
-''        Debug.Print Sample_Type_Identifier.isBQC(CStr(BQCTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_BQC(CStr(BQCTestArray(arrayIndex))) & ": " & _
 ''                    BQCTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isBQC(ByVal FileName As String) As Boolean
+Public Function Is_BQC(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim BQCRegEx As RegExp
@@ -214,14 +202,11 @@ Public Function isBQC(ByVal FileName As String) As Boolean
     
     BQCRegEx.Pattern = "([BP]QC|[Pp]qc|[Bb]qc)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isBQC = BQCRegEx.Test(OnlyLettersText)
+    Is_BQC = BQCRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isTQC
-'' --- Code
-''  Public Function isTQC(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_TQC
 ''
 '' Description:
 ''
@@ -251,16 +236,16 @@ End Function
 ''                             "CR_TQC-40 %", "5 percent")
 ''
 ''    For arrayIndex = 0 To UBound(TQCTestArray) - LBound(TQCTestArray)
-''        Debug.Print Sample_Type_Identifier.isTQC(CStr(TQCTestArray(arrayIndex))) & ": " & TQCTestArray(arrayIndex)
-''        Debug.Print (Not Sample_Type_Identifier.isRQC(CStr(TQCTestArray(arrayIndex)))) & ": " & TQCTestArray(arrayIndex)
+''        Debug.Print Sample_Type_Identifier.Is_TQC(CStr(TQCTestArray(arrayIndex))) & ": " & TQCTestArray(arrayIndex)
+''        Debug.Print (Not Sample_Type_Identifier.Is_RQC(CStr(TQCTestArray(arrayIndex)))) & ": " & TQCTestArray(arrayIndex)
 ''    Next
 ''
 ''    For arrayIndex = 0 To UBound(Not_TQCTestArray) - LBound(Not_TQCTestArray)
-''        Debug.Print Sample_Type_Identifier.isTQC(CStr(Not_TQCTestArray(arrayIndex))) & ": " & Not_TQCTestArray(arrayIndex)
-''        Debug.Print (Not Sample_Type_Identifier.isRQC(CStr(Not_TQCTestArray(arrayIndex)))) & ": " & Not_TQCTestArray(arrayIndex)
+''        Debug.Print Sample_Type_Identifier.Is_TQC(CStr(Not_TQCTestArray(arrayIndex))) & ": " & Not_TQCTestArray(arrayIndex)
+''        Debug.Print (Not Sample_Type_Identifier.Is_RQC(CStr(Not_TQCTestArray(arrayIndex)))) & ": " & Not_TQCTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isTQC(ByVal FileName As String) As Boolean
+Public Function Is_TQC(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim TQCRegEx As RegExp
@@ -271,14 +256,11 @@ Public Function isTQC(ByVal FileName As String) As Boolean
     
     TQCRegEx.Pattern = "(TQC|[Tt]qc)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isTQC = TQCRegEx.Test(OnlyLettersText)
+    Is_TQC = TQCRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isRQC
-'' --- Code
-''  Public Function isRQC(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_RQC
 ''
 '' Description:
 ''
@@ -309,16 +291,16 @@ End Function
 ''                             "TQCTest", "5 percent")
 ''
 ''    For arrayIndex = 0 To UBound(RQCTestArray) - LBound(RQCTestArray)
-''        Debug.Print Sample_Type_Identifier.isRQC(CStr(RQCTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_RQC(CStr(RQCTestArray(arrayIndex))) & ": " & _
 ''                    RQCTestArray(arrayIndex)
 ''    Next
 ''
 ''    For arrayIndex = 0 To UBound(Not_RQCTestArray) - LBound(Not_RQCTestArray)
-''        Debug.Print Sample_Type_Identifier.isRQC(CStr(Not_RQCTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_RQC(CStr(Not_RQCTestArray(arrayIndex))) & ": " & _
 ''                    Not_RQCTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isRQC(ByVal FileName As String) As Boolean
+Public Function Is_RQC(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim TQCdRegEx As RegExp
@@ -347,16 +329,13 @@ Public Function isRQC(ByVal FileName As String) As Boolean
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
     RQCRegEx.Pattern = "(RQC|[Rr]qc)"
     
-    isRQC = TQCdRegEx.Test(FileName) Or TQCno_dRegEx.Test(FileName)
+    Is_RQC = TQCdRegEx.Test(FileName) Or TQCno_dRegEx.Test(FileName)
     'Debug.Print TQCdRegEx.Test(FileName)
-    isRQC = isRQC Or RQCRegEx.Test(OnlyLettersText)
+    Is_RQC = Is_RQC Or RQCRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isLTR
-'' --- Code
-''  Public Function isLTR(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_LTR
 ''
 '' Description:
 ''
@@ -381,11 +360,11 @@ End Function
 ''                         "018_LTR-GroupA-01")
 ''
 ''    For arrayIndex = 0 To UBound(LTRTestArray) - LBound(LTRTestArray)
-''        Debug.Print Sample_Type_Identifier.isLTR(CStr(LTRTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_LTR(CStr(LTRTestArray(arrayIndex))) & ": " & _
 ''                    LTRTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isLTR(ByVal FileName As String) As Boolean
+Public Function Is_LTR(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim LTRRegEx As RegExp
@@ -396,14 +375,11 @@ Public Function isLTR(ByVal FileName As String) As Boolean
     
     LTRRegEx.Pattern = "(LTR|[Ll]tr)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isLTR = LTRRegEx.Test(OnlyLettersText)
+    Is_LTR = LTRRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isNIST
-'' --- Code
-''  Public Function isNIST(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_NIST
 ''
 '' Description:
 ''
@@ -427,11 +403,11 @@ End Function
 ''                          "018_NIST-GroupA-01")
 ''
 ''    For arrayIndex = 0 To UBound(NISTTestArray) - LBound(NISTTestArray)
-''        Debug.Print Sample_Type_Identifier.isNIST(CStr(NISTTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_NIST(CStr(NISTTestArray(arrayIndex))) & ": " & _
 ''                    NISTTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isNIST(ByVal FileName As String) As Boolean
+Public Function Is_NIST(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim NISTRegEx As RegExp
@@ -442,14 +418,11 @@ Public Function isNIST(ByVal FileName As String) As Boolean
     
     NISTRegEx.Pattern = "(NIST|[Nn]ist)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isNIST = NISTRegEx.Test(OnlyLettersText)
+    Is_NIST = NISTRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isSRM
-'' --- Code
-''  Public Function isSRM(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_SRM
 ''
 '' Description:
 ''
@@ -473,11 +446,11 @@ End Function
 ''                          "018_SRM-GroupA-01")
 ''
 ''    For arrayIndex = 0 To UBound(SRMTestArray) - LBound(SRMTestArray)
-''        Debug.Print Sample_Type_Identifier.isSRM(CStr(SRMTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_SRM(CStr(SRMTestArray(arrayIndex))) & ": " & _
 ''                    SRMTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isSRM(ByVal FileName As String) As Boolean
+Public Function Is_SRM(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim SRMRegEx As RegExp
@@ -488,14 +461,11 @@ Public Function isSRM(ByVal FileName As String) As Boolean
     
     SRMRegEx.Pattern = "(SRM|[Ss]rm)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isSRM = SRMRegEx.Test(OnlyLettersText)
+    Is_SRM = SRMRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isPBLK
-'' --- Code
-''  Public Function isPBLK(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_PBLK
 ''
 '' Description:
 ''
@@ -522,11 +492,11 @@ End Function
 ''                          "ProcessBlank", "BlkProcessed_01", "001-PBLK")
 ''
 ''    For arrayIndex = 0 To UBound(PBLKTestArray) - LBound(PBLKTestArray)
-''        Debug.Print Sample_Type_Identifier.isPBLK(CStr(PBLKTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_PBLK(CStr(PBLKTestArray(arrayIndex))) & ": " & _
 ''                    PBLKTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isPBLK(ByVal FileName As String) As Boolean
+Public Function Is_PBLK(ByVal FileName As String) As Boolean
     Dim BlankExISTDRegEx As RegExp
     Set BlankExISTDRegEx = New RegExp
     Dim ISTDBlankExRegEx As RegExp
@@ -574,29 +544,26 @@ Public Function isPBLK(ByVal FileName As String) As Boolean
     BlankProcessedRegEx.Pattern = BlankPattern & "([\s,_,-]+)?" & "(PROCESS(ED)?)|[Pp](rocess(ed)?)"
     
     If BlankExISTDRegEx.Test(FileName) Then
-        isPBLK = True
+        Is_PBLK = True
     ElseIf ISTDBlankExRegEx.Test(FileName) Then
-        isPBLK = True
+        Is_PBLK = True
     ElseIf ExBlankISTDRegEx.Test(FileName) Then
-        isPBLK = True
+        Is_PBLK = True
     ElseIf ISTDExBlankRegEx.Test(FileName) Then
-        isPBLK = True
+        Is_PBLK = True
     ElseIf PBlankRegEx.Test(FileName) Then
-        isPBLK = True
+        Is_PBLK = True
     ElseIf ProcessedBlankRegEx.Test(FileName) Then
-        isPBLK = True
+        Is_PBLK = True
     ElseIf BlankProcessedRegEx.Test(FileName) Then
-        isPBLK = True
+        Is_PBLK = True
     Else
-        isPBLK = False
+        Is_PBLK = False
     End If
     
 End Function
 
-'' Function: isBLK
-'' --- Code
-''  Public Function isBLK(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_BLK
 ''
 '' Description:
 ''
@@ -626,15 +593,15 @@ End Function
 ''                           "20170210-RPLC-Pos-Blank02.d", "131_BLK.d")
 ''
 ''    For arrayIndex = 0 To UBound(BlankTestArray) - LBound(BlankTestArray)
-''        Debug.Print (Sample_Type_Identifier.isUBLK(CStr(BlankTestArray(arrayIndex)))) & ": " & _
+''        Debug.Print (Sample_Type_Identifier.Is_UBLK(CStr(BlankTestArray(arrayIndex)))) & ": " & _
 ''                    BlankTestArray(arrayIndex)
-''        Debug.Print (Not (Sample_Type_Identifier.isPBLK(CStr(BlankTestArray(arrayIndex))))) & ": " & _
+''        Debug.Print (Not (Sample_Type_Identifier.Is_PBLK(CStr(BlankTestArray(arrayIndex))))) & ": " & _
 ''                    BlankTestArray(arrayIndex)
-''        Debug.Print (Not (Sample_Type_Identifier.isSBLK(CStr(BlankTestArray(arrayIndex))))) & ": " & _
+''        Debug.Print (Not (Sample_Type_Identifier.Is_SBLK(CStr(BlankTestArray(arrayIndex))))) & ": " & _
 ''                    BlankTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isBLK(ByVal FileName As String) As Boolean
+Public Function Is_BLK(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim BlankRegEx As RegExp
@@ -647,14 +614,11 @@ Public Function isBLK(ByVal FileName As String) As Boolean
     BlankRegEx.Pattern = "(BL(AN)?K|[B,b]l(an)?k)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
     'Debug.Print File
-    isBLK = BlankRegEx.Test(OnlyLettersText)
+    Is_BLK = BlankRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isSBLK
-'' --- Code
-''  Public Function isSBLK(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_SBLK
 ''
 '' Description:
 ''
@@ -679,11 +643,11 @@ End Function
 ''                          "006_solvent blank", "Solvent")
 ''
 ''    For arrayIndex = 0 To UBound(SBLKTestArray) - LBound(SBLKTestArray)
-''        Debug.Print Sample_Type_Identifier.isSBLK(CStr(SBLKTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_SBLK(CStr(SBLKTestArray(arrayIndex))) & ": " & _
 ''                    SBLKTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isSBLK(ByVal FileName As String) As Boolean
+Public Function Is_SBLK(ByVal FileName As String) As Boolean
     Dim SolventBLKRegEx As RegExp
     Set SolventBLKRegEx = New RegExp
     Dim SBLKRegEx As RegExp
@@ -699,19 +663,16 @@ Public Function isSBLK(ByVal FileName As String) As Boolean
     SolventBLKRegEx.Pattern = "SOL(VENT)?|[S,s]ol(vent)?" & "([\s,_,-]+)?" & BlankPattern & "?"
 
     If SBLKRegEx.Test(FileName) Then
-        isSBLK = True
+        Is_SBLK = True
     ElseIf SolventBLKRegEx.Test(FileName) Then
-        isSBLK = True
+        Is_SBLK = True
     Else
-        isSBLK = False
+        Is_SBLK = False
     End If
 
 End Function
 
-'' Function: isMBLK
-'' --- Code
-''  Public Function isMBLK(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_MBLK
 ''
 '' Description:
 ''
@@ -736,11 +697,11 @@ End Function
 ''                          "006_matrix blank", "Matrix")
 ''
 ''    For arrayIndex = 0 To UBound(MBLKTestArray) - LBound(MBLKTestArray)
-''        Debug.Print Sample_Type_Identifier.isMBLK(CStr(MBLKTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_MBLK(CStr(MBLKTestArray(arrayIndex))) & ": " & _
 ''                    MBLKTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isMBLK(ByVal FileName As String) As Boolean
+Public Function Is_MBLK(ByVal FileName As String) As Boolean
     Dim MatrixBLKRegEx As RegExp
     Set MatrixBLKRegEx = New RegExp
     Dim MBLKRegEx As RegExp
@@ -756,19 +717,16 @@ Public Function isMBLK(ByVal FileName As String) As Boolean
     MatrixBLKRegEx.Pattern = "MATRIX|[M,m]atrix" & "([\s,_,-]+)?" & BlankPattern & "?"
 
     If MBLKRegEx.Test(FileName) Then
-        isMBLK = True
+        Is_MBLK = True
     ElseIf MatrixBLKRegEx.Test(FileName) Then
-        isMBLK = True
+        Is_MBLK = True
     Else
-        isMBLK = False
+        Is_MBLK = False
     End If
 
 End Function
 
-'' Function: isSTD
-'' --- Code
-''  Public Function isSTD(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_STD
 ''
 '' Description:
 ''
@@ -797,16 +755,16 @@ End Function
 ''                             "018_ISTD-GroupA-01")
 ''
 ''    For arrayIndex = 0 To UBound(STDTestArray) - LBound(STDTestArray)
-''        Debug.Print Sample_Type_Identifier.isSTD(CStr(STDTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_STD(CStr(STDTestArray(arrayIndex))) & ": " & _
 ''                    STDTestArray(arrayIndex)
 ''    Next
 ''
 ''    For arrayIndex = 0 To UBound(Not_STDTestArray) - LBound(Not_STDTestArray)
-''        Debug.Print Sample_Type_Identifier.isSTD(CStr(Not_STDTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_STD(CStr(Not_STDTestArray(arrayIndex))) & ": " & _
 ''                    Not_STDTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isSTD(ByVal FileName As String) As Boolean
+Public Function Is_STD(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim STDRegEx As RegExp
@@ -821,14 +779,11 @@ Public Function isSTD(ByVal FileName As String) As Boolean
     STDRegEx.Pattern = "(STD|[Ss]td)"
     ISTDRegEx.Pattern = "(ISTD|[Ii]std)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isSTD = STDRegEx.Test(OnlyLettersText) And Not (ISTDRegEx.Test(OnlyLettersText))
+    Is_STD = STDRegEx.Test(OnlyLettersText) And Not (ISTDRegEx.Test(OnlyLettersText))
     
 End Function
 
-'' Function: isLQQ
-'' --- Code
-''  Public Function isLQQ(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_LQQ
 ''
 '' Description:
 ''
@@ -852,11 +807,11 @@ End Function
 ''                          "018_LQQ-GroupA-01")
 ''
 ''    For arrayIndex = 0 To UBound(LQQTestArray) - LBound(LQQTestArray)
-''        Debug.Print Sample_Type_Identifier.isLQQ(CStr(LQQTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_LQQ(CStr(LQQTestArray(arrayIndex))) & ": " & _
 ''                    LQQTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isLQQ(ByVal FileName As String) As Boolean
+Public Function Is_LQQ(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim LQQRegEx As RegExp
@@ -868,14 +823,11 @@ Public Function isLQQ(ByVal FileName As String) As Boolean
     
     LQQRegEx.Pattern = "(LQQ|[Ll]qq)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isLQQ = LQQRegEx.Test(OnlyLettersText)
+    Is_LQQ = LQQRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isCTRL
-'' --- Code
-''  Public Function isCTRL(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_CTRL
 ''
 '' Description:
 ''
@@ -899,11 +851,11 @@ End Function
 ''                          "018_CTRL-GroupA-01")
 ''
 ''    For arrayIndex = 0 To UBound(CTRLTestArray) - LBound(CTRLTestArray)
-''        Debug.Print Sample_Type_Identifier.isCTRL(CStr(CTRLTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_CTRL(CStr(CTRLTestArray(arrayIndex))) & ": " & _
 ''                    CTRLTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isCTRL(ByVal FileName As String) As Boolean
+Public Function Is_CTRL(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim CTRLRegEx As RegExp
@@ -915,14 +867,11 @@ Public Function isCTRL(ByVal FileName As String) As Boolean
     
     CTRLRegEx.Pattern = "(CTRL|[Cc]trl)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isCTRL = CTRLRegEx.Test(OnlyLettersText)
+    Is_CTRL = CTRLRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isDUP
-'' --- Code
-''  Public Function isDUP(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_DUP
 ''
 '' Description:
 ''
@@ -946,11 +895,11 @@ End Function
 ''                          "018_DUP-GroupA-01")
 ''
 ''    For arrayIndex = 0 To UBound(DUPTestArray) - LBound(DUPTestArray)
-''        Debug.Print Sample_Type_Identifier.isDUP(CStr(DUPTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_DUP(CStr(DUPTestArray(arrayIndex))) & ": " & _
 ''                    DUPTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isDUP(ByVal FileName As String) As Boolean
+Public Function Is_DUP(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim DUPRegEx As RegExp
@@ -962,14 +911,11 @@ Public Function isDUP(ByVal FileName As String) As Boolean
     
     DUPRegEx.Pattern = "(DUP|[Dd]up)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isDUP = DUPRegEx.Test(OnlyLettersText)
+    Is_DUP = DUPRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isSPIK
-'' --- Code
-''  Public Function isSPIK(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_SPIK
 ''
 '' Description:
 ''
@@ -995,11 +941,11 @@ End Function
 ''                          "spike.d", "018_SPIKE-GroupA-01")
 ''
 ''    For arrayIndex = 0 To UBound(SPIKTestArray) - LBound(SPIKTestArray)
-''        Debug.Print Sample_Type_Identifier.isSPIK(CStr(SPIKTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_SPIK(CStr(SPIKTestArray(arrayIndex))) & ": " & _
 ''                    SPIKTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isSPIK(ByVal FileName As String) As Boolean
+Public Function Is_SPIK(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim SPIKRegEx As RegExp
@@ -1011,14 +957,11 @@ Public Function isSPIK(ByVal FileName As String) As Boolean
     
     SPIKRegEx.Pattern = "(SPIK|[Ss]pik)"
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isSPIK = SPIKRegEx.Test(OnlyLettersText)
+    Is_SPIK = SPIKRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isLTRBK
-'' --- Code
-''  Public Function isLTRBK(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_LTRBK
 ''
 '' Description:
 ''
@@ -1056,16 +999,16 @@ End Function
 ''                               "018_LTR-GroupA-01", "NO_LTR.d")
 ''
 ''    For arrayIndex = 0 To UBound(LTRBKTestArray) - LBound(LTRBKTestArray)
-''        Debug.Print Sample_Type_Identifier.isLTRBK(CStr(LTRBKTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_LTRBK(CStr(LTRBKTestArray(arrayIndex))) & ": " & _
 ''                    LTRBKTestArray(arrayIndex)
 ''    Next
 ''
 ''    For arrayIndex = 0 To UBound(Not_LTRBKTestArray) - LBound(Not_LTRBKTestArray)
-''        Debug.Print Sample_Type_Identifier.isLTRBK(CStr(Not_LTRBKTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_LTRBK(CStr(Not_LTRBKTestArray(arrayIndex))) & ": " & _
 ''                    Not_LTRBKTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isLTRBK(ByVal FileName As String) As Boolean
+Public Function Is_LTRBK(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim LTRBKRegEx As RegExp
@@ -1094,16 +1037,13 @@ Public Function isLTRBK(ByVal FileName As String) As Boolean
     LTRNoISTDRegEx.Pattern = "(LTR|[Ll]tr)" & "([\s,_,-]+)?" & NoISTDPattern
 
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isLTRBK = LTRBKRegEx.Test(OnlyLettersText) Or _
+    Is_LTRBK = LTRBKRegEx.Test(OnlyLettersText) Or _
               NoISTDLTRRegEx.Test(OnlyLettersText) Or _
               LTRNoISTDRegEx.Test(OnlyLettersText)
     
 End Function
 
-'' Function: isNISTBK
-'' --- Code
-''  Public Function isNISTBK(ByVal FileName As String) As Boolean
-'' ---
+'' Function: Is_NISTBK
 ''
 '' Description:
 ''
@@ -1141,16 +1081,16 @@ End Function
 ''                                "018_NIST-GroupA-01", "NO_NIST.d")
 ''
 ''    For arrayIndex = 0 To UBound(NISTBKTestArray) - LBound(NISTBKTestArray)
-''        Debug.Print Sample_Type_Identifier.isNISTBK(CStr(NISTBKTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_NISTBK(CStr(NISTBKTestArray(arrayIndex))) & ": " & _
 ''                    NISTBKTestArray(arrayIndex)
 ''    Next
 ''
 ''    For arrayIndex = 0 To UBound(Not_NISTBKTestArray) - LBound(Not_NISTBKTestArray)
-''        Debug.Print Sample_Type_Identifier.isNISTBK(CStr(Not_NISTBKTestArray(arrayIndex))) & ": " & _
+''        Debug.Print Sample_Type_Identifier.Is_NISTBK(CStr(Not_NISTBKTestArray(arrayIndex))) & ": " & _
 ''                    Not_NISTBKTestArray(arrayIndex)
 ''    Next
 '' ---
-Public Function isNISTBK(ByVal FileName As String) As Boolean
+Public Function Is_NISTBK(ByVal FileName As String) As Boolean
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim NISTBKRegEx As RegExp
@@ -1179,7 +1119,7 @@ Public Function isNISTBK(ByVal FileName As String) As Boolean
     NISTNoISTDRegEx.Pattern = "(NIST|[Nn]ist)" & "([\s,_,-]+)?" & NoISTDPattern
 
     OnlyLettersText = Trim$(NonLettersRegEx.Replace(FileName, " "))
-    isNISTBK = NISTBKRegEx.Test(OnlyLettersText) Or _
+    Is_NISTBK = NISTBKRegEx.Test(OnlyLettersText) Or _
               NoISTDNISTRegEx.Test(OnlyLettersText) Or _
               NISTNoISTDRegEx.Test(OnlyLettersText)
     

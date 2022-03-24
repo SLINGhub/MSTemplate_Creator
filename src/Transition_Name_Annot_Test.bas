@@ -32,10 +32,9 @@ End Sub
 '    'this method runs after every test in the module.
 'End Sub
 
+'@TestMethod("Verify Transition Name ISTD")
+
 '' Function: Verify_ISTD_Test
-'' --- Code
-''  Public Sub Verify_ISTD_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -56,7 +55,6 @@ End Sub
 ''  - Cells with "SM 46:2" as Transition_Name should be green
 ''  - Cells with "" as Transition_Name_ISTD should be yellow
 ''
-'@TestMethod("Verify Transition Name ISTD")
 Public Sub Verify_ISTD_Test()
     On Error GoTo TestFail
    

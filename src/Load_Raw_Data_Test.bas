@@ -22,20 +22,19 @@ Public Sub ModuleCleanup()
     'Set Fakes = Nothing
 End Sub
 
-''@TestInitialize
+'@TestInitialize
 'Public Sub TestInitialize()
 '    'this method runs before every test in the module.
 'End Sub
 
-''@TestCleanup
+'@TestCleanup
 'Public Sub TestCleanup()
 '    'this method runs after every test in the module.
 'End Sub
 
+'@TestMethod("Get Transition_Annot From Raw MS Data")
+
 '' Function: Get_Transition_Array_Wide_Table_Test
-'' --- Code
-''  Public Sub Get_Transition_Array_Wide_Table_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -48,7 +47,6 @@ End Sub
 ''
 '' Function will assert if Transition_Array has 30 elements
 ''
-'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Wide_Table_Test()
     On Error GoTo TestFail
     
@@ -80,10 +78,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Transition_Annot From Raw MS Data")
+
 '' Function: Get_Transition_Array_Wide_Table_With_Qualifier_Test
-'' --- Code
-''  Public Sub Get_Transition_Array_Wide_Table_With_Qualifier_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -96,7 +93,6 @@ End Sub
 ''
 '' Function will assert if Transition_Array has 15 elements
 ''
-'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Wide_Table_With_Qualifier_Test()
     On Error GoTo TestFail
     
@@ -128,10 +124,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Transition_Annot From Raw MS Data")
+
 '' Function: Get_Transition_Array_Compound_Table_Test
-'' --- Code
-''  Public Sub Get_Transition_Array_Compound_Table_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -144,7 +139,6 @@ End Sub
 ''
 '' Function will assert if Transition_Array has 122 elements
 ''
-'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Compound_Table_Test()
     On Error GoTo TestFail
     
@@ -176,10 +170,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Transition_Annot From Raw MS Data")
+
 '' Function: Get_Transition_Array_Agilent_Compound_Test
-'' --- Code
-''  Public Sub Get_Transition_Array_Agilent_Compound_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -204,7 +197,6 @@ End Sub
 '' The sixth to ninth elements are
 '' {"Sph d18:0", "Qualifier (302.3 -> 266.2)", "Qualifier (302.3 -> 254.2)", "Qualifier (302.3 -> 60.2)"}
 ''
-'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Agilent_Compound_Test()
     On Error GoTo TestFail
     
@@ -342,10 +334,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Transition_Annot From Raw MS Data")
+
 '' Function: Get_Transition_Array_Compound_Table_With_Qualifier_Test
-'' --- Code
-''  Public Sub Get_Transition_Array_Compound_Table_With_Qualifier_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -358,7 +349,6 @@ End Sub
 ''
 '' Function will assert if Transition_Array has 15 elements
 ''
-'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Compound_Table_With_Qualifier_Test()
     On Error GoTo TestFail
     
@@ -390,10 +380,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Transition_Annot From Raw MS Data")
+
 '' Function: Get_Transition_Array_SciEx_Data_Test
-'' --- Code
-''  Public Sub Get_Transition_Array_SciEx_Data_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -406,7 +395,6 @@ End Sub
 ''
 '' Function will assert if Transition_Array has 224 elements
 ''
-'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_SciEx_Data_Test()
     On Error GoTo TestFail
     
@@ -438,10 +426,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Transition_Annot From Raw MS Data")
+
 '' Function: Get_Transition_Array_Multiple_Data_Test
-'' --- Code
-''  Public Sub Get_Transition_Array_Multiple_Data_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -456,7 +443,6 @@ End Sub
 ''
 '' Function will assert if Transition_Array has 653 elements
 ''
-'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Multiple_Data_Test()
     On Error GoTo TestFail
     
@@ -498,10 +484,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Transition_Annot From Raw MS Data")
+
 '' Function: Get_Transition_Array_Invalid_Data_Test
-'' --- Code
-''  Public Sub Get_Transition_Array_Invalid_Data_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -514,7 +499,6 @@ End Sub
 ''
 '' Function will assert if Transition_Array has 0 elements
 ''
-'@TestMethod("Get Transition_Annot From Raw MS Data")
 Public Sub Get_Transition_Array_Invalid_Data_Test()
     On Error GoTo TestFail
     
@@ -546,10 +530,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Sample_Annot From Raw MS Data")
+
 '' Function: Get_Sample_Name_Array_Wide_Table_Test
-'' --- Code
-''  Public Sub Get_Sample_Name_Array_Wide_Table_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -566,7 +549,6 @@ End Sub
 '' Function will assert if Sample_Name_Array has 533 elements
 '' Function will assert if MS_File_Array has 533 elements
 ''
-'@TestMethod("Get Sample_Annot From Raw MS Data")
 Public Sub Get_Sample_Name_Array_Wide_Table_Test()
     On Error GoTo TestFail
     
@@ -607,10 +589,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Sample_Annot From Raw MS Data")
+
 '' Function: Get_Sample_Name_Array_Compound_Table_Test
-'' --- Code
-''  Public Sub Get_Sample_Name_Array_Compound_Table_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -627,7 +608,6 @@ End Sub
 '' Function will assert if Sample_Name_Array has 50 elements
 '' Function will assert if MS_File_Array has 50 elements
 ''
-'@TestMethod("Get Sample_Annot From Raw MS Data")
 Public Sub Get_Sample_Name_Array_Compound_Table_Test()
     On Error GoTo TestFail
     
@@ -668,10 +648,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Sample_Annot From Raw MS Data")
+
 '' Function: Get_Sample_Name_Array_SciEx_Data_Test
-'' --- Code
-''  Public Sub Get_Sample_Name_Array_SciEx_Data_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -688,7 +667,6 @@ End Sub
 '' Function will assert if Sample_Name_Array has 61 elements
 '' Function will assert if MS_File_Array has 61 elements
 ''
-'@TestMethod("Get Sample_Annot From Raw MS Data")
 Public Sub Get_Sample_Name_Array_SciEx_Data_Test()
     On Error GoTo TestFail
     
@@ -729,10 +707,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Sample_Annot From Raw MS Data")
+
 '' Function: Get_Sample_Name_Array_Multiple_Data_Test
-'' --- Code
-''  Public Sub Get_Sample_Name_Array_Multiple_Data_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -751,7 +728,6 @@ End Sub
 '' Function will assert if Sample_Name_Array has 664 elements
 '' Function will assert if MS_File_Array has 664 elements
 ''
-'@TestMethod("Get Sample_Annot From Raw MS Data")
 Public Sub Get_Sample_Name_Array_Multiple_Data_Test()
     On Error GoTo TestFail
     
@@ -793,10 +769,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get Sample_Annot From Raw MS Data")
+
 '' Function: Get_Sample_Name_Array_Invalid_Data_Test
-'' --- Code
-''  Public Sub Get_Sample_Name_Array_Invalid_Data_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -813,7 +788,6 @@ End Sub
 '' Function will assert if Sample_Name_Array has 0 elements
 '' Function will assert if MS_File_Array has 0 elements
 ''
-'@TestMethod("Get Sample_Annot From Raw MS Data")
 Public Sub Get_Sample_Name_Array_Invalid_Data_Test()
     On Error GoTo TestFail
     

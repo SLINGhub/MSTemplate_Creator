@@ -28,9 +28,6 @@ Public Property Let whatsclicked(ByVal let_whatsclicked As String)
 End Property
 
 '' Function: Cancel_Button_Click
-'' --- Code
-''  Private Sub Cancel_Button_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -49,9 +46,6 @@ Private Sub Cancel_Button_Click()
 End Sub
 
 '' Function: Overwrite_Button_Click
-'' --- Code
-''  Private Sub Overwrite_Button_Click()
-'' ---
 ''
 '' Description:
 ''

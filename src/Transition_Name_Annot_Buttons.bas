@@ -3,9 +3,6 @@ Option Explicit
 '@Folder("Transition_Name_Annot Functions")
 
 '' Function: Clear_Transition_Name_Annot_Click
-'' --- Code
-''  Public Sub Clear_Transition_Name_Annot_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -26,9 +23,6 @@ Public Sub Clear_Transition_Name_Annot_Click()
 End Sub
 
 '' Function: Load_Transition_Name_ISTD_Click
-'' --- Code
-''  Public Sub Load_Transition_Name_ISTD_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -118,10 +112,6 @@ Public Sub Load_Transition_Name_ISTD_Click()
 End Sub
 
 '' Function: Validate_ISTD_Click
-'' --- Code
-''  Public Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
-''                                 Optional ByVal Testing As Boolean = False)
-'' ---
 ''
 '' Description:
 ''
@@ -236,9 +226,6 @@ Public Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = Tr
 End Sub
 
 '' Function: Get_Transition_Array_Click
-'' --- Code
-''  Public Sub Get_Transition_Array_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -312,9 +299,6 @@ Public Sub Get_Transition_Array_Click()
 End Sub
 
 '' Function: Get_Transition_Array_Tidy_Click
-'' --- Code
-''  Public Sub Get_Transition_Array_Tidy_Click()
-'' ---
 ''
 '' Description:
 ''

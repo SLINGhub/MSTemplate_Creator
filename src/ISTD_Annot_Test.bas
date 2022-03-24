@@ -27,15 +27,15 @@ End Sub
 '    'this method runs before every test in the module.
 'End Sub
 '
+
 ''@TestCleanup
 'Public Sub TestCleanup()
 '    'this method runs after every test in the module.
 'End Sub
 
+'@TestMethod("Convert ISTD Concentration")
+
 '' Function: Convert_Conc_nM_Array_Test
-'' --- Code
-''  Public Sub Convert_Conc_nM_Array_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -47,7 +47,6 @@ End Sub
 '' Function will assert if the output string array is
 '' {"1", "2", "3"}.
 ''
-'@TestMethod("Convert ISTD Concentration")
 Public Sub Convert_Conc_nM_Array_Test()
     On Error GoTo TestFail
 
@@ -101,10 +100,9 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@TestMethod("Get ISTD Conc nM Array")
+
 '' Function: Get_ISTD_Conc_nM_Array_Test
-'' --- Code
-''  Public Sub Get_ISTD_Conc_nM_Array_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -126,7 +124,6 @@ End Sub
 ''  - The output ISTD_Custom_Unit string array = {"0.5", "0.1"}
 ''  - Cells occupied with numbers should be green
 ''
-'@TestMethod("Get ISTD Conc nM Array")
 Public Sub Get_ISTD_Conc_nM_Array_Test()
     On Error GoTo TestFail
     

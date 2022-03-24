@@ -18,9 +18,6 @@ Option Explicit
 
 
 '' Function: Invalid_ISTD_Ok_Button_Click
-'' --- Code
-''  Private Sub Invalid_ISTD_Ok_Button_Click()
-'' ---
 ''
 '' Description:
 ''

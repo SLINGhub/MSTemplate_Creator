@@ -17,9 +17,6 @@ Option Explicit
 '@Folder("ISTD_Annot_Buttons")
 
 '' Function: ISTD_Table_Clear_Click
-'' --- Code
-''  Private Sub ISTD_Table_Clear_Click()
-'' ---
 ''
 '' Description:
 ''

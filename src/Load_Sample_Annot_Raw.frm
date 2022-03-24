@@ -28,9 +28,6 @@ Public Property Let whatsclicked(ByVal let_whatsclicked As String)
 End Property
 
 '' Function: Browse_Raw_Data_Click
-'' --- Code
-''  Private Sub Browse_Raw_Data_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -70,9 +67,6 @@ Private Sub Browse_Raw_Data_Click()
 End Sub
 
 '' Function: Browse_Sample_Annot_Click
-'' --- Code
-''  Private Sub Browse_Sample_Annot_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -176,9 +170,6 @@ Private Sub Browse_Sample_Annot_Click()
 End Sub
 
 '' Function: Sample_Amount_Map_Click
-'' --- Code
-''  Private Sub Sample_Amount_Map_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -205,9 +196,6 @@ Private Sub Sample_Amount_Map_Click()
 End Sub
 
 '' Function: Sample_Name_Map_Click
-'' --- Code
-''  Private Sub Sample_Name_Map_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -241,9 +229,6 @@ Private Sub Sample_Name_Map_Click()
 End Sub
 
 '' Function: ISTD_Mixture_Volume_Map_Click
-'' --- Code
-''  Private Sub ISTD_Mixture_Volume_Map_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -270,9 +255,6 @@ Private Sub ISTD_Mixture_Volume_Map_Click()
 End Sub
 
 '' Function: Merge_With_Sample_Annot_Button_Click
-'' --- Code
-''  Private Sub Merge_With_Sample_Annot_Button_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -290,9 +272,6 @@ Private Sub Merge_With_Sample_Annot_Button_Click()
 End Sub
 
 '' Function: Create_New_Sample_Annot_Raw_Button_Click
-'' --- Code
-''  Private Sub Create_New_Sample_Annot_Raw_Button_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -309,25 +288,7 @@ Private Sub Create_New_Sample_Annot_Raw_Button_Click()
     Load_Sample_Annot_Raw.Hide
 End Sub
 
-'Private Sub Raw_Data_File_Path_Change()
-'    Load_Sample_Annot_Raw.Create_New_Sample_Annot_Raw_Button.Enabled = False
-'    Load_Sample_Annot_Raw.Merge_With_Sample_Annot_Button.Enabled = False
-'End Sub
-
-'Private Sub Sample_Annot_File_Path_Change()
-'    Load_Sample_Annot_Raw.Merge_With_Sample_Annot_Button.Enabled = False
-'    'Update the Listbox will be cleared
-'    Load_Sample_Annot_Raw.Column_Name_List.Clear
-'    'All other sample annot related textboxes will be cleared
-'    Sample_Name_Text.Text = ""
-'    Sample_Amount_Text.Text = ""
-'    ISTD_Mixture_Volume_Text.Text = ""
-'End Sub
-
 '' Function: Raw_Data_File_Path_KeyUp
-'' --- Code
-''  Private Sub Raw_Data_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
-'' ---
 ''
 '' Description:
 ''
@@ -348,9 +309,6 @@ Private Sub Raw_Data_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByV
 End Sub
 
 '' Function: Sample_Annot_File_Path_KeyUp
-'' --- Code
-''  Private Sub Sample_Annot_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
-'' ---
 ''
 '' Description:
 ''
@@ -385,9 +343,6 @@ Private Sub Sample_Annot_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger,
 End Sub
 
 '' Function: Sample_Name_Text_KeyUp
-'' --- Code
-''  Private Sub Sample_Name_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
-'' ---
 ''
 '' Description:
 ''
@@ -412,9 +367,6 @@ Private Sub Sample_Name_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal
 End Sub
 
 '' Function: Sample_Amount_Text_KeyUp
-'' --- Code
-''  Private Sub Sample_Amount_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
-'' ---
 ''
 '' Description:
 ''
@@ -430,9 +382,6 @@ Private Sub Sample_Amount_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByV
 End Sub
 
 '' Function: ISTD_Mixture_Volume_Text_KeyUp
-'' --- Code
-''  Private Sub ISTD_Mixture_Volume_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
-'' ---
 ''
 '' Description:
 ''

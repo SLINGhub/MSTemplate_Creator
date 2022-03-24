@@ -12,9 +12,6 @@ Option Explicit
 '@Folder("Sheets")
 
 '' Function: Worksheet_Change
-'' --- Code
-''  Private Sub Worksheet_Change
-'' ---
 ''
 '' Description:
 ''
@@ -32,9 +29,6 @@ Private Sub Worksheet_Change(ByVal Target As Range)
 End Sub
 
 '' Function: ClearISTDTable_Click
-'' --- Code
-''  Private Sub ClearISTDTable_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -52,9 +46,6 @@ Private Sub ClearISTDTable_Click()
 End Sub
 
 '' Function: ConvertToNanomolar_Click
-'' --- Code
-''  Private Sub ConvertToNanomolar_Click()
-'' ---
 ''
 '' Description:
 ''

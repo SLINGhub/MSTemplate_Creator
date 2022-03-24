@@ -12,9 +12,6 @@ Option Explicit
 '@Folder("Sheets")
 
 '' Function: Worksheet_Change
-'' --- Code
-''  Private Sub Worksheet_Change
-'' ---
 ''
 '' Description:
 ''
@@ -32,9 +29,6 @@ Private Sub Worksheet_Change(ByVal Target As Range)
 End Sub
 
 '' Function: ClearTransitionSheet_Click
-'' --- Code
-''  Private Sub ClearTransitionSheet_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -52,9 +46,6 @@ Private Sub ClearTransitionSheet_Click()
 End Sub
 
 '' Function: LoadSampleAnnotationRaw_Click
-'' --- Code
-''  Private Sub LoadSampleAnnotationRaw_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -73,9 +64,6 @@ Private Sub LoadSampleAnnotationRaw_Click()
 End Sub
 
 '' Function: LoadSampleAnnotationTidy_Click
-'' --- Code
-''  Private Sub LoadSampleAnnotationTidy_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -94,9 +82,6 @@ Private Sub LoadSampleAnnotationTidy_Click()
 End Sub
 
 '' Function: LoadISTD_Click
-'' --- Code
-''  Private Sub LoadISTD_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -114,9 +99,6 @@ Private Sub LoadISTD_Click()
 End Sub
 
 '' Function: ValidateISTD_Click
-'' --- Code
-''  Private Sub ValidateISTD_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -134,9 +116,6 @@ Private Sub ValidateISTD_Click()
 End Sub
 
 '' Function: LoadTransition_Click
-'' --- Code
-''  Private Sub LoadTransition_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -154,9 +133,6 @@ Private Sub LoadTransition_Click()
 End Sub
 
 '' Function: LoadTransitionTidy_Click
-'' --- Code
-''  Private Sub LoadTransitionTidy_Click()
-'' ---
 ''
 '' Description:
 ''

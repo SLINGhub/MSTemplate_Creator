@@ -5,9 +5,6 @@ Option Explicit
 '@IgnoreModule IntegerDataType
 
 '' Function: Run_Integration_Test
-'' --- Code
-''  Public Sub Run_Integration_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -26,9 +23,6 @@ Public Sub Run_Integration_Test()
 End Sub
 
 '' Function: Nothing_To_Transfer_Test
-'' --- Code
-''  Public Sub Nothing_To_Transfer_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -141,9 +135,6 @@ TestFail:
 End Sub
 
 '' Function: Transition_Name_and_ISTD_Annot_Integration_Test
-'' --- Code
-''  Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -358,9 +349,6 @@ TestFail:
 End Sub
 
 '' Function: Sample_Annot_Integration_Test
-'' --- Code
-''  Public Sub Sample_Annot_Integration_Test()
-'' ---
 ''
 '' Description:
 ''
@@ -548,9 +536,6 @@ TestFail:
 End Sub
 
 '' Function: Sample_Annot_and_Dilution_Annot_Integration_Test
-'' --- Code
-''  Public Sub Sample_Annot_and_Dilution_Annot_Integration_Test()
-'' ---
 ''
 '' Description:
 ''

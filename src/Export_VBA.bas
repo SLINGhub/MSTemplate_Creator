@@ -4,9 +4,6 @@ Option Explicit
 '@IgnoreModule IntegerDataType
 
 '' Function: Export_Visual_Basic_Code
-'' --- Code
-''  Public Sub Export_Visual_Basic_Code()
-'' ---
 ''
 '' Description:
 ''

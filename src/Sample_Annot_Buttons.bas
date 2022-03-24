@@ -4,9 +4,6 @@ Option Explicit
 '@IgnoreModule IntegerDataType
 
 '' Function: Autofill_By_Sample_Type_Click
-'' --- Code
-''  Public Sub Autofill_By_Sample_Type_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -44,9 +41,6 @@ Public Sub Autofill_By_Sample_Type_Click()
 End Sub
 
 '' Function: Load_Sample_Name_To_Dilution_Annot_Click
-'' --- Code
-''  Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -169,9 +163,6 @@ Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
 End Sub
 
 '' Function: Clear_Sample_Table_Click
-'' --- Code
-''  Public Sub Clear_Sample_Table_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -193,10 +184,6 @@ Public Sub Clear_Sample_Table_Click()
 End Sub
 
 '' Function: Autofill_Concentration_Unit_Click
-'' --- Code
-''  Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
-''                                               Optional ByVal Testing As Boolean = False)
-'' ---
 ''
 '' Description:
 ''
@@ -339,9 +326,6 @@ Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired A
 End Sub
 
 '' Function: Autofill_Sample_Type_Click
-'' --- Code
-''  Public Sub Autofill_Sample_Type_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -413,9 +397,6 @@ Public Sub Autofill_Sample_Type_Click()
 End Sub
 
 '' Function: Load_Sample_Annot_Tidy_Column_Name_Click
-'' --- Code
-''  Public Sub Load_Sample_Annot_Tidy_Column_Name_Click()
-'' ---
 ''
 '' Description:
 ''
@@ -466,9 +447,6 @@ Public Sub Load_Sample_Annot_Tidy_Column_Name_Click()
 End Sub
 
 '' Function: Load_Sample_Annot_Raw_Column_Name_Click
-'' --- Code
-''  Public Sub Load_Sample_Annot_Raw_Column_Name_Click()
-'' ---
 ''
 '' Description:
 ''

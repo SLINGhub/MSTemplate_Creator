@@ -3,9 +3,6 @@ Option Explicit
 '@Folder("Sample Annot Functions")
 
 '' Function: Get_Mol_From_Custom_ISTD_Concentration_Unit
-'' --- Code
-''  Public Function Get_Mol_From_Custom_ISTD_Concentration_Unit(ByVal Custom_Unit As String) As String
-'' ---
 ''
 '' Description:
 ''
