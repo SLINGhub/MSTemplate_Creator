@@ -8,7 +8,7 @@
 ## Done
 * Try out the code inspection feature in [RubberDuck](http://rubberduckvba.com/).
 * Add documentation for the Visual Basic functions in the excel sheet.
-* Give instructions on how to use Natural Docs in Developers documentation and readme guide
+* Give instructions on how to use [Natural Docs](https://www.naturaldocs.org/) in Developers documentation and readme guide
 
 # MSTemplate_Creator 1.1.0
 

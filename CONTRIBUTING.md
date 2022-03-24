@@ -46,7 +46,7 @@ If you need a step by step guide, use the User Documentation file.
 
 If you need to understand the source code organisation and details, the Developer Documentation file will be useful.
 
-If you need to understand how each function in the source code works, refer to this [Code Documentation](https://slinghub.github.io/MSTemplate_Creator/) generated using [Natural Docs](https://www.naturaldocs.org/)
+If you need to understand how each function in the source code works, refer to this [Code Documentation](https://slinghub.github.io/MSTemplate_Creator/) generated using [Natural Docs](https://www.naturaldocs.org/). Version 2.2 is used.
 
 I understand that some may prefer to have online documentation. Unfortunately, I do not have the expertise to do that for vba code at this point of time.
 
@@ -75,7 +75,7 @@ Here are the summarised steps to manage the vba source code in excel, the full d
 4. To export the vba source in excel modules and sheets to the [src](https://github.com/SLINGhub/MSTemplate_Creator/tree/main/src) folder, run the function in the Export_VBA module. 
 ![ExportVBA](figures/ExportVBA.JPG)
 Refer to the Developer Documentation file to see a step by step guide on how to enable it. If there are alternative tools, do let us know. It will be helpful 🙏 if a step by step guide is also provided to help us learn and utilise these alternative tools quickly.
-5. Install [Natural Docs](https://www.naturaldocs.org/) to generate the code documentation easily. Refer to the Developer Documentation file to see a step by step guide. 
+5. Install [Natural Docs](https://www.naturaldocs.org/) to generate the code documentation easily. Refer to the Developer Documentation file to see a step by step guide. Version 2.2 is used.
 
 ### README Documentation
 
