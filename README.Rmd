@@ -128,6 +128,8 @@ Next, fill in the `Sample_Amount`, `Sample_Amount_Unit` and the `ISTD_Mixture_Vo
 
 To obtain the analyte's concentration unit measured in each sample, go the `Sample_Annot` sheet and fill in the `Sample_Amount_Unit` for each sample. Next, on the `ISTD_Annot` sheet, select the concentration unit of the internal standard to use under the `Custom_Unit` column. Return to the `Sample_Annot` sheet and use **Autofill Concentration_Unit** to fill in the `Concentration_Unit` column.
 
+![Autofill_Concentration_Unit](figures/Autofill_Concentration_Unit.gif)
+
 Transfer Sample with QC sample type of "RQC" to `Dilution_Annot` sheet with **Load RQC Samples to Dilution_Table**
 
 ![Load_RQC_Samples_to_Dilution_Table](figures/Load_RQC_Samples_to_Dilution_Table.gif)
