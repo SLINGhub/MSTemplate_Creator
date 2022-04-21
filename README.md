@@ -170,8 +170,6 @@ of the internal standard to use under the `Custom_Unit` column. Return
 to the `Sample_Annot` sheet and use **Autofill Concentration_Unit** to
 fill in the `Concentration_Unit` column.
 
-![Autofill_Concentration_Unit](figures/Autofill_Concentration_Unit.gif)
-
 Transfer Sample with QC sample type of “RQC” to `Dilution_Annot` sheet
 with **Load RQC Samples to Dilution_Table**
 
