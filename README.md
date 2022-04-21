@@ -88,7 +88,7 @@ section in GitHub.
 ![ReleasesWebpage](figures/ReleasesWebpage.JPG)
 
 Download the zip folder. Unzip the folder, double click on the excel
-macro file \`MSTemplate_Creator.xlsm\`\` to start.
+macro file `MSTemplate_Creator.xlsm` to start.
 
 ![OpenMSTemplate_Creator](figures/OpenMSTemplate_Creator.JPG)
 

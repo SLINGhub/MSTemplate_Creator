@@ -68,7 +68,7 @@ Go to the [Releases](https://github.com/SLINGhub/MSTemplate_Creator/releases) se
 
 ![ReleasesWebpage](figures/ReleasesWebpage.JPG)
 
-Download the zip folder. Unzip the folder, double click on the excel macro file `MSTemplate_Creator.xlsm`` to start.
+Download the zip folder. Unzip the folder, double click on the excel macro file `MSTemplate_Creator.xlsm` to start.
 
 ![OpenMSTemplate_Creator](figures/OpenMSTemplate_Creator.JPG)
 
