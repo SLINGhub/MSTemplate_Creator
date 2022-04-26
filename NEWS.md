@@ -3,12 +3,15 @@
 ## TODO
 
 * Check if relative sample amount definition is clear enough.
-* Decide on the most suited open source licence.
+* Update documentation to include the updated concentration calculation table. Many thanks to Peter Benke for his valuable feedback.
+
 
 ## Done
 * Try out the code inspection feature in [RubberDuck](http://rubberduckvba.com/).
-* Add documentation for the Visual Basic functions in the excel sheet.
+* Add documentation for the Visual Basic functions in the excel sheet using [Natural Docs](https://www.naturaldocs.org/).
+* Remove the word document, MS_Template_Creator_Testing_Checklist.docx as it is already written using the [Natural Docs](https://www.naturaldocs.org/)
 * Give instructions on how to use [Natural Docs](https://www.naturaldocs.org/) in Developers documentation and readme guide
+* Decided to stick to just MIT License for now
 
 # MSTemplate_Creator 1.1.0
 
