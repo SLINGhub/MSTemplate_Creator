@@ -1,1 +1,0 @@
-﻿NDSummary.OnToolTipsLoaded("File:DilutionAnnotSheet.cls",{86:"<div class=\"NDToolTip TFunction LVisualBasic\"><div id=\"NDPrototype86\" class=\"NDPrototype\"><div class=\"PSection PPlainSection\">Private Sub ClearDilutionAnnot_Click()</div></div><div class=\"TTSummary\">Function that controls what happens when the following button is left clicked.</div></div>"});

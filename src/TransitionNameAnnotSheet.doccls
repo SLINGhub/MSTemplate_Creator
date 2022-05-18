@@ -1,13 +1,4 @@
-VERSION 1.0 CLASS
-BEGIN
-  MultiUse = -1  'True
-END
-Attribute VB_Name = "TransitionNameAnnotSheet"
-Attribute VB_GlobalNameSpace = False
-Attribute VB_Creatable = False
-Attribute VB_PredeclaredId = True
-Attribute VB_Exposed = True
-Option Explicit
+﻿Option Explicit
 '@IgnoreModule ProcedureNotUsed
 '@Folder("Sheets")
 
@@ -148,4 +139,3 @@ End Sub
 Private Sub LoadTransitionTidy_Click()
     Transition_Name_Annot_Buttons.Get_Transition_Array_Tidy_Click
 End Sub
-

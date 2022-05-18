@@ -1,8 +1,13 @@
-# MSTemplate_Creator 1.1.1.9000 (development version)
+# MSTemplate_Creator 1.1.2.9000 (development version)
 
 ## TODO
 
 * Check if relative sample amount definition is clear enough.
+* Add annotations to the functions in excel vba
+
+# MSTemplate_Creator 1.1.2 (development version)
+
+* Learnt how to push a version to Zenodo. 
 
 # MSTemplate_Creator 1.1.1
 

@@ -1,0 +1,1 @@
+﻿NDFramePage.OnPageTitleLoaded("File:DilutionAnnotSheet.doccls","DilutionAnnotSheet.doccls");NDSummary.OnSummaryLoaded("File:DilutionAnnotSheet.doccls",[["Excel VBA","ExcelVBA"]],[["Functions","Function"],["Groups","Group"]],[[215,0,1,"Functions","Functions"],[216,0,0,"ClearDilutionAnnot_Click","ClearDilutionAnnot_Click"]]);
