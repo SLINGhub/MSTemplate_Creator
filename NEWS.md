@@ -3,7 +3,11 @@
 ## TODO
 
 * Check if relative sample amount definition is clear enough.
-* Add annotations to the functions in excel vba
+* Add annotations to the functions in excel vba.
+
+## Done
+
+* Change the cls files to doccls files.
 
 # MSTemplate_Creator 1.1.2 (development version)
 
