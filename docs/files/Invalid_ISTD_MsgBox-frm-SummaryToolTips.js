@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Invalid_ISTD_MsgBox.frm",{162:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function that controls what happens when the following button is left clicked.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:Invalid_ISTD_MsgBox.frm",{});

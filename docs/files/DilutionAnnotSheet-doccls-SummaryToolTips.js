@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:DilutionAnnotSheet.doccls",{216:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function that controls what happens when the following button is left clicked.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:DilutionAnnotSheet.doccls",{});

@@ -12,70 +12,70 @@
  <div class="CTitle">Autofill Button Function</div>
 </div>
 
-<a name="Autofill_ISTD_Mixture_Volume_Button_Click"></a><a name="Topic201"></a><div class="CTopic TFunction LExcelVBA">
+<a name="Autofill_ISTD_Mixture_Volume_Button_Click"></a><a name="Topic90"></a><div class="CTopic TFunction LExcelVBA">
  <div class="CTitle">Autofill_ISTD_Mixture_Volume_Button_Click</div>
- <div class="CBody"><div class="CHeading">Description</div><p>Function that controls what happens when the following button is left clicked</p><div class="CImage"><a href="../images/Autofill_ISTD_Mixture_Volume_Button.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_ISTD_Mixture_Volume_Button.png" loading="lazy" class="KnownDimensions" width="880" height="358" style="max-width: 880px" alt="Autofill_ISTD_Mixture_Volume_Button" /></a></div><p>Currently, clicking on this button will autofill the column ISTD_Mixture_Volume_[uL] in the active sheet only rows whose column Sample_Type matches the input Sample_Type based on the autofill value in the input ISTD_Mixture_Volume text box value</p></div>
+ <div class="CBody"><pre class="CCode">Private Sub Autofill_ISTD_Mixture_Volume_Button_Click()</pre><div class="CHeading">Description</div><p>Function that controls what happens when the following button is left clicked.</p><div class="CImage"><a href="../images/Autofill_ISTD_Mixture_Volume_Button.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_ISTD_Mixture_Volume_Button.png" loading="lazy" class="KnownDimensions" width="880" height="358" style="max-width: 880px" alt="Autofill_ISTD_Mixture_Volume_Button" /></a></div><p>Currently, clicking on this button will autofill the column ISTD_Mixture_Volume_[uL] in the active sheet only rows whose column Sample_Type matches the input Sample_Type based on the autofill value in the input ISTD_Mixture_Volume text box value</p></div>
 </div>
 
-<a name="Autofill_Sample_Amount_Button_Click"></a><a name="Topic202"></a><div class="CTopic TFunction LExcelVBA">
+<a name="Autofill_Sample_Amount_Button_Click"></a><a name="Topic140"></a><div class="CTopic TFunction LExcelVBA">
  <div class="CTitle">Autofill_Sample_Amount_Button_Click</div>
- <div class="CBody"><div class="CHeading">Description</div><p>Function that controls what happens when the following button is left clicked</p><p>(see Autofill_Sample_Amount_Button_Click.png)</p><p>Currently, clicking on this button will autofill the column Sample_Amount in the active sheet only rows whose column Sample_Type matches the input Sample_Type based on the autofill value in the input Sample_Amount text box value</p></div>
+ <div class="CBody"><pre class="CCode">Private Sub Autofill_Sample_Amount_Button_Click()</pre><div class="CHeading">Description</div><p>Function that controls what happens when the following button is left clicked.</p><p>(see Autofill_Sample_Amount_Button_Click.png)</p><p>Currently, clicking on this button will autofill the column Sample_Amount in the active sheet only rows whose column Sample_Type matches the input Sample_Type based on the autofill value in the input Sample_Amount text box value</p></div>
 </div>
 
-<a name="Autofill_Sample_Amount_Unit_Button_Click"></a><a name="Topic203"></a><div class="CTopic TFunction LExcelVBA">
+<a name="Autofill_Sample_Amount_Unit_Button_Click"></a><a name="Topic141"></a><div class="CTopic TFunction LExcelVBA">
  <div class="CTitle">Autofill_Sample_Amount_Unit_Button_Click</div>
- <div class="CBody"><div class="CHeading">Description</div><p>Function that controls what happens when the following button is left clicked</p><div class="CImage"><a href="../images/Autofill_Sample_Amount_Unit_Button.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_Sample_Amount_Unit_Button.png" loading="lazy" class="KnownDimensions" width="880" height="361" style="max-width: 880px" alt="Autofill_Sample_Amount_Unit_Button" /></a></div><p>Currently, clicking on this button will autofill the column Sample_Amount Unit in the active sheet only rows whose column Sample_Type matches the input Sample_Type based on the autofill value in the input Sample_Amount_Unit text box value</p></div>
+ <div class="CBody"><pre class="CCode">Private Sub Autofill_Sample_Amount_Unit_Button_Click()</pre><div class="CHeading">Description</div><p>Function that controls what happens when the following button is left clicked.</p><div class="CImage"><a href="../images/Autofill_Sample_Amount_Unit_Button.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_Sample_Amount_Unit_Button.png" loading="lazy" class="KnownDimensions" width="880" height="361" style="max-width: 880px" alt="Autofill_Sample_Amount_Unit_Button" /></a></div><p>Currently, clicking on this button will autofill the column Sample_Amount Unit in the active sheet only rows whose column Sample_Type matches the input Sample_Type based on the autofill value in the input Sample_Amount_Unit text box value</p></div>
 </div>
 
 <a name="Autofill_Text_Box_Change_Function"></a><a name="Topic204"></a><div class="CTopic TGroup LExcelVBA">
  <div class="CTitle">Autofill Text Box Change Function</div>
 </div>
 
-<a name="ISTD_Mixture_Volume_TextBox_Change"></a><a name="Topic205"></a><div class="CTopic TFunction LExcelVBA">
+<a name="ISTD_Mixture_Volume_TextBox_Change"></a><a name="Topic142"></a><div class="CTopic TFunction LExcelVBA">
  <div class="CTitle">ISTD_Mixture_Volume_TextBox_Change</div>
- <div class="CBody"><div class="CHeading">Description</div><p>Function that controls what happens when the users change the ISTD_Mixture_Volume text box value</p><p>By default, the button will be masked. However, if there is an input in <b>both</b> the Sample_Type and the ISTD_Mixture_Volume boxes, the ISTD_Mixture_Volume Autofill button will be enabled.</p><div class="CImage"><a href="../images/Autofill_ISTD_Mixture_Volume_Text_Change.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_ISTD_Mixture_Volume_Text_Change.png" loading="lazy" class="KnownDimensions" width="1570" height="338" style="max-width: 1570px" alt="Autofill_ISTD_Mixture_Volume_Text_Change" /></a></div></div>
+ <div class="CBody"><pre class="CCode">Private Sub ISTD_Mixture_Volume_TextBox_Change()</pre><div class="CHeading">Description</div><p>Function that controls what happens when the users change the ISTD_Mixture_Volume text box value.</p><p>By default, the button will be masked. However, if there is an input in <b>both</b> the Sample_Type and the ISTD_Mixture_Volume boxes, the ISTD_Mixture_Volume Autofill button will be enabled.</p><div class="CImage"><a href="../images/Autofill_ISTD_Mixture_Volume_Text_Change.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_ISTD_Mixture_Volume_Text_Change.png" loading="lazy" class="KnownDimensions" width="1570" height="338" style="max-width: 1570px" alt="Autofill_ISTD_Mixture_Volume_Text_Change" /></a></div></div>
 </div>
 
-<a name="Sample_Amount_TextBox_Change"></a><a name="Topic206"></a><div class="CTopic TFunction LExcelVBA">
+<a name="Sample_Amount_TextBox_Change"></a><a name="Topic143"></a><div class="CTopic TFunction LExcelVBA">
  <div class="CTitle">Sample_Amount_TextBox_Change</div>
- <div class="CBody"><div class="CHeading">Description</div><p>Function that controls what happens when the users change the Sample_Amount text box value</p><p>By default, the button will be masked. However, if there is an input in <b>both</b> the Sample_Type and the Sample_Amount boxes, the Sample_Amount Autofill button will be enabled.</p><div class="CImage"><a href="../images/Autofill_Sample_Amount_Text_Change.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_Sample_Amount_Text_Change.png" loading="lazy" class="KnownDimensions" width="1551" height="338" style="max-width: 1551px" alt="Autofill_Sample_Amount_Text_Change" /></a></div></div>
+ <div class="CBody"><pre class="CCode">Private Sub Sample_Amount_TextBox_Change()</pre><div class="CHeading">Description</div><p>Function that controls what happens when the users change the Sample_Amount text box value.</p><p>By default, the button will be masked. However, if there is an input in <b>both</b> the Sample_Type and the Sample_Amount boxes, the Sample_Amount Autofill button will be enabled.</p><div class="CImage"><a href="../images/Autofill_Sample_Amount_Text_Change.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_Sample_Amount_Text_Change.png" loading="lazy" class="KnownDimensions" width="1551" height="338" style="max-width: 1551px" alt="Autofill_Sample_Amount_Text_Change" /></a></div></div>
 </div>
 
 <a name="Autofill_Combo_Box_Change_Function"></a><a name="Topic207"></a><div class="CTopic TGroup LExcelVBA">
  <div class="CTitle">Autofill Combo Box Change Function</div>
 </div>
 
-<a name="Sample_Amount_Unit_ComboBox_Change"></a><a name="Topic208"></a><div class="CTopic TFunction LExcelVBA">
+<a name="Sample_Amount_Unit_ComboBox_Change"></a><a name="Topic162"></a><div class="CTopic TFunction LExcelVBA">
  <div class="CTitle">Sample_Amount_Unit_ComboBox_Change</div>
- <div class="CBody"><div class="CHeading">Description</div><p>Function that controls what happens when the users change the Sample_Amount_Unit combo box value</p><p>By default, the button will be masked. However, if there is an input in <b>both</b> the Sample_Type and the Sample_Amount_Unit boxes, the Sample_Amount_Unit Autofill button will be enabled.</p><div class="CImage"><a href="../images/Autofill_Sample_Amount_Unit_ComboBox_Change.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_Sample_Amount_Unit_ComboBox_Change.png" loading="lazy" class="KnownDimensions" width="1559" height="338" style="max-width: 1559px" alt="Autofill_Sample_Amount_Unit_ComboBox_Change" /></a></div></div>
+ <div class="CBody"><pre class="CCode">Private Sub Sample_Amount_Unit_ComboBox_Change()</pre><div class="CHeading">Description</div><p>Function that controls what happens when the users change the Sample_Amount_Unit combo box value.</p><p>By default, the button will be masked. However, if there is an input in <b>both</b> the Sample_Type and the Sample_Amount_Unit boxes, the Sample_Amount_Unit Autofill button will be enabled.</p><div class="CImage"><a href="../images/Autofill_Sample_Amount_Unit_ComboBox_Change.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_Sample_Amount_Unit_ComboBox_Change.png" loading="lazy" class="KnownDimensions" width="1559" height="338" style="max-width: 1559px" alt="Autofill_Sample_Amount_Unit_ComboBox_Change" /></a></div></div>
 </div>
 
-<a name="Sample_Type_ComboBox_Change"></a><a name="Topic209"></a><div class="CTopic TFunction LExcelVBA">
+<a name="Sample_Type_ComboBox_Change"></a><a name="Topic179"></a><div class="CTopic TFunction LExcelVBA">
  <div class="CTitle">Sample_Type_ComboBox_Change</div>
- <div class="CBody"><div class="CHeading">Description</div><p>Function that controls what happens when the users change the Sample_Type combo box value</p><p>By default, the button will be masked. However, if there is an input in <b>both</b> the Sample_Type and the corresponding (Sample_Amount, Sample_Amount_Unit or ISTD_Mixture_Volume) boxes, the corresponding autofill buttons (Sample_Amount, Sample_Amount_Unit or ISTD_Mixture_Volume) will be enabled.</p><div class="CImage"><a href="../images/Autofill_Sample_Type_ComboBox_Change.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_Sample_Type_ComboBox_Change.png" loading="lazy" class="KnownDimensions" width="1547" height="339" style="max-width: 1547px" alt="Autofill_Sample_Type_ComboBox_Change" /></a></div></div>
+ <div class="CBody"><pre class="CCode">Private Sub Sample_Type_ComboBox_Change()</pre><div class="CHeading">Description</div><p>Function that controls what happens when the users change the Sample_Type combo box value.</p><p>By default, the button will be masked. However, if there is an input in <b>both</b> the Sample_Type and the corresponding (Sample_Amount, Sample_Amount_Unit or ISTD_Mixture_Volume) boxes, the corresponding autofill buttons (Sample_Amount, Sample_Amount_Unit or ISTD_Mixture_Volume) will be enabled.</p><div class="CImage"><a href="../images/Autofill_Sample_Type_ComboBox_Change.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_Sample_Type_ComboBox_Change.png" loading="lazy" class="KnownDimensions" width="1547" height="339" style="max-width: 1547px" alt="Autofill_Sample_Type_ComboBox_Change" /></a></div></div>
 </div>
 
 <a name="Autofill_Text_Box_Exit_Function"></a><a name="Topic210"></a><div class="CTopic TGroup LExcelVBA">
  <div class="CTitle">Autofill Text Box Exit Function</div>
 </div>
 
-<a name="ISTD_Mixture_Volume_TextBox_Exit"></a><a name="Topic211"></a><div class="CTopic TFunction LExcelVBA">
+<a name="ISTD_Mixture_Volume_TextBox_Exit"></a><a name="Topic186"></a><div class="CTopic TFunction LExcelVBA">
  <div class="CTitle">ISTD_Mixture_Volume_TextBox_Exit</div>
- <div class="CBody"><div class="CHeading">Description</div><p>Function that controls what happens when the users leaves the ISTD_Mixture_Volume text box</p><p>The function will check if a valid positive number is keyed in. If an invalid value is given, the following message box will pop out to inform the user to enter a valid input.</p><div class="CImage"><a href="../images/Autofill_ISTD_Mixture_Volume_Text_Exit.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_ISTD_Mixture_Volume_Text_Exit.png" loading="lazy" class="KnownDimensions" width="1498" height="423" style="max-width: 1498px" alt="Autofill_ISTD_Mixture_Volume_Text_Exit" /></a></div></div>
+ <div class="CBody"><pre class="CCode">Private Sub ISTD_Mixture_Volume_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)</pre><div class="CHeading">Description</div><p>Function that controls what happens when the users leaves the ISTD_Mixture_Volume text box.</p><p>The function will check if a valid positive number is keyed in. If an invalid value is given, the following message box will pop out to inform the user to enter a valid input.</p><div class="CImage"><a href="../images/Autofill_ISTD_Mixture_Volume_Text_Exit.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_ISTD_Mixture_Volume_Text_Exit.png" loading="lazy" class="KnownDimensions" width="1498" height="423" style="max-width: 1498px" alt="Autofill_ISTD_Mixture_Volume_Text_Exit" /></a></div></div>
 </div>
 
-<a name="Sample_Amount_TextBox_Exit"></a><a name="Topic212"></a><div class="CTopic TFunction LExcelVBA">
+<a name="Sample_Amount_TextBox_Exit"></a><a name="Topic190"></a><div class="CTopic TFunction LExcelVBA">
  <div class="CTitle">Sample_Amount_TextBox_Exit</div>
- <div class="CBody"><div class="CHeading">Description</div><p>Function that controls what happens when the users leaves the Sample_Amount text box</p><p>The function will check if a valid positive number is keyed in. If an invalid value is given, the following message box will pop out to inform the user to enter a valid input.</p><div class="CImage"><a href="../images/Autofill_Sample_Amount_Text_Exit.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_Sample_Amount_Text_Exit.png" loading="lazy" class="KnownDimensions" width="1495" height="430" style="max-width: 1495px" alt="Autofill_Sample_Amount_Text_Exit" /></a></div></div>
+ <div class="CBody"><pre class="CCode">Private Sub Sample_Amount_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)</pre><div class="CHeading">Description</div><p>Function that controls what happens when the users leaves the Sample_Amount text box.</p><p>The function will check if a valid positive number is keyed in. If an invalid value is given, the following message box will pop out to inform the user to enter a valid input.</p><div class="CImage"><a href="../images/Autofill_Sample_Amount_Text_Exit.png" target="_blank" class="ZoomLink"><img src="../images/Autofill_Sample_Amount_Text_Exit.png" loading="lazy" class="KnownDimensions" width="1495" height="430" style="max-width: 1495px" alt="Autofill_Sample_Amount_Text_Exit" /></a></div></div>
 </div>
 
 <a name="Form_Initialisation"></a><a name="Topic213"></a><div class="CTopic TGroup LExcelVBA">
  <div class="CTitle">Form Initialisation</div>
 </div>
 
-<a name="Autofill_By_Sample_Type_form_initialisation"></a><a name="Topic214"></a><div class="CTopic TFunction LExcelVBA last">
+<a name="Autofill_By_Sample_Type_form_initialisation"></a><a name="Topic194"></a><div class="CTopic TFunction LExcelVBA last">
  <div class="CTitle">Autofill_By_Sample_Type form initialisation</div>
- <div class="CBody"><div class="CHeading">Description</div><p>Function that controls what happens when the Autofill_By_Sample_Type form is initialize when user click on the button &quot;Autofill by Sample_Type&quot; in the Sample_Annot sheet</p><p>The function will first check of if the sheet whose code name is Lists exists before proceeding. If it does, It then fills in the combox boxes (Sample_Type and Sample_Amount_Unit) with the relevant entries provided in the respective tables (SampleType and SampleAmountUnit) found in the &quot;List&quot; worksheet.</p></div>
+ <div class="CBody"><pre class="CCode">Private Sub UserForm_Initialize()</pre><div class="CHeading">Description</div><p>Function that controls what happens when the Autofill_By_Sample_Type form is initialize when user click on the button &quot;Autofill by Sample_Type&quot; in the Sample_Annot sheet.</p><p>The function will first check of if the sheet whose code name is Lists exists before proceeding. If it does, It then fills in the combox boxes (Sample_Type and Sample_Amount_Unit) with the relevant entries provided in the respective tables (SampleType and SampleAmountUnit) found in the &quot;List&quot; worksheet.</p></div>
 </div>
 
 </body></html>

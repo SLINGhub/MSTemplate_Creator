@@ -1,6 +1,8 @@
 Attribute VB_Name = "Load_Raw_Data_Test"
+Attribute VB_Description = "Test units for the functions in Load Raw Data Module."
 Option Explicit
 Option Private Module
+'@ModuleDescription("Test units for the functions in Load Raw Data Module.")
 
 '@TestModule
 '@Folder("Tests")
@@ -33,8 +35,12 @@ End Sub
 'End Sub
 
 '@TestMethod("Get Transition_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working.")
 
 '' Function: Get_Transition_Array_Wide_Table_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_Wide_Table_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -48,6 +54,7 @@ End Sub
 '' Function will assert if Transition_Array has 30 elements
 ''
 Public Sub Get_Transition_Array_Wide_Table_Test()
+Attribute Get_Transition_Array_Wide_Table_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -79,8 +86,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Transition_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working.")
 
 '' Function: Get_Transition_Array_Wide_Table_With_Qualifier_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_Wide_Table_With_Qualifier_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -94,6 +105,7 @@ End Sub
 '' Function will assert if Transition_Array has 15 elements
 ''
 Public Sub Get_Transition_Array_Wide_Table_With_Qualifier_Test()
+Attribute Get_Transition_Array_Wide_Table_With_Qualifier_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -125,8 +137,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Transition_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working.")
 
 '' Function: Get_Transition_Array_Compound_Table_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_Compound_Table_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -140,6 +156,7 @@ End Sub
 '' Function will assert if Transition_Array has 122 elements
 ''
 Public Sub Get_Transition_Array_Compound_Table_Test()
+Attribute Get_Transition_Array_Compound_Table_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -171,8 +188,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Transition_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Transition_Array_Agilent_Compound is working.")
 
 '' Function: Get_Transition_Array_Agilent_Compound_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_Agilent_Compound_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -198,6 +219,7 @@ End Sub
 '' {"Sph d18:0", "Qualifier (302.3 -> 266.2)", "Qualifier (302.3 -> 254.2)", "Qualifier (302.3 -> 60.2)"}
 ''
 Public Sub Get_Transition_Array_Agilent_Compound_Test()
+Attribute Get_Transition_Array_Agilent_Compound_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Transition_Array_Agilent_Compound is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -335,8 +357,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Transition_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working.")
 
 '' Function: Get_Transition_Array_Compound_Table_With_Qualifier_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_Compound_Table_With_Qualifier_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -350,6 +376,7 @@ End Sub
 '' Function will assert if Transition_Array has 15 elements
 ''
 Public Sub Get_Transition_Array_Compound_Table_With_Qualifier_Test()
+Attribute Get_Transition_Array_Compound_Table_With_Qualifier_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -381,8 +408,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Transition_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working.")
 
 '' Function: Get_Transition_Array_SciEx_Data_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_SciEx_Data_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -396,6 +427,7 @@ End Sub
 '' Function will assert if Transition_Array has 224 elements
 ''
 Public Sub Get_Transition_Array_SciEx_Data_Test()
+Attribute Get_Transition_Array_SciEx_Data_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -427,8 +459,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Transition_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working.")
 
 '' Function: Get_Transition_Array_Multiple_Data_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_Multiple_Data_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -444,6 +480,7 @@ End Sub
 '' Function will assert if Transition_Array has 653 elements
 ''
 Public Sub Get_Transition_Array_Multiple_Data_Test()
+Attribute Get_Transition_Array_Multiple_Data_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -485,8 +522,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Transition_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working.")
 
 '' Function: Get_Transition_Array_Invalid_Data_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_Invalid_Data_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -500,6 +541,7 @@ End Sub
 '' Function will assert if Transition_Array has 0 elements
 ''
 Public Sub Get_Transition_Array_Invalid_Data_Test()
+Attribute Get_Transition_Array_Invalid_Data_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Transition_Array_Raw is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -531,8 +573,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Sample_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Sample_Name_Array is working.")
 
 '' Function: Get_Sample_Name_Array_Wide_Table_Test
+'' --- Code
+''  Public Sub Get_Sample_Name_Array_Wide_Table_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -550,6 +596,7 @@ End Sub
 '' Function will assert if MS_File_Array has 533 elements
 ''
 Public Sub Get_Sample_Name_Array_Wide_Table_Test()
+Attribute Get_Sample_Name_Array_Wide_Table_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Sample_Name_Array is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -590,8 +637,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Sample_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Sample_Name_Array is working.")
 
 '' Function: Get_Sample_Name_Array_Compound_Table_Test
+'' --- Code
+''  Public Sub Get_Sample_Name_Array_Compound_Table_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -609,6 +660,7 @@ End Sub
 '' Function will assert if MS_File_Array has 50 elements
 ''
 Public Sub Get_Sample_Name_Array_Compound_Table_Test()
+Attribute Get_Sample_Name_Array_Compound_Table_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Sample_Name_Array is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -649,8 +701,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Sample_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Sample_Name_Array is working.")
 
 '' Function: Get_Sample_Name_Array_SciEx_Data_Test
+'' --- Code
+''  Public Sub Get_Sample_Name_Array_SciEx_Data_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -668,6 +724,7 @@ End Sub
 '' Function will assert if MS_File_Array has 61 elements
 ''
 Public Sub Get_Sample_Name_Array_SciEx_Data_Test()
+Attribute Get_Sample_Name_Array_SciEx_Data_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Sample_Name_Array is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -708,8 +765,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Sample_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Sample_Name_Array is working.")
 
 '' Function: Get_Sample_Name_Array_Multiple_Data_Test
+'' --- Code
+''  Public Sub Get_Sample_Name_Array_Multiple_Data_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -729,6 +790,7 @@ End Sub
 '' Function will assert if MS_File_Array has 664 elements
 ''
 Public Sub Get_Sample_Name_Array_Multiple_Data_Test()
+Attribute Get_Sample_Name_Array_Multiple_Data_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Sample_Name_Array is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -770,8 +832,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Sample_Annot From Raw MS Data")
+'@Description("Function used to test if the function Load_Raw_Data.Get_Sample_Name_Array is working.")
 
 '' Function: Get_Sample_Name_Array_Invalid_Data_Test
+'' --- Code
+''  Public Sub Get_Sample_Name_Array_Invalid_Data_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -789,6 +855,7 @@ End Sub
 '' Function will assert if MS_File_Array has 0 elements
 ''
 Public Sub Get_Sample_Name_Array_Invalid_Data_Test()
+Attribute Get_Sample_Name_Array_Invalid_Data_Test.VB_Description = "Function used to test if the function Load_Raw_Data.Get_Sample_Name_Array is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -827,5 +894,3 @@ TestExit:
 TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
-
-

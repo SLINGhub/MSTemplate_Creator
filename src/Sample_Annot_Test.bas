@@ -1,6 +1,8 @@
 Attribute VB_Name = "Sample_Annot_Test"
+Attribute VB_Description = "Test units for the functions in Sample_Annot Module."
 Option Explicit
 Option Private Module
+'@ModuleDescription("Test units for the functions in Sample_Annot Module.")
 '@IgnoreModule IntegerDataType
 
 '@TestModule
@@ -34,8 +36,12 @@ End Sub
 'End Sub
 
 '@TestMethod("Autofill Columns By QC Sample Type")
+'@Description("Function used to test if the function Sample_Annot.Autofill_Column_By_QC_Sample_Type is working.")
 
 '' Function: Autofill_Column_By_QC_Sample_Type_Test
+'' --- Code
+''  Public Sub Autofill_Column_By_QC_Sample_Type_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -61,6 +67,7 @@ End Sub
 '' {"190", "190", "190", "190", "190"}
 ''
 Public Sub Autofill_Column_By_QC_Sample_Type_Test()
+Attribute Autofill_Column_By_QC_Sample_Type_Test.VB_Description = "Function used to test if the function Sample_Annot.Autofill_Column_By_QC_Sample_Type is working."
     On Error GoTo TestFail
     
     ' Get the Sample_Annot worksheet from the active workbook
@@ -146,8 +153,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Sample Annot Information")
+'@Description("Function used to test if the function Sample_Annot.Get_Sample_Name_Array_From_Annot_File is working.")
 
 '' Function: Get_Sample_Name_Array_From_Annot_File_Test
+'' --- Code
+''  Public Sub Get_Sample_Name_Array_From_Annot_File_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -168,6 +179,7 @@ End Sub
 '' The first three elements are "1_untreated", "1_untreated" and "1_3h"
 ''
 Public Sub Get_Sample_Name_Array_From_Annot_File_Test()
+Attribute Get_Sample_Name_Array_From_Annot_File_Test.VB_Description = "Function used to test if the function Sample_Annot.Get_Sample_Name_Array_From_Annot_File is working."
     On Error GoTo TestFail
     
     Load_Sample_Annot_Raw.Sample_Name_Text.Text = "Sample"
@@ -207,8 +219,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Sample Annot Information")
+'@Description("Function used to test if the function Sample_Annot.Get_Sample_Column_Name_Position_From_Annot_File is working.")
 
 '' Function: Get_Sample_Column_Name_Position_From_Annot_File_Test
+'' --- Code
+''  Public Sub Get_Sample_Column_Name_Position_From_Annot_File_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -226,6 +242,7 @@ End Sub
 '' should return 0 as "Sample" is is the first element of first_line
 ''
 Public Sub Get_Sample_Column_Name_Position_From_Annot_File_Test()
+Attribute Get_Sample_Column_Name_Position_From_Annot_File_Test.VB_Description = "Function used to test if the function Sample_Annot.Get_Sample_Column_Name_Position_From_Annot_File is working."
     On Error GoTo TestFail
     
     'Load the Sample_Name from Sample Annotation
@@ -260,8 +277,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Sample Annot Information")
+'@Description("Function used to test if the function Sample_Annot.Get_Sample_Annot_Starting_Line_From_Annot_File is working.")
 
 '' Function: Get_Sample_Annot_Starting_Line_From_Annot_File_Test
+'' --- Code
+''  Public Sub Get_Sample_Annot_Starting_Line_From_Annot_File_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -277,6 +298,7 @@ End Sub
 '' should return 1
 ''
 Public Sub Get_Sample_Annot_Starting_Line_From_Annot_File_Test()
+Attribute Get_Sample_Annot_Starting_Line_From_Annot_File_Test.VB_Description = "Function used to test if the function Sample_Annot.Get_Sample_Annot_Starting_Line_From_Annot_File is working."
     On Error GoTo TestFail
     
     'Get the data starting row
@@ -306,8 +328,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Load Sample Annot Information")
+'@Description("Function used to test if the function Sample_Annot.Load_Sample_Info_To_Excel is working.")
 
 '' Function: Load_Sample_Info_To_Excel_Test
+'' --- Code
+''  Public Sub Load_Sample_Info_To_Excel_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -335,6 +361,7 @@ End Sub
 '' {"1", "2", "4", "", "5"}.
 ''
 Public Sub Load_Sample_Info_To_Excel_Test()
+Attribute Load_Sample_Info_To_Excel_Test.VB_Description = "Function used to test if the function Sample_Annot.Load_Sample_Info_To_Excel is working."
     On Error GoTo TestFail
 
     ' Get the Sample_Annot worksheet from the active workbook

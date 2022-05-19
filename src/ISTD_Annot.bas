@@ -1,14 +1,21 @@
 Attribute VB_Name = "ISTD_Annot"
+Attribute VB_Description = "Functions that are commonly called in the ISTD_Annot worksheet."
 Option Explicit
+'@ModuleDescription("Functions that are commonly called in the ISTD_Annot worksheet.")
 '@Folder("ISTD Annot Functions")
 '@IgnoreModule IntegerDataType
 
+'@Description("Get the concentration values from the ISTD_Conc_[nM] column, convert them based the units provided in the input Custom_Unit and output as a string array.")
+
 '' Function: Convert_Conc_nM_Array
+'' --- Code
+''  Public Function Convert_Conc_nM_Array(ByVal Custom_Unit As String) As String()
+'' ---
 ''
 '' Description:
 ''
-'' Get the concentration values from the ISTD_Conc_[nM] column
-'' and convert them based the units provided in the input Custom_Unit
+'' Get the concentration values from the ISTD_Conc_[nM] column,
+'' convert them based the units provided in the input Custom_Unit
 '' and output as a string array.
 ''
 '' (see ISTD_Annot_ISTD_Conc_nM_Column.png)
@@ -68,6 +75,7 @@ Option Explicit
 ''    ISTD_Custom_Unit = ISTD_Annot.Convert_Conc_nM_Array(Custom_Unit:=Custom_Unit)
 '' ---
 Public Function Convert_Conc_nM_Array(ByVal Custom_Unit As String) As String()
+Attribute Convert_Conc_nM_Array.VB_Description = "Get the concentration values from the ISTD_Conc_[nM] column, convert them based the units provided in the input Custom_Unit and output as a string array."
     Dim ISTD_Conc() As String
     Dim lenArrayIndex As Integer
     Dim lenArray As Integer
@@ -129,8 +137,12 @@ Public Function Convert_Conc_nM_Array(ByVal Custom_Unit As String) As String()
     
 End Function
 
+'@Description("Get the concentration values for the ISTD_Conc_[nM] column using the values from the ISTD_Conc_[ng/mL] and ISTD_[MW] column or from manual input from the users on the ISTD_Conc_[nM] column itself.")
 
 '' Function: Get_ISTD_Conc_nM_Array
+'' --- Code
+''  Public Function Get_ISTD_Conc_nM_Array(ByVal ColourCellRequired As Boolean) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -247,6 +259,7 @@ End Function
 ''    Application.EnableEvents = True
 '' ---
 Public Function Get_ISTD_Conc_nM_Array(ByVal ColourCellRequired As Boolean) As String()
+Attribute Get_ISTD_Conc_nM_Array.VB_Description = "Get the concentration values for the ISTD_Conc_[nM] column using the values from the ISTD_Conc_[ng/mL] and ISTD_[MW] column or from manual input from the users on the ISTD_Conc_[nM] column itself."
 
     ' Get the ISTD_Annot worksheet from the active workbook
     ' The ISTDAnnotSheet is a code name
@@ -376,5 +389,3 @@ Public Function Get_ISTD_Conc_nM_Array(ByVal ColourCellRequired As Boolean) As S
     Get_ISTD_Conc_nM_Array = ISTD_Conc_nM
     
 End Function
-
-

@@ -1,6 +1,8 @@
 Attribute VB_Name = "Utilities_Test"
+Attribute VB_Description = "Test units for the functions in Utilities Module."
 Option Explicit
 Option Private Module
+'@ModuleDescription("Test units for the functions in Utilities Module.")
 
 '@TestModule
 '@Folder("Tests")
@@ -33,16 +35,21 @@ End Sub
 'End Sub
 
 '@TestMethod("Sheet Name Integrity Test")
+'@Description("Function used to test if the function Utilities.Check_Sheet_Code_Name_Exists is working.")
 
 '' Function: Check_Sheet_Code_Name_Exists_Test
+'' --- Code
+''  Public Sub Check_Sheet_Code_Name_Exists_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Check_Sheet_Code_Name_Exists is working
+'' Utilities.Check_Sheet_Code_Name_Exists is working.
 ''
 '' Function will assert if the sheet code name exists
 Public Sub Check_Sheet_Code_Name_Exists_Test()
+Attribute Check_Sheet_Code_Name_Exists_Test.VB_Description = "Function used to test if the function Utilities.Check_Sheet_Code_Name_Exists is working."
     On Error GoTo TestFail
     
     Assert.AreEqual Utilities.Check_Sheet_Code_Name_Exists(ActiveWorkbook, "Lists"), True
@@ -56,17 +63,22 @@ TestFail:
 End Sub
 
 '@TestMethod("Sheet Name Integrity Test")
+'@Description("Function used to test if the function Utilities.Get_Sheet_By_Code_Name is working.")
 
 '' Function: Get_Sheet_By_Code_Name_Test
+'' --- Code
+''  Public Sub Get_Sheet_By_Code_Name_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Get_Sheet_By_Code_Name is working
+'' Utilities.Get_Sheet_By_Code_Name is working.
 ''
 '' Function will assert if the sheet name is correct given
 '' a provided code name.
 Public Sub Get_Sheet_By_Code_Name_Test()
+Attribute Get_Sheet_By_Code_Name_Test.VB_Description = "Function used to test if the function Utilities.Get_Sheet_By_Code_Name is working."
     On Error GoTo TestFail
     
     Dim ISTD_Annot_Worksheet As Worksheet
@@ -82,18 +94,23 @@ TestFail:
 End Sub
 
 '@TestMethod("Annotation Properties")
+'@Description("Function used to test if the function Utilities.Get_Header_Col_Position is working.")
 
 '' Function: Get_Header_Col_Position_Test
+'' --- Code
+''  Public Sub Get_Header_Col_Position_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Get_Header_Col_Position is working
+'' Utilities.Get_Header_Col_Position is working.
 ''
 '' Function will assert if the correct header/column position
 '' is provided when user input a header/column name from the
 '' sheet.
 Public Sub Get_Header_Col_Position_Test()
+Attribute Get_Header_Col_Position_Test.VB_Description = "Function used to test if the function Utilities.Get_Header_Col_Position is working."
     On Error GoTo TestFail
     
     ' Get the Transition_Name_Annot worksheet from the active workbook
@@ -163,17 +180,22 @@ TestFail:
 End Sub
 
 '@TestMethod("Annotation Properties")
+'@Description("Function used to test if the function Utilities.Last_Used_Row_Number_Test is working.")
 
 '' Function: Last_Used_Row_Number_Test
+'' --- Code
+''  Public Sub Last_Used_Row_Number_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Last_Used_Row_Number_Test is working
+'' Utilities.Last_Used_Row_Number_Test is working.
 ''
 '' Function will assert if the number of used rows
 '' is correct in the Lists sheet.
 Public Sub Last_Used_Row_Number_Test()
+Attribute Last_Used_Row_Number_Test.VB_Description = "Function used to test if the function Utilities.Last_Used_Row_Number_Test is working."
     On Error GoTo TestFail
     
     ' Get the Lists worksheet from the active workbook
@@ -202,17 +224,22 @@ TestFail:
 End Sub
 
 '@TestMethod("Letter Conversion")
+'@Description("Function used to test if the function Utilities.Convert_To_Letter_Test is working.")
 
 '' Function: Convert_To_Letter_Test
+'' --- Code
+''  Public Sub Convert_To_Letter_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Convert_To_Letter_Test is working
+'' Utilities.Convert_To_Letter_Test is working.
 ''
 '' Function will assert if the correct alphabet is converted
 '' when it receives an integer.
 Public Sub Convert_To_Letter_Test()
+Attribute Convert_To_Letter_Test.VB_Description = "Function used to test if the function Utilities.Convert_To_Letter_Test is working."
     On Error GoTo TestFail
     
     Assert.AreEqual Utilities.Convert_To_Letter(1), "A"
@@ -229,6 +256,8 @@ TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
 
+'@Description("Function used to test if the function Utilities.Concantenate_String_Arrays_Test is working.")
+
 '' Function: Concantenate_String_Arrays_Test
 '' --- Code
 ''  Public Sub Concantenate_String_Arrays_Test()
@@ -237,12 +266,13 @@ End Sub
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Concantenate_String_Arrays_Test is working
+'' Utilities.Concantenate_String_Arrays_Test is working.
 ''
 '' Function will assert if two string array are correctly
 '' concatenated to a singel string array.
 '@TestMethod("String Array Test")
 Public Sub Concantenate_String_Arrays_Test()
+Attribute Concantenate_String_Arrays_Test.VB_Description = "Function used to test if the function Utilities.Concantenate_String_Arrays_Test is working."
     On Error GoTo TestFail
     
     Dim TopArray(2) As String
@@ -277,17 +307,22 @@ TestFail:
 End Sub
 
 '@TestMethod("String Array Test")
+'@Description("Function used to test if the function Utilities.Get_String_Array_Len_Test is working.")
 
 '' Function: Get_String_Array_Len_Test
+'' --- Code
+''  Public Sub Get_String_Array_Len_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Get_String_Array_Len_Test is working
+'' Utilities.Get_String_Array_Len_Test is working.
 ''
 '' Function will assert if the total number of elements
 '' in the input string array is correct.
 Public Sub Get_String_Array_Len_Test()
+Attribute Get_String_Array_Len_Test.VB_Description = "Function used to test if the function Utilities.Get_String_Array_Len_Test is working."
     On Error GoTo TestFail
     
     Dim TestArray As Variant
@@ -309,18 +344,23 @@ TestFail:
 End Sub
 
 '@TestMethod("String Array Test")
+'@Description("Function used to test if the function Utilities.Where_In_Array_Test is working.")
 
 '' Function: Where_In_Array_Test
+'' --- Code
+''  Public Sub Where_In_Array_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Where_In_Array_Test is working
+'' Utilities.Where_In_Array_Test is working.
 ''
 '' Function will assert if the correct array position
 '' is provided given the input array and an element to
 '' search in the array.
 Public Sub Where_In_Array_Test()
+Attribute Where_In_Array_Test.VB_Description = "Function used to test if the function Utilities.Where_In_Array_Test is working."
     On Error GoTo TestFail
     
     Dim TestArray As Variant
@@ -353,18 +393,23 @@ TestFail:
 End Sub
 
 '@TestMethod("String Array Test")
+'@Description("Function used to test if the function Utilities.Is_In_Array_Test is working.")
 
 '' Function: Is_In_Array_Test
+'' --- Code
+''  Public Sub Is_In_Array_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Is_In_Array_Test is working
+'' Utilities.Is_In_Array_Test is working.
 ''
 '' Function will assert if the function correctly
 '' identified if an input string is in a given
 '' string array.
 Public Sub Is_In_Array_Test()
+Attribute Is_In_Array_Test.VB_Description = "Function used to test if the function Utilities.Is_In_Array_Test is working."
     On Error GoTo TestFail
     
     Dim TestArray As Variant
@@ -382,17 +427,22 @@ TestFail:
 End Sub
 
 '@TestMethod("String Array Test")
+'@Description("Function used to test if the function Utilities.Clear_DotD_In_Agilent_Data_File_Test is working.")
 
 '' Function: Clear_DotD_In_Agilent_Data_File_Test
+'' --- Code
+''  Public Sub Clear_DotD_In_Agilent_Data_File_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Clear_DotD_In_Agilent_Data_File_Test is working
+'' Utilities.Clear_DotD_In_Agilent_Data_File_Test is working.
 ''
 '' Function will assert if the function removes
 '' the ".d" at the end of an input string.
 Public Sub Clear_DotD_In_Agilent_Data_File_Test()
+Attribute Clear_DotD_In_Agilent_Data_File_Test.VB_Description = "Function used to test if the function Utilities.Clear_DotD_In_Agilent_Data_File_Test is working."
     On Error GoTo TestFail
     
     Dim Sample_Name_Array(1) As String
@@ -414,17 +464,22 @@ TestFail:
 End Sub
 
 '@TestMethod("Sorting Test")
+'@Description("Function used to test if the function Utilities.Quick_Sort_Test is working.")
 
 '' Function: Quick_Sort_Test
+'' --- Code
+''  Public Sub Quick_Sort_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Quick_Sort_Test is working
+'' Utilities.Quick_Sort_Test is working.
 ''
 '' Function will assert if an input string array
 '' is sorted in alphabetical order correctly.
 Public Sub Quick_Sort_Test()
+Attribute Quick_Sort_Test.VB_Description = "Function used to test if the function Utilities.Quick_Sort_Test is working."
     On Error GoTo TestFail
     
     Dim TestArray As Variant
@@ -443,17 +498,22 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Array From One Excel Column")
+'@Description("Function used to test if the function Utilities.Load_Columns_From_Excel is working.")
 
 '' Function: Load_Columns_From_Excel_NoFilter_Test
+'' --- Code
+''  Public Sub Load_Columns_From_Excel_NoFilter_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Load_Columns_From_Excel is working
+'' Utilities.Load_Columns_From_Excel is working.
 ''
 '' Function will assert if the Concentration_Unit in
 '' the Lists Sheet is loaded correctly.
 Public Sub Load_Columns_From_Excel_NoFilter_Test()
+Attribute Load_Columns_From_Excel_NoFilter_Test.VB_Description = "Function used to test if the function Utilities.Load_Columns_From_Excel is working."
     On Error GoTo TestFail
     
     ' Get the Lists worksheet from the active workbook
@@ -493,18 +553,24 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Array From One Excel Column")
+'@Description("Function used to test if the function Utilities.Load_Columns_From_Excel is working when the sheet is filtered.")
 
 '' Function: Load_Columns_From_Excel_Filter_Test
+'' --- Code
+''  Public Sub Load_Columns_From_Excel_Filter_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
 '' Utilities.Load_Columns_From_Excel is working
+'' when the sheet is filtered.
 ''
 '' Function will assert if the filtered Sample_Type
 '' (only load those that contains "QC") in
 '' the Lists Sheet is loaded correctly.
 Public Sub Load_Columns_From_Excel_Filter_Test()
+Attribute Load_Columns_From_Excel_Filter_Test.VB_Description = "Function used to test if the function Utilities.Load_Columns_From_Excel is working when the sheet is filtered."
     On Error GoTo TestFail
     
     ' Get the Lists worksheet from the active workbook
@@ -557,17 +623,22 @@ TestFail:
 End Sub
 
 '@TestMethod("Read Files")
+'@Description("Function used to test if the function Utilities.Read_File is working.")
 
 '' Function: Read_File_Test
+'' --- Code
+''  Public Sub Read_File_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Read_File is working
+'' Utilities.Read_File is working.
 ''
 '' Function will assert if it reads the file
 '' Sample_Annotation_Example.csv correctly.
 Public Sub Read_File_Test()
+Attribute Read_File_Test.VB_Description = "Function used to test if the function Utilities.Read_File is working."
     On Error GoTo TestFail
     
     Dim SampleAnnotFile As String
@@ -590,18 +661,23 @@ TestFail:
 End Sub
 
 '@TestMethod("Read Files")
+'@Description("Function used to test if the function Utilities.Get_Delimiter is working.")
 
 '' Function: Get_Delimiter_Test
+'' --- Code
+''  Public Sub Get_Delimiter_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Get_Delimiter is working
+'' Utilities.Get_Delimiter is working.
 ''
 '' Function will assert if it correctly
 '' get the delimiter from the file
 '' Sample_Annotation_Example.csv.
 Public Sub Get_Delimiter_Test()
+Attribute Get_Delimiter_Test.VB_Description = "Function used to test if the function Utilities.Get_Delimiter is working."
     On Error GoTo TestFail
 
     Dim SampleAnnotFile As String
@@ -624,18 +700,23 @@ TestFail:
 End Sub
 
 '@TestMethod("Read Files")
+'@Description("Function used to test if the function Utilities.Get_File_Base_Name is working.")
 
 '' Function: Get_File_Base_Name_Test
+'' --- Code
+''  Public Sub Get_File_Base_Name_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Get_File_Base_Name is working
+'' Utilities.Get_File_Base_Name is working.
 ''
 '' Function will assert if it correctly
 '' get the file base name from a given
 '' test file path.
 Public Sub Get_File_Base_Name_Test()
+Attribute Get_File_Base_Name_Test.VB_Description = "Function used to test if the function Utilities.Get_File_Base_Name is working."
     On Error GoTo TestFail
     
     Dim SampleAnnotFile As String
@@ -657,19 +738,24 @@ TestFail:
 End Sub
 
 '@TestMethod("Read Files")
+'@Description("Function used to test if the function Utilities.Get_Raw_Data_File_Type is working.")
 
 '' Function: Get_Raw_Data_File_Type_Test
+'' --- Code
+''  Public Sub Get_Raw_Data_File_Type_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Get_Raw_Data_File_Type is working
+'' Utilities.Get_Raw_Data_File_Type is working.
 ''
 '' Function will assert if the correct raw data
 '' file type is returned for an Agilent Wide Table
 '' Form file, Agilent Compound Table file and
 '' Sciex text file.
 Public Sub Get_Raw_Data_File_Type_Test()
+Attribute Get_Raw_Data_File_Type_Test.VB_Description = "Function used to test if the function Utilities.Get_Raw_Data_File_Type is working."
     
     Dim Lines() As String
     Dim Delimiter As String
@@ -713,17 +799,22 @@ Public Sub Get_Raw_Data_File_Type_Test()
 End Sub
 
 '@TestMethod("Load Data From 2Darray")
+'@Description("Function used to test if the function Utilities.Get_Header_Col_Position_From_2Darray is working.")
 
 '' Function: Get_Header_Col_Position_From_2Darray_Test
+'' --- Code
+''  Public Sub Get_Header_Col_Position_From_2Darray_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Get_Header_Col_Position_From_2Darray is working
+'' Utilities.Get_Header_Col_Position_From_2Darray is working.
 ''
 '' Function will assert if the correct column position
 '' is provided.
 Public Sub Get_Header_Col_Position_From_2Darray_Test()
+Attribute Get_Header_Col_Position_From_2Darray_Test.VB_Description = "Function used to test if the function Utilities.Get_Header_Col_Position_From_2Darray is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -765,17 +856,22 @@ TestFail:
 End Sub
 
 '@TestMethod("Load Data From 2Darray")
+'@Description("Function used to test if the function Utilities.Get_RowName_Position_From_2Darray is working.")
 
 '' Function: Get_RowName_Position_From_2Darray_Test
+'' --- Code
+''  Public Sub Get_RowName_Position_From_2Darray_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Get_RowName_Position_From_2Darray is working
+'' Utilities.Get_RowName_Position_From_2Darray is working.
 ''
 '' Function will assert if the correct row position
 '' is provided.
 Public Sub Get_RowName_Position_From_2Darray_Test()
+Attribute Get_RowName_Position_From_2Darray_Test.VB_Description = "Function used to test if the function Utilities.Get_RowName_Position_From_2Darray is working."
     On Error GoTo TestFail
     
     Dim TestFolder As String
@@ -816,17 +912,22 @@ TestFail:
 End Sub
 
 '@TestMethod("Load Data From 2Darray")
+'@Description("Function used to test if the function Utilities.Load_Rows_From_2Darray is working.")
 
 '' Function: Load_Rows_From_2Darray_Test
+'' --- Code
+''  Public Sub Load_Rows_From_2Darray_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Load_Rows_From_2Darray is working
+'' Utilities.Load_Rows_From_2Darray is working.
 ''
 '' Function will assert if a row from an input data in tabular
 '' form is read correctly into a string array.
 Public Sub Load_Rows_From_2Darray_Test()
+Attribute Load_Rows_From_2Darray_Test.VB_Description = "Function used to test if the function Utilities.Load_Rows_From_2Darray is working."
     On Error GoTo TestFail
 
     Dim TestFolder As String
@@ -874,17 +975,22 @@ TestFail:
 End Sub
 
 '@TestMethod("Load Data From 2Darray")
+'@Description("Function used to test if the function Utilities.Load_Columns_From_2Darray is working.")
 
 '' Function: Load_Columns_From_2Darray_Test
+'' --- Code
+''  Public Sub Load_Columns_From_2Darray_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Utilities.Load_Rows_From_2Darray is working
+'' Utilities.Load_Columns_From_2Darray is working.
 ''
 '' Function will assert if a column from an input data in tabular
 '' form is read correctly into a string array.
 Public Sub Load_Columns_From_2Darray_Test()
+Attribute Load_Columns_From_2Darray_Test.VB_Description = "Function used to test if the function Utilities.Load_Columns_From_2Darray is working."
     On Error GoTo TestFail
 
     Dim TestFolder As String
@@ -931,19 +1037,24 @@ TestFail:
 End Sub
 
 '@TestMethod("Load and Clear Data in Excel")
+'@Description("Function used to test if the function Utilities.Load_To_Excel and Utilities.Clear_Columns are working.")
 
 '' Function: Load_To_Excel_And_Clear_Columns_Test
+'' --- Code
+''  Public Sub Load_To_Excel_And_Clear_Columns_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
 '' Utilities.Load_To_Excel and
-'' Utilities.Clear_Columns are working
+'' Utilities.Clear_Columns are working.
 ''
 '' Function will assert if a given string array is
 '' loaded unto the excel sheet correctly. Once loaded,
 '' it will check if the given array can be cleared.
 Public Sub Load_To_Excel_And_Clear_Columns_Test()
+Attribute Load_To_Excel_And_Clear_Columns_Test.VB_Description = "Function used to test if the function Utilities.Load_To_Excel and Utilities.Clear_Columns are working."
     On Error GoTo TestFail
     
     ' Get the Transition_Name_Annot worksheet from the active workbook

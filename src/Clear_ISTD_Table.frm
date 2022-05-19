@@ -13,21 +13,30 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Attribute VB_Description = "Functions that control what happens when buttons in the Clear ISTD Table box are clicked."
+
 Option Explicit
-'@Folder("ISTD_Annot_Buttons")
+'@ModuleDescription("Functions that control what happens when buttons in the Clear ISTD Table box are clicked.")
+'@Folder("ISTD Annot Buttons")
+
+'@Description("Function that controls what happens when the Clear Data button is left clicked.")
 
 '' Function: ISTD_Table_Clear_Click
+'' --- Code
+''  Private Sub ISTD_Table_Clear_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the Clear Data button is
-'' left clicked
+'' left clicked.
 ''
 '' (see ISTD_Annot_Clear_Data_Button.png)
 ''
 '' All data found in the columns that was checked will be cleared.
 ''
 Private Sub ISTD_Table_Clear_Click()
+Attribute ISTD_Table_Clear_Click.VB_Description = "Function that controls what happens when the Clear Data button is left clicked."
     If Transition_Name_ISTD.Value = True Then
         Utilities.Clear_Columns HeaderToClear:="Transition_Name_ISTD", _
                                 HeaderRowNumber:=2, _
@@ -52,4 +61,3 @@ Private Sub ISTD_Table_Clear_Click()
                                 DataStartRowNumber:=4
     End If
 End Sub
-

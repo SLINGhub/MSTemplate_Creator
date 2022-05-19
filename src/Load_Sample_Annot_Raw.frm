@@ -13,7 +13,10 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Attribute VB_Description = "Functions that control what happens when buttons in the Load Sample Annot Raw Box are clicked."
+
 Option Explicit
+'@ModuleDescription("Functions that control what happens when buttons in the Load Sample Annot Raw Box are clicked.")
 '@Folder("Load Sample Annotation Functions")
 
 'Public whatsclicked As String
@@ -27,12 +30,17 @@ Public Property Let whatsclicked(ByVal let_whatsclicked As String)
     master_whatsclicked = let_whatsclicked
 End Property
 
+'@Description("Function that controls what happens when the Browse Raw Data button is left clicked.")
+
 '' Function: Browse_Raw_Data_Click
+'' --- Code
+''  Private Sub Browse_Raw_Data_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Sample_Annot_Browse_Raw_Data_Button.png)
 ''
@@ -41,6 +49,7 @@ End Property
 '' be enabled.
 ''
 Private Sub Browse_Raw_Data_Click()
+Attribute Browse_Raw_Data_Click.VB_Description = "Function that controls what happens when the Browse Raw Data button is left clicked."
 
     Dim xFileNames As Variant
     xFileNames = Application.GetOpenFilename(Title:="Load Raw Data File", MultiSelect:=True)
@@ -66,12 +75,17 @@ Private Sub Browse_Raw_Data_Click()
 
 End Sub
 
+'@Description("Function that controls what happens when the Browse Sample Annot Data button is left clicked.")
+
 '' Function: Browse_Sample_Annot_Click
+'' --- Code
+''  Private Sub Browse_Sample_Annot_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Sample_Annot_Browse_Sample_Annot_Button.png)
 ''
@@ -82,6 +96,7 @@ End Sub
 '' where X is the total number of columns the system can find.
 ''
 Private Sub Browse_Sample_Annot_Click()
+Attribute Browse_Sample_Annot_Click.VB_Description = "Function that controls what happens when the Browse Sample Annot Data button is left clicked."
 
     Dim xFileName As Variant
     xFileName = Application.GetOpenFilename(Title:="Load Sample Annotation File", MultiSelect:=False)
@@ -169,12 +184,17 @@ Private Sub Browse_Sample_Annot_Click()
     
 End Sub
 
+'@Description("Function that controls what happens when the Sample Amount Map button is left clicked.")
+
 '' Function: Sample_Amount_Map_Click
+'' --- Code
+''  Private Sub Sample_Amount_Map_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Sample_Annot_Sample_Amount_Map_Button.png)
 ''
@@ -184,23 +204,29 @@ End Sub
 ''
 '' In the example below, as "Cell Number" is highlighted, clicking on this
 '' button will fill the Sample_Amount_Text Text Box with the highlighted
-'' option "Cell Number"
+'' option "Cell Number".
 ''
 '' (see Sample_Annot_Sample_Amount_Map_Example.png)
 ''
 Private Sub Sample_Amount_Map_Click()
+Attribute Sample_Amount_Map_Click.VB_Description = "Function that controls what happens when the Sample Amount Map button is left clicked."
     If Column_Name_List.ListIndex = -1 Then
         Exit Sub
     End If
     Sample_Amount_Text.Text = Column_Name_List.List(Column_Name_List.ListIndex)
 End Sub
 
+'@Description("Function that controls what happens when the Sample Name Map button is left clicked.")
+
 '' Function: Sample_Name_Map_Click
+'' --- Code
+''  Private Sub Sample_Name_Map_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Sample_Annot_Sample_Name_Map_Button.png)
 ''
@@ -209,7 +235,7 @@ End Sub
 ''
 '' In the example below, as "Sample" is highlighted, clicking on this
 '' button will fill the Sample_Name_Text Text Box with the highlighted
-'' option "Sample"
+'' option "Sample".
 ''
 '' (see Sample_Annot_Sample_Name_Map_Example.png)
 ''
@@ -217,6 +243,7 @@ End Sub
 '' but the button "Create new Sample Annotation" will be disabled.
 ''
 Private Sub Sample_Name_Map_Click()
+Attribute Sample_Name_Map_Click.VB_Description = "Function that controls what happens when the Sample Name Map button is left clicked."
     If Column_Name_List.ListIndex = -1 Then
         Exit Sub
     End If
@@ -228,12 +255,17 @@ Private Sub Sample_Name_Map_Click()
     End If
 End Sub
 
+'@Description("Function that controls what happens when the ISTD Mixture Volume Map button is left clicked.")
+
 '' Function: ISTD_Mixture_Volume_Map_Click
+'' --- Code
+''  Private Sub ISTD_Mixture_Volume_Map_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Sample_Annot_ISTD_Mixture_Volume_Map_Button.png)
 ''
@@ -243,57 +275,73 @@ End Sub
 ''
 '' In the example below, as "ISTD Volume" is highlighted, clicking on this
 '' button will fill the ISTD_Mixture_Volume_Text Text Box with the highlighted
-'' option "ISTD Volume"
+'' option "ISTD Volume".
 ''
 '' (see Sample_Annot_ISTD_Mixture_Volume_Map_Example.png)
 ''
 Private Sub ISTD_Mixture_Volume_Map_Click()
+Attribute ISTD_Mixture_Volume_Map_Click.VB_Description = "Function that controls what happens when the ISTD Mixture Volume Map button is left clicked."
     If Column_Name_List.ListIndex = -1 Then
         Exit Sub
     End If
     ISTD_Mixture_Volume_Text.Text = Column_Name_List.List(Column_Name_List.ListIndex)
 End Sub
 
+'@Description("Function that controls what happens when the Merge with Sample Annot button is left clicked.")
+
 '' Function: Merge_With_Sample_Annot_Button_Click
+'' --- Code
+''  Private Sub Merge_With_Sample_Annot_Button_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Sample_Annot_Merge_With_Sample_Annot_Button.png)
 ''
-'' Public Property whatsclicked = "Merge_With_Sample_Annot_Button"
-'' Load_Sample_Annot_Raw Box will be hidden
+'' Load_Sample_Annot_Raw Box will be hidden.
 ''
 Private Sub Merge_With_Sample_Annot_Button_Click()
+Attribute Merge_With_Sample_Annot_Button_Click.VB_Description = "Function that controls what happens when the Merge with Sample Annot button is left clicked."
     whatsclicked = "Merge_With_Sample_Annot_Button"
     Load_Sample_Annot_Raw.Hide
 End Sub
 
+'@Description("Function that controls what happens when the Create new Sample Annot button is left clicked.")
+
 '' Function: Create_New_Sample_Annot_Raw_Button_Click
+'' --- Code
+''  Private Sub Create_New_Sample_Annot_Raw_Button_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Sample_Annot_Create_New_Sample_Annot_Raw_Button.png)
 ''
-'' Public Property whatsclicked = "Create_New_Sample_Annot_Raw_Button"
-'' Load_Sample_Annot_Raw Box will be hidden
+'' Load_Sample_Annot_Raw Box will be hidden.
 ''
 Private Sub Create_New_Sample_Annot_Raw_Button_Click()
+Attribute Create_New_Sample_Annot_Raw_Button_Click.VB_Description = "Function that controls what happens when the Create new Sample Annot button is left clicked."
     whatsclicked = "Create_New_Sample_Annot_Raw_Button"
     Load_Sample_Annot_Raw.Hide
 End Sub
 
+'@Description("Function that controls what happens when the data file path text box is edited.")
+
 '' Function: Raw_Data_File_Path_KeyUp
+'' --- Code
+''  Private Sub Raw_Data_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following text box is
-'' edited
+'' edited.
 ''
 '' (see Sample_Annot_Raw_Data_File_Path_KeyUp_Text_Box.png)
 ''
@@ -302,18 +350,24 @@ End Sub
 '' will be disabled. Users must browse the file path again.
 ''
 Private Sub Raw_Data_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+Attribute Raw_Data_File_Path_KeyUp.VB_Description = "Function that controls what happens when the data file path text box is edited."
     'Clear all text when people try to edit them
     Load_Sample_Annot_Raw.Create_New_Sample_Annot_Raw_Button.Enabled = False
     Load_Sample_Annot_Raw.Merge_With_Sample_Annot_Button.Enabled = False
     Raw_Data_File_Path.Text = vbNullString
 End Sub
 
+'@Description("Function that controls what happens when the sample annot file path text box is edited.")
+
 '' Function: Sample_Annot_File_Path_KeyUp
+'' --- Code
+''  Private Sub Sample_Annot_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following text box is
-'' edited
+'' edited.
 ''
 '' (see Sample_Annot_Sample_Annot_File_Path_KeyUp_Text_Box.png)
 ''
@@ -329,6 +383,7 @@ End Sub
 '' and ISTD_Mixture_Volume_Text.Text
 ''
 Private Sub Sample_Annot_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+Attribute Sample_Annot_File_Path_KeyUp.VB_Description = "Function that controls what happens when the sample annot file path text box is edited."
     Load_Sample_Annot_Raw.Merge_With_Sample_Annot_Button.Enabled = False
     If Raw_Data_File_Path.Text <> vbNullString Then
         Load_Sample_Annot_Raw.Create_New_Sample_Annot_Raw_Button.Enabled = True
@@ -342,12 +397,17 @@ Private Sub Sample_Annot_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger,
     ISTD_Mixture_Volume_Text.Text = vbNullString
 End Sub
 
+'@Description("Function that controls what happens when the sample name text box is edited.")
+
 '' Function: Sample_Name_Text_KeyUp
+'' --- Code
+''  Private Sub Sample_Name_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following text box is
-'' edited
+'' edited.
 ''
 '' (see Sample_Annot_Sample_Name_Text_KeyUp_Text_Box.png)
 ''
@@ -358,6 +418,7 @@ End Sub
 '' will be enabled.
 ''
 Private Sub Sample_Name_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+Attribute Sample_Name_Text_KeyUp.VB_Description = "Function that controls what happens when the sample name text box is edited."
     'Clear all text when people try to edit them
     Sample_Name_Text.Text = vbNullString
     Load_Sample_Annot_Raw.Merge_With_Sample_Annot_Button.Enabled = False
@@ -366,33 +427,44 @@ Private Sub Sample_Name_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal
     End If
 End Sub
 
+'@Description("Function that controls what happens when the sample amount text box is edited.")
+
 '' Function: Sample_Amount_Text_KeyUp
+'' --- Code
+''  Private Sub Sample_Amount_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following text box is
-'' edited
+'' edited.
 ''
 '' (see Sample_Annot_Sample_Amount_Text_KeyUp_Text_Box.png)
 ''
 '' The text box will be cleared to prevent an invalid input.
 ''
 Private Sub Sample_Amount_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+Attribute Sample_Amount_Text_KeyUp.VB_Description = "Function that controls what happens when the sample amount text box is edited."
     Sample_Amount_Text.Text = vbNullString
 End Sub
 
+'@Description("Function that controls what happens when the ISTD mixture volume text box is edited.")
+
 '' Function: ISTD_Mixture_Volume_Text_KeyUp
+'' --- Code
+''  Private Sub ISTD_Mixture_Volume_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following text box is
-'' edited
+'' edited.
 ''
 '' (see Sample_Annot_ISTD_Mixture_Volume_Text_KeyUp_Text_Box.png)
 ''
 '' The text box will be cleared to prevent an invalid input.
 ''
 Private Sub ISTD_Mixture_Volume_Text_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+Attribute ISTD_Mixture_Volume_Text_KeyUp.VB_Description = "Function that controls what happens when the ISTD mixture volume text box is edited."
     ISTD_Mixture_Volume_Text.Text = vbNullString
 End Sub
-

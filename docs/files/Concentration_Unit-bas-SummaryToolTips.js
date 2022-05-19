@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Concentration_Unit.bas",{192:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function used to extract <b>?mol</b> from the string input &quot;[?M] or [?mol/uL]&quot;. Currently <b>?mol</b> can be umol, nmol, pmol, fmol, amol</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:Concentration_Unit.bas",{});

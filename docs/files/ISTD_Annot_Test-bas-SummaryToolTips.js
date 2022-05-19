@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:ISTD_Annot_Test.bas",{159:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function used to test if the function ISTD_Annot.Convert_Conc_nM_Array is working</div></div>",160:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function used to test if the function ISTD_Annot.Get_ISTD_Conc_nM_Array_Test is working</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:ISTD_Annot_Test.bas",{});

@@ -1,9 +1,16 @@
 Attribute VB_Name = "ISTD_Annot_Buttons"
+Attribute VB_Description = "Functions that control what happens when buttons in the ISTD_Annot worksheet are clicked."
 Option Explicit
+'@ModuleDescription("Functions that control what happens when buttons in the ISTD_Annot worksheet are clicked.")
+
 '@Folder("ISTD Annot Functions")
 '@IgnoreModule IntegerDataType
+'@Description("Function that controls what happens when the Autofill By Clear Columns button is left clicked.")
 
 '' Function: Clear_ISTD_Table_Click
+'' --- Code
+''  Public Sub Clear_ISTD_Table_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -18,12 +25,18 @@ Option Explicit
 '' (see ISTD_Annot_Clear_Data_Pop_Up.png)
 ''
 Public Sub Clear_ISTD_Table_Click()
+Attribute Clear_ISTD_Table_Click.VB_Description = "Function that controls what happens when the Autofill By Clear Columns button is left clicked."
     'To ensure that Filters does not affect the assignment
     Utilities.Remove_Filter_Settings
     Clear_ISTD_Table.Show
 End Sub
 
+'@Description("Function that controls what happens when the Convert to nM button is left clicked.")
+
 '' Function: Convert_To_Nanomolar_Click
+'' --- Code
+''  Public Sub Convert_To_Nanomolar_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -49,6 +62,7 @@ End Sub
 '' (see ISTD_Annot_Press_Convert_Button.png)
 ''
 Public Sub Convert_To_Nanomolar_Click()
+Attribute Convert_To_Nanomolar_Click.VB_Description = "Function that controls what happens when the Convert to nM button is left clicked."
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
     

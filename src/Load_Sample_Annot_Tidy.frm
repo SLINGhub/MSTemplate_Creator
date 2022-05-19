@@ -13,7 +13,9 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Attribute VB_Description = "Functions that control what happens when buttons in the Load Sample Annot Tidy Box are clicked."
 Option Explicit
+'@ModuleDescription("Functions that control what happens when buttons in the Load Sample Annot Tidy Box are clicked.")
 '@Folder("Load Sample Annotation Functions")
 
 'Public whatsclicked As String
@@ -27,15 +29,20 @@ Public Property Let whatsclicked(ByVal let_whatsclicked As String)
     master_whatsclicked = let_whatsclicked
 End Property
 
+'@Description("Function that controls what happens when the Create New Sample Annot button is left clicked.")
+
 '' Group: Functions
 ''
 '' Function: Create_New_Sample_Annot_Tidy_Button_Click
+'' --- Code
+''  Private Sub Create_New_Sample_Annot_Tidy_Button_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the
 '' when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Sample_Annot_Create_New_Sample_Annot_Button.png)
 ''
@@ -43,16 +50,22 @@ End Property
 '' Load_Sample_Annot_Tidy Box will be hidden
 ''
 Private Sub Create_New_Sample_Annot_Tidy_Button_Click()
+Attribute Create_New_Sample_Annot_Tidy_Button_Click.VB_Description = "Function that controls what happens when the Create New Sample Annot button is left clicked."
     whatsclicked = "Create_New_Sample_Annot_Tidy_Button"
     Load_Sample_Annot_Tidy.Hide
 End Sub
 
+'@Description("Function that controls what happens when the Browse button is left clicked.")
+
 '' Function: Browse_Tidy_Data_Click
+'' --- Code
+''  Private Sub Browse_Tidy_Data_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Sample_Annot_Browse_Tidy_Data_Button.png)
 ''
@@ -61,6 +74,7 @@ End Sub
 '' be enabled.
 ''
 Private Sub Browse_Tidy_Data_Click()
+Attribute Browse_Tidy_Data_Click.VB_Description = "Function that controls what happens when the Browse button is left clicked."
 
     ' Load the file path of the tidy data
     Dim xFileNames As Variant
@@ -82,12 +96,17 @@ Private Sub Browse_Tidy_Data_Click()
 
 End Sub
 
+'@Description("Function that controls what happens when the data file path text box is edited.")
+
 '' Function: Tidy_Data_File_Path_KeyUp
+'' --- Code
+''  Private Sub Tidy_Data_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following text box is
-'' edited
+'' edited.
 ''
 '' (see Sample_Annot_Tidy_Data_File_Path_KeyUp_Text_Box.png)
 ''
@@ -95,17 +114,23 @@ End Sub
 '' The Create new Sample Annotation button will be disabled.
 ''
 Private Sub Tidy_Data_File_Path_KeyUp(ByVal KeyCode As MSForms.ReturnInteger, ByVal Shift As Integer)
+Attribute Tidy_Data_File_Path_KeyUp.VB_Description = "Function that controls what happens when the data file path text box is edited."
     'Clear all text when people try to edit the file path
     Load_Sample_Annot_Tidy.Create_New_Sample_Annot_Tidy_Button.Enabled = False
     Tidy_Data_File_Path.Text = vbNullString
 End Sub
 
+'@Description("Function that controls what happens when the starting row number text box is exited.")
+
 '' Function: Starting_Row_Number_TextBox_Exit
+'' --- Code
+''  Private Sub Starting_Row_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following text box is
-'' exited
+'' exited.
 ''
 '' (see Sample_Annot_Starting_Row_Number_Text_Box.png)
 ''
@@ -115,6 +140,7 @@ End Sub
 '' (see Transition_Annot_Starting_Row_Number_Text_Box_Invalid_Input.png)
 ''
 Private Sub Starting_Row_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
+Attribute Starting_Row_Number_TextBox_Exit.VB_Description = "Function that controls what happens when the starting row number text box is exited."
     ' Check if input is a positive number, must be integer
     If Starting_Row_Number_TextBox.Value = vbNullString Then
         MsgBox "Please enter a positive integer"
@@ -131,12 +157,17 @@ Private Sub Starting_Row_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoole
     End If
 End Sub
 
+'@Description("Function that controls what happens when the starting column number text box is exited.")
+
 '' Function: Starting_Column_Number_TextBox_Exit
+'' --- Code
+''  Private Sub Starting_Column_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following text box is
-'' exited
+'' exited.
 ''
 '' (see Sample_Annot_Starting_Column_Number_Text_Box.png)
 ''
@@ -146,6 +177,7 @@ End Sub
 '' (see Transition_Annot_Starting_Row_Number_Text_Box_Invalid_Input.png)
 ''
 Private Sub Starting_Column_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
+Attribute Starting_Column_Number_TextBox_Exit.VB_Description = "Function that controls what happens when the starting column number text box is exited."
     ' Check if input is a positive number, must be integer
     If Starting_Column_Number_TextBox.Value = vbNullString Then
         MsgBox "Please enter a positive integer"
@@ -162,12 +194,17 @@ Private Sub Starting_Column_Number_TextBox_Exit(ByVal Cancel As MSForms.ReturnBo
     End If
 End Sub
 
+'@Description("Function that controls what happens when the sample annot property combo box is changed.")
+
 '' Function: Sample_Name_Property_ComboBox_Change
+'' --- Code
+''  Private Sub Sample_Name_Property_ComboBox_Change()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following combo box is
-'' changed
+'' changed.
 ''
 '' (see Sample_Annot_Property_Combo_Box.png)
 ''
@@ -182,6 +219,7 @@ End Sub
 '' (see Sample_Annot_Load_Sample_Annot_Tidy_Column_Name_Pop_Up2.png)
 ''
 Private Sub Sample_Name_Property_ComboBox_Change()
+Attribute Sample_Name_Property_ComboBox_Change.VB_Description = "Function that controls what happens when the sample annot property combo box is changed."
     ' Change the default values of the strating rows and columns based on which property is chosen.
     Select Case Sample_Name_Property_ComboBox.SelText
     Case "Read as column variables"
@@ -194,30 +232,36 @@ Private Sub Sample_Name_Property_ComboBox_Change()
 
 End Sub
 
+'@Description("Function that controls what happens when Load_Sample_Annot_Tidy form is initialized.")
+
 '' Group: Form Initialisation
 ''
 '' Function: Load_Sample_Annot_Tidy form initialisation
+'' --- Code
+''  Private Sub UserForm_Initialize()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the
 '' Load_Sample_Annot_Tidy form is initialize when
 '' user click on the button "Load Sample Annotation from Table Data"
-'' in the Transition_Name_Annot sheet
+'' in the Transition_Name_Annot sheet.
 ''
 '' The function will create the Data_File_Type combo box.
 '' Currently, only "csv" is added in the dropdown and hence it
-'' is also the default value
+'' is also the default value.
 ''
 '' It also create the Sample_Name_Property combo box by
 '' adding entries "Read as column variables" and
 '' "Read as row observations". "Read as column variables"
-'' is the default
+'' is the default.
 ''
 '' Next, it will set the Starting_Row_Number text box value as 1
-'' and Starting_Row_Number text box as 2
+'' and Starting_Row_Number text box as 2.
 ''
 Private Sub UserForm_Initialize()
+Attribute UserForm_Initialize.VB_Description = "Function that controls what happens when Load_Sample_Annot_Tidy form is initialized."
     ' Give default values
     Data_File_Type_ComboBox.AddItem "csv"
     'Data_File_Type_ComboBox.AddItem "Excel"

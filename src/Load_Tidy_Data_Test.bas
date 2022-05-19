@@ -1,6 +1,8 @@
 Attribute VB_Name = "Load_Tidy_Data_Test"
+Attribute VB_Description = "Test units for the functions in Load Tidy Data Module."
 Option Explicit
 Option Private Module
+'@ModuleDescription("Test units for the functions in Load Tidy Data Module.")
 
 '@TestModule
 '@Folder("Tests")
@@ -33,8 +35,12 @@ End Sub
 'End Sub
 
 '@TestMethod("Get Transition_Annot From Tidy Data")
+'@Description("Function used to test if the function Load_Tidy_Data.Get_Transition_Array_Tidy is working.")
 
 '' Function: Get_Transition_Array_Tidy_Data_Row_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_Tidy_Data_Row_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -48,6 +54,7 @@ End Sub
 '' Function will assert if Transition_Array has 7 elements
 ''
 Public Sub Get_Transition_Array_Tidy_Data_Row_Test()
+Attribute Get_Transition_Array_Tidy_Data_Row_Test.VB_Description = "Function used to test if the function Load_Tidy_Data.Get_Transition_Array_Tidy is working."
     On Error GoTo TestFail
     Dim TestFolder As String
     Dim Transition_Array() As String
@@ -81,8 +88,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Transition_Annot From Tidy Data")
+'@Description("Function used to test if the function Load_Tidy_Data.Get_Transition_Array_Tidy is working.")
 
 '' Function: Get_Transition_Array_Tidy_Data_Column_Test
+'' --- Code
+''  Public Sub Get_Transition_Array_Tidy_Data_Column_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -96,6 +107,7 @@ End Sub
 '' Function will assert if Transition_Array has 8 elements
 ''
 Public Sub Get_Transition_Array_Tidy_Data_Column_Test()
+Attribute Get_Transition_Array_Tidy_Data_Column_Test.VB_Description = "Function used to test if the function Load_Tidy_Data.Get_Transition_Array_Tidy is working."
     On Error GoTo TestFail
     Dim TestFolder As String
     Dim Transition_Array() As String
@@ -130,8 +142,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Sample_Annot From Tidy Data")
+'@Description("Function used to test if the function Load_Tidy_Data.Get_Sample_Name_Array_Tidy is working.")
 
 '' Function: Get_Sample_Array_Tidy_Data_Row_Test
+'' --- Code
+''  Public Sub Get_Sample_Array_Tidy_Data_Row_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -146,6 +162,7 @@ End Sub
 '' Function will assert if MS_File_Array has 7 elements
 ''
 Public Sub Get_Sample_Array_Tidy_Data_Row_Test()
+Attribute Get_Sample_Array_Tidy_Data_Row_Test.VB_Description = "Function used to test if the function Load_Tidy_Data.Get_Sample_Name_Array_Tidy is working."
     On Error GoTo TestFail
     Dim TestFolder As String
     'Dim Transition_Array() As String
@@ -188,8 +205,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get Sample_Annot From Tidy Data")
+'@Description("Function used to test if the function Load_Tidy_Data.Get_Sample_Name_Array_Tidy is working.")
 
-'' Function: Get_Sample_Array_Tidy_Data_Column_Test(
+'' Function: Get_Sample_Array_Tidy_Data_Column_Test
+'' --- Code
+''  Public Sub Get_Sample_Array_Tidy_Data_Column_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -204,6 +225,7 @@ End Sub
 '' Function will assert if MS_File_Array has 7 elements
 ''
 Public Sub Get_Sample_Array_Tidy_Data_Column_Test()
+Attribute Get_Sample_Array_Tidy_Data_Column_Test.VB_Description = "Function used to test if the function Load_Tidy_Data.Get_Sample_Name_Array_Tidy is working."
     On Error GoTo TestFail
     Dim TestFolder As String
     'Dim Transition_Array() As String

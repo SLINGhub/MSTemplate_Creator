@@ -1,6 +1,8 @@
 Attribute VB_Name = "Concentration_Unit_Test"
+Attribute VB_Description = "Test units for the functions in Concentration Unit Module."
 Option Explicit
 Option Private Module
+'@ModuleDescription("Test units for the functions in Concentration Unit Module.")
 
 '@TestModule
 '@Folder("Tests")
@@ -33,8 +35,12 @@ End Sub
 'End Sub
 
 '@TestMethod("Get Concentration Unit")
+'@Description("Function used to test if the function Concentration_Unit.Get_Mol_From_Custom_ISTD_Concentration_Unit is working.")
 
 '' Function: Get_Mol_From_Custom_ISTD_Concentration_Unit_Test
+'' --- Code
+''  Public Sub Get_Mol_From_Custom_ISTD_Concentration_Unit_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -45,6 +51,7 @@ End Sub
 '' "pmol"
 ''
 Public Sub Get_Mol_From_Custom_ISTD_Concentration_Unit_Test()
+Attribute Get_Mol_From_Custom_ISTD_Concentration_Unit_Test.VB_Description = "Function used to test if the function Concentration_Unit.Get_Mol_From_Custom_ISTD_Concentration_Unit is working."
     On Error GoTo TestFail
     
     Dim Custom_ISTD_Concentration_Unit As String

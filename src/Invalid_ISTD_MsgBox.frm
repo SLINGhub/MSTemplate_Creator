@@ -13,11 +13,18 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-Option Explicit
-'@Folder("Transition_Annot_Buttons")
+Attribute VB_Description = "Functions that control what happens when buttons in the Invalid ISTD MsgBox are clicked."
 
+Option Explicit
+'@ModuleDescription("Functions that control what happens when buttons in the Invalid ISTD MsgBox are clicked.")
+'@Folder("Transition Annot Buttons")
+
+'@Description("Function that controls what happens when the Ok button is left clicked.")
 
 '' Function: Invalid_ISTD_Ok_Button_Click
+'' --- Code
+''  Private Sub Invalid_ISTD_Ok_Button_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -30,5 +37,6 @@ Option Explicit
 '' Users must correct the invalid ISTD input.
 ''
 Private Sub Invalid_ISTD_Ok_Button_Click()
+Attribute Invalid_ISTD_Ok_Button_Click.VB_Description = "Function that controls what happens when the Ok button is left clicked."
     Unload Invalid_ISTD_MsgBox
 End Sub

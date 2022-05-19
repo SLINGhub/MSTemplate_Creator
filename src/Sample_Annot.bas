@@ -1,16 +1,24 @@
 Attribute VB_Name = "Sample_Annot"
+Attribute VB_Description = "Functions that are commonly called in the Sample_Annot worksheet."
 Option Explicit
-'@Folder("Sample_Annot Functions")
+'@ModuleDescription("Functions that are commonly called in the Sample_Annot worksheet.")
+'@Folder("Sample Annot Functions")
 '@IgnoreModule IntegerDataType
 
+'@Description("Fill in the column indicated by Header_Name with the value indicated by Autofill_Value on rows whose sample type matches Sample_Type.")
 
 '' Function: Autofill_Column_By_QC_Sample_Type
+'' --- Code
+''  Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
+''                                               ByVal Header_Name As String, _
+''                                               ByVal Autofill_Value As String)
+'' ---
 ''
 '' Description:
 ''
 '' Fill in the column indicated by Header_Name with the value
 '' indicated by Autofill_Value on rows whose sample type matches
-'' Sample_Type
+'' Sample_Type.
 ''
 '' Parameters:
 ''
@@ -70,6 +78,7 @@ Option Explicit
 Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
                                              ByVal Header_Name As String, _
                                              ByVal Autofill_Value As String)
+Attribute Autofill_Column_By_QC_Sample_Type.VB_Description = "Fill in the column indicated by Header_Name with the value indicated by Autofill_Value on rows whose sample type matches Sample_Type."
 
     ' Get the Sample_Annot worksheet from the active workbook
     ' The SampleAnnotSheet is a code name
@@ -191,7 +200,16 @@ Public Sub Autofill_Column_By_QC_Sample_Type(ByRef Sample_Type As String, _
                                           
 End Sub
 
+'@Description("Create Sample Annotation from an input data file in tabular form and output them into the Sample_Annot sheet.")
+
 '' Function: Create_New_Sample_Annot_Tidy
+'' --- Code
+''  Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
+''                                          ByVal DataFileType As String, _
+''                                          ByVal SampleProperty As String, _
+''                                          ByVal StartingRowNum As Integer, _
+''                                          ByVal StartingColumnNum As Integer)
+'' ---
 ''
 '' Description:
 ''
@@ -239,6 +257,7 @@ Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
                                         ByVal SampleProperty As String, _
                                         ByVal StartingRowNum As Integer, _
                                         ByVal StartingColumnNum As Integer)
+Attribute Create_New_Sample_Annot_Tidy.VB_Description = "Create Sample Annotation from an input data file in tabular form and output them into the Sample_Annot sheet."
     
     ' Get the Sample_Annot worksheet from the active workbook
     ' The SampleAnnotSheet is a code name
@@ -323,7 +342,12 @@ Public Sub Create_New_Sample_Annot_Tidy(ByVal TidyDataFiles As String, _
     
 End Sub
 
+'@Description("Create Sample Annotation from an input raw data file and output them into the Sample_Annot sheet.")
+
 '' Function: Create_New_Sample_Annot_Raw
+'' --- Code
+''  Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
+'' ---
 ''
 '' Description:
 ''
@@ -354,6 +378,7 @@ End Sub
 ''    Sample_Annot.Create_New_Sample_Annot_Raw RawDataFiles:=RawDataFiles
 '' ---
 Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
+Attribute Create_New_Sample_Annot_Raw.VB_Description = "Create Sample Annotation from an input raw data file and output them into the Sample_Annot sheet."
 
     ' Get the Sample_Annot worksheet from the active workbook
     ' The SampleAnnotSheet is a code name
@@ -439,7 +464,13 @@ Public Sub Create_New_Sample_Annot_Raw(ByVal RawDataFiles As String)
     
 End Sub
 
+'@Description("Merge the an input raw data file with a user input sample annotation file.")
+
 '' Function: Merge_With_Sample_Annot
+'' --- Code
+''  Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
+''                                     ByRef SampleAnnotFile As String)
+'' ---
 ''
 '' Description:
 ''
@@ -491,6 +522,7 @@ End Sub
 '' ---
 Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
                                    ByRef SampleAnnotFile As String)
+Attribute Merge_With_Sample_Annot.VB_Description = "Merge the an input raw data file with a user input sample annotation file."
 
     ' Get the Sample_Annot worksheet from the active workbook
     ' The SampleAnnotSheet is a code name
@@ -629,7 +661,12 @@ Public Sub Merge_With_Sample_Annot(ByVal RawDataFiles As String, _
     
 End Sub
 
+'@Description("Get an array of Sample Names from a given sample annotation file in csv and tabular form.")
+
 '' Function: Get_Sample_Name_Array_From_Annot_File
+'' --- Code
+''  Public Function Get_Sample_Name_Array_From_Annot_File(ByRef xFileName As String) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -664,6 +701,7 @@ End Sub
 ''    Sample_Name_Array_from_Sample_Annot = Sample_Annot.Get_Sample_Name_Array_From_Annot_File(SampleAnnotFile)
 '' ---
 Public Function Get_Sample_Name_Array_From_Annot_File(ByRef xFileName As String) As String()
+Attribute Get_Sample_Name_Array_From_Annot_File.VB_Description = "Get an array of Sample Names from a given sample annotation file in csv and tabular form."
 
     'When no file is selected
     If TypeName(xFileName) = "Boolean" Then
@@ -716,7 +754,12 @@ Public Function Get_Sample_Name_Array_From_Annot_File(ByRef xFileName As String)
     
 End Function
 
+'@Description("Get the column position where the Sample Name column is located as indicated in the Sample_Name text box.")
+
 '' Function: Get_Sample_Column_Name_Position_From_Annot_File
+'' --- Code
+''  Public Function Get_Sample_Column_Name_Position_From_Annot_File(ByRef first_line() As String) As Integer
+'' ---
 ''
 '' Description:
 ''
@@ -763,6 +806,7 @@ End Function
 ''    Sample_Column_Name_pos = Sample_Annot.Get_Sample_Column_Name_Position_From_Annot_File(first_line)
 '' ---
 Public Function Get_Sample_Column_Name_Position_From_Annot_File(ByRef first_line() As String) As Integer
+Attribute Get_Sample_Column_Name_Position_From_Annot_File.VB_Description = "Get the column position where the Sample Name column is located as indicated in the Sample_Name text box."
 
     'Get the column name to extract the sample name from sample annotation file
     Dim Sample_Column_Name As String
@@ -790,7 +834,12 @@ Public Function Get_Sample_Column_Name_Position_From_Annot_File(ByRef first_line
 
 End Function
 
+'@Description("Get the starting line where the data is from the annotation file.")
+
 '' Function: Get_Sample_Annot_Starting_Line_From_Annot_File
+'' --- Code
+''  Public Function Get_Sample_Annot_Starting_Line_From_Annot_File() As Integer
+'' ---
 ''
 '' Description:
 ''
@@ -815,6 +864,7 @@ End Function
 ''    data_starting_line = Sample_Annot.Get_Sample_Annot_Starting_Line_From_Annot_File
 '' ---
 Public Function Get_Sample_Annot_Starting_Line_From_Annot_File() As Integer
+Attribute Get_Sample_Annot_Starting_Line_From_Annot_File.VB_Description = "Get the starting line where the data is from the annotation file."
 
     Dim data_starting_line As Integer
     
@@ -832,12 +882,18 @@ Public Function Get_Sample_Annot_Starting_Line_From_Annot_File() As Integer
 
 End Function
 
+'@Description("Output the sample information (Sample_Amount and ISTD_Mixture_Volume_[uL]) found in the sample annotation file to the Sample_Annot sheet.")
+
 '' Function: Load_Sample_Info_To_Excel
+'' --- Code
+''  Public Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, _
+''                                       ByRef MatchingIndexArray() As String)
+'' ---
 ''
 '' Description:
 ''
 '' Output the sample information (Sample_Amount and ISTD_Mixture_Volume_[uL])
-'' found in the sample annotation file to the Sample_Annot sheet
+'' found in the sample annotation file to the Sample_Annot sheet.
 ''
 '' Parameters:
 ''
@@ -876,6 +932,7 @@ End Function
 '' ---
 Public Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, _
                                      ByRef MatchingIndexArray() As String)
+Attribute Load_Sample_Info_To_Excel.VB_Description = "Output the sample information (Sample_Amount and ISTD_Mixture_Volume_[uL]) found in the sample annotation file to the Sample_Annot sheet."
 
     'Assign the textbox values from UserFrom Load_Sample_Annot_Raw to array MapHeaders
     Dim MapHeaders(0 To 1) As String
@@ -964,4 +1021,3 @@ Public Sub Load_Sample_Info_To_Excel(ByRef xFileName As String, _
     Next MapHeadersIndex
     
 End Sub
-

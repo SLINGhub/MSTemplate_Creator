@@ -1,6 +1,8 @@
 Attribute VB_Name = "Transition_Name_Annot_Test"
+Attribute VB_Description = "Test units for the functions in Transition_Name_Annot Module."
 Option Explicit
 Option Private Module
+'@ModuleDescription("Test units for the functions in Transition_Name_Annot Module.")
 
 '@TestModule
 '@Folder("Tests")
@@ -33,13 +35,17 @@ End Sub
 'End Sub
 
 '@TestMethod("Verify Transition Name ISTD")
+'@Description("Function used to test if the function Transition_Annot.Verify_ISTD is working.")
 
 '' Function: Verify_ISTD_Test
+'' --- Code
+''  Public Sub Verify_ISTD_Test()
+'' ---
 ''
 '' Description:
 ''
 '' Function used to test if the function
-'' Transition_Annot.Verify_ISTD is working
+'' Transition_Annot.Verify_ISTD is working.
 ''
 '' Test data are
 ''
@@ -56,6 +62,7 @@ End Sub
 ''  - Cells with "" as Transition_Name_ISTD should be yellow
 ''
 Public Sub Verify_ISTD_Test()
+Attribute Verify_ISTD_Test.VB_Description = "Function used to test if the function Transition_Annot.Verify_ISTD is working."
     On Error GoTo TestFail
    
     ' Get the Transition_Name_Annot worksheet from the active workbook

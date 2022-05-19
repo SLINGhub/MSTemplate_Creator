@@ -1,8 +1,14 @@
 ﻿Option Explicit
 '@IgnoreModule ProcedureNotUsed
-'@Folder("Dilution Annot Functions")
+'@Folder("Sheets")
+'@ModuleDescription("Functions that are commonly called in the Dilution_Annot worksheet.")
+
+'@Description("Function that controls what happens when Clear Columns button is left clicked.")
 
 '' Function: ClearDilutionAnnot_Click
+'' --- Code
+''  Private Sub ClearDilutionAnnot_Click()
+'' ---
 ''
 '' Description:
 ''

@@ -1,8 +1,20 @@
 Attribute VB_Name = "Load_Tidy_Data"
+Attribute VB_Description = "Functions that are commonly called to read tabular data."
 Option Explicit
+'@ModuleDescription("Functions that are commonly called to read tabular data.")
 '@Folder("Load Data Functions")
 
+'@Description("Get Sample Names from an input data file in tabular form, put them into a string array.")
+
 '' Function: Get_Sample_Name_Array_Tidy
+'' --- Code
+''  Public Function Get_Sample_Name_Array_Tidy(ByRef TidyDataFilesArray() As String, _
+''                                             ByRef MS_File_Array() As String, _
+''                                             ByVal DataFileType As String, _
+''                                             ByVal SampleProperty As String, _
+''                                             ByVal StartingRowNum As Long, _
+''                                             ByVal StartingColumnNum As Long) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -58,6 +70,7 @@ Public Function Get_Sample_Name_Array_Tidy(ByRef TidyDataFilesArray() As String,
                                            ByVal SampleProperty As String, _
                                            ByVal StartingRowNum As Long, _
                                            ByVal StartingColumnNum As Long) As String()
+Attribute Get_Sample_Name_Array_Tidy.VB_Description = "Get Sample Names from an input data file in tabular form, put them into a string array."
  
     'Initialise the Sample Name Array
     Dim Sample_Name_Array() As String
@@ -200,11 +213,19 @@ End Function
 '
 'End Function
 
+'@Description("Get Transition Names from an input data csv file in tabular form, put them into a string array.")
+
 '' Function: Get_Transition_Array_Tidy_CSV
+'' --- Code
+''  Public Function Get_Transition_Array_Tidy_CSV(ByVal TidyDataFiles As String, _
+''                                                ByVal TransitionProperty As String, _
+''                                                ByVal StartingRowNum As Long, _
+''                                                ByVal StartingColumnNum As Long) As String()
+'' ---
 ''
 '' Description:
 ''
-'' Get Transition Names from an input data file in tabular form, put them into
+'' Get Transition Names from an input data csv file in tabular form, put them into
 '' a string array.
 ''
 '' Parameters:
@@ -245,6 +266,7 @@ Public Function Get_Transition_Array_Tidy_CSV(ByVal TidyDataFiles As String, _
                                               ByVal TransitionProperty As String, _
                                               ByVal StartingRowNum As Long, _
                                               ByVal StartingColumnNum As Long) As String()
+Attribute Get_Transition_Array_Tidy_CSV.VB_Description = "Get Transition Names from an input data csv file in tabular form, put them into a string array."
                                                
     'File are taken from userfrom Load_Transition_Name_Tidy
     'Hence they must exists and joined together by ;
@@ -311,7 +333,16 @@ Public Function Get_Transition_Array_Tidy_CSV(ByVal TidyDataFiles As String, _
                                                  
 End Function
 
+'@Description("Get Transition Names from an input data file in tabular form, put them into a string array.")
+
 '' Function: Get_Transition_Array_Tidy
+'' --- Code
+''  Public Function Get_Transition_Array_Tidy(ByVal TidyDataFiles As String, _
+''                                            ByVal DataFileType As String, _
+''                                            ByVal TransitionProperty As String, _
+''                                            ByVal StartingRowNum As Long, _
+''                                            ByVal StartingColumnNum As Long) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -360,6 +391,7 @@ Public Function Get_Transition_Array_Tidy(ByVal TidyDataFiles As String, _
                                           ByVal TransitionProperty As String, _
                                           ByVal StartingRowNum As Long, _
                                           ByVal StartingColumnNum As Long) As String()
+Attribute Get_Transition_Array_Tidy.VB_Description = "Get Transition Names from an input data file in tabular form, put them into a string array."
                                           
     ' Get the Transition_Name_Annot worksheet from the active workbook
     ' The TransitionNameAnnotSheet is a code name

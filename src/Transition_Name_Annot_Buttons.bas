@@ -1,8 +1,15 @@
 Attribute VB_Name = "Transition_Name_Annot_Buttons"
+Attribute VB_Description = "Functions that control what happens when buttons in the Transition_Name_Annot worksheet are clicked."
 Option Explicit
-'@Folder("Transition_Name_Annot Functions")
+'@ModuleDescription("Functions that control what happens when buttons in the Transition_Name_Annot worksheet are clicked.")
+
+'@Folder("Transition Name Annot Functions")
+'@Description("Function that controls what happens when the Clear Columns button is left clicked.")
 
 '' Function: Clear_Transition_Name_Annot_Click
+'' --- Code
+''  Public Sub Clear_Transition_Name_Annot_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -17,12 +24,18 @@ Option Explicit
 '' (see Transition_Annot_Clear_Data_Pop_Up.png)
 ''
 Public Sub Clear_Transition_Name_Annot_Click()
+Attribute Clear_Transition_Name_Annot_Click.VB_Description = "Function that controls what happens when the Clear Columns button is left clicked."
     'To ensure that Filters does not affect the assignment
     Utilities.Remove_Filter_Settings
     Clear_Transition_Name_Annot.Show
 End Sub
 
+'@Description("Function that controls what happens when the Load ISTD To ISTD Table button is left clicked.")
+
 '' Function: Load_Transition_Name_ISTD_Click
+'' --- Code
+''  Public Sub Load_Transition_Name_ISTD_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -47,6 +60,7 @@ End Sub
 '' (see Transition_Annot_Load_Two_ISTD.png)
 ''
 Public Sub Load_Transition_Name_ISTD_Click()
+Attribute Load_Transition_Name_ISTD_Click.VB_Description = "Function that controls what happens when the Load ISTD To ISTD Table button is left clicked."
 
     ' Get the Transition_Name_Annot worksheet from the active workbook
     ' The TransitionNameAnnotSheet is a code name
@@ -111,7 +125,13 @@ Public Sub Load_Transition_Name_ISTD_Click()
                             MessageBoxRequired:=True
 End Sub
 
+'@Description("Function that controls what happens when the Validate ISTD button is left clicked.")
+
 '' Function: Validate_ISTD_Click
+'' --- Code
+''  Public Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
+''                                 Optional ByVal Testing As Boolean = False)
+'' ---
 ''
 '' Description:
 ''
@@ -164,6 +184,7 @@ End Sub
 ''
 Public Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
                                Optional ByVal Testing As Boolean = False)
+Attribute Validate_ISTD_Click.VB_Description = "Function that controls what happens when the Validate ISTD button is left clicked."
                         
     ' Get the Transition_Name_Annot worksheet from the active workbook
     ' The TransitionNameAnnotSheet is a code name
@@ -225,7 +246,12 @@ Public Sub Validate_ISTD_Click(Optional ByVal MessageBoxRequired As Boolean = Tr
     
 End Sub
 
+'@Description("Function that controls what happens when the Load Transition Name Raw button is left clicked.")
+
 '' Function: Get_Transition_Array_Click
+'' --- Code
+''  Public Sub Get_Transition_Array_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -244,6 +270,7 @@ End Sub
 '' (see Transition_Annot_Load_Transition_Name_Raw_Loaded.png)
 ''
 Public Sub Get_Transition_Array_Click()
+Attribute Get_Transition_Array_Click.VB_Description = "Function that controls what happens when the Load Transition Name Raw button is left clicked."
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
     
@@ -298,7 +325,12 @@ Public Sub Get_Transition_Array_Click()
                             MessageBoxRequired:=True
 End Sub
 
+'@Description("Function that controls what happens when the Load Transition Name Tidy button is left clicked.")
+
 '' Function: Get_Transition_Array_Tidy_Click
+'' --- Code
+''  Public Sub Get_Transition_Array_Tidy_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -319,6 +351,7 @@ End Sub
 '' (see Transition_Annot_Load_Transition_Name_Tidy_Row_Loaded.png)
 ''
 Public Sub Get_Transition_Array_Tidy_Click()
+Attribute Get_Transition_Array_Tidy_Click.VB_Description = "Function that controls what happens when the Load Transition Name Tidy button is left clicked."
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
     
@@ -374,4 +407,3 @@ Public Sub Get_Transition_Array_Tidy_Click()
                             MessageBoxRequired:=True
     
 End Sub
-

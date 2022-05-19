@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Concentration_Unit_MsgBox.frm",{179:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function that controls what happens when the Ok button is left clicked on this message box</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:Concentration_Unit_MsgBox.frm",{});

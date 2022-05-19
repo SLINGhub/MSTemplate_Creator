@@ -1,6 +1,8 @@
 Attribute VB_Name = "Sample_Type_Identifier_Test"
+Attribute VB_Description = "Test units for the functions in Sample_Type_Identifier Module."
 Option Explicit
 Option Private Module
+'@ModuleDescription("Test units for the functions in Sample_Type_Identifier Module.")
 
 '@TestModule
 '@Folder("Tests")
@@ -34,8 +36,12 @@ End Sub
 'End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Get_QC_Sample_Type is working.")
 
 '' Function: Get_QC_Sample_Type_Test
+'' --- Code
+''  Public Sub Get_QC_Sample_Type_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -51,6 +57,7 @@ End Sub
 '' gives the same output as QCArray
 ''
 Public Sub Get_QC_Sample_Type_Test()
+Attribute Get_QC_Sample_Type_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Get_QC_Sample_Type is working."
     On Error GoTo TestFail
     
     Dim TestArray As Variant
@@ -82,8 +89,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_EQC is working.")
 
 '' Function: Is_EQC_Test
+'' --- Code
+''  Public Sub Is_EQC_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -98,6 +109,7 @@ End Sub
 '' True to all entries in EQCTestArray
 ''
 Public Sub Is_EQC_Test()
+Attribute Is_EQC_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_EQC is working."
     On Error GoTo TestFail
     
     Dim EQCTestArray As Variant
@@ -119,8 +131,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_SST is working.")
 
 '' Function: Is_SST_Test
+'' --- Code
+''  Public Sub Is_SST_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -135,6 +151,7 @@ End Sub
 '' True to all entries in SSTTestArray
 ''
 Public Sub Is_SST_Test()
+Attribute Is_SST_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_SST is working."
     On Error GoTo TestFail
 
     Dim SSTTestArray As Variant
@@ -157,8 +174,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_BQC is working.")
 
 '' Function: Is_BQC_Test
+'' --- Code
+''  Public Sub Is_BQC_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -173,6 +194,7 @@ End Sub
 '' True to all entries in BQCTestArray
 ''
 Public Sub Is_BQC_Test()
+Attribute Is_BQC_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_BQC is working."
     On Error GoTo TestFail
     
     Dim BQCTestArray As Variant
@@ -196,8 +218,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_TQC is working.")
 
 '' Function: Is_TQC_Test
+'' --- Code
+''  Public Sub Is_TQC_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -214,6 +240,7 @@ End Sub
 '' Not_TQCTestArray
 ''
 Public Sub Is_TQC_Test()
+Attribute Is_TQC_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_TQC is working."
     On Error GoTo TestFail
     
     Dim TQCTestArray As Variant
@@ -248,8 +275,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_RQC is working.")
 
 '' Function: Is_RQC_Test
+'' --- Code
+''  Public Sub Is_RQC_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -266,6 +297,7 @@ End Sub
 '' Not_RQCTestArray
 ''
 Public Sub Is_RQC_Test()
+Attribute Is_RQC_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_RQC is working."
     On Error GoTo TestFail
     
     Dim RQCTestArray As Variant
@@ -300,8 +332,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_LTR is working.")
 
 '' Function: Is_LTR_Test
+'' --- Code
+''  Public Sub Is_LTR_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -316,6 +352,7 @@ End Sub
 '' True to all entries in LTRTestArray
 ''
 Public Sub Is_LTR_Test()
+Attribute Is_LTR_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_LTR is working."
     On Error GoTo TestFail
     
     Dim LTRTestArray As Variant
@@ -339,8 +376,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_NIST is working.")
 
 '' Function: Is_NIST_Test
+'' --- Code
+''  Public Sub Is_NIST_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -355,6 +396,7 @@ End Sub
 '' True to all entries in NISTTestArray
 ''
 Public Sub Is_NIST_Test()
+Attribute Is_NIST_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_NIST is working."
     On Error GoTo TestFail
     
     Dim NISTTestArray As Variant
@@ -377,8 +419,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_SRM is working.")
 
 '' Function: Is_SRM_Test
+'' --- Code
+''  Public Sub Is_SRM_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -393,6 +439,7 @@ End Sub
 '' True to all entries in SRMTestArray
 ''
 Public Sub Is_SRM_Test()
+Attribute Is_SRM_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_SRM is working."
     On Error GoTo TestFail
     
     Dim SRMTestArray As Variant
@@ -415,8 +462,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_SRM is working.")
 
 '' Function: Is_PBLK_Test
+'' --- Code
+''  Public Sub Is_PBLK_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -431,6 +482,7 @@ End Sub
 '' True to all entries in PBLKTestArray
 ''
 Public Sub Is_PBLK_Test()
+Attribute Is_PBLK_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_SRM is working."
     On Error GoTo TestFail
     
     Dim PBLKTestArray As Variant
@@ -454,8 +506,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_BLK is working.")
 
 '' Function: Is_BLK_Test
+'' --- Code
+''  Public Sub Is_BLK_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -472,6 +528,7 @@ End Sub
 '' is used instead.
 ''
 Public Sub Is_BLK_Test()
+Attribute Is_BLK_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_BLK is working."
     On Error GoTo TestFail
     
     Dim BlankTestArray As Variant
@@ -504,8 +561,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_SBLK is working.")
 
 '' Function: Is_SBLK_Test
+'' --- Code
+''  Public Sub Is_SBLK_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -520,6 +581,7 @@ End Sub
 '' True to all entries in SBLKTestArray
 ''
 Public Sub Is_SBLK_Test()
+Attribute Is_SBLK_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_SBLK is working."
     On Error GoTo TestFail
 
     Dim SBLKTestArray As Variant
@@ -542,8 +604,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_MBLK is working.")
 
 '' Function: Is_MBLK_Test
+'' --- Code
+''  Public Sub Is_MBLK_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -558,6 +624,7 @@ End Sub
 '' True to all entries in MBLKTestArray
 ''
 Public Sub Is_MBLK_Test()
+Attribute Is_MBLK_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_MBLK is working."
     On Error GoTo TestFail
 
     Dim MBLKTestArray As Variant
@@ -580,8 +647,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_STD is working.")
 
 '' Function: Is_STD_Test
+'' --- Code
+''  Public Sub Is_STD_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -598,6 +669,7 @@ End Sub
 '' in Not_STDTestArray
 ''
 Public Sub Is_STD_Test()
+Attribute Is_STD_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_STD is working."
     On Error GoTo TestFail
     
     Dim STDTestArray As Variant
@@ -630,8 +702,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_LQQ is working.")
 
 '' Function: Is_LQQ_Test
+'' --- Code
+''  Public Sub Is_LQQ_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -646,6 +722,7 @@ End Sub
 '' True to all entries in LQQTestArray
 ''
 Public Sub Is_LQQ_Test()
+Attribute Is_LQQ_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_LQQ is working."
     On Error GoTo TestFail
     
     Dim LQQTestArray As Variant
@@ -668,8 +745,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_CTRL is working.")
 
 '' Function: Is_CTRL_Test
+'' --- Code
+''  Public Sub Is_CTRL_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -684,6 +765,7 @@ End Sub
 '' True to all entries in CTRLTestArray
 ''
 Public Sub Is_CTRL_Test()
+Attribute Is_CTRL_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_CTRL is working."
     On Error GoTo TestFail
     
     Dim CTRLTestArray As Variant
@@ -706,8 +788,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_DUP is working.")
 
 '' Function: Is_DUP_Test
+'' --- Code
+''  Public Sub Is_DUP_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -722,6 +808,7 @@ End Sub
 '' True to all entries in DUPTestArray
 ''
 Public Sub Is_DUP_Test()
+Attribute Is_DUP_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_DUP is working."
     On Error GoTo TestFail
     
     Dim DUPTestArray As Variant
@@ -744,8 +831,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_SPIK is working.")
 
 '' Function: Is_SPIK_Test
+'' --- Code
+''  Public Sub Is_SPIK_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -760,6 +851,7 @@ End Sub
 '' True to all entries in SPIKTestArray
 ''
 Public Sub Is_SPIK_Test()
+Attribute Is_SPIK_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_SPIK is working."
     On Error GoTo TestFail
     
     Dim SPIKTestArray As Variant
@@ -784,8 +876,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_LTRBK is working.")
 
 '' Function: Is_LTRBK_Test
+'' --- Code
+''  Public Sub Is_LTRBK_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -802,6 +898,7 @@ End Sub
 '' in Not_LTRBKTestArray
 ''
 Public Sub Is_LTRBK_Test()
+Attribute Is_LTRBK_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_LTRBK is working."
     On Error GoTo TestFail
     
     Dim LTRBKTestArray As Variant
@@ -843,8 +940,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get QC Sample Type")
+'@Description("Function used to test if the function Sample_Type_Identifier.Is_NISTBK is working.")
 
 '' Function: Is_NISTBK_Test
+'' --- Code
+''  Public Sub Is_NISTBK_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -861,6 +962,7 @@ End Sub
 '' in Not_NISTBKTestArray
 ''
 Public Sub Is_NISTBK_Test()
+Attribute Is_NISTBK_Test.VB_Description = "Function used to test if the function Sample_Type_Identifier.Is_NISTBK is working."
     On Error GoTo TestFail
     
     Dim NISTBKTestArray As Variant
@@ -900,4 +1002,3 @@ TestExit:
 TestFail:
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
-

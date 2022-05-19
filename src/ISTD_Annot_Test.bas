@@ -1,6 +1,8 @@
 Attribute VB_Name = "ISTD_Annot_Test"
+Attribute VB_Description = "Test units for the functions in ISTD Annot Module."
 Option Explicit
 Option Private Module
+'@ModuleDescription("Test units for the functions in ISTD Annot Module.")
 
 '@TestModule
 '@Folder("Tests")
@@ -34,8 +36,12 @@ End Sub
 'End Sub
 
 '@TestMethod("Convert ISTD Concentration")
+'@Description("Function used to test if the function ISTD_Annot.Convert_Conc_nM_Array is working.")
 
 '' Function: Convert_Conc_nM_Array_Test
+'' --- Code
+''  Public Sub Convert_Conc_nM_Array_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -48,6 +54,7 @@ End Sub
 '' {"1", "2", "3"}.
 ''
 Public Sub Convert_Conc_nM_Array_Test()
+Attribute Convert_Conc_nM_Array_Test.VB_Description = "Function used to test if the function ISTD_Annot.Convert_Conc_nM_Array is working."
     On Error GoTo TestFail
 
     ' Get the ISTD_Annot worksheet from the active workbook
@@ -101,8 +108,12 @@ TestFail:
 End Sub
 
 '@TestMethod("Get ISTD Conc nM Array")
+'@Description("Function used to test if the function ISTD_Annot.Get_ISTD_Conc_nM_Array_Test is working.")
 
 '' Function: Get_ISTD_Conc_nM_Array_Test
+'' --- Code
+''  Public Sub Get_ISTD_Conc_nM_Array_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -125,6 +136,7 @@ End Sub
 ''  - Cells occupied with numbers should be green
 ''
 Public Sub Get_ISTD_Conc_nM_Array_Test()
+Attribute Get_ISTD_Conc_nM_Array_Test.VB_Description = "Function used to test if the function ISTD_Annot.Get_ISTD_Conc_nM_Array_Test is working."
     On Error GoTo TestFail
     
     'We don't want excel to monitor the sheet when runnning this code
@@ -281,4 +293,3 @@ TestFail:
     Application.EnableEvents = True
     Assert.Fail "Test raised an error: #" & Err.Number & " - " & Err.Description
 End Sub
-

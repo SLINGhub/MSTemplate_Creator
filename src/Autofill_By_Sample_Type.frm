@@ -13,17 +13,25 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Attribute VB_Description = "Functions that control what happens when buttons in the Autofill by Sample Type Box are clicked."
+
 Option Explicit
-'@Folder("Sample_Annot_Buttons")
+'@ModuleDescription("Functions that control what happens when buttons in the Autofill by Sample Type Box are clicked.")
+'@Folder("Sample Annot Buttons")
+
+'@Description("Function that controls what happens when the Autofill ISTD Mixture Volume button is left clicked.")
 
 '' Group: Autofill Button Function
 ''
 '' Function: Autofill_ISTD_Mixture_Volume_Button_Click
+'' --- Code
+''  Private Sub Autofill_ISTD_Mixture_Volume_Button_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Autofill_ISTD_Mixture_Volume_Button.png)
 ''
@@ -34,17 +42,23 @@ Option Explicit
 '' autofill value in the input ISTD_Mixture_Volume text box value
 ''
 Private Sub Autofill_ISTD_Mixture_Volume_Button_Click()
+Attribute Autofill_ISTD_Mixture_Volume_Button_Click.VB_Description = "Function that controls what happens when the Autofill ISTD Mixture Volume button is left clicked."
     Sample_Annot.Autofill_Column_By_QC_Sample_Type Sample_Type:=Sample_Type_ComboBox.Value, _
                                                    Header_Name:="ISTD_Mixture_Volume_[uL]", _
                                                    Autofill_Value:=ISTD_Mixture_Volume_TextBox.Value
 End Sub
 
+'@Description("Function that controls what happens when the Autofill Sample Amount button is left clicked.")
+
 '' Function: Autofill_Sample_Amount_Button_Click
+'' --- Code
+''  Private Sub Autofill_Sample_Amount_Button_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Autofill_Sample_Amount_Button_Click.png)
 ''
@@ -55,17 +69,23 @@ End Sub
 '' autofill value in the input Sample_Amount text box value
 ''
 Private Sub Autofill_Sample_Amount_Button_Click()
+Attribute Autofill_Sample_Amount_Button_Click.VB_Description = "Function that controls what happens when the Autofill Sample Amount button is left clicked."
     Sample_Annot.Autofill_Column_By_QC_Sample_Type Sample_Type:=Sample_Type_ComboBox.Value, _
                                                    Header_Name:="Sample_Amount", _
                                                    Autofill_Value:=Sample_Amount_TextBox.Value
 End Sub
 
+'@Description("Function that controls what happens when the Autofill Sample Amount Unit button is left clicked.")
+
 '' Function: Autofill_Sample_Amount_Unit_Button_Click
+'' --- Code
+''  Private Sub Autofill_Sample_Amount_Unit_Button_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the following button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Autofill_Sample_Amount_Unit_Button.png)
 ''
@@ -76,19 +96,25 @@ End Sub
 '' autofill value in the input Sample_Amount_Unit text box value
 ''
 Private Sub Autofill_Sample_Amount_Unit_Button_Click()
+Attribute Autofill_Sample_Amount_Unit_Button_Click.VB_Description = "Function that controls what happens when the Autofill Sample Amount Unit button is left clicked."
     Sample_Annot.Autofill_Column_By_QC_Sample_Type Sample_Type:=Sample_Type_ComboBox.Value, _
                                                    Header_Name:="Sample_Amount_Unit", _
                                                    Autofill_Value:=Sample_Amount_Unit_ComboBox.Value
 End Sub
 
+'@Description("Function that controls what happens when the ISTD mixture volume text box is edited.")
+
 '' Group: Autofill Text Box Change Function
 ''
 '' Function: ISTD_Mixture_Volume_TextBox_Change
+'' --- Code
+''  Private Sub ISTD_Mixture_Volume_TextBox_Change()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the users
-'' change the ISTD_Mixture_Volume text box value
+'' change the ISTD_Mixture_Volume text box value.
 ''
 '' By default, the button will be masked. However, if there is
 '' an input in *both* the Sample_Type and the ISTD_Mixture_Volume
@@ -97,6 +123,7 @@ End Sub
 '' (see Autofill_ISTD_Mixture_Volume_Text_Change.png)
 ''
 Private Sub ISTD_Mixture_Volume_TextBox_Change()
+Attribute ISTD_Mixture_Volume_TextBox_Change.VB_Description = "Function that controls what happens when the ISTD mixture volume text box is edited."
     ' If there is an input for both combo boxes, the Autofill button will be enabled.
     Autofill_ISTD_Mixture_Volume_Button.Enabled = False
     If Sample_Type_ComboBox.Value <> vbNullString And ISTD_Mixture_Volume_TextBox.Value <> vbNullString Then
@@ -104,12 +131,17 @@ Private Sub ISTD_Mixture_Volume_TextBox_Change()
     End If
 End Sub
 
+'@Description("Function that controls what happens when the sample amount text box is edited.")
+
 '' Function: Sample_Amount_TextBox_Change
+'' --- Code
+''  Private Sub Sample_Amount_TextBox_Change()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the users
-'' change the Sample_Amount text box value
+'' change the Sample_Amount text box value.
 ''
 '' By default, the button will be masked. However, if there is
 '' an input in *both* the Sample_Type and the Sample_Amount
@@ -118,6 +150,7 @@ End Sub
 '' (see Autofill_Sample_Amount_Text_Change.png)
 ''
 Private Sub Sample_Amount_TextBox_Change()
+Attribute Sample_Amount_TextBox_Change.VB_Description = "Function that controls what happens when the sample amount text box is edited."
     ' If there is an input for both combo boxes, the Autofill button will be enabled.
     Autofill_Sample_Amount_Button.Enabled = False
     If Sample_Type_ComboBox.Value <> vbNullString And Sample_Amount_TextBox.Value <> vbNullString Then
@@ -125,14 +158,19 @@ Private Sub Sample_Amount_TextBox_Change()
     End If
 End Sub
 
+'@Description("Function that controls what happens when the sample amount unit combo box is edited.")
+
 '' Group: Autofill Combo Box Change Function
 ''
 '' Function: Sample_Amount_Unit_ComboBox_Change
+'' --- Code
+''  Private Sub Sample_Amount_Unit_ComboBox_Change()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the users
-'' change the Sample_Amount_Unit combo box value
+'' change the Sample_Amount_Unit combo box value.
 ''
 '' By default, the button will be masked. However, if there is
 '' an input in *both* the Sample_Type and the Sample_Amount_Unit
@@ -141,6 +179,7 @@ End Sub
 '' (see Autofill_Sample_Amount_Unit_ComboBox_Change.png)
 ''
 Private Sub Sample_Amount_Unit_ComboBox_Change()
+Attribute Sample_Amount_Unit_ComboBox_Change.VB_Description = "Function that controls what happens when the sample amount unit combo box is edited."
     Autofill_Sample_Amount_Unit_Button.Enabled = False
     ' If there is an input for both combo boxes, the Autofill button will be enabled.
     If Sample_Type_ComboBox.Value <> vbNullString And Sample_Amount_Unit_ComboBox.Value <> vbNullString Then
@@ -148,12 +187,17 @@ Private Sub Sample_Amount_Unit_ComboBox_Change()
     End If
 End Sub
 
+'@Description("Function that controls what happens when the sample type combo box is edited.")
+
 '' Function: Sample_Type_ComboBox_Change
+'' --- Code
+''  Private Sub Sample_Type_ComboBox_Change()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the users
-'' change the Sample_Type combo box value
+'' change the Sample_Type combo box value.
 ''
 '' By default, the button will be masked. However, if there is
 '' an input in *both* the Sample_Type and the corresponding
@@ -165,6 +209,7 @@ End Sub
 '' (see Autofill_Sample_Type_ComboBox_Change.png)
 ''
 Private Sub Sample_Type_ComboBox_Change()
+Attribute Sample_Type_ComboBox_Change.VB_Description = "Function that controls what happens when the sample type combo box is edited."
     ' If there is an input for both combo boxes, the Autofill button will be enabled.
     If Sample_Type_ComboBox.Value <> vbNullString And ISTD_Mixture_Volume_TextBox.Value <> vbNullString Then
         Autofill_ISTD_Mixture_Volume_Button.Enabled = True
@@ -177,14 +222,19 @@ Private Sub Sample_Type_ComboBox_Change()
     End If
 End Sub
 
+'@Description("Function that controls what happens when the ISTD mixture volume text box is exited.")
+
 '' Group: Autofill Text Box Exit Function
 ''
 '' Function: ISTD_Mixture_Volume_TextBox_Exit
+'' --- Code
+''  Private Sub ISTD_Mixture_Volume_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the users
-'' leaves the ISTD_Mixture_Volume text box
+'' leaves the ISTD_Mixture_Volume text box.
 ''
 '' The function will check if a valid positive number
 '' is keyed in. If an invalid value is given, the following
@@ -194,6 +244,7 @@ End Sub
 '' (see Autofill_ISTD_Mixture_Volume_Text_Exit.png)
 ''
 Private Sub ISTD_Mixture_Volume_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
+Attribute ISTD_Mixture_Volume_TextBox_Exit.VB_Description = "Function that controls what happens when the ISTD mixture volume text box is exited."
     ' Check if input is a positive real number
     If ISTD_Mixture_Volume_TextBox.Value = vbNullString Then
         ' If no input is given, leave the function
@@ -207,12 +258,17 @@ Private Sub ISTD_Mixture_Volume_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoole
     End If
 End Sub
 
+'@Description("Function that controls what happens when the sample amount text box is exited.")
+
 '' Function: Sample_Amount_TextBox_Exit
+'' --- Code
+''  Private Sub Sample_Amount_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the users
-'' leaves the Sample_Amount text box
+'' leaves the Sample_Amount text box.
 ''
 '' The function will check if a valid positive number
 '' is keyed in. If an invalid value is given, the following
@@ -222,6 +278,7 @@ End Sub
 '' (see Autofill_Sample_Amount_Text_Exit.png)
 ''
 Private Sub Sample_Amount_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
+Attribute Sample_Amount_TextBox_Exit.VB_Description = "Function that controls what happens when the sample amount text box is exited."
     ' Check if input is a positive real number
     If Sample_Amount_TextBox.Value = vbNullString Then
         ' If no input is given, leave the function
@@ -235,16 +292,21 @@ Private Sub Sample_Amount_TextBox_Exit(ByVal Cancel As MSForms.ReturnBoolean)
     End If
 End Sub
 
+'@Description("Function that controls what happens when Autofill_By_Sample_Type form is initialized.")
+
 '' Group: Form Initialisation
 ''
 '' Function: Autofill_By_Sample_Type form initialisation
+'' --- Code
+''  Private Sub UserForm_Initialize()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the
 '' Autofill_By_Sample_Type form is initialize when
 '' user click on the button "Autofill by Sample_Type"
-'' in the Sample_Annot sheet
+'' in the Sample_Annot sheet.
 ''
 '' The function will first check of if the sheet whose
 '' code name is Lists exists before proceeding. If it does,
@@ -254,6 +316,7 @@ End Sub
 '' found in the "List" worksheet.
 ''
 Private Sub UserForm_Initialize()
+Attribute UserForm_Initialize.VB_Description = "Function that controls what happens when Autofill_By_Sample_Type form is initialized."
     ' UserForm_Initialize must have no parameters
     Dim Cell_Location As Range
     

@@ -1,10 +1,17 @@
 Attribute VB_Name = "Integration_Test"
+Attribute VB_Description = "Functions used for integration testing between different sheets."
 Option Explicit
+'@ModuleDescription("Functions used for integration testing between different sheets.")
 '@Folder("Tests")
 '@IgnoreModule ProcedureNotUsed
 '@IgnoreModule IntegerDataType
 
+'@Description("A simple wrapper function to run all integration test.")
+
 '' Function: Run_Integration_Test
+'' --- Code
+''  Public Sub Run_Integration_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -16,13 +23,19 @@ Option Explicit
 '' - Integration_Test.Sample_Annot_and_Dilution_Annot_Integration_Test
 ''
 Public Sub Run_Integration_Test()
+Attribute Run_Integration_Test.VB_Description = "A simple wrapper function to run all integration test."
     Integration_Test.Nothing_To_Transfer_Test
     Integration_Test.Transition_Name_and_ISTD_Annot_Integration_Test
     Integration_Test.Sample_Annot_Integration_Test
     Integration_Test.Sample_Annot_and_Dilution_Annot_Integration_Test
 End Sub
 
+'@Description("Nothing To Transfer test.")
+
 '' Function: Nothing_To_Transfer_Test
+'' --- Code
+''  Public Sub Nothing_To_Transfer_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -34,6 +47,7 @@ End Sub
 ''   Sample_Annot to Dilution_Annot.
 ''
 Public Sub Nothing_To_Transfer_Test()
+Attribute Nothing_To_Transfer_Test.VB_Description = "Nothing To Transfer test."
     On Error GoTo TestFail
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
@@ -134,7 +148,12 @@ TestFail:
     Exit Sub
 End Sub
 
+'@Description("Transition Name and ISTD Annot Integration test.")
+
 '' Function: Transition_Name_and_ISTD_Annot_Integration_Test
+'' --- Code
+''  Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -149,6 +168,7 @@ End Sub
 '' - Is able to convert the concentration inputs to nM.
 ''
 Public Sub Transition_Name_and_ISTD_Annot_Integration_Test()
+Attribute Transition_Name_and_ISTD_Annot_Integration_Test.VB_Description = "Transition Name and ISTD Annot Integration test."
     On Error GoTo TestFail
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
@@ -348,7 +368,12 @@ TestFail:
     Exit Sub
 End Sub
 
+'@Description("Sample Annot Integration test.")
+
 '' Function: Sample_Annot_Integration_Test
+'' --- Code
+''  Public Sub Sample_Annot_Integration_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -362,6 +387,7 @@ End Sub
 '' - Is able to create a new transition annotation from tidy/tabular data file with sample names as row observations.
 ''
 Public Sub Sample_Annot_Integration_Test()
+Attribute Sample_Annot_Integration_Test.VB_Description = "Sample Annot Integration test."
     On Error GoTo TestFail
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = True
@@ -535,7 +561,12 @@ TestFail:
     Exit Sub
 End Sub
 
+'@Description("Sample Annot and Dilution Annot Integration test.")
+
 '' Function: Sample_Annot_and_Dilution_Annot_Integration_Test
+'' --- Code
+''  Public Sub Sample_Annot_and_Dilution_Annot_Integration_Test()
+'' ---
 ''
 '' Description:
 ''
@@ -545,6 +576,7 @@ End Sub
 '' - Is able to transfer samples whose "Sample_Type" value is "RQC" to the Dilution_Annot sheet.
 ''
 Public Sub Sample_Annot_and_Dilution_Annot_Integration_Test()
+Attribute Sample_Annot_and_Dilution_Annot_Integration_Test.VB_Description = "Sample Annot and Dilution Annot Integration test."
     On Error GoTo TestFail
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = True

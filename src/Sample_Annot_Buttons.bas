@@ -1,9 +1,16 @@
 Attribute VB_Name = "Sample_Annot_Buttons"
+Attribute VB_Description = "Functions that control what happens when buttons in the Sample_Annot worksheet are clicked."
 Option Explicit
-'@Folder("Sample_Annot Functions")
+'@ModuleDescription("Functions that control what happens when buttons in the Sample_Annot worksheet are clicked.")
+
+'@Folder("Sample Annot Functions")
 '@IgnoreModule IntegerDataType
+'@Description("Function that controls what happens when the Autofill By Sample Type button is left clicked.")
 
 '' Function: Autofill_By_Sample_Type_Click
+'' --- Code
+''  Public Sub Autofill_By_Sample_Type_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -18,6 +25,7 @@ Option Explicit
 '' (see Sample_Annot_Autofill_By_Sample_Type_Pop_Up.png)
 ''
 Public Sub Autofill_By_Sample_Type_Click()
+Attribute Autofill_By_Sample_Type_Click.VB_Description = "Function that controls what happens when the Autofill By Sample Type button is left clicked."
 
     ' Get the Sample_Annot worksheet from the active workbook
     ' The SampleAnnotSheet is a code name
@@ -40,7 +48,12 @@ Public Sub Autofill_By_Sample_Type_Click()
      
 End Sub
 
+'@Description("Function that controls what happens when the Load RQC Sample Name To Dilution_Table button is left clicked.")
+
 '' Function: Load_Sample_Name_To_Dilution_Annot_Click
+'' --- Code
+''  Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -54,6 +67,7 @@ End Sub
 '' (see Sample_Annot_Load_Sample_Name_To_Dilution_Annot_Results.png)
 ''
 Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
+Attribute Load_Sample_Name_To_Dilution_Annot_Click.VB_Description = "Function that controls what happens when the Load RQC Sample Name To Dilution_Table button is left clicked."
     
     ' Get the Sample_Annot worksheet from the active workbook
     ' The SampleAnnotSheet is a code name
@@ -162,7 +176,12 @@ Public Sub Load_Sample_Name_To_Dilution_Annot_Click()
     
 End Sub
 
+'@Description("Function that controls what happens when the Clear Columns button is left clicked.")
+
 '' Function: Clear_Sample_Table_Click
+'' --- Code
+''  Public Sub Clear_Sample_Table_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -177,13 +196,20 @@ End Sub
 '' (see Sample_Annot_Clear_Data_Pop_Up.png)
 ''
 Public Sub Clear_Sample_Table_Click()
+Attribute Clear_Sample_Table_Click.VB_Description = "Function that controls what happens when the Clear Columns button is left clicked."
     'To ensure that Filters does not affect the assignment
     Utilities.Remove_Filter_Settings
     
     Clear_Sample_Annot.Show
 End Sub
 
+'@Description("Function that controls what happens when the Autofill Concentration Unit button is left clicked.")
+
 '' Function: Autofill_Concentration_Unit_Click
+'' --- Code
+''  Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
+''                                               Optional ByVal Testing As Boolean = False)
+'' ---
 ''
 '' Description:
 ''
@@ -204,6 +230,7 @@ End Sub
 ''
 Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired As Boolean = True, _
                                              Optional ByVal Testing As Boolean = False)
+Attribute Autofill_Concentration_Unit_Click.VB_Description = "Function that controls what happens when the Autofill Concentration Unit button is left clicked."
                                       
     'We don't want excel to monitor the sheet when runnning this code
     Application.EnableEvents = False
@@ -325,7 +352,12 @@ Public Sub Autofill_Concentration_Unit_Click(Optional ByVal MessageBoxRequired A
     
 End Sub
 
+'@Description("Function that controls what happens when the Autofill Sample Type button is left clicked.")
+
 '' Function: Autofill_Sample_Type_Click
+'' --- Code
+''  Public Sub Autofill_Sample_Type_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -340,6 +372,7 @@ End Sub
 '' (see Sample_Annot_Autofill_Sample_Type_Results.png)
 ''
 Public Sub Autofill_Sample_Type_Click()
+Attribute Autofill_Sample_Type_Click.VB_Description = "Function that controls what happens when the Autofill Sample Type button is left clicked."
 
     ' Get the Sample_Annot worksheet from the active workbook
     ' The SampleAnnotSheet is a code name
@@ -396,7 +429,12 @@ Public Sub Autofill_Sample_Type_Click()
 
 End Sub
 
+'@Description("Function that controls what happens when the Load Sample Annotation from Table Data button is left clicked.")
+
 '' Function: Load_Sample_Annot_Tidy_Column_Name_Click
+'' --- Code
+''  Public Sub Load_Sample_Annot_Tidy_Column_Name_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -411,6 +449,7 @@ End Sub
 '' (see Sample_Annot_Load_Sample_Annot_Tidy_Column_Name_Pop_Up.png)
 ''
 Public Sub Load_Sample_Annot_Tidy_Column_Name_Click()
+Attribute Load_Sample_Annot_Tidy_Column_Name_Click.VB_Description = "Function that controls what happens when the Load Sample Annotation from Table Data button is left clicked."
     
     ' Get the Sample_Annot worksheet from the active workbook
     ' The SampleAnnotSheet is a code name
@@ -446,7 +485,12 @@ Public Sub Load_Sample_Annot_Tidy_Column_Name_Click()
     
 End Sub
 
+'@Description("Function that controls what happens when the Load Sample Annotation from Raw Data button is left clicked.")
+
 '' Function: Load_Sample_Annot_Raw_Column_Name_Click
+'' --- Code
+''  Public Sub Load_Sample_Annot_Raw_Column_Name_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -461,6 +505,7 @@ End Sub
 '' (see Sample_Annot_Load_Sample_Annot_Raw_Column_Name_Pop_Up.png)
 ''
 Public Sub Load_Sample_Annot_Raw_Column_Name_Click()
+Attribute Load_Sample_Annot_Raw_Column_Name_Click.VB_Description = "Function that controls what happens when the Load Sample Annotation from Raw Data button is left clicked."
     'Assume first row are the headers
     'Assume headers are fully filled, not empty
     'Assume no duplicate headers

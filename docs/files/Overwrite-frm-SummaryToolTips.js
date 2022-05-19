@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Overwrite.frm",{22:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function that controls what happens when the when the following button is left clicked</div></div>",23:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function that controls what happens when the when the following button is left clicked</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:Overwrite.frm",{});

@@ -1,8 +1,15 @@
 Attribute VB_Name = "Concentration_Unit"
+Attribute VB_Description = "Functions that are used to calculate concentration units."
 Option Explicit
+'@ModuleDescription("Functions that are used to calculate concentration units.")
 '@Folder("Sample Annot Functions")
 
+'@Description("Function used to extract mol from the string input [?M] or [?mol/uL].")
+
 '' Function: Get_Mol_From_Custom_ISTD_Concentration_Unit
+'' --- Code
+''  Public Function Get_Mol_From_Custom_ISTD_Concentration_Unit(ByVal Custom_Unit As String) As String
+'' ---
 ''
 '' Description:
 ''
@@ -31,6 +38,7 @@ Option Explicit
 ''   Debug.Print Output_Custom_Unit
 '' ---
 Public Function Get_Mol_From_Custom_ISTD_Concentration_Unit(ByVal Custom_Unit As String) As String
+Attribute Get_Mol_From_Custom_ISTD_Concentration_Unit.VB_Description = "Function used to extract mol from the string input [?M] or [?mol/uL]."
     'Input is of the form "[?M] or [?mol/uL]"
     'Function tries to get ?mol from the above string
 

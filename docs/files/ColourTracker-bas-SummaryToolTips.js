@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:ColourTracker.bas",{196:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function that controls what happens when certain cells in the ISTD_Annot sheet is changed.</div></div>",197:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function that controls what happens when certain cells in the Transition_Name_Annot sheet is changed.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:ColourTracker.bas",{});

@@ -1,9 +1,17 @@
 Attribute VB_Name = "Transition_Name_Annot"
+Attribute VB_Description = "Functions that are commonly called in the Transition_Name_Annot worksheet."
 Option Explicit
-'@Folder("Transition_Name_Annot Functions")
+'@ModuleDescription("Functions that are commonly called in the Transition_Name_Annot worksheet.")
+
+'@Folder("Transition Name Annot Functions")
 '@IgnoreModule IntegerDataType
 
+'@Description("Get Transition Names from an input raw data file, put them into a string array and sort them in alphabetical order.")
+
 '' Function: Get_Sorted_Transition_Array_Raw
+'' --- Code
+''  Public Function Get_Sorted_Transition_Array_Raw(ByVal RawDataFiles As String) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -35,6 +43,7 @@ Option Explicit
 ''   Transition_Array = Transition_Name_Annot.Get_Sorted_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
 '' ---
 Public Function Get_Sorted_Transition_Array_Raw(ByVal RawDataFiles As String) As String()
+Attribute Get_Sorted_Transition_Array_Raw.VB_Description = "Get Transition Names from an input raw data file, put them into a string array and sort them in alphabetical order."
     Dim Transition_Array() As String
     Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
 
@@ -54,7 +63,16 @@ Public Function Get_Sorted_Transition_Array_Raw(ByVal RawDataFiles As String) As
     Get_Sorted_Transition_Array_Raw = Transition_Array
 End Function
 
+'@Description("Get Transition Names from an input data file in tabular form, put them into a string array and sort them in alphabetical order.")
+
 '' Function: Get_Sorted_Transition_Array_Tidy
+'' --- Code
+''  Public Function Get_Sorted_Transition_Array_Tidy(ByVal TidyDataFiles As String, _
+''                                                   ByVal DataFileType As String, _
+''                                                   ByVal TransitionProperty As String, _
+''                                                   ByVal StartingRowNum As Integer, _
+''                                                   ByVal StartingColumnNum As Integer) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -113,6 +131,7 @@ Public Function Get_Sorted_Transition_Array_Tidy(ByVal TidyDataFiles As String, 
                                                  ByVal TransitionProperty As String, _
                                                  ByVal StartingRowNum As Integer, _
                                                  ByVal StartingColumnNum As Integer) As String()
+Attribute Get_Sorted_Transition_Array_Tidy.VB_Description = "Get Transition Names from an input data file in tabular form, put them into a string array and sort them in alphabetical order."
                                                  
     Dim Transition_Array() As String
     Transition_Array = Load_Tidy_Data.Get_Transition_Array_Tidy(TidyDataFiles:=TidyDataFiles, _
@@ -137,11 +156,18 @@ Public Function Get_Sorted_Transition_Array_Tidy(ByVal TidyDataFiles As String, 
     Get_Sorted_Transition_Array_Tidy = Transition_Array
 End Function
 
+'@Description("Verify if the entries in column Transition_Annot_ISTD are valid.")
+
 '' Function: Verify_ISTD
+'' --- Code
+''  Public Sub Verify_ISTD(ByRef Transition_Array() As String, ByRef ISTD_Array() As String, _
+''                         Optional ByVal MessageBoxRequired As Boolean = True, _
+''                         Optional ByVal Testing As Boolean = False)
+'' ---
 ''
 '' Description:
 ''
-'' Verify if the entries in column Transition_Annot_ISTD is valid.
+'' Verify if the entries in column Transition_Annot_ISTD are valid.
 '' Input is valid if the entires can also be found in the column Transition_Annot
 ''
 '' If input is valid, both entries in the Transition_Annot and Transition_Annot_ISTD
@@ -231,6 +257,7 @@ End Function
 Public Sub Verify_ISTD(ByRef Transition_Array() As String, ByRef ISTD_Array() As String, _
                        Optional ByVal MessageBoxRequired As Boolean = True, _
                        Optional ByVal Testing As Boolean = False)
+Attribute Verify_ISTD.VB_Description = "Verify if the entries in column Transition_Annot_ISTD are valid."
                       
     ' Get the Transition_Name_Annot worksheet from the active workbook
     ' The TransitionNameAnnotSheet is a code name
@@ -310,4 +337,3 @@ Public Sub Verify_ISTD(ByRef Transition_Array() As String, ByRef ISTD_Array() As
     
     
 End Sub
-

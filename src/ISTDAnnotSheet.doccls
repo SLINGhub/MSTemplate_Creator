@@ -1,8 +1,14 @@
 ﻿Option Explicit
 '@IgnoreModule ProcedureNotUsed
 '@Folder("Sheets")
+'@ModuleDescription("Functions that are commonly called in the ISTD_Annot worksheet.")
+
+'@Description("Function that runs when a cell of a group of cells changed.")
 
 '' Function: Worksheet_Change
+'' --- Code
+''  Private Sub Worksheet_Change(ByVal Target As Range)
+'' ---
 ''
 '' Description:
 ''
@@ -19,7 +25,12 @@ Private Sub Worksheet_Change(ByVal Target As Range)
     ColourTracker.ISTD_Calculation_Checker Target
 End Sub
 
+'@Description("Function that controls what happens when Clear Columns button is left clicked.")
+
 '' Function: ClearISTDTable_Click
+'' --- Code
+''  Private Sub ClearISTDTable_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -36,7 +47,12 @@ Private Sub ClearISTDTable_Click()
     ISTD_Annot_Buttons.Clear_ISTD_Table_Click
 End Sub
 
+'@Description("Function that controls what happens when Convert to nM button is left clicked.")
+
 '' Function: ConvertToNanomolar_Click
+'' --- Code
+''  Private Sub ConvertToNanomolar_Click()
+'' ---
 ''
 '' Description:
 ''

@@ -1,8 +1,14 @@
 ﻿Option Explicit
 '@IgnoreModule ProcedureNotUsed
 '@Folder("Sheets")
+'@ModuleDescription("Functions that are commonly called in the Sample_Annot worksheet.")
+
+'@Description("Function that controls what happens when Autofill By Sample Type button is left clicked.")
 
 '' Function: AutofillBySampleType_Click
+'' --- Code
+''  Private Sub AutofillBySampleType_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -19,7 +25,12 @@ Private Sub AutofillBySampleType_Click()
     Sample_Annot_Buttons.Autofill_By_Sample_Type_Click
 End Sub
 
+'@Description("Function that controls what happens when Load Sample Annot from Raw Data button is left clicked.")
+
 '' Function: LoadSampleAnnotationRaw_Click
+'' --- Code
+''  Private Sub LoadSampleAnnotationRaw_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -36,7 +47,12 @@ Private Sub LoadSampleAnnotationRaw_Click()
     Sample_Annot_Buttons.Load_Sample_Annot_Raw_Column_Name_Click
 End Sub
 
+'@Description("Function that controls what happens when Load Sample Annot from Tidy Data button is left clicked.")
+
 '' Function: LoadSampleAnnotationTidy_Click
+'' --- Code
+''  Private Sub LoadSampleAnnotationTidy_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -53,7 +69,12 @@ Private Sub LoadSampleAnnotationTidy_Click()
     Sample_Annot_Buttons.Load_Sample_Annot_Tidy_Column_Name_Click
 End Sub
 
+'@Description("Function that controls what happens when Autofill Sample Type button is left clicked.")
+
 '' Function: AutofillSampleType_Click
+'' --- Code
+''  Private Sub AutofillSampleType_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -70,7 +91,12 @@ Private Sub AutofillSampleType_Click()
     Sample_Annot_Buttons.Autofill_Sample_Type_Click
 End Sub
 
+'@Description("Function that controls what happens when Autofill Concentration Unit button is left clicked.")
+
 '' Function: AutofillConcentrationUnit_Click
+'' --- Code
+''  Private Sub AutofillConcentrationUnit_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -87,7 +113,12 @@ Private Sub AutofillConcentrationUnit_Click()
     Sample_Annot_Buttons.Autofill_Concentration_Unit_Click
 End Sub
 
+'@Description("Function that controls what happens when Clear Columns button is left clicked.")
+
 '' Function: ClearSampleTable_Click
+'' --- Code
+''  Private Sub ClearSampleTable_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -104,7 +135,12 @@ Private Sub ClearSampleTable_Click()
     Sample_Annot_Buttons.Clear_Sample_Table_Click
 End Sub
 
+'@Description("Function that controls what happens when Load RQC Samples to Dilution Table button is left clicked.")
+
 '' Function: LoadSampleNameToDilution_Click
+'' --- Code
+''  Private Sub LoadSampleNameToDilution_Click()
+'' ---
 ''
 '' Description:
 ''

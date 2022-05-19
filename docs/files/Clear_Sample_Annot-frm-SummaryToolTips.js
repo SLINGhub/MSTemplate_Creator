@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Clear_Sample_Annot.frm",{186:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function that controls what happens when the Clear Data button is left clicked</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:Clear_Sample_Annot.frm",{});

@@ -1,8 +1,21 @@
 Attribute VB_Name = "Load_Raw_Data"
+Attribute VB_Description = "Functions that are commonly called to read raw data."
 Option Explicit
+'@ModuleDescription("Functions that are commonly called to read raw data.")
 '@Folder("Load Data Functions")
 
+'@Description("Get Transition Names from an input Agilent raw data file in compound table form and put them into a string array.")
+
 '' Function: Get_Transition_Array_Agilent_Compound
+'' --- Code
+''  Public Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() As String, _
+''                                                        ByRef Lines() As String, _
+''                                                        ByRef Transition_Name_And_Qualifier_Transition_Column_Indexes() As Long, _
+''                                                        ByVal DataStartRowNumber As Long, _
+''                                                        ByVal Delimiter As String, _
+''                                                        ByVal RemoveBlksAndReplicates As Boolean, _
+''                                                        Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -50,6 +63,7 @@ Public Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() A
                                                       ByVal Delimiter As String, _
                                                       ByVal RemoveBlksAndReplicates As Boolean, _
                                                       Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
+Attribute Get_Transition_Array_Agilent_Compound.VB_Description = "Get Transition Names from an input Agilent raw data file in compound table form and put them into a string array."
                                                        
     'We are updating the InputStringArray
     'Dim TotalRows As Long
@@ -96,7 +110,13 @@ Public Function Get_Transition_Array_Agilent_Compound(ByRef Transition_Array() A
 
 End Function
 
+'@Description("Get Sample Names from an input raw data file, put them into a string array.")
+
 '' Function: Get_Sample_Name_Array
+'' --- Code
+''  Public Function Get_Sample_Name_Array(ByRef RawDataFilesArray() As String, _
+''                                        ByRef MS_File_Array() As String) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -138,6 +158,7 @@ End Function
 '' ---
 Public Function Get_Sample_Name_Array(ByRef RawDataFilesArray() As String, _
                                       ByRef MS_File_Array() As String) As String()
+Attribute Get_Sample_Name_Array.VB_Description = "Get Sample Names from an input raw data file, put them into a string array."
                                       
     'Get the Sample_Name and where it comes from
     
@@ -245,7 +266,12 @@ Public Function Get_Sample_Name_Array(ByRef RawDataFilesArray() As String, _
     Get_Sample_Name_Array = Sample_Name_Array
 End Function
 
+'@Description("Get Transition Names from an input raw data file, put them into a string array.")
+
 '' Function: Get_Transition_Array_Raw
+'' --- Code
+''  Public Function Get_Transition_Array_Raw(ByVal RawDataFiles As String) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -277,6 +303,7 @@ End Function
 ''   Transition_Array = Load_Raw_Data.Get_Transition_Array_Raw(RawDataFiles:=RawDataFiles)
 '' ---
 Public Function Get_Transition_Array_Raw(ByVal RawDataFiles As String) As String()
+Attribute Get_Transition_Array_Raw.VB_Description = "Get Transition Names from an input raw data file, put them into a string array."
     'If TypeName(xFileNames) = "Boolean" Then
     '    xFileNames = Application.GetOpenFilename(Title:="Load MS Raw Data", MultiSelect:=True)
     '    'When no file is selected
@@ -446,5 +473,3 @@ Public Function Get_Transition_Array_Raw(ByVal RawDataFiles As String) As String
     Next RawDataFile
     Get_Transition_Array_Raw = Transition_Array
 End Function
-
-

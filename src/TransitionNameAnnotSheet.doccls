@@ -1,8 +1,14 @@
 ﻿Option Explicit
 '@IgnoreModule ProcedureNotUsed
 '@Folder("Sheets")
+'@ModuleDescription("Functions that are commonly called in the Transition_Name_Annot worksheet.")
+
+'@Description("Function that runs when a cell of a group of cells changed.")
 
 '' Function: Worksheet_Change
+'' --- Code
+''  Private Sub Worksheet_Change(ByVal Target As Range)
+'' ---
 ''
 '' Description:
 ''
@@ -19,7 +25,12 @@ Private Sub Worksheet_Change(ByVal Target As Range)
     ColourTracker.Transition_Name_Annot_Checker Target
 End Sub
 
+'@Description("Function that controls what happens when Clear Columns button is left clicked.")
+
 '' Function: ClearTransitionSheet_Click
+'' --- Code
+''  Private Sub ClearTransitionSheet_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -36,7 +47,12 @@ Private Sub ClearTransitionSheet_Click()
     Transition_Name_Annot_Buttons.Clear_Transition_Name_Annot_Click
 End Sub
 
+'@Description("Function that controls what happens when Load Sample Annot from Raw Data button is left clicked.")
+
 '' Function: LoadSampleAnnotationRaw_Click
+'' --- Code
+''  Private Sub LoadSampleAnnotationRaw_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -54,7 +70,12 @@ Private Sub LoadSampleAnnotationRaw_Click()
     Sample_Annot_Buttons.Load_Sample_Annot_Raw_Column_Name_Click
 End Sub
 
+'@Description("Function that controls what happens when Load Sample Annot from Tidy Data button is left clicked.")
+
 '' Function: LoadSampleAnnotationTidy_Click
+'' --- Code
+''  Private Sub LoadSampleAnnotationTidy_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -72,7 +93,12 @@ Private Sub LoadSampleAnnotationTidy_Click()
     Sample_Annot_Buttons.Load_Sample_Annot_Tidy_Column_Name_Click
 End Sub
 
+'@Description("Function that controls what happens when Load ISTD To ISTD Table button is left clicked.")
+
 '' Function: LoadISTD_Click
+'' --- Code
+''  Private Sub LoadISTD_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -89,7 +115,12 @@ Private Sub LoadISTD_Click()
     Transition_Name_Annot_Buttons.Load_Transition_Name_ISTD_Click
 End Sub
 
+'@Description("Function that controls what happens when Validate ISTD button is left clicked.")
+
 '' Function: ValidateISTD_Click
+'' --- Code
+''  Private Sub ValidateISTD_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -106,7 +137,12 @@ Private Sub ValidateISTD_Click()
     Transition_Name_Annot_Buttons.Validate_ISTD_Click
 End Sub
 
+'@Description("Function that controls what happens when Load Transition Name from Raw Data button is left clicked.")
+
 '' Function: LoadTransition_Click
+'' --- Code
+''  Private Sub LoadTransition_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -123,7 +159,12 @@ Private Sub LoadTransition_Click()
     Transition_Name_Annot_Buttons.Get_Transition_Array_Click
 End Sub
 
+'@Description("Function that controls what happens when Load Transition Name from Tidy Data button is left clicked.")
+
 '' Function: LoadTransitionTidy_Click
+'' --- Code
+''  Private Sub LoadTransitionTidy_Click()
+'' ---
 ''
 '' Description:
 ''

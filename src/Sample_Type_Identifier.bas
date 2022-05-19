@@ -1,8 +1,15 @@
 Attribute VB_Name = "Sample_Type_Identifier"
+Attribute VB_Description = "Functions that are used to identify QC sample types."
 Option Explicit
+'@ModuleDescription("Functions that are used to identify QC sample types.")
 '@Folder("Sample Annot Functions")
 
+'@Description("Get the sample type based on the input string (sample name).")
+
 '' Function: Get_QC_Sample_Type
+'' --- Code
+''  Public Function Get_QC_Sample_Type(ByVal FileName As String) As String
+'' ---
 ''
 '' Description:
 ''
@@ -32,6 +39,7 @@ Option Explicit
 ''    Next
 '' ---
 Public Function Get_QC_Sample_Type(ByVal FileName As String) As String
+Attribute Get_QC_Sample_Type.VB_Description = "Get the sample type based on the input string (sample name)."
     If Is_EQC(FileName) Then
         Get_QC_Sample_Type = "EQC"
     ElseIf Is_SST(FileName) Then
@@ -76,7 +84,12 @@ Public Function Get_QC_Sample_Type(ByVal FileName As String) As String
     
 End Function
 
+'@Description("Check is the input string (sample name) is an EQC.")
+
 '' Function: Is_EQC
+'' --- Code
+''  Public Function Is_EQC(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -104,6 +117,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_EQC(ByVal FileName As String) As Boolean
+Attribute Is_EQC.VB_Description = "Check is the input string (sample name) is an EQC."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim EQCRegEx As RegExp
@@ -118,7 +132,12 @@ Public Function Is_EQC(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a SST.")
+
 '' Function: Is_SST
+'' --- Code
+''  Public Function Is_SST(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -147,6 +166,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_SST(ByVal FileName As String) As Boolean
+Attribute Is_SST.VB_Description = "Check is the input string (sample name) is a SST."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim SSTRegEx As RegExp
@@ -161,7 +181,12 @@ Public Function Is_SST(ByVal FileName As String) As Boolean
     Is_SST = SSTRegEx.Test(OnlyLettersText)
 End Function
 
+'@Description("Check is the input string (sample name) is a BQC.")
+
 '' Function: Is_BQC
+'' --- Code
+''  Public Function Is_BQC(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -192,6 +217,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_BQC(ByVal FileName As String) As Boolean
+Attribute Is_BQC.VB_Description = "Check is the input string (sample name) is a BQC."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim BQCRegEx As RegExp
@@ -206,7 +232,12 @@ Public Function Is_BQC(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a TQC.")
+
 '' Function: Is_TQC
+'' --- Code
+''  Public Function Is_TQC(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -246,6 +277,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_TQC(ByVal FileName As String) As Boolean
+Attribute Is_TQC.VB_Description = "Check is the input string (sample name) is a TQC."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim TQCRegEx As RegExp
@@ -260,7 +292,12 @@ Public Function Is_TQC(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a RQC.")
+
 '' Function: Is_RQC
+'' --- Code
+''  Public Function Is_RQC(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -301,6 +338,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_RQC(ByVal FileName As String) As Boolean
+Attribute Is_RQC.VB_Description = "Check is the input string (sample name) is a RQC."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim TQCdRegEx As RegExp
@@ -335,7 +373,12 @@ Public Function Is_RQC(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a LTR.")
+
 '' Function: Is_LTR
+'' --- Code
+''  Public Function Is_LTR(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -365,6 +408,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_LTR(ByVal FileName As String) As Boolean
+Attribute Is_LTR.VB_Description = "Check is the input string (sample name) is a LTR."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim LTRRegEx As RegExp
@@ -379,7 +423,12 @@ Public Function Is_LTR(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a NIST.")
+
 '' Function: Is_NIST
+'' --- Code
+''  Public Function Is_NIST(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -408,6 +457,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_NIST(ByVal FileName As String) As Boolean
+Attribute Is_NIST.VB_Description = "Check is the input string (sample name) is a NIST."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim NISTRegEx As RegExp
@@ -422,7 +472,12 @@ Public Function Is_NIST(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a SRM.")
+
 '' Function: Is_SRM
+'' --- Code
+''  Public Function Is_SRM(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -451,6 +506,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_SRM(ByVal FileName As String) As Boolean
+Attribute Is_SRM.VB_Description = "Check is the input string (sample name) is a SRM."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim SRMRegEx As RegExp
@@ -465,7 +521,12 @@ Public Function Is_SRM(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a PBLK.")
+
 '' Function: Is_PBLK
+'' --- Code
+''  Public Function Is_PBLK(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -497,6 +558,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_PBLK(ByVal FileName As String) As Boolean
+Attribute Is_PBLK.VB_Description = "Check is the input string (sample name) is a PBLK."
     Dim BlankExISTDRegEx As RegExp
     Set BlankExISTDRegEx = New RegExp
     Dim ISTDBlankExRegEx As RegExp
@@ -563,7 +625,12 @@ Public Function Is_PBLK(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) has the word Blank.")
+
 '' Function: Is_BLK
+'' --- Code
+''  Public Function Is_BLK(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -602,6 +669,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_BLK(ByVal FileName As String) As Boolean
+Attribute Is_BLK.VB_Description = "Check is the input string (sample name) has the word Blank."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim BlankRegEx As RegExp
@@ -618,7 +686,12 @@ Public Function Is_BLK(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a SBLK.")
+
 '' Function: Is_SBLK
+'' --- Code
+''  Public Function Is_SBLK(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -648,6 +721,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_SBLK(ByVal FileName As String) As Boolean
+Attribute Is_SBLK.VB_Description = "Check is the input string (sample name) is a SBLK."
     Dim SolventBLKRegEx As RegExp
     Set SolventBLKRegEx = New RegExp
     Dim SBLKRegEx As RegExp
@@ -672,7 +746,12 @@ Public Function Is_SBLK(ByVal FileName As String) As Boolean
 
 End Function
 
+'@Description("Check is the input string (sample name) is a MBLK.")
+
 '' Function: Is_MBLK
+'' --- Code
+''  Public Function Is_MBLK(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -702,6 +781,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_MBLK(ByVal FileName As String) As Boolean
+Attribute Is_MBLK.VB_Description = "Check is the input string (sample name) is a MBLK."
     Dim MatrixBLKRegEx As RegExp
     Set MatrixBLKRegEx = New RegExp
     Dim MBLKRegEx As RegExp
@@ -726,7 +806,12 @@ Public Function Is_MBLK(ByVal FileName As String) As Boolean
 
 End Function
 
+'@Description("Check is the input string (sample name) is a STD.")
+
 '' Function: Is_STD
+'' --- Code
+''  Public Function Is_STD(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -765,6 +850,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_STD(ByVal FileName As String) As Boolean
+Attribute Is_STD.VB_Description = "Check is the input string (sample name) is a STD."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim STDRegEx As RegExp
@@ -783,7 +869,12 @@ Public Function Is_STD(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a LQQ.")
+
 '' Function: Is_LQQ
+'' --- Code
+''  Public Function Is_LQQ(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -812,6 +903,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_LQQ(ByVal FileName As String) As Boolean
+Attribute Is_LQQ.VB_Description = "Check is the input string (sample name) is a LQQ."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim LQQRegEx As RegExp
@@ -827,7 +919,12 @@ Public Function Is_LQQ(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a CTRL.")
+
 '' Function: Is_CTRL
+'' --- Code
+''  Public Function Is_CTRL(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -856,6 +953,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_CTRL(ByVal FileName As String) As Boolean
+Attribute Is_CTRL.VB_Description = "Check is the input string (sample name) is a CTRL."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim CTRLRegEx As RegExp
@@ -871,7 +969,12 @@ Public Function Is_CTRL(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a DUP.")
+
 '' Function: Is_DUP
+'' --- Code
+''  Public Function Is_DUP(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -900,6 +1003,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_DUP(ByVal FileName As String) As Boolean
+Attribute Is_DUP.VB_Description = "Check is the input string (sample name) is a DUP."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim DUPRegEx As RegExp
@@ -915,7 +1019,12 @@ Public Function Is_DUP(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a SPIK.")
+
 '' Function: Is_SPIK
+'' --- Code
+''  Public Function Is_SPIK(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -946,6 +1055,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_SPIK(ByVal FileName As String) As Boolean
+Attribute Is_SPIK.VB_Description = "Check is the input string (sample name) is a SPIK."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim SPIKRegEx As RegExp
@@ -961,7 +1071,12 @@ Public Function Is_SPIK(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a LTRBK.")
+
 '' Function: Is_LTRBK
+'' --- Code
+''  Public Function Is_LTRBK(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -1009,6 +1124,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_LTRBK(ByVal FileName As String) As Boolean
+Attribute Is_LTRBK.VB_Description = "Check is the input string (sample name) is a LTRBK."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim LTRBKRegEx As RegExp
@@ -1043,7 +1159,12 @@ Public Function Is_LTRBK(ByVal FileName As String) As Boolean
     
 End Function
 
+'@Description("Check is the input string (sample name) is a NISTBK.")
+
 '' Function: Is_NISTBK
+'' --- Code
+''  Public Function Is_NISTBK(ByVal FileName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
@@ -1091,6 +1212,7 @@ End Function
 ''    Next
 '' ---
 Public Function Is_NISTBK(ByVal FileName As String) As Boolean
+Attribute Is_NISTBK.VB_Description = "Check is the input string (sample name) is a NISTBK."
     Dim NonLettersRegEx As RegExp
     Set NonLettersRegEx = New RegExp
     Dim NISTBKRegEx As RegExp

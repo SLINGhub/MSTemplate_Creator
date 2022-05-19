@@ -13,21 +13,30 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
+Attribute VB_Description = "Functions that control what happens when buttons in the Clear Transition Name Annot box are clicked."
+
 Option Explicit
-'@Folder("Transition_Annot_Buttons")
+'@ModuleDescription("Functions that control what happens when buttons in the Clear Transition Name Annot box are clicked.")
+'@Folder("Transition Annot Buttons")
+
+'@Description("Function that controls what happens when the Clear Data button is left clicked.")
 
 '' Function: Transition_Name_Annot_Clear_Click
+'' --- Code
+''  Private Sub Transition_Name_Annot_Clear_Click()
+'' ---
 ''
 '' Description:
 ''
 '' Function that controls what happens when the Clear Data button is
-'' left clicked
+'' left clicked.
 ''
 '' (see Transition_Name_Annot_Clear_Data_Button.png)
 ''
 '' All data found in the columns that was checked will be cleared.
 ''
 Private Sub Transition_Name_Annot_Clear_Click()
+Attribute Transition_Name_Annot_Clear_Click.VB_Description = "Function that controls what happens when the Clear Data button is left clicked."
     If Transition_Name.Value = True Then
         Utilities.Clear_Columns HeaderToClear:="Transition_Name", _
                                 HeaderRowNumber:=1, _
@@ -39,4 +48,3 @@ Private Sub Transition_Name_Annot_Clear_Click()
                                 DataStartRowNumber:=2
     End If
 End Sub
-

@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:Export_VBA.bas",{168:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Export all VBA source codes to a user selected folder.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:Export_VBA.bas",{});

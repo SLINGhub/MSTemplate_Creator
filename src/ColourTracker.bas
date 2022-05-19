@@ -1,11 +1,18 @@
 Attribute VB_Name = "ColourTracker"
+Attribute VB_Description = "Functions used track changed cells by colouring them."
 '@IgnoreModule IntegerDataType
 Option Explicit
+'@ModuleDescription("Functions used track changed cells by colouring them.")
 '@Folder("Colour Tracker")
+
+'@Description("Function that controls what happens when certain cells in the ISTD_Annot sheet is changed.")
 
 '' Group: Colour Tracker
 ''
 '' Function: ISTD_Calculation_Checker
+'' --- Code
+''  Public Sub ISTD_Calculation_Checker(ByVal Target As Range)
+'' ---
 ''
 '' Description:
 ''
@@ -44,6 +51,7 @@ Option Explicit
 '' (see ISTD_Annot_Remove_ISTD_Entries.png)
 ''
 Public Sub ISTD_Calculation_Checker(ByVal Target As Range)
+Attribute ISTD_Calculation_Checker.VB_Description = "Function that controls what happens when certain cells in the ISTD_Annot sheet is changed."
 
     ' Get the ISTD_Annot worksheet from the active workbook
     ' The ISTDAnnotSheet is a code name
@@ -178,8 +186,12 @@ Public Sub ISTD_Calculation_Checker(ByVal Target As Range)
 
 End Sub
 
+'@Description("Function that controls what happens when certain cells in the Transition_Name_Annot sheet is changed.")
 
 '' Function: Transition_Name_Annot_Checker
+'' --- Code
+''  Public Sub Transition_Name_Annot_Checker(ByVal Target As Range)
+'' ---
 ''
 '' Description:
 ''
@@ -200,6 +212,7 @@ End Sub
 '' (see Transition_Name_Annot_Modify_Transition_Entries.png)
 ''
 Public Sub Transition_Name_Annot_Checker(ByVal Target As Range)
+Attribute Transition_Name_Annot_Checker.VB_Description = "Function that controls what happens when certain cells in the Transition_Name_Annot sheet is changed."
     'Application.ScreenUpdating = False
     'EventState = Application.EnableEvents
     Application.EnableEvents = False
@@ -276,5 +289,3 @@ Public Sub Transition_Name_Annot_Checker(ByVal Target As Range)
     Application.EnableEvents = True
 
 End Sub
-
-

@@ -1,8 +1,16 @@
 Attribute VB_Name = "Utilities"
+Attribute VB_Description = "Utility Functions used throughout this Excel VBA files."
 Option Explicit
-'@Folder("Utilities Functions")
+'@ModuleDescription("Utility Functions used throughout this Excel VBA files.")
 
+'@Folder("Utility Functions")
+
+'@Description("Concantenate two string arrays into one string array.")
 '' Function: Concantenate_String_Arrays
+'' --- Code
+''  Public Function Concantenate_String_Arrays(ByRef TopArray() As String, _
+''                                             ByRef BottomArray() As String) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -36,6 +44,7 @@ Option Explicit
 '' ---
 Public Function Concantenate_String_Arrays(ByRef TopArray() As String, _
                                            ByRef BottomArray() As String) As String()
+Attribute Concantenate_String_Arrays.VB_Description = "Concantenate two string arrays into one string array."
     'Update the Sample Name Array
     Dim TopArrayLength As Long
     Dim BottomArrayLength As Long
@@ -54,7 +63,14 @@ Public Function Concantenate_String_Arrays(ByRef TopArray() As String, _
     End If
 End Function
 
+'@Description("Get the row position of RowName in the column highlighted by RowNameNumber in a 2D string array Lines().")
 '' Function: Get_RowName_Position_From_2Darray
+'' --- Code
+''  Public Function Get_RowName_Position_From_2Darray(ByRef Lines() As String, _
+''                                                    ByVal RowName As String, _
+''                                                    ByVal RowNameNumber As Variant, _
+''                                                    ByVal Delimiter As String) As Variant
+'' ---
 ''
 '' Description:
 ''
@@ -123,6 +139,7 @@ Public Function Get_RowName_Position_From_2Darray(ByRef Lines() As String, _
                                                   ByVal RowName As String, _
                                                   ByVal RowNameNumber As Variant, _
                                                   ByVal Delimiter As String) As Variant
+Attribute Get_RowName_Position_From_2Darray.VB_Description = "Get the row position of RowName in the column highlighted by RowNameNumber in a 2D string array Lines()."
     
     Dim row_name() As String
     Dim lines_index As Long
@@ -145,7 +162,18 @@ Public Function Get_RowName_Position_From_2Darray(ByRef Lines() As String, _
     
 End Function
 
+'@Description("Load row entries from a 2D string array given a starting column and row number.")
 '' Function: Load_Rows_From_2Darray
+'' --- Code
+''  Public Function Load_Rows_From_2Darray(ByRef InputStringArray() As String, _
+''                                         ByRef Lines() As String, _
+''                                         ByVal DataStartColumnNumber As Long, _
+''                                         ByVal Delimiter As String, _
+''                                         ByVal RemoveBlksAndReplicates As Boolean, _
+''                                         Optional ByVal RowName As String, _
+''                                         Optional ByVal RowNameNumber As Variant, _
+''                                         Optional ByVal DataStartRowNumber As Variant) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -223,6 +251,7 @@ Public Function Load_Rows_From_2Darray(ByRef InputStringArray() As String, _
                                        Optional ByVal RowName As String, _
                                        Optional ByVal RowNameNumber As Variant, _
                                        Optional ByVal DataStartRowNumber As Variant) As String()
+Attribute Load_Rows_From_2Darray.VB_Description = "Load row entries from a 2D string array given a starting column and row number."
     
                                      
     'Get column position of a given header name
@@ -273,7 +302,14 @@ Public Function Load_Rows_From_2Darray(ByRef InputStringArray() As String, _
     
 End Function
 
+'@Description("Get the column position of HeaderName in the row highlighted by HeaderRowNumber in a 2D string array Lines().")
 '' Function: Get_Header_Col_Position_From_2Darray
+'' --- Code
+''  Public Function Get_Header_Col_Position_From_2Darray(ByRef Lines() As String, _
+''                                                       ByVal HeaderName As String, _
+''                                                       ByVal HeaderRowNumber As Variant, _
+''                                                       ByVal Delimiter As String) As Variant
+'' ---
 ''
 '' Description:
 ''
@@ -343,6 +379,7 @@ Public Function Get_Header_Col_Position_From_2Darray(ByRef Lines() As String, _
                                                      ByVal HeaderName As String, _
                                                      ByVal HeaderRowNumber As Variant, _
                                                      ByVal Delimiter As String) As Variant
+Attribute Get_Header_Col_Position_From_2Darray.VB_Description = "Get the column position of HeaderName in the row highlighted by HeaderRowNumber in a 2D string array Lines()."
     
     'Go to the next line
     Dim header_line_index As Long
@@ -365,7 +402,18 @@ Public Function Get_Header_Col_Position_From_2Darray(ByRef Lines() As String, _
     
 End Function
 
+'@Description("Load column entries from a 2D string array given a starting row and column number.")
 '' Function: Load_Columns_From_2Darray
+'' --- Code
+''  Public Function Load_Columns_From_2Darray(ByRef InputStringArray() As String, _
+''                                            ByRef Lines() As String, _
+''                                            ByVal DataStartRowNumber As Long, _
+''                                            ByVal Delimiter As String, _
+''                                            ByVal RemoveBlksAndReplicates As Boolean, _
+''                                            Optional ByVal HeaderName As String, _
+''                                            Optional ByVal HeaderRowNumber As Variant, _
+''                                            Optional ByVal DataStartColumnNumber As Variant) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -444,6 +492,7 @@ Public Function Load_Columns_From_2Darray(ByRef InputStringArray() As String, _
                                           Optional ByVal HeaderName As String, _
                                           Optional ByVal HeaderRowNumber As Variant, _
                                           Optional ByVal DataStartColumnNumber As Variant) As String()
+Attribute Load_Columns_From_2Darray.VB_Description = "Load column entries from a 2D string array given a starting row and column number."
     'We are updating the InputStringArray
     'Dim TotalRows As Long
     Dim lines_index As Long
@@ -488,7 +537,11 @@ Public Function Load_Columns_From_2Darray(ByRef InputStringArray() As String, _
     
 End Function
 
+'@Description("Read the input file line by line.")
 '' Function: Read_File
+'' --- Code
+''  Public Function Read_File(ByVal xFileName As Variant) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -523,6 +576,7 @@ End Function
 ''    Delimiter = Utilities.Get_Delimiter(SampleAnnotFile)
 '' ---
 Public Function Read_File(ByVal xFileName As Variant) As String()
+Attribute Read_File.VB_Description = "Read the input file line by line."
     ' Load the file into a string.
     'Dim fn As String, whole_file As String
     'Set fso = CreateObject("Scripting.FileSystemObject")
@@ -540,7 +594,11 @@ Public Function Read_File(ByVal xFileName As Variant) As String()
     
 End Function
 
+'@Description("Get the delimiter of the input file.")
 '' Function: Get_Delimiter
+'' --- Code
+''  Public Function Get_Delimiter(ByVal xFileName As Variant) As String
+'' ---
 ''
 '' Description:
 ''
@@ -572,6 +630,7 @@ End Function
 ''    Delimiter = Utilities.Get_Delimiter(SampleAnnotFile)
 '' ---
 Public Function Get_Delimiter(ByVal xFileName As Variant) As String
+Attribute Get_Delimiter.VB_Description = "Get the delimiter of the input file."
 
     Dim FileExtent As Variant
     FileExtent = Right$(xFileName, Len(xFileName) - InStrRev(xFileName, "."))
@@ -587,7 +646,11 @@ Public Function Get_Delimiter(ByVal xFileName As Variant) As String
     
 End Function
 
+'@Description("Get the base name of a given file path.")
 '' Function: Get_File_Base_Name
+'' --- Code
+''  Public Function Get_File_Base_Name(ByVal xFileName As Variant) As String
+'' ---
 ''
 '' Description:
 ''
@@ -615,12 +678,19 @@ End Function
 ''    Debug.Print FileName
 '' ---
 Public Function Get_File_Base_Name(ByVal xFileName As Variant) As String
+Attribute Get_File_Base_Name.VB_Description = "Get the base name of a given file path."
     Dim fso As Object
     Set fso = CreateObject("Scripting.FileSystemObject")
     Get_File_Base_Name = fso.GetFileName(xFileName)
 End Function
 
+'@Description("Get the type of an input raw data file.")
 '' Function: Get_Raw_Data_File_Type
+'' --- Code
+''  Public Function Get_Raw_Data_File_Type(ByRef Lines() As String, _
+''                                         ByVal Delimiter As String, _
+''                                         ByVal xFileName As String) As String
+'' ---
 ''
 '' Description:
 ''
@@ -687,6 +757,7 @@ End Function
 Public Function Get_Raw_Data_File_Type(ByRef Lines() As String, _
                                        ByVal Delimiter As String, _
                                        ByVal xFileName As String) As String
+Attribute Get_Raw_Data_File_Type.VB_Description = "Get the type of an input raw data file."
     Dim first_line() As String
     Dim second_line() As String
     'Get the first line
@@ -715,13 +786,18 @@ Public Function Get_Raw_Data_File_Type(ByRef Lines() As String, _
     
 End Function
 
+'@Description("Remove any filter settings in the active sheet.")
 '' Function: Remove_Filter_Settings
+'' --- Code
+''  Public Sub Remove_Filter_Settings()
+'' ---
 ''
 '' Description:
 ''
 '' Remove any filter settings in the active sheet.
 ''
 Public Sub Remove_Filter_Settings()
+Attribute Remove_Filter_Settings.VB_Description = "Remove any filter settings in the active sheet."
     If ActiveSheet.AutoFilterMode Then
         ActiveSheet.AutoFilterMode = False
         If ActiveSheet.FilterMode Then
@@ -732,6 +808,7 @@ Public Sub Remove_Filter_Settings()
     End If
 End Sub
 
+'@Description("Get the column position for a given header name and a header row number to look at.")
 '' Function: Get_Header_Col_Position
 '' --- Code
 ''  Public Function Get_Header_Col_Position(ByVal HeaderName As String, _
@@ -770,6 +847,7 @@ End Sub
 Public Function Get_Header_Col_Position(ByVal HeaderName As String, _
                                         ByVal HeaderRowNumber As Long, _
                                         Optional ByVal WorksheetName As String = vbNullString) As Long
+Attribute Get_Header_Col_Position.VB_Description = "Get the column position for a given header name and a header row number to look at."
                                         
     'Get column position of Header Name
     Dim pos As Long
@@ -794,11 +872,15 @@ Public Function Get_Header_Col_Position(ByVal HeaderName As String, _
     Get_Header_Col_Position = pos
 End Function
 
+'@Description("Get the last used row number of the active sheet.")
 '' Function: Last_Used_Row_Number
+'' --- Code
+''  Public Function Last_Used_Row_Number() As Long
+'' ---
 ''
 '' Description:
 ''
-'' Get the last used row number of the active sheet
+'' Get the last used row number of the active sheet.
 ''
 '' Returns:
 ''    An integer indicating the row position where the last entry is
@@ -824,6 +906,7 @@ End Function
 ''    Debug.Print Utilities.Last_Used_Row_Number
 '' ---
 Public Function Last_Used_Row_Number() As Long
+Attribute Last_Used_Row_Number.VB_Description = "Get the last used row number of the active sheet."
     Dim maxRowNumber As Long
     Dim Column As Long
     Dim TotalColumns As Long
@@ -844,11 +927,15 @@ Public Function Last_Used_Row_Number() As Long
     
 End Function
 
+'@Description("Convert column position in integers to alphabets.")
 '' Function: Convert_To_Letter
+'' --- Code
+''  Public Function Convert_To_Letter(ByVal Column_Index As Long) As String
+'' ---
 ''
 '' Description:
 ''
-'' Convert column position in integers to alphabets
+'' Convert column position in integers to alphabets.
 ''
 '' Parameters:
 ''
@@ -874,6 +961,7 @@ End Function
 ''    Debug.Print Utilities.Convert_To_Letter(520)
 '' ---
 Public Function Convert_To_Letter(ByVal Column_Index As Long) As String
+Attribute Convert_To_Letter.VB_Description = "Convert column position in integers to alphabets."
     'Convert column number values into their equivalent alphabetical characters:
     Dim Alphabet_Index As Long
     Dim Remainder_Index As Long
@@ -887,11 +975,15 @@ Public Function Convert_To_Letter(ByVal Column_Index As Long) As String
     End If
 End Function
 
+'@Description("Get the number of elements in an input string array.")
 '' Function: Get_String_Array_Len
+'' --- Code
+''  Public Function Get_String_Array_Len(ByRef Some_Array As Variant) As Long
+'' ---
 ''
 '' Description:
 ''
-'' Get the number of elements in an input string array
+'' Get the number of elements in an input string array.
 ''
 '' Parameters:
 ''
@@ -918,6 +1010,7 @@ End Function
 ''    Debug.Print Utilities.Get_String_Array_Len(EmptyArray)
 '' ---
 Public Function Get_String_Array_Len(ByRef Some_Array As Variant) As Long
+Attribute Get_String_Array_Len.VB_Description = "Get the number of elements in an input string array."
     'Get the length of the array
     If Len(Join(Some_Array, vbNullString)) = 0 Then
         Get_String_Array_Len = 0
@@ -926,11 +1019,16 @@ Public Function Get_String_Array_Len(ByRef Some_Array As Variant) As Long
     End If
 End Function
 
+'@Description("Get the position in the input string array an input element is located.")
 '' Function: Where_In_Array
+'' --- Code
+''  Public Function Where_In_Array(ByVal valToBeFound As Variant, _
+''                                 ByVal arr As Variant) As String()
+'' ---
 ''
 '' Description:
 ''
-'' Get the position in the input string array an input element is located
+'' Get the position in the input string array an input element is located.
 ''
 '' Parameters:
 ''
@@ -957,6 +1055,7 @@ End Function
 '' ---
 Public Function Where_In_Array(ByVal valToBeFound As Variant, _
                                ByVal arr As Variant) As String()
+Attribute Where_In_Array.VB_Description = "Get the position in the input string array an input element is located."
     'Return the position of where valToBeFound in the arr
     Dim Positions() As String
     Dim ArrayLength As Long
@@ -982,11 +1081,16 @@ IsInArrayError:
 
 End Function
 
+'@Description("Check if an input element is located in the input string array.")
 '' Function: Is_In_Array
+'' --- Code
+''  Public Function Is_In_Array(ByVal valToBeFound As Variant, _
+''                              ByVal arr As Variant) As Boolean
+'' ---
 ''
 '' Description:
 ''
-'' Check if an input element is located in the input string array
+'' Check if an input element is located in the input string array.
 ''
 '' Parameters:
 ''
@@ -1013,6 +1117,7 @@ End Function
 '' ---
 Public Function Is_In_Array(ByVal valToBeFound As Variant, _
                             ByVal arr As Variant) As Boolean
+Attribute Is_In_Array.VB_Description = "Check if an input element is located in the input string array."
     'DEVELOPER: Ryan Wells (wellsr.com)
     'DESCRIPTION: Function to check if a value is in an array of values
     'INPUT: Pass the function a value to search for and an array of values of any data type.
@@ -1031,7 +1136,11 @@ IsInArrayError:
     Is_In_Array = False
 End Function
 
+'@Description("Sort an the input string array in alphabetical order.")
 '' Function: Quick_Sort
+'' --- Code
+''  Public Sub Quick_Sort(ByRef ThisArray As Variant)
+'' ---
 ''
 '' Description:
 ''
@@ -1053,6 +1162,7 @@ End Function
 ''    Utilities.Quick_Sort ThisArray:=TestArray
 '' ---
 Public Sub Quick_Sort(ByRef ThisArray As Variant)
+Attribute Quick_Sort.VB_Description = "Sort an the input string array in alphabetical order."
 
     'Sort an array alphabetically
     Dim LowerBound As Variant
@@ -1064,9 +1174,23 @@ Public Sub Quick_Sort(ByRef ThisArray As Variant)
 
 End Sub
 
+'@Description("Internal recursive function of the Quick Sort algorithm")
+
+'' Function: Private Sub Quick_Sort_Recursive
+'' --- Code
+''  Private Sub Quick_Sort_Recursive(ByRef ThisArray As Variant, _
+''                                   ByVal LowerBound As Variant, _
+''                                   ByVal UpperBound As Variant)
+'' ---
+''
+'' Description:
+''
+'' Internal recursive function of the Quick Sort algorithm.
+''
 Private Sub Quick_Sort_Recursive(ByRef ThisArray As Variant, _
                                  ByVal LowerBound As Variant, _
                                  ByVal UpperBound As Variant)
+Attribute Quick_Sort_Recursive.VB_Description = "Internal recursive function of the Quick Sort algorithm"
 
     'Approximate implementation of https://en.wikipedia.org/wiki/Quicksort
     Dim PivotValue As Variant
@@ -1125,11 +1249,17 @@ Private Sub Quick_Sort_Recursive(ByRef ThisArray As Variant, _
 
 End Sub
 
+'@Description("Function used to open an overwrite confirmation box.")
 '' Function: Overwrite_Several_Headers
+'' --- Code
+''  Public Sub Overwrite_Several_Headers(ByRef HeaderNameArray() As String, _
+''                                       ByVal HeaderRowNumber As Long, _
+''                                       ByVal DataStartRowNumber As Long)
+'' ---
 ''
 '' Description:
 ''
-'' Function used to open this overwrite confirmation box
+'' Function used to open this overwrite confirmation box.
 ''
 '' (see Overwrite_Box_Several_Headers_Example.png)
 ''
@@ -1149,6 +1279,7 @@ End Sub
 Public Sub Overwrite_Several_Headers(ByRef HeaderNameArray() As String, _
                                      ByVal HeaderRowNumber As Long, _
                                      ByVal DataStartRowNumber As Long)
+Attribute Overwrite_Several_Headers.VB_Description = "Function used to open an overwrite confirmation box."
     'Check with user if data should be overwritten
     Dim TotalRows As Long
     TotalRows = Utilities.Last_Used_Row_Number()
@@ -1179,11 +1310,20 @@ Public Sub Overwrite_Several_Headers(ByRef HeaderNameArray() As String, _
 
 End Sub
 
+'@Description("Function used to open an overwrite confirmation box.")
 '' Function: Overwrite_Header
+'' --- Code
+''  Public Sub Overwrite_Header(ByVal HeaderName As String, _
+''                              ByVal HeaderRowNumber As Long, _
+''                              ByVal DataStartRowNumber As Long, _
+''                              Optional ByVal WorksheetName As String = vbNullString, _
+''                              Optional ByVal ClearContent As Boolean = True, _
+''                              Optional ByVal Testing As Boolean = False)
+'' ---
 ''
 '' Description:
 ''
-'' Function used to open this overwrite confirmation box
+'' Function used to open this overwrite confirmation box.
 ''
 '' (see Overwrite_Box_One_Header_Example.png)
 ''
@@ -1219,6 +1359,7 @@ Public Sub Overwrite_Header(ByVal HeaderName As String, _
                             Optional ByVal WorksheetName As String = vbNullString, _
                             Optional ByVal ClearContent As Boolean = True, _
                             Optional ByVal Testing As Boolean = False)
+Attribute Overwrite_Header.VB_Description = "Function used to open an overwrite confirmation box."
                            
                            
     'Activate the correct sheet
@@ -1267,7 +1408,17 @@ Public Sub Overwrite_Header(ByVal HeaderName As String, _
     
 End Sub
 
+'@Description("Function used to load a string array to an active excel sheet given the header name, row position where the header name is located and the starting row of the data.")
 '' Function: Load_To_Excel
+'' --- Code
+''  Public Sub Load_To_Excel(ByRef Data_Array() As String, _
+''                           ByVal HeaderName As String, _
+''                           ByVal HeaderRowNumber As Long, _
+''                           ByVal DataStartRowNumber As Long, _
+''                           ByVal MessageBoxRequired As Boolean, _
+''                           Optional ByVal WorksheetName As String = vbNullString, _
+''                           Optional ByVal NumberFormat As String = "General")
+'' ---
 ''
 '' Description:
 ''
@@ -1338,6 +1489,7 @@ Public Sub Load_To_Excel(ByRef Data_Array() As String, _
                          ByVal MessageBoxRequired As Boolean, _
                          Optional ByVal WorksheetName As String = vbNullString, _
                          Optional ByVal NumberFormat As String = "General")
+Attribute Load_To_Excel.VB_Description = "Function used to load a string array to an active excel sheet given the header name, row position where the header name is located and the starting row of the data."
     
     Dim HeaderColNumber As Long
     HeaderColNumber = Utilities.Get_Header_Col_Position(HeaderName, HeaderRowNumber, _
@@ -1354,7 +1506,14 @@ Public Sub Load_To_Excel(ByRef Data_Array() As String, _
     End If
 End Sub
 
+'@Description("Function used to clear a column in an active excel sheet given the header name to clear, row position where the header name is located and the starting row of the data.")
 '' Function: Clear_Columns
+'' --- Code
+''  Public Sub Clear_Columns(ByVal HeaderToClear As String, _
+''                           ByVal HeaderRowNumber As Long, _
+''                           ByVal DataStartRowNumber As Long, _
+''                           Optional ByVal ClearFormat As Boolean = False)
+'' ---
 ''
 '' Description:
 ''
@@ -1411,6 +1570,7 @@ Public Sub Clear_Columns(ByVal HeaderToClear As String, _
                          ByVal HeaderRowNumber As Long, _
                          ByVal DataStartRowNumber As Long, _
                          Optional ByVal ClearFormat As Boolean = False)
+Attribute Clear_Columns.VB_Description = "Function used to clear a column in an active excel sheet given the header name to clear, row position where the header name is located and the starting row of the data."
 
     Dim HeaderColNumber As Long
     HeaderColNumber = Utilities.Get_Header_Col_Position(HeaderToClear, HeaderRowNumber)
@@ -1429,7 +1589,11 @@ Public Sub Clear_Columns(ByVal HeaderToClear As String, _
     End If
 End Sub
 
+'@Description("Remove the .d in the AgilentDataFile String Array.")
 '' Function: Clear_DotD_In_Agilent_Data_File
+'' --- Code
+''  Public Function Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As String) As String()
+'' ---
 ''
 '' Description:
 ''
@@ -1459,6 +1623,7 @@ End Sub
 ''    Sample_Name_Array = Utilities.Clear_DotD_In_Agilent_Data_File(Sample_Name_Array)
 '' ---
 Public Function Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As String) As String()
+Attribute Clear_DotD_In_Agilent_Data_File.VB_Description = "Remove the .d in the AgilentDataFile String Array."
     Dim AgilentDataFileIndex As Long
     For AgilentDataFileIndex = 0 To Utilities.Get_String_Array_Len(AgilentDataFile) - 1
         AgilentDataFile(AgilentDataFileIndex) = Trim$(Replace(AgilentDataFile(AgilentDataFileIndex), ".d", vbNullString))
@@ -1466,11 +1631,22 @@ Public Function Clear_DotD_In_Agilent_Data_File(ByRef AgilentDataFile() As Strin
     Clear_DotD_In_Agilent_Data_File = AgilentDataFile
 End Function
 
+'@Description("Load data from a column in Excel and put it to a string array.")
 '' Function: Load_Columns_From_Excel
+'' --- Code
+''  Public Function Load_Columns_From_Excel(ByVal HeaderName As String, _
+''                                          ByVal HeaderRowNumber As Long, _
+''                                          ByVal DataStartRowNumber As Long, _
+''                                          ByVal MessageBoxRequired As Boolean, _
+''                                          ByVal RemoveBlksAndReplicates As Boolean, _
+''                                          Optional ByVal WorksheetName As String = vbNullString, _
+''                                          Optional ByVal IgnoreHiddenRows As Boolean = True, _
+''                                          Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
+'' ---
 ''
 '' Description:
 ''
-'' Load data from a column in Excel and put it to a string array
+'' Load data from a column in Excel and put it to a string array.
 ''
 '' Parameters:
 ''
@@ -1537,6 +1713,7 @@ Public Function Load_Columns_From_Excel(ByVal HeaderName As String, _
                                         Optional ByVal WorksheetName As String = vbNullString, _
                                         Optional ByVal IgnoreHiddenRows As Boolean = True, _
                                         Optional ByVal IgnoreEmptyArray As Boolean = True) As String()
+Attribute Load_Columns_From_Excel.VB_Description = "Load data from a column in Excel and put it to a string array."
     Dim InputStringArray() As String
     Dim TotalRows As Long
     Dim Row_Index As Long
@@ -1604,11 +1781,16 @@ Public Function Load_Columns_From_Excel(ByVal HeaderName As String, _
     
 End Function
 
+'@Description("Check if the sheet code name exists in this workbook.")
 '' Function: Check_Sheet_Code_Name_Exists
+'' --- Code
+''  Public Function Check_Sheet_Code_Name_Exists(ByVal InputWorkbook As Workbook, _
+''                                               ByVal InputCodeName As String) As Boolean
+'' ---
 ''
 '' Description:
 ''
-'' Check if the sheet code name exists in this workbook
+'' Check if the sheet code name exists in this workbook.
 ''
 '' Parameters:
 ''
@@ -1630,6 +1812,7 @@ End Function
 '' ---
 Public Function Check_Sheet_Code_Name_Exists(ByVal InputWorkbook As Workbook, _
                                              ByVal InputCodeName As String) As Boolean
+Attribute Check_Sheet_Code_Name_Exists.VB_Description = "Check if the sheet code name exists in this workbook."
      
     Dim Sheet As Worksheet
      
@@ -1643,11 +1826,16 @@ Public Function Check_Sheet_Code_Name_Exists(ByVal InputWorkbook As Workbook, _
      
 End Function
 
+'@Description("Get the name of the sheet from the sheet's code name.")
 '' Function: Get_Sheet_By_Code_Name
+'' --- Code
+''  Public Function Get_Sheet_By_Code_Name(ByVal InputWorkbook As Workbook, _
+''                                         ByVal InputCodeName As String) As Worksheet
+'' ---
 ''
 '' Description:
 ''
-'' Get the name of the sheet from the sheet's code name
+'' Get the name of the sheet from the sheet's code name.
 ''
 '' Parameters:
 ''
@@ -1670,6 +1858,7 @@ End Function
 '' ---
 Public Function Get_Sheet_By_Code_Name(ByVal InputWorkbook As Workbook, _
                                        ByVal InputCodeName As String) As Worksheet
+Attribute Get_Sheet_By_Code_Name.VB_Description = "Get the name of the sheet from the sheet's code name."
 
     ' Check if the sheet whose code name exists
     Dim Sheet As Worksheet
@@ -1682,7 +1871,11 @@ Public Function Get_Sheet_By_Code_Name(ByVal InputWorkbook As Workbook, _
     
 End Function
 
+'@Description("Get the file path of a folder selected by the user.")
 '' Function: Get_Folder
+'' --- Code
+''  Public Function Get_Folder() As String
+'' ---
 ''
 '' Description:
 ''
@@ -1698,6 +1891,7 @@ End Function
 '' Returns:
 ''    Returns the file path of a folder selected by the user
 Public Function Get_Folder() As String
+Attribute Get_Folder.VB_Description = "Get the file path of a folder selected by the user."
     'https://stackoverflow.com/questions/26392482/vba-excel-to-prompt-user-response-to-select-folder-and-return-the-path-as-string
     Dim Folder As FileDialog
     Dim Selected_Item As String

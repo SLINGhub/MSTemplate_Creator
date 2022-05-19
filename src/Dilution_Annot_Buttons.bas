@@ -1,8 +1,15 @@
 Attribute VB_Name = "Dilution_Annot_Buttons"
+Attribute VB_Description = "Functions that control what happens when buttons in the Dilution_Annot worksheet are clicked."
 Option Explicit
+'@ModuleDescription("Functions that control what happens when buttons in the Dilution_Annot worksheet are clicked.")
+
 '@Folder("Dilution Annot Functions")
+'@Description("Function that controls what happens when the Clear Columns button is left clicked.")
 
 '' Function: Clear_Dilution_Annot_Click
+'' --- Code
+''  Public Sub Clear_Dilution_Annot_Click()
+'' ---
 ''
 '' Description:
 ''
@@ -17,6 +24,7 @@ Option Explicit
 '' (see Dilution_Annot_Clear_Data_Pop_Up.png)
 ''
 Public Sub Clear_Dilution_Annot_Click()
+Attribute Clear_Dilution_Annot_Click.VB_Description = "Function that controls what happens when the Clear Columns button is left clicked."
     'To ensure that Filters does not affect the assignment
     Utilities.RemoveFilterSettings
     

@@ -1,1 +1,1 @@
-﻿NDSummary.OnToolTipsLoaded("File:ISTD_Annot_Buttons.bas",{184:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function that controls what happens when the following button is left clicked.</div></div>",185:"<div class=\"NDToolTip TFunction LExcelVBA\"><div class=\"TTSummary\">Function that controls what happens when the following button is left clicked.</div></div>"});
+﻿NDSummary.OnToolTipsLoaded("File:ISTD_Annot_Buttons.bas",{});
