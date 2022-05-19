@@ -3,7 +3,7 @@
 ## TODO
 
 * Check if relative sample amount definition is clear enough.
-* Add annotations to the functions in Excel VBA.
+* Create a citation.cff file.
 
 ## Done
 
