@@ -11,7 +11,7 @@
 * Add annotations to the functions in Excel VBA.
 * Update the Developer documentation to show how to create annotations.
 
-# MSTemplate_Creator 1.1.2 (development version)
+# MSTemplate_Creator 1.1.2
 
 * Learnt how to push a version to Zenodo. 
 
