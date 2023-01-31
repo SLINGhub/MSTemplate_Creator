@@ -1,15 +1,17 @@
-# MSTemplate_Creator 1.1.2.9000 (development version)
+# MSTemplate_Creator 1.1.3.9000 (development version)
 
 ## TODO
 
 * Check if relative sample amount definition is clear enough.
 * Create a citation.cff file.
 
-## Done
+# MSTemplate_Creator 1.1.3
 
 * Change the cls files to doccls files.
 * Add annotations to the functions in Excel VBA.
 * Update the Developer documentation to show how to create annotations.
+* Change year in license file.
+* Add a doi badge.
 
 # MSTemplate_Creator 1.1.2
 

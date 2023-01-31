@@ -9,58 +9,60 @@ MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://github.com/SL
 [![Maintainer:
 JauntyJJS](https://img.shields.io/badge/Maintainer-JauntyJJS-blue.svg)](https://github.com/JauntyJJS)
 [![Excel](https://img.shields.io/badge/Excel-2019%2064%20bit-brightgreen)](https://www.microsoft.com/en-sg/microsoft-365/excel)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6552782.svg)](https://doi.org/10.5281/zenodo.6552782)
 <!-- badges: end -->
 
 `MSTemplate_Creator` is an excel macro file created to provide users
 friendly interface to take in MRM transition names data exported
-directly from mass spectrometry software to create several annotation
-templates suited for automated data processing and statistical analysis.
+directly from mass spectrometry software to create several metadata
+annotation templates suited for automated lipidomics data processing and
+statistical analysis.
 
 <br><br><br>
 ![AboutMSTemplate_Creator](figures/AboutMSTemplate_Creator.png)
 
 # Table of Content
 
--   [MSTemplate_Creator](#mstemplate_creator)
--   [Table of Content](#table-of-content)
--   [Meta](#meta)
--   [Overview](#overview)
--   [Starting Up](#starting-up)
--   [Using Transition_Annot Sheet](#using-transition_annot-sheet)
--   [Using ISTD_Annot Sheet](#using-istd_annot-sheet)
--   [Using Sample_Annot Sheet](#using-sample_annot-sheet)
+- [MSTemplate_Creator](#mstemplate_creator)
+- [Table of Content](#table-of-content)
+- [Meta](#meta)
+- [Overview](#overview)
+- [Starting Up](#starting-up)
+- [Using Transition_Annot Sheet](#using-transition_annot-sheet)
+- [Using ISTD_Annot Sheet](#using-istd_annot-sheet)
+- [Using Sample_Annot Sheet](#using-sample_annot-sheet)
 
 # Meta
 
--   We welcome contributions from general questions to bug reports.
-    Check out the [contributions](CONTRIBUTING.md) guidelines. Please
-    note that this project is released with a [Contributor Code of
-    Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/).
-    By participating in this project you agree to abide by its terms.
--   License:
-    [MIT](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/LICENSE.md)
--   Think `MSTemplate_Creator` is useful? Let others discover it, by
-    telling them in person, via Twitter
-    [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/LOGIN)
-    or a blog post. Do use the `🙌 Show and tell` under the [GitHub
-    Discussions](https://github.com/SLINGhub/MSTemplate_Creator/discussions)
-    and give this repository a star as well.
+- We welcome contributions from general questions to bug reports. Check
+  out the [contributions](CONTRIBUTING.md) guidelines. Please note that
+  this project is released with a [Contributor Code of
+  Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/).
+  By participating in this project you agree to abide by its terms.
+- License:
+  [MIT](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/LICENSE.md)
+- Think `MSTemplate_Creator` is useful? Let others discover it, by
+  telling them in person, via Twitter
+  [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/LOGIN)
+  or a blog post. Do use the `🙌 Show and tell` under the [GitHub
+  Discussions](https://github.com/SLINGhub/MSTemplate_Creator/discussions)
+  and give this repository a star as well.
 
 ![GitHubStar](figures/GitHubStar.JPG)
 
--   If you wish to acknowledge the use of this software in a journal
-    paper, please include the version number. For reproducibility, it is
-    advisable to use the software from the
-    [Releases](https://github.com/SLINGhub/MSTemplate_Creator/releases)
-    section in GitHub rather than from the main branch.
--   To date, the software is only able to take in the following files
-    exported from the following software.
-    -   csv files from [Agilent MassHunter Quantitative Analysis
-        Software](https://www.agilent.com/en/product/software-informatics/mass-spectrometry-software/data-analysis/quantitative-analysis)
--   Refer to the [NEWS.md
-    file](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/NEWS.md)
-    to see what is being worked on as well as update to changes between
-    back to back versions.
+- If you wish to acknowledge the use of this software in a journal
+  paper, please include the version number. For reproducibility, it is
+  advisable to use the software from the
+  [Releases](https://github.com/SLINGhub/MSTemplate_Creator/releases)
+  section in GitHub rather than from the main branch.
+- To date, the software is only able to take in the following files
+  exported from the following software.
+  - csv files from [Agilent MassHunter Quantitative Analysis
+    Software](https://www.agilent.com/en/product/software-informatics/mass-spectrometry-software/data-analysis/quantitative-analysis)
+- Refer to the [NEWS.md
+  file](https://github.com/SLINGhub/MSTemplate_Creator/blob/main/NEWS.md)
+  to see what is being worked on as well as update to changes between
+  back to back versions.
 
 [Back to
 top](https://github.com/SLINGhub/MSTemplate_Creator#mstemplate_creator)
