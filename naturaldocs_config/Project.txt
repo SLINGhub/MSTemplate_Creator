@@ -7,11 +7,11 @@
 # ------------------------------------------------------------------------
 
 Title: MSTemplate Creator
-Subtitle: Version 1.1.2
+Subtitle: Version 1.1.3
 
-Copyright: Copyright © 2022 Singapore Lipidomics Incubator, National University of Singapore
+Copyright: Copyright © 2023 Singapore Lipidomics Incubator, National University of Singapore
 
-Timestamp: Last updated 5 18, 2022
+Timestamp: Last updated 1 31, 2023
 #    m     - Single digit month, when possible.  January is "1".
 #    mm    - Always double digit month.  January is "01".
 #    mon   - Short month word.  January is "Jan".
