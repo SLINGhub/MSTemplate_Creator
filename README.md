@@ -12,9 +12,9 @@ JauntyJJS](https://img.shields.io/badge/Maintainer-JauntyJJS-blue.svg)](https://
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6552782.svg)](https://doi.org/10.5281/zenodo.6552782)
 <!-- badges: end -->
 
-`MSTemplate_Creator` is an excel macro file created to provide users
-friendly interface to take in MRM transition names data exported
-directly from mass spectrometry software to create several metadata
+`MSTemplate_Creator` is an excel template file created providings users with a
+friendly interface to read in MRM data files exported
+from mass spectrometry software and to create different metadata
 annotation templates suited for automated lipidomics data processing and
 statistical analysis.
 
